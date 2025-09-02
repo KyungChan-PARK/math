@@ -1,0 +1,6 @@
+Create an After Effects composition with the following:
+- 10 shape layers arranged in a grid
+- Each shape should have a different color
+- Apply rotation animation from 0 to 360 degrees over 2 seconds
+- Add bounce expression to scale
+- Set composition to 1920x1080, 30fps, 5 seconds duration

@@ -1,0 +1,30 @@
+# Enhanced AE Drop Zones - Requirements
+# Claude Max Optimized System
+# Date: 2025-09-01
+
+# Core AI
+anthropic>=0.25.0
+
+# File Monitoring
+watchdog>=4.0.0
+
+# Configuration
+pyyaml>=6.0
+
+# UI/UX
+rich>=13.7.0
+
+# Video Processing (optional)
+opencv-python>=4.9.0
+numpy>=1.24.0
+
+# Database
+# sqlite3 is included in Python standard library
+
+# Utilities
+python-dotenv>=1.0.0
+aiofiles>=23.2.1
+
+# Testing (optional)
+pytest>=8.0.0
+pytest-asyncio>=0.23.0

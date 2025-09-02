@@ -1,0 +1,108 @@
+# Enhanced Drop Zones Configuration for After Effects
+# Claude Max Subscription Optimization System
+# Updated: 2025-09-01
+
+drop_zones:
+  # AE Vibe Zone - 자연어 → ExtendScript 자동 생성
+  ae_vibe_zone:
+    name: "AE Vibe Coding Zone"
+    description: "자연어 요청을 ExtendScript로 자동 변환"
+    file_patterns: ["*.txt", "*.md"]
+    zone_dirs: ["drops/ae_vibe"]
+    events: ["created", "modified"]
+    agent: "claude_max_router"
+    routing_config:
+      complexity_threshold: 7
+      opus_triggers: 
+        - "complex animation"
+        - "advanced scripting"
+        - "pattern analysis"
+        - "multi-layer operations"
+      sonnet_triggers:
+        - "simple wiggle"
+        - "basic animation"
+        - "ui component"
+        - "text formatting"
+      cache_enabled: true
+      cache_threshold: 0.85
+    output:
+      type: "ExtendScript"
+      file_extension: ".jsx"
+      auto_execute: true
+      generate_report: true
+    
+  # Video Motion Analysis Zone - 영상 분석 → AE 템플릿
+  video_motion_zone:
+    name: "Video Motion Analysis"
+    description: "영상 파일의 모션을 분석하여 AE 템플릿 생성"
+    file_patterns: ["*.mp4", "*.mov", "*.avi"]
+    zone_dirs: ["drops/video_motion"]
+    events: ["created"]
+    agent: "claude_max_router"
+    routing_config:
+      force_model: "opus"  # 복잡한 영상 분석은 항상 Opus 4.1
+      integrations:
+        - "opencv"
+        - "motion_detection"
+        - "lottie_export"
+    output:
+      type: "template"
+      formats: ["lottie_json", "ae_template"]
+      generate_preview: true
+    
+  # Batch Operations Zone - 대량 작업 처리
+  batch_automation_zone:
+    name: "Batch AE Operations"
+    description: "CSV/JSON 기반 대량 작업 자동 처리"
+    file_patterns: ["*.csv", "*.json"]
+    zone_dirs: ["drops/batch_ops"]
+    events: ["created"]
+    agent: "claude_max_router"
+    routing_config:
+      force_model: "sonnet"  # 반복 작업은 효율적인 Sonnet 4
+      parallel_processing: true
+      batch_size: 10
+      max_workers: 4
+    performance_monitoring: true
+    output:
+      type: "batch_results"
+      generate_stats: true
+      create_logs: true
+    
+  # Template Learning Zone - 패턴 학습 및 템플릿 자동 생성
+  template_learning_zone:
+    name: "Self-Learning Templates"
+    description: "AE 프로젝트에서 패턴을 학습하여 새 템플릿 생성"
+    file_patterns: ["*.aep", "*.aet"]
+    zone_dirs: ["drops/template_learning"]
+    events: ["created"]
+    agent: "claude_max_router"
+    routing_config:
+      force_model: "opus"  # 패턴 학습은 고급 추론 필요
+      auto_creation: true
+      confidence_threshold: 0.8
+    features:
+      pattern_detection: true
+      create_new_dropzones: true
+      progressive_learning: true
+    output:
+      type: "learned_template"
+      auto_register: true
+
+# 글로벌 설정
+global_settings:
+  api_keys:
+    anthropic: "${ANTHROPIC_API_KEY}"
+  cache:
+    type: "sqlite"
+    path: "cache/claude_responses.db"
+    max_size_mb: 500
+    ttl_hours: 168
+  monitoring:
+    rich_ui: true
+    log_level: "INFO"
+    save_logs: true
+  performance:
+    timeout_seconds: 30
+    max_retries: 2
+    concurrent_zones: 4

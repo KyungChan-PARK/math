@@ -1,0 +1,69 @@
+# AE Automation v2.0 Configuration
+# Complete rewrite with Agent Architecture
+
+drop_zones:
+  ae_vibe:
+    name: "AE Vibe Zone"
+    file_patterns:
+      - "*.txt"
+      - "*.md"
+    zone_dirs:
+      - "drops/ae_vibe"
+    task_type: "wiggle"
+    auto_execute: true
+    description: "Natural language to ExtendScript conversion"
+    
+  motion_analysis:
+    name: "Motion Analysis Zone"
+    file_patterns:
+      - "*.mp4"
+      - "*.mov"
+      - "*.avi"
+    zone_dirs:
+      - "drops/motion"
+    task_type: "motion"
+    auto_execute: false
+    description: "Video motion extraction and analysis"
+    
+  batch_operations:
+    name: "Batch Operations Zone"
+    file_patterns:
+      - "*.csv"
+      - "*.json"
+    zone_dirs:
+      - "drops/batch"
+    task_type: "batch"
+    auto_execute: true
+    description: "Bulk processing of multiple tasks"
+    
+  template_learning:
+    name: "Template Learning Zone"
+    file_patterns:
+      - "*.aep"
+      - "*.aet"
+    zone_dirs:
+      - "drops/templates"
+    task_type: "template"
+    auto_execute: false
+    description: "Learn from existing AE projects"
+
+# Agent Settings
+agents:
+  pattern_detection_interval: 20  # Check patterns every N tasks
+  auto_create_agents: true
+  max_parallel_agents: 4
+
+# Performance Settings
+performance:
+  cache_enabled: true
+  cache_similarity_threshold: 0.85
+  max_cache_size_mb: 100
+  request_timeout: 30
+  max_retries: 2
+
+# Output Settings
+output:
+  base_directory: "outputs"
+  organize_by_date: true
+  keep_history: true
+  max_history_days: 30

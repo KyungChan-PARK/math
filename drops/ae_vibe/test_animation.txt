@@ -1,0 +1,6 @@
+Create a simple After Effects animation:
+- Create 5 text layers
+- Apply random wiggle expression to position (amplitude: 50, frequency: 2)
+- Add fade in animation from 0 to 1 second
+- Set different colors for each layer
+- Arrange layers in a circle pattern
