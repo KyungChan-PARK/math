@@ -1,4 +1,0 @@
-Create a simple After Effects text animation:
-- Add text layer with "Hello AE Max v3"
-- Apply typewriter effect
-- Duration: 3 seconds

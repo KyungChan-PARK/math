@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AE Claude Max Test Client</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #1e1e1e; color: #fff; }
+        #status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .connected { background: #32D74B; color: black; }
+        .disconnected { background: #FF453A; }
+        #messages { height: 300px; overflow-y: auto; background: #2a2a2a; padding: 10px; border-radius: 5px; }
+        input { width: 70%; padding: 10px; }
+        button { padding: 10px 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>AE Claude Max WebSocket Test</h1>
+    <div id="status" class="disconnected">Disconnected</div>
+    <div id="messages"></div>
+    <input type="text" id="input" placeholder="Type a command (e.g., 'create a red circle')">
+    <button onclick="sendMessage()">Send</button>
+    
+    <script>
+        const ws = new WebSocket('ws://localhost:8080');
+        const status = document.getElementById('status');
+        const messages = document.getElementById('messages');
+        
+        ws.onopen = () => {
+            status.className = 'connected';
+            status.textContent = 'Connected';
+            log('Connected to server');
+        };
+        
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            log('Received: ' + JSON.stringify(data, null, 2));
+        };
+        
+        ws.onclose = () => {
+            status.className = 'disconnected';
+            status.textContent = 'Disconnected';
+        };
+        
+        function sendMessage() {
+            const input = document.getElementById('input');
+            const message = {
+                type: 'NATURAL_LANGUAGE',
+                payload: { text: input.value }
+            };
+            ws.send(JSON.stringify(message));
+            log('Sent: ' + input.value);
+            input.value = '';
+        }
+        
+        function log(msg) {
+            messages.innerHTML += '<div>' + msg + '</div>';
+            messages.scrollTop = messages.scrollHeight;
+        }
+        
+        document.getElementById('input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
+</body>
+</html>
