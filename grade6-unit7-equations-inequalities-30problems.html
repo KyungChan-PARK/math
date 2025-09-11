@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 6 Unit 7: Equations and Inequalities - 30 Problems</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        
+        body {
+            font-family: 'KoPubWorld Dotum', 'Noto Sans KR', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .unit-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 30px;
+        }
+        
+        .problem-container {
+            page-break-inside: avoid;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .difficulty-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 3px;
+        }
+        
+        .difficulty-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+        
+        .difficulty-dot.filled {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .level-1 { border-left: 4px solid #4CAF50; }
+        .level-2 { border-left: 4px solid #FFC107; }
+        .level-3 { border-left: 4px solid #FF9800; }
+        .level-4 { border-left: 4px solid #2196F3; }
+        .level-5 { border-left: 4px solid #9C27B0; }
+        
+        .problem-number {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        .problem-text {
+            margin: 15px 0;
+            font-size: 1.05em;
+        }
+        
+        .visual-aid {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .equation-box {
+            display: inline-block;
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        
+        .scaffolding-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: linear-gradient(90deg, rgba(102,126,234,0.1) 0%, transparent 100%);
+            border-radius: 5px;
+        }
+        
+        .hint-box {
+            margin: 10px 0;
+            padding: 10px;
+            background: #fff3cd;
+            border-left: 3px solid #ffc107;
+            display: none;
+        }
+        
+        .hint-trigger {
+            color: #667eea;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 0.9em;
+        }
+        
+        .workspace {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border: 1px dashed #ccc;
+            min-height: 80px;
+            border-radius: 5px;
+        }
+        
+        .answer-line {
+            border-bottom: 1px solid #333;
+            display: inline-block;
+            width: 100px;
+            margin: 0 5px;
+        }
+        
+        .balance-scale {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .scale-side {
+            width: 100px;
+            height: 60px;
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+        }
+        
+        .scale-middle {
+            width: 30px;
+            height: 4px;
+            background: #333;
+        }
+        
+        .number-line {
+            position: relative;
+            height: 40px;
+            margin: 30px 0;
+        }
+        
+        .number-line-base {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #333;
+            top: 20px;
+        }
+        
+        .number-mark {
+            position: absolute;
+            top: 15px;
+            width: 2px;
+            height: 10px;
+            background: #333;
+        }
+        
+        .number-label {
+            position: absolute;
+            top: 30px;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+        }
+        
+        .concept-note {
+            background: #e3f2fd;
+            border-left: 3px solid #2196f3;
+            padding: 10px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        @media print {
+            .hint-trigger { display: none; }
+            .problem-container { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Grade 6 - Unit 7: Equations and Inequalities</h1>
+        <p>Khan Academy Aligned Curriculum - 30 Problems</p>
+    </div>
+    
+    <div class="unit-info">
+        <h2>📚 단원 개요</h2>
+        <ul>
+            <li>Algebraic equations basics (대수 방정식 기초)</li>
+            <li>One-step equations (일차 방정식)</li>
+            <li>Inequalities with variables (변수가 있는 부등식)</li>
+            <li>Dependent and independent variables (종속변수와 독립변수)</li>
+        </ul>
+        <p><strong>난이도 분포:</strong> Level 1 (6문제) | Level 2 (8문제) | Level 3 (8문제) | Level 4 (6문제) | Level 5 (2문제)</p>
+    </div>
+
+    <!-- LEVEL 1: Foundation (Problems 1-6) -->
+    <!-- Algebraic equations basics -->
+    
+    <div class="problem-container level-1">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 1. [Algebraic Equations Basics]</div>
+        <div class="problem-text">
+            다음 상황을 방정식으로 나타내시오:<br>
+            "어떤 수에 5를 더하면 12가 됩니다."
+        </div>
+        <div class="visual-aid">
+            <div class="equation-box">? + 5 = 12</div>
+        </div>
+        <div class="scaffolding-section">
+            <strong>단계별 안내:</strong>
+            <ol>
+                <li>모르는 수를 문자로 표현 (예: x, n, a)</li>
+                <li>"더하면"은 + 기호</li>
+                <li>"됩니다"는 = 기호</li>
+            </ol>
+        </div>
+        <div class="workspace">
+            답: <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-1">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 2. [Variable Understanding]</div>
+        <div class="problem-text">
+            x = 7일 때, x + 3의 값을 구하시오.
+        </div>
+        <div class="visual-aid">
+            <div class="balance-scale">
+                <div class="scale-side">x = 7</div>
+                <div class="scale-middle"></div>
+                <div class="scale-side">x + 3 = ?</div>
+            </div>
+        </div>
+        <div class="concept-note">
+            💡 변수 x에 주어진 값을 대입하여 계산합니다.
+        </div>
+        <div class="workspace">
+            풀이:<br><br>
+            답: <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-1">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 3. [Equation Identification]</div>
+        <div class="problem-text">
+            다음 중 방정식인 것을 모두 고르시오:
+            <br>① 3 + 4
+            <br>② x + 5 = 9
+            <br>③ 2 × 6 = 12
+            <br>④ y - 3
+        </div>
+        <div class="scaffolding-section">
+            <strong>핵심 개념:</strong> 방정식은 등호(=)가 있어야 합니다.
+        </div>
+        <div class="workspace">
+            답: <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-1">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 4. [One-step Equations Intuition]</div>
+        <div class="problem-text">
+            균형 저울의 양쪽이 같은 무게입니다. □의 값은?
+        </div>
+        <div class="visual-aid">
+            <div class="balance-scale">
+                <div class="scale-side">□ + 2</div>
+                <div class="scale-middle"></div>
+                <div class="scale-side">8</div>
+            </div>
+        </div>
+        <div class="scaffolding-section">
+            양쪽에서 같은 수를 빼면 균형이 유지됩니다.
+        </div>
+        <div class="workspace">
+            답: □ = <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-1">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 5. [Variable Substitution]</div>
+        <div class="problem-text">
+            a = 4일 때, 다음 식의 값을 구하시오:
+            <br>(1) a + 6 = ?
+            <br>(2) 10 - a = ?
+        </div>
+        <div class="workspace">
+            (1) a + 6 = <span class="answer-line"></span><br>
+            (2) 10 - a = <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-1">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 6. [Equation Setup]</div>
+        <div class="problem-text">
+            "어떤 수의 2배는 14입니다"를 방정식으로 나타내시오.
+        </div>
+        <div class="visual-aid">
+            <div class="equation-box">? × 2 = 14</div>
+        </div>
+        <div class="workspace">
+            답: <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <!-- LEVEL 2: Application (Problems 7-14) -->
+    <!-- One-step addition and subtraction equations -->
+    
+    <div class="problem-container level-2">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 7. [One-step Addition Equation]</div>
+        <div class="problem-text">
+            방정식 x + 7 = 15를 풀어 x의 값을 구하시오.
+        </div>
+        <div class="visual-aid">
+            <div class="balance-scale">
+                <div class="scale-side">x + 7</div>
+                <div class="scale-middle"></div>
+                <div class="scale-side">15</div>
+            </div>
+        </div>
+        <div class="scaffolding-section">
+            <strong>해결 전략:</strong> 양변에서 7을 빼면?
+        </div>
+        <div class="workspace">
+            풀이:<br>
+            x + 7 = 15<br>
+            x + 7 - 7 = 15 - 7<br>
+            x = <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-2">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 8. [One-step Subtraction Equation]</div>
+        <div class="problem-text">
+            방정식 y - 9 = 4를 풀어 y의 값을 구하시오.
+        </div>
+        <div class="scaffolding-section">
+            <strong>해결 전략:</strong> 양변에 9를 더하면?
+        </div>
+        <div class="workspace">
+            풀이:<br><br>
+            답: y = <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-2">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 9. [One-step Multiplication Equation]</div>
+        <div class="problem-text">
+            방정식 3n = 21을 풀어 n의 값을 구하시오.
+        </div>
+        <div class="visual-aid">
+            <div class="equation-box">3 × n = 21</div>
+        </div>
+        <div class="scaffolding-section">
+            <strong>힌트:</strong> 양변을 3으로 나누면?
+        </div>
+        <div class="workspace">
+            답: n = <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-2">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 10. [One-step Division Equation]</div>
+        <div class="problem-text">
+            방정식 m ÷ 4 = 6을 풀어 m의 값을 구하시오.
+        </div>
+        <div class="workspace">
+            풀이:<br><br>
+            답: m = <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-2">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 11. [Negative Number Addition]</div>
+        <div class="problem-text">
+            방정식 x + (-3) = 5를 풀어 x의 값을 구하시오.
+        </div>
+        <div class="visual-aid">
+            <div class="number-line">
+                <div class="number-line-base"></div>
+                <div class="number-mark" style="left: 20%;"></div>
+                <div class="number-label" style="left: 20%;">-3</div>
+                <div class="number-mark" style="left: 50%;"></div>
+                <div class="number-label" style="left: 50%;">0</div>
+                <div class="number-mark" style="left: 70%;"></div>
+                <div class="number-label" style="left: 70%;">5</div>
+            </div>
+        </div>
+        <div class="workspace">
+            답: x = <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-2">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 12. [Fraction Equation]</div>
+        <div class="problem-text">
+            방정식 a + 1/2 = 3/2를 풀어 a의 값을 구하시오.
+        </div>
+        <div class="workspace">
+            답: a = <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-2">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 13. [Decimal Equation]</div>
+        <div class="problem-text">
+            방정식 b - 2.5 = 7.3을 풀어 b의 값을 구하시오.
+        </div>
+        <div class="workspace">
+            답: b = <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-2">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 14. [Check Solution]</div>
+        <div class="problem-text">
+            x = 4가 방정식 2x + 1 = 9의 해인지 확인하시오.
+        </div>
+        <div class="scaffolding-section">
+            <strong>확인 방법:</strong> x에 4를 대입하여 등식이 성립하는지 확인
+        </div>
+        <div class="workspace">
+            검증:<br>
+            좌변 = 2(4) + 1 = <span class="answer-line"></span><br>
+            우변 = 9<br>
+            따라서 x = 4는 <span class="answer-line"></span> (해이다/해가 아니다)
+        </div>
+    </div>
+
+    <!-- LEVEL 3: Strategic (Problems 15-22) -->
+    <!-- Finding mistakes & Intro to inequalities -->
+    
+    <div class="problem-container level-3">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 15. [Finding Mistakes]</div>
+        <div class="problem-text">
+            다음 풀이에서 잘못된 부분을 찾고 올바르게 고치시오:
+            <br>x + 5 = 12
+            <br>x = 12 + 5
+            <br>x = 17
+        </div>
+        <div class="concept-note">
+            ⚠️ 이항할 때는 부호가 바뀝니다!
+        </div>
+        <div class="workspace">
+            오류: <span class="answer-line"></span><br>
+            정답: x = <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-3">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 16. [Intro to Inequalities]</div>
+        <div class="problem-text">
+            x > 3을 만족하는 자연수 x를 5개 쓰시오.
+        </div>
+        <div class="visual-aid">
+            <div class="number-line">
+                <div class="number-line-base"></div>
+                <div class="number-mark" style="left: 30%;"></div>
+                <div class="number-label" style="left: 30%;">3</div>
+                <div style="position: absolute; left: 30%; top: 18px; width: 70%; height: 4px; background: #667eea;"></div>
+                <div style="position: absolute; left: 30%; top: 15px; width: 10px; height: 10px; border-radius: 50%; background: white; border: 2px solid #667eea;"></div>
+            </div>
+        </div>
+        <div class="workspace">
+            답: <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-3">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 17. [Inequality with Addition]</div>
+        <div class="problem-text">
+            부등식 x + 4 < 10을 풀어 x의 범위를 구하시오.
+        </div>
+        <div class="scaffolding-section">
+            <strong>힌트:</strong> 부등식도 방정식처럼 양변에서 같은 수를 빼도 됩니다.
+        </div>
+        <div class="workspace">
+            풀이:<br>
+            x + 4 < 10<br>
+            x < <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-3">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 18. [Inequality with Subtraction]</div>
+        <div class="problem-text">
+            부등식 y - 5 ≥ 2를 풀어 y의 범위를 구하시오.
+        </div>
+        <div class="workspace">
+            답: y ≥ <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-3">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 19. [Dependent Variable]</div>
+        <div class="problem-text">
+            y = 2x + 3에서 x가 독립변수일 때, x = 5일 때의 종속변수 y의 값을 구하시오.
+        </div>
+        <div class="concept-note">
+            💡 독립변수: 입력값 (x), 종속변수: 출력값 (y)
+        </div>
+        <div class="workspace">
+            답: y = <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-3">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 20. [Variable Relationship]</div>
+        <div class="problem-text">
+            정사각형의 둘레 P와 한 변의 길이 s의 관계식 P = 4s에서,
+            <br>(1) 독립변수는?
+            <br>(2) 종속변수는?
+            <br>(3) s = 7일 때 P의 값은?
+        </div>
+        <div class="workspace">
+            (1) 독립변수: <span class="answer-line"></span><br>
+            (2) 종속변수: <span class="answer-line"></span><br>
+            (3) P = <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-3">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 21. [Multiple Solutions]</div>
+        <div class="problem-text">
+            부등식 2x < 8을 풀고, 조건을 만족하는 음이 아닌 정수를 모두 구하시오.
+        </div>
+        <div class="workspace">
+            부등식의 해: x < <span class="answer-line"></span><br>
+            음이 아닌 정수: <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <div class="problem-container level-3">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 22. [Error Analysis]</div>
+        <div class="problem-text">
+            학생이 방정식 3x = 15를 풀 때 x = 45라고 답했습니다. 
+            어떤 실수를 했는지 설명하고 올바른 답을 구하시오.
+        </div>
+        <div class="workspace">
+            실수한 부분: <span class="answer-line"></span><br>
+            올바른 답: x = <span class="answer-line"></span>
+        </div>
+    </div>
+
+    <!-- LEVEL 4: Extended (Problems 23-28) -->
+    <!-- Real-world applications -->
+    
+    <div class="problem-container level-4">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 23. [Real-world Application]</div>
+        <div class="problem-text">
+            영희는 x개의 사탕을 가지고 있습니다. 친구에게 8개를 주고 나니 15개가 남았습니다.
+            <br>(1) 이 상황을 방정식으로 나타내시오.
+            <br>(2) 영희가 처음에 가진 사탕의 개수를 구하시오.
+        </div>
+        <div class="visual-aid">
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <div style="text-align: center;">
+                    <div>처음</div>
+                    <div class="equation-box">x개</div>
+                </div>
+                <div style="align-self: center;">→ -8 →</div>
+                <div style="text-align: center;">
+                    <div>나중</div>
+                    <div class="equation-box">15개</div>
+                </div>
+            </div>
+        </div>
+        <div class="workspace">
+            (1) 방정식: <span class="answer-line"></span><br>
+            (2) 답: x = <span class="answer-line"></span>개
+        </div>
+    </div>
+
+    <div class="problem-container level-4">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 24. [Temperature Problem]</div>
+        <div class="problem-text">
+            오늘 기온이 어제보다 3도 높아서 25도입니다. 
+            어제의 기온을 t도라 할 때, 방정식을 세우고 어제 기온을 구하시오.
+        </div>
+        <div class="workspace">
+            방정식: <span class="answer-line"></span><br>
+            어제 기온: <span class="answer-line"></span>도
+        </div>
+    </div>
+
+    <div class="problem-container level-4">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 25. [Money Problem]</div>
+        <div class="problem-text">
+            철수는 용돈을 받아서 지금 12,000원을 가지고 있습니다. 
+            용돈을 받기 전에는 4,500원을 가지고 있었습니다.
+            받은 용돈을 x원이라 할 때, 방정식을 세우고 x를 구하시오.
+        </div>
+        <div class="workspace">
+            방정식: <span class="answer-line"></span><br>
+            받은 용돈: <span class="answer-line"></span>원
+        </div>
+    </div>
+
+    <div class="problem-container level-4">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 26. [Age Problem]</div>
+        <div class="problem-text">
+            아버지의 나이는 아들 나이의 3배입니다. 아들의 나이를 x살이라 할 때,
+            아버지의 나이가 42살이면 아들의 나이는 몇 살입니까?
+        </div>
+        <div class="scaffolding-section">
+            <strong>관계식:</strong> 아버지 나이 = 3 × 아들 나이
+        </div>
+        <div class="workspace">
+            방정식: <span class="answer-line"></span><br>
+            아들의 나이: <span class="answer-line"></span>살
+        </div>
+    </div>
+
+    <div class="problem-container level-4">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 27. [Distance-Time Problem]</div>
+        <div class="problem-text">
+            자전거를 타고 시속 15km로 달리면 거리 d(km)와 시간 t(시간)의 관계는 d = 15t입니다.
+            <br>(1) 이 식에서 독립변수와 종속변수를 구하시오.
+            <br>(2) 2시간 동안 달린 거리를 구하시오.
+            <br>(3) 45km를 가는데 걸리는 시간을 구하시오.
+        </div>
+        <div class="workspace">
+            (1) 독립변수: <span class="answer-line"></span>, 종속변수: <span class="answer-line"></span><br>
+            (2) 거리: <span class="answer-line"></span>km<br>
+            (3) 시간: <span class="answer-line"></span>시간
+        </div>
+    </div>
+
+    <div class="problem-container level-4">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot"></div>
+        </div>
+        <div class="problem-number">문제 28. [Pattern Problem]</div>
+        <div class="problem-text">
+            성냥개비로 정삼각형을 만듭니다. 
+            정삼각형 1개는 성냥 3개, 2개는 5개, 3개는 7개가 필요합니다.
+            <br>(1) 정삼각형 n개를 만드는데 필요한 성냥개비 수 s의 관계식을 구하시오.
+            <br>(2) 정삼각형 10개를 만드는데 필요한 성냥개비 수를 구하시오.
+        </div>
+        <div class="visual-aid">
+            <div style="text-align: center;">
+                △ (3개) △△ (5개) △△△ (7개)
+            </div>
+        </div>
+        <div class="workspace">
+            (1) 관계식: s = <span class="answer-line"></span><br>
+            (2) 성냥개비 수: <span class="answer-line"></span>개
+        </div>
+    </div>
+
+    <!-- LEVEL 5: Creative (Problems 29-30) -->
+    <!-- Open-ended exploration -->
+    
+    <div class="problem-container level-5">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+        </div>
+        <div class="problem-number">문제 29. [Creative Problem-Making]</div>
+        <div class="problem-text">
+            일상생활에서 "x + 8 = 20"으로 표현할 수 있는 상황을 3가지 만들어 보시오.
+            각 상황에서 x가 무엇을 의미하는지 설명하시오.
+        </div>
+        <div class="concept-note">
+            💡 창의적 사고: 같은 방정식도 다양한 상황으로 표현할 수 있습니다.
+        </div>
+        <div class="workspace">
+            상황 1:<br><br>
+            상황 2:<br><br>
+            상황 3:<br><br>
+        </div>
+    </div>
+
+    <div class="problem-container level-5">
+        <div class="difficulty-indicator">
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+            <div class="difficulty-dot filled"></div>
+        </div>
+        <div class="problem-number">문제 30. [Investigation Problem]</div>
+        <div class="problem-text">
+            다음 패턴을 관찰하고 규칙을 찾아보시오:
+            <br>• 1번째: 2 × 1 + 3 = 5
+            <br>• 2번째: 2 × 2 + 3 = 7
+            <br>• 3번째: 2 × 3 + 3 = 9
+            <br>• 4번째: 2 × 4 + 3 = 11
+            
+            <br><br>(1) n번째 수를 구하는 식을 세우시오.
+            <br>(2) 10번째 수를 구하시오.
+            <br>(3) 어떤 번째의 수가 51일까요? 방정식을 세워 구하시오.
+            <br>(4) 이 패턴에서 짝수가 나올 수 있을까요? 이유를 설명하시오.
+        </div>
+        <div class="workspace">
+            (1) n번째 수: <span class="answer-line"></span><br>
+            (2) 10번째 수: <span class="answer-line"></span><br>
+            (3) 방정식: <span class="answer-line"></span>, 답: <span class="answer-line"></span>번째<br>
+            (4) 설명:<br><br>
+        </div>
+    </div>
+
+    <div style="margin-top: 50px; padding: 20px; background: #f0f7ff; border-radius: 10px;">
+        <h3>📝 학습 완료 체크리스트</h3>
+        <ul style="list-style: none; padding-left: 0;">
+            <li>□ 변수와 방정식의 개념을 이해했나요?</li>
+            <li>□ 일차 방정식을 풀 수 있나요?</li>
+            <li>□ 부등식의 해를 구할 수 있나요?</li>
+            <li>□ 실생활 문제를 방정식으로 나타낼 수 있나요?</li>
+            <li>□ 독립변수와 종속변수를 구분할 수 있나요?</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; color: #666;">
+        <p>© 2024 Khan Academy Aligned Curriculum</p>
+        <p>Grade 6 Unit 7: Equations and Inequalities</p>
+    </div>
+</body>
+</html>
