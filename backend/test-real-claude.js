@@ -10,7 +10,7 @@ async function testRealClaude() {
     console.log(chalk.blue('     Real Claude API Test'));
     console.log(chalk.blue('═══════════════════════════════════════\n'));
 
-    const apiKey = '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';
+    const apiKey = '[YOUR_CLAUDE_API_KEY]1LsVTVUo_GpWMbZwLWHv1ZJ2ae7BKZpfiE0BEQDk15XQDDLCjtyXeip9z_2lZlOuX_yS8RupxG3pUEZ-gRlTWA-jbcG0QAA';
     
     try {
         const anthropic = new Anthropic({ apiKey });

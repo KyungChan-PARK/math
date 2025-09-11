@@ -3,8 +3,8 @@
 ## ⚠️ 중요: AccessKey vs API Key 차이점
 
 귀하가 제공하신 인증 정보:
-- **AccessKeyId**: LTAI5tGKFLf3VhjBVAjUvUo4  
-- **AccessKeySecret**: nnvPMQMDAyqT147jTxkQJdET36JUB9
+- **AccessKeyId**: [YOUR_ACCESS_KEY_ID]  
+- **AccessKeySecret**: [YOUR_ACCESS_KEY_SECRET]
 
 이는 **Alibaba Cloud 일반 서비스용 AccessKey**입니다. 하지만 **Model Studio (DashScope)**는 별도의 **API Key**가 필요합니다.
 
@@ -40,8 +40,8 @@ $env:DASHSCOPE_API_KEY="sk-your-api-key-here"
 #### .env 파일
 ```env
 # 기존 AccessKey (일반 Alibaba Cloud 서비스용)
-ALIBABA_ACCESS_KEY_ID=LTAI5tGKFLf3VhjBVAjUvUo4
-ALIBABA_ACCESS_KEY_SECRET=nnvPMQMDAyqT147jTxkQJdET36JUB9
+ALIBABA_ACCESS_KEY_ID=[YOUR_ACCESS_KEY_ID]
+ALIBABA_ACCESS_KEY_SECRET=[YOUR_ACCESS_KEY_SECRET]
 
 # DashScope API Key (Model Studio용) - 이것이 필요!
 DASHSCOPE_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxx

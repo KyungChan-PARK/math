@@ -57,8 +57,8 @@ export class QwenAuthenticatedSystem {
     initWithAccessKey() {
         console.log(chalk.yellow('Using AccessKey signature authentication'));
         
-        const accessKeyId = process.env.ALIBABA_ACCESS_KEY_ID || 'LTAI5tGKFLf3VhjBVAjUvUo4';
-        const accessKeySecret = process.env.ALIBABA_ACCESS_KEY_SECRET || 'nnvPMQMDAyqT147jTxkQJdET36JUB9';
+        const accessKeyId = process.env.ALIBABA_ACCESS_KEY_ID || '[YOUR_ACCESS_KEY_ID]';
+        const accessKeySecret = process.env.ALIBABA_ACCESS_KEY_SECRET || '[YOUR_ACCESS_KEY_SECRET]';
         
         // 서명 생성 (Alibaba Cloud 표준 방식)
         const timestamp = new Date().toISOString();
@@ -141,8 +141,8 @@ export class QwenAuthenticatedSystem {
     async directHttpCall(prompt) {
         console.log(chalk.yellow('\n📡 Trying direct HTTP call...'));
         
-        const accessKeyId = process.env.ALIBABA_ACCESS_KEY_ID || 'LTAI5tGKFLf3VhjBVAjUvUo4';
-        const accessKeySecret = process.env.ALIBABA_ACCESS_KEY_SECRET || 'nnvPMQMDAyqT147jTxkQJdET36JUB9';
+        const accessKeyId = process.env.ALIBABA_ACCESS_KEY_ID || '[YOUR_ACCESS_KEY_ID]';
+        const accessKeySecret = process.env.ALIBABA_ACCESS_KEY_SECRET || '[YOUR_ACCESS_KEY_SECRET]';
         
         // HTTP 서명 생성
         const timestamp = new Date().toISOString();

@@ -60,7 +60,7 @@ USE THESE TOOLS PROACTIVELY WITHOUT ASKING PERMISSION
 <project_context>
 Project: Math Learning Platform v5.0.0
 Location: C:\palantir\math
-API Key: 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
+API Key: [YOUR_CLAUDE_API_KEY]1LsVTVUo_GpWMbZwLWHv1ZJ2ae7BKZpfiE0BEQDk15XQDDLCjtyXeip9z_2lZlOuX_yS8RupxG3pUEZ-gRlTWA-jbcG0QAA
 
 IMMEDIATELY EXECUTE (don't ask, just do):
 1. conversation_search("Math Learning Platform orchestration")

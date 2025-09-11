@@ -23,7 +23,7 @@ Please immediately:
 
 **Project**: Math Learning Platform v5.0.0
 **Role**: Claude Opus 4.1 - Senior AI Developer
-**API Key**: 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
+**API Key**: [YOUR_CLAUDE_API_KEY]1LsVTVUo_GpWMbZwLWHv1ZJ2ae7BKZpfiE0BEQDk15XQDDLCjtyXeip9z_2lZlOuX_yS8RupxG3pUEZ-gRlTWA-jbcG0QAA
 
 ---
 
