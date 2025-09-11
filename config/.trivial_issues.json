@@ -1,0 +1,142 @@
+{
+  "korean_encoding": {
+    "pattern": {},
+    "solution": "Remove Korean characters or escape them properly for non-UTF8 systems",
+    "occurrences": 150,
+    "examples": [],
+    "lastFixed": "2025-09-08T15:00:00Z"
+  },
+  "es_module_exports": {
+    "pattern": {},
+    "solution": "Always use: export default class",
+    "occurrences": 31,
+    "examples": [
+      {
+        "timestamp": "2025-09-08T08:58:16.906Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\frontend\\\\src\\\\__mocks__\\\\three.js\",\"fix\":\"Fixed: Changed module.exports to export default\"}",
+        "file": "C:\\palantir\\math\\frontend\\src\\__mocks__\\three.js"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:16.917Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\integration-checker.js\",\"fix\":\"Fixed: Changed module.exports to export default\"}",
+        "file": "C:\\palantir\\math\\integration-checker.js"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:16.932Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\orchestration\\\\claude-api-orchestrator.js\",\"fix\":\"Fixed: Changed module.exports to export default\"}",
+        "file": "C:\\palantir\\math\\orchestration\\claude-api-orchestrator.js"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:17.006Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\trivial-issue-prevention-v2.js\",\"fix\":\"Fixed: Changed module.exports to export default\"}",
+        "file": "C:\\palantir\\math\\trivial-issue-prevention-v2.js"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:17.007Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\trivial-issue-prevention.js\",\"fix\":\"Fixed: Changed module.exports to export default\"}",
+        "file": "C:\\palantir\\math\\trivial-issue-prevention.js"
+      }
+    ],
+    "lastFixed": "2025-09-08T15:00:00Z"
+  },
+  "powershell_commands": {
+    "pattern": {},
+    "solution": "Use semicolon (;) instead of && in PowerShell",
+    "occurrences": 2,
+    "examples": [],
+    "lastFixed": "2025-09-08T15:00:00Z"
+  },
+  "working_directory": {
+    "pattern": {},
+    "solution": "Always use absolute paths or cd first",
+    "occurrences": 468,
+    "examples": [
+      {
+        "timestamp": "2025-09-08T08:58:18.337Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\venv311\\\\Lib\\\\site-packages\\\\setuptools\\\\discovery.py\",\"fix\":\"Warning: Relative paths detected - consider using absolute paths\"}",
+        "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\setuptools\\discovery.py"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:18.341Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\venv311\\\\Lib\\\\site-packages\\\\setuptools\\\\package_index.py\",\"fix\":\"Warning: Relative paths detected - consider using absolute paths\"}",
+        "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\setuptools\\package_index.py"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:18.346Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\venv311\\\\Lib\\\\site-packages\\\\setuptools\\\\_distutils\\\\command\\\\build.py\",\"fix\":\"Warning: Relative paths detected - consider using absolute paths\"}",
+        "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\setuptools\\_distutils\\command\\build.py"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:18.353Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\venv311\\\\Lib\\\\site-packages\\\\setuptools\\\\_distutils\\\\dist.py\",\"fix\":\"Warning: Relative paths detected - consider using absolute paths\"}",
+        "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\setuptools\\_distutils\\dist.py"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:18.359Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\venv311\\\\Lib\\\\site-packages\\\\setuptools\\\\_distutils\\\\version.py\",\"fix\":\"Warning: Relative paths detected - consider using absolute paths\"}",
+        "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\setuptools\\_distutils\\version.py"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:18.362Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\venv311\\\\Lib\\\\site-packages\\\\setuptools\\\\_path.py\",\"fix\":\"Warning: Relative paths detected - consider using absolute paths\"}",
+        "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\setuptools\\_path.py"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:18.391Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\venv311\\\\Lib\\\\site-packages\\\\werkzeug\\\\http.py\",\"fix\":\"Warning: Relative paths detected - consider using absolute paths\"}",
+        "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\werkzeug\\http.py"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:18.394Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\venv311\\\\Lib\\\\site-packages\\\\werkzeug\\\\middleware\\\\shared_data.py\",\"fix\":\"Warning: Relative paths detected - consider using absolute paths\"}",
+        "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\werkzeug\\middleware\\shared_data.py"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:18.398Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\venv311\\\\Lib\\\\site-packages\\\\werkzeug\\\\security.py\",\"fix\":\"Warning: Relative paths detected - consider using absolute paths\"}",
+        "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\werkzeug\\security.py"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:18.401Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\venv311\\\\Lib\\\\site-packages\\\\werkzeug\\\\utils.py\",\"fix\":\"Warning: Relative paths detected - consider using absolute paths\"}",
+        "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\werkzeug\\utils.py"
+      }
+    ],
+    "lastFixed": "2025-09-08T15:00:00Z"
+  },
+  "port_conflicts": {
+    "pattern": {},
+    "solution": "Check port availability first, use dynamic port allocation",
+    "occurrences": 0,
+    "examples": []
+  },
+  "import_errors": {
+    "pattern": {},
+    "solution": "Check export/import consistency - use export default",
+    "occurrences": 0,
+    "examples": []
+  },
+  "emoji_in_code": {
+    "pattern": {},
+    "solution": "Remove emojis from code - use ASCII comments only",
+    "occurrences": 203,
+    "examples": [
+      {
+        "timestamp": "2025-09-08T08:58:16.914Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\instant-prompt-generator.js\",\"fix\":\"Fixed: Removed emojis from code\"}",
+        "file": "C:\\palantir\\math\\instant-prompt-generator.js"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:16.981Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\session-initializer.js\",\"fix\":\"Fixed: Removed emojis from code\"}",
+        "file": "C:\\palantir\\math\\session-initializer.js"
+      },
+      {
+        "timestamp": "2025-09-08T08:58:16.988Z",
+        "context": "{\"file\":\"C:\\\\palantir\\\\math\\\\system-health-monitor.js\",\"fix\":\"Fixed: Removed emojis from code\"}",
+        "file": "C:\\palantir\\math\\system-health-monitor.js"
+      }
+    ],
+    "lastFixed": "2025-09-08T15:00:00Z"
+  }
+}

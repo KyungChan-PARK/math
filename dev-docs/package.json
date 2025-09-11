@@ -1,0 +1,16 @@
+{
+  "name": "ae-claude-max-doc-updater",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Real-time documentation auto-update system",
+  "scripts": {
+    "start": "node auto-update-system.js",
+    "update-now": "node scripts/force-update.js",
+    "monitor": "node scripts/monitor-changes.js"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "js-yaml": "^4.1.0",
+    "diff": "^5.2.0"
+  }
+}

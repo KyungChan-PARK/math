@@ -1,0 +1,144 @@
+{
+  "timestamp": "2025-09-09T07:51:13.012Z",
+  "summary": {
+    "totalFiles": 8801,
+    "duplicatesFound": 648,
+    "oldVersionsFound": 7,
+    "categories": 8
+  },
+  "duplicates": [
+    {
+      "original": "C:\\palantir\\math\\docs\\README.md",
+      "duplicate": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\neo4j\\database_lock",
+      "size": 0
+    },
+    {
+      "original": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\neo4j\\neostore.nodestore.db.labels.id",
+      "duplicate": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\neo4j\\neostore.propertystore.db.arrays.id",
+      "size": 40960
+    },
+    {
+      "original": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\neo4j\\neostore.nodestore.db.labels.id",
+      "duplicate": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\neo4j\\neostore.relationshipgroupstore.db.id",
+      "size": 40960
+    },
+    {
+      "original": "C:\\palantir\\math\\docs\\README.md",
+      "duplicate": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\store_lock",
+      "size": 0
+    },
+    {
+      "original": "C:\\palantir\\math\\docs\\README.md",
+      "duplicate": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\system\\database_lock",
+      "size": 0
+    },
+    {
+      "original": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\neo4j\\neostore.nodestore.db.labels",
+      "duplicate": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\system\\neostore.nodestore.db.labels",
+      "size": 8192
+    },
+    {
+      "original": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\neo4j\\neostore.propertystore.db.arrays",
+      "duplicate": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\system\\neostore.propertystore.db.arrays",
+      "size": 8192
+    },
+    {
+      "original": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\system\\neostore.nodestore.db.labels.id",
+      "duplicate": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\system\\neostore.propertystore.db.arrays.id",
+      "size": 40960
+    },
+    {
+      "original": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\neo4j\\neostore.relationshipgroupstore.db",
+      "duplicate": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\system\\neostore.relationshipgroupstore.db",
+      "size": 8192
+    },
+    {
+      "original": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\system\\neostore.nodestore.db.labels.id",
+      "duplicate": "C:\\palantir\\math\\ontology-system\\neo4j-data\\databases\\system\\neostore.relationshipgroupstore.db.id",
+      "size": 40960
+    }
+  ],
+  "oldVersions": [
+    "C:\\palantir\\math\\dev-docs\\backup\\01-MASTER-INSTRUCTIONS-v5.1-backup.md",
+    "C:\\palantir\\math\\document-self-improvement-v2.js",
+    "C:\\palantir\\math\\orchestration\\claude-orchestrator-v2.js",
+    "C:\\palantir\\math\\orchestration\\math-education-orchestrator-v2.js",
+    "C:\\palantir\\math\\performance-optimizer-v2.js",
+    "C:\\palantir\\math\\scripts\\start-lola-v2.bat",
+    "C:\\palantir\\math\\trivial-issue-prevention-v2.js"
+  ],
+  "categorySummary": {
+    "misc": {
+      "count": 7973,
+      "totalSize": 1253107404,
+      "examples": [
+        "post_tool_use_enhanced_part1.py",
+        "post_tool_use_enhanced_part2.py",
+        "post_tool_use.py"
+      ]
+    },
+    "config": {
+      "count": 119,
+      "totalSize": 2238837,
+      "examples": [
+        "SESSION_CHECKPOINT.json",
+        "session_current.json",
+        ".monitor_status.json"
+      ]
+    },
+    "scripts": {
+      "count": 55,
+      "totalSize": 195056,
+      "examples": [
+        "activate-claude.ps1",
+        "activate-opus41-power.js",
+        "activate-opus41.js"
+      ]
+    },
+    "docs": {
+      "count": 262,
+      "totalSize": 3554532,
+      "examples": [
+        "ACTIVATE_ME.txt",
+        "AI_AGENTS_SYSTEM.md",
+        "AI_AGENT_MASTER.md"
+      ]
+    },
+    "src": {
+      "count": 252,
+      "totalSize": 2952679,
+      "examples": [
+        "advanced-artifact-system.js",
+        "aggressive-duplicate-remover.js",
+        "analyze-documents.js"
+      ]
+    },
+    "temp": {
+      "count": 6,
+      "totalSize": 569729,
+      "examples": [
+        "combined.log",
+        "error.log",
+        "gesture-error.log"
+      ]
+    },
+    "tests": {
+      "count": 83,
+      "totalSize": 346731,
+      "examples": [
+        "test-claude-integration.js",
+        "test-integration.js",
+        "test-mcp-integration.js"
+      ]
+    },
+    "assets": {
+      "count": 51,
+      "totalSize": 554788,
+      "examples": [
+        "favicon.png",
+        "sort-arrow-sprite.png",
+        "back-symbolic.svg"
+      ]
+    }
+  }
+}

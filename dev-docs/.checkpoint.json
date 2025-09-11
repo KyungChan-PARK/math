@@ -1,0 +1,23 @@
+{
+  "checkpoints": [
+    {
+      "timestamp": "2025-01-25T15:00:00",
+      "session": "2025-01-25_claude_opus_4_1_update",
+      "task": "Claude Opus 4.1 [KR] [KR] [KR] [KR]",
+      "status": "completed",
+      "details": {
+        "files_created": ["00-CLAUDE-OPUS-4-1-CAPABILITIES.md"],
+        "files_updated": ["01-MASTER-INSTRUCTIONS.md", "SESSION_START_TEMPLATE.md"],
+        "memory_entities": ["Claude_Opus_4_1_Capabilities"],
+        "capabilities_documented": [
+          "Extended Thinking",
+          "MCP Integration",
+          "SWE-bench 74.5%",
+          "200K Token Context"
+        ]
+      },
+      "next_steps": "Neo4j GraphRAG [KR] [KR] NLP integration (75%→95% [KR])"
+    }
+  ],
+  "last_session": "2025-01-25_claude_opus_4_1_update"
+}

@@ -1,0 +1,25 @@
+PALANTIR MATH - QUICK REFERENCE
+================================
+
+START SERVER:
+node orchestration/qwen-orchestrator-enhanced.js
+
+TEST COLLABORATION:
+node orchestration/test-collaboration.js
+
+CHECK STATUS:
+curl http://localhost:8093/api/health
+
+API ENDPOINTS:
+POST http://localhost:8093/api/ai/process
+POST http://localhost:8093/api/ai/collaborate
+GET  http://localhost:8093/api/agents/list
+GET  http://localhost:8093/api/health
+
+WEBSOCKET:
+ws://localhost:8094
+
+AI MODELS:
+Claude: Strategic Intelligence
+Qwen: 75 Specialized Agents
+API Key: sk-f2ab784cfdc7467495fa72ced5477c2a

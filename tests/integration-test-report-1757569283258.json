@@ -1,0 +1,88 @@
+{
+  "timestamp": "2025-09-11T05:41:22.112Z",
+  "tests": [
+    {
+      "name": "PALANTIR API Health Check",
+      "status": "PASS",
+      "message": "Status: healthy",
+      "timestamp": "2025-09-11T05:41:22.615Z"
+    },
+    {
+      "name": "PALANTIR API Config",
+      "status": "PASS",
+      "message": "AI Systems: Claude, Qwen, Vertex AI",
+      "timestamp": "2025-09-11T05:41:22.823Z"
+    },
+    {
+      "name": "PALANTIR API Agents",
+      "status": "PASS",
+      "message": "Total agents: 75",
+      "timestamp": "2025-09-11T05:41:23.021Z"
+    },
+    {
+      "name": "PALANTIR API Status",
+      "status": "PASS",
+      "message": "Components: 6",
+      "timestamp": "2025-09-11T05:41:23.234Z"
+    },
+    {
+      "name": "LOLA Intent System",
+      "status": "FAIL",
+      "message": "Server not running on port 8092",
+      "timestamp": "2025-09-11T05:41:23.250Z"
+    },
+    {
+      "name": "LOLA Physics System",
+      "status": "FAIL",
+      "message": "Server not running on port 8090",
+      "timestamp": "2025-09-11T05:41:23.252Z"
+    },
+    {
+      "name": "WebSocket Connection",
+      "status": "FAIL",
+      "message": "Server not running on port 8080",
+      "timestamp": "2025-09-11T05:41:23.256Z"
+    },
+    {
+      "name": "File: package.json",
+      "status": "PASS",
+      "message": "Exists",
+      "timestamp": "2025-09-11T05:41:23.256Z"
+    },
+    {
+      "name": "File: AI_AGENTS_SYSTEM.md",
+      "status": "PASS",
+      "message": "Exists",
+      "timestamp": "2025-09-11T05:41:23.256Z"
+    },
+    {
+      "name": "File: PROJECT_STATUS_LATEST.md",
+      "status": "PASS",
+      "message": "Exists",
+      "timestamp": "2025-09-11T05:41:23.257Z"
+    },
+    {
+      "name": "File: lola_math_intent_system.py",
+      "status": "PASS",
+      "message": "Exists",
+      "timestamp": "2025-09-11T05:41:23.257Z"
+    },
+    {
+      "name": "File: main.py",
+      "status": "PASS",
+      "message": "Exists",
+      "timestamp": "2025-09-11T05:41:23.257Z"
+    },
+    {
+      "name": "AI Agents Configuration",
+      "status": "FAIL",
+      "message": "ENOENT: no such file or directory, open 'C:\\palantir\\math\\ai-agents\\agent-factory.js'",
+      "timestamp": "2025-09-11T05:41:23.257Z"
+    }
+  ],
+  "summary": {
+    "total": 13,
+    "passed": 9,
+    "failed": 4
+  }
+}

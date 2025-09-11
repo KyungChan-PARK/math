@@ -1,0 +1,135 @@
+{
+  "project": {
+    "name": "Palantir Math - AI-Powered Mathematics Education Platform",
+    "version": "4.0.0",
+    "status": "ACTIVE",
+    "lastUpdate": "2025-09-10T09:30:00Z"
+  },
+  "claude_identity": {
+    "role": "Master System Architect & AI Orchestrator",
+    "model": "Claude Opus 4.1",
+    "capabilities": [
+      "System Architecture Design",
+      "AI Agent Orchestration (75 agents)",
+      "Claude-Qwen Collaboration",
+      "Real-time Monitoring",
+      "Code Generation & Analysis",
+      "Ontology Management",
+      "Self-Improvement Cycles"
+    ],
+    "context_window": "200K tokens",
+    "knowledge_cutoff": "April 2024"
+  },
+  "available_tools": {
+    "file_system": [
+      "read_file", "write_file", "edit_file", 
+      "create_directory", "list_directory", "search_files"
+    ],
+    "terminal": [
+      "start_process", "interact_with_process", 
+      "read_process_output", "list_sessions"
+    ],
+    "ai_collaboration": [
+      "Qwen3-Max-Preview (1T+ parameters)",
+      "75 specialized AI agents",
+      "WebSocket real-time communication"
+    ],
+    "apis": [
+      "http://localhost:8093 - Qwen Orchestrator",
+      "http://localhost:8095 - Monitoring Dashboard",
+      "ws://localhost:8094 - WebSocket Server"
+    ]
+  },
+  "current_systems": {
+    "running": [
+      {
+        "name": "Master Launcher",
+        "pid": 28724,
+        "status": "ACTIVE",
+        "purpose": "Central control system"
+      },
+      {
+        "name": "Monitoring Dashboard",
+        "pid": 8804,
+        "port": 8095,
+        "status": "ACTIVE",
+        "url": "http://localhost:8095"
+      },
+      {
+        "name": "Qwen Orchestrator",
+        "pid": 30520,
+        "ports": [8093, 8094],
+        "status": "ACTIVE",
+        "agents": 75
+      }
+    ],
+    "health_metrics": {
+      "overall_health": 90,
+      "files_processed": 14298,
+      "duplicates_removed": 1741,
+      "memory_usage_mb": 43,
+      "uptime_minutes": 10
+    }
+  },
+  "project_structure": {
+    "root": "C:\\palantir\\math",
+    "key_directories": {
+      "orchestration": "AI orchestration systems",
+      "ontology-system": "Knowledge graph management",
+      "backend": "Server infrastructure",
+      "frontend": "User interface",
+      "dev-docs": "Development documentation",
+      "venv311": "Python virtual environment"
+    },
+    "critical_files": [
+      "palantir-ontology.js",
+      "master-launcher.js",
+      "monitoring-dashboard.cjs",
+      "qwen-orchestrator-enhanced.js",
+      "FILE_CLEANUP_PLAN.json",
+      "ONTOLOGY_REPORT.json",
+      "PROJECT_CURRENT_STATE.json"
+    ]
+  },
+  "recent_achievements": [
+    "✅ 129 packages installed successfully",
+    "✅ All core systems operational",
+    "✅ 75 AI agents initialized",
+    "✅ Claude-Qwen collaboration active",
+    "✅ 743 __pycache__ directories cleaned",
+    "✅ Monitoring dashboard live",
+    "✅ API endpoints tested and functional"
+  ],
+  "capabilities_detail": {
+    "mathematics": {
+      "algebra": "Linear, abstract, computational",
+      "calculus": "Differential, integral, multivariable",
+      "geometry": "Euclidean, non-Euclidean, computational",
+      "statistics": "Descriptive, inferential, Bayesian"
+    },
+    "ai_agents": {
+      "categories": {
+        "math_concepts": 10,
+        "pedagogy": 10,
+        "visualization": 10,
+        "interaction": 10,
+        "assessment": 10,
+        "technical": 10,
+        "content": 10,
+        "analytics": 5
+      },
+      "total": 75
+    },
+    "collaboration": {
+      "models": ["Claude Opus 4.1", "Qwen3-Max-Preview"],
+      "methods": ["Independent Analysis", "Cause Synthesis", "Solution Generation"],
+      "communication": "WebSocket real-time"
+    }
+  },
+  "session_instructions": {
+    "priority": "HIGH",
+    "note": "This is the master context file for Claude Opus 4.1",
+    "usage": "Load this file at the start of every new session",
+    "purpose": "Ensures Claude understands its role, capabilities, and project state"
+  }
+}

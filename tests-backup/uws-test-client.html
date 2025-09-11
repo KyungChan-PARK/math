@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>µWebSockets Test Client</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1e1e1e; color: #fff; }
+        button { padding: 10px; margin: 5px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+        #log { background: #2d2d2d; padding: 10px; height: 400px; overflow-y: auto; }
+        .sent { color: #4CAF50; }
+        .received { color: #2196F3; }
+        .error { color: #f44336; }
+        #stats { background: #333; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>µWebSockets Performance Test</h1>
+    <div id="stats">
+        <span>Sent: <span id="sent">0</span></span> | 
+        <span>Received: <span id="received">0</span></span> |
+        <span>Throughput: <span id="throughput">0</span> msg/sec</span> |
+        <span>Latency: <span id="latency">0</span>ms</span>
+    </div>
+    
+    <button onclick="connect()">Connect</button>
+    <button onclick="testBurst()">Burst Test (100 msgs)</button>
+    <button onclick="testNLP()">NLP Test</button>
+    <button onclick="testSustained()">Sustained Load</button>
+    <button onclick="disconnect()">Disconnect</button>
+    
+    <div id="log"></div>
+    
+    <script>
+        let ws = null;
+        let stats = { sent: 0, received: 0, latencies: [], startTime: Date.now() };
+        
+        function connect() {
+            ws = new WebSocket('ws://localhost:8085/realtime');
+            
+            ws.onopen = () => {
+                log('✅ Connected to µWebSockets server', 'received');
+            };
+            
+            ws.onmessage = (event) => {
+                const msg = JSON.parse(event.data);
+                stats.received++;
+                
+                if (msg.timestamp) {
+                    const latency = Date.now() - msg.timestamp;
+                    stats.latencies.push(latency);
+                }
+                
+                log('← ' + JSON.stringify(msg), 'received');
+                updateStats();
+            };
+            
+            ws.onerror = (err) => {
+                log('❌ Error: ' + err.message, 'error');
+            };
+            
+            ws.onclose = () => {
+                log('❌ Disconnected', 'error');
+            };
+        }
+        
+        function testBurst() {
+            if (!ws || ws.readyState !== WebSocket.OPEN) {
+                alert('Connect first!');
+                return;
+            }
+            
+            log('🚀 Starting burst test...', 'sent');
+            for (let i = 0; i < 100; i++) {
+                send({ type: 'PING', id: i, timestamp: Date.now() });
+            }
+        }
+        
+        function testNLP() {
+            if (!ws || ws.readyState !== WebSocket.OPEN) return;
+            
+            const commands = [
+                'Create a red circle',
+                'Move it to the right',
+                'Make it bigger'
+            ];
+            
+            commands.forEach((cmd, i) => {
+                setTimeout(() => {
+                    send({ type: 'NATURAL_LANGUAGE', text: cmd });
+                }, i * 100);
+            });
+        }
+        
+        function testSustained() {
+            if (!ws || ws.readyState !== WebSocket.OPEN) return;
+            
+            log('📊 Starting sustained load test...', 'sent');
+            let count = 0;
+            const interval = setInterval(() => {
+                send({ type: 'STATE_UPDATE', data: { count } });
+                count++;
+                if (count >= 500) clearInterval(interval);
+            }, 10);
+        }
+        
+        function send(msg) {
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify(msg));
+                stats.sent++;
+                log('→ ' + JSON.stringify(msg), 'sent');
+            }
+        }
+        
+        function disconnect() {
+            if (ws) {
+                ws.close();
+                ws = null;
+            }
+        }
+        
+        function log(msg, className) {
+            const logDiv = document.getElementById('log');
+            const entry = document.createElement('div');
+            entry.className = className;
+            entry.textContent = new Date().toISOString().substr(11, 12) + ' ' + msg;
+            logDiv.appendChild(entry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+        
+        function updateStats() {
+            document.getElementById('sent').textContent = stats.sent;
+            document.getElementById('received').textContent = stats.received;
+            
+            const duration = (Date.now() - stats.startTime) / 1000;
+            const throughput = Math.round(stats.sent / duration);
+            document.getElementById('throughput').textContent = throughput;
+            
+            if (stats.latencies.length > 0) {
+                const avgLatency = Math.round(
+                    stats.latencies.reduce((a, b) => a + b, 0) / stats.latencies.length
+                );
+                document.getElementById('latency').textContent = avgLatency;
+            }
+        }
+        
+        // Update stats every second
+        setInterval(updateStats, 1000);
+    </script>
+</body>
+</html>

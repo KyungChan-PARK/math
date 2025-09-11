@@ -1,0 +1,14 @@
+REM LOLA Quick Commands
+REM Copy and paste these commands one by one
+
+REM Terminal 1:
+cd C:\palantir\math
+venv311\Scripts\python.exe src\lola-integration\lola-server.py
+
+REM Terminal 2:
+cd C:\palantir\math
+venv311\Scripts\python.exe src\lola-integration\gesture_physics_controller.py
+
+REM Terminal 3:
+cd C:\palantir\math
+npm start

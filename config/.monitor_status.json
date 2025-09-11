@@ -1,0 +1,45 @@
+{
+  "monitor": {
+    "uptime": "6304 seconds",
+    "filesWatched": 1023,
+    "filesChecked": 4749,
+    "issuesFixed": 242
+  },
+  "prevention": {
+    "totalIssues": 854,
+    "topIssues": [
+      {
+        "type": "working_directory",
+        "count": 468,
+        "solution": "Always use absolute paths or cd first"
+      },
+      {
+        "type": "emoji_in_code",
+        "count": 203,
+        "solution": "Remove emojis from code - use ASCII comments only"
+      },
+      {
+        "type": "korean_encoding",
+        "count": 150,
+        "solution": "Remove Korean characters or escape them properly for non-UTF8 systems"
+      },
+      {
+        "type": "es_module_exports",
+        "count": 31,
+        "solution": "Always use: export default class"
+      },
+      {
+        "type": "powershell_commands",
+        "count": 2,
+        "solution": "Use semicolon (;) instead of && in PowerShell"
+      }
+    ],
+    "recommendations": [
+      "Focus on preventing these top issues:",
+      "- working_directory: Always use absolute paths or cd first",
+      "- emoji_in_code: Remove emojis from code - use ASCII comments only",
+      "- korean_encoding: Remove Korean characters or escape them properly for non-UTF8 systems"
+    ]
+  },
+  "timestamp": "2025-09-08T10:43:19.878Z"
+}

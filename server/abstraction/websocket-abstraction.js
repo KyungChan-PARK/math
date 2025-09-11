@@ -84,7 +84,7 @@ export class WebSocketAbstraction extends EventEmitter {
                 await this.initializeUWebSockets();
                 console.log('✅ Using µWebSockets (8.5x performance mode)');
             } catch (error) {
-                console.log('⚠️ µWebSockets not available, falling back to ws library');
+                console.log('️ µWebSockets not available, falling back to ws library');
                 await this.initializeWS();
             }
         } else if (implementation === 'uws') {
@@ -270,11 +270,11 @@ export class WebSocketAbstraction extends EventEmitter {
     setupMetricsReporting() {
         setInterval(() => {
             const metrics = this.metrics.getMetrics();
-            console.log(`📊 WebSocket Performance: ${metrics.messagesPerSecond.toFixed(2)} msg/sec`);
+            console.log(` WebSocket Performance: ${metrics.messagesPerSecond.toFixed(2)} msg/sec`);
             console.log(`   Target Progress: ${(metrics.performanceRatio * 100).toFixed(1)}% of µWebSockets goal`);
             
             if (metrics.targetAchieved) {
-                console.log('🎯 Performance target achieved! Ready for production.');
+                console.log(' Performance target achieved! Ready for production.');
             }
         }, 10000); // Report every 10 seconds
     }

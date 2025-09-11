@@ -1,0 +1,37 @@
+{
+  "entities": [
+    {
+      "name": "Layer",
+      "properties": ["name", "index", "type", "visible", "locked"],
+      "types": ["Text", "Shape", "Solid", "Null", "Adjustment", "Camera", "Light"]
+    },
+    {
+      "name": "Effect",
+      "properties": ["name", "enabled", "category"],
+      "types": ["Wiggle", "Glow", "Blur", "ColorCorrection", "Transform"]
+    },
+    {
+      "name": "Property",
+      "properties": ["name", "value", "animated", "expression"],
+      "types": ["Position", "Scale", "Rotation", "Opacity", "AnchorPoint"]
+    },
+    {
+      "name": "Composition",
+      "properties": ["name", "width", "height", "frameRate", "duration"]
+    }
+  ],
+  "relationships": [
+    {"from": "Layer", "to": "Effect", "type": "HAS_EFFECT"},
+    {"from": "Layer", "to": "Property", "type": "HAS_PROPERTY"},
+    {"from": "Composition", "to": "Layer", "type": "CONTAINS"},
+    {"from": "Effect", "to": "Property", "type": "CONTROLS"},
+    {"from": "Property", "to": "Property", "type": "DRIVES"}
+  ],
+  "intents": {
+    "CREATE": ["create", "make", "add", "new", "generate"],
+    "TRANSFORM": ["move", "scale", "rotate", "position", "resize"],
+    "ANIMATE": ["wiggle", "bounce", "pulse", "shake", "loop"],
+    "STYLE": ["color", "glow", "blur", "shadow", "stroke"],
+    "DELETE": ["delete", "remove", "clear", "destroy"]
+  }
+}

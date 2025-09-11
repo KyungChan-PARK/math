@@ -1,0 +1,20 @@
+[
+  {
+    "id": "621dcf73-e6a1-437d-9a6f-d7b6a8117d29",
+    "studentId": "student_001",
+    "timestamp": 1757322704036,
+    "type": "milestone",
+    "content": "Started learning quadratic equations",
+    "topic": "algebra",
+    "importance": 0.9
+  },
+  {
+    "id": "52c21855-7a35-4e9c-8557-93bf16efd9b8",
+    "studentId": "student_001",
+    "timestamp": 1757322704041,
+    "type": "error",
+    "content": "Difficulty with factoring when a ≠ 1",
+    "recommendation": "Use quadratic formula as alternative",
+    "importance": 0.8
+  }
+]

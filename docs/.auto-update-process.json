@@ -1,0 +1,17 @@
+{
+  "pid": 24948,
+  "started": "2025-09-09T03:06:10.105Z",
+  "config": {
+    "categories": {
+      "architecture": "System architecture and design",
+      "api": "API references and specifications",
+      "agents": "75+ AI agents documentation",
+      "guides": "User and developer guides",
+      "development": "Development documentation",
+      "reports": "Project reports and analysis"
+    },
+    "autoUpdate": true,
+    "syncInterval": 60000,
+    "version": "2.0.0"
+  }
+}

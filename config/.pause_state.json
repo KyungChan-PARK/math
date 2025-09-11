@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-09-04T04:49:23.888427",
+  "issues": [
+    {
+      "type": "missing_integration",
+      "severity": "HIGH",
+      "components": [
+        "gesture-app",
+        "websocket"
+      ],
+      "impact": "Gesture recognition cannot communicate with server"
+    }
+  ],
+  "status": "AWAITING_USER_DECISION"
+}

@@ -1,0 +1,129 @@
+{
+  "timestamp": "2025-09-11T05:43:30.468Z",
+  "tests": {
+    "apiResponse": {
+      "Health Check": {
+        "mean": "212.84",
+        "median": "214.27",
+        "p95": "325.46",
+        "p99": "325.46",
+        "min": "193.49",
+        "max": "325.46"
+      },
+      "Config": {
+        "mean": "204.99",
+        "median": "198.10",
+        "p95": "223.13",
+        "p99": "223.13",
+        "min": "192.42",
+        "max": "223.13"
+      },
+      "Agents": {
+        "mean": "216.69",
+        "median": "214.21",
+        "p95": "379.76",
+        "p99": "379.76",
+        "min": "195.33",
+        "max": "379.76"
+      },
+      "Status": {
+        "mean": "208.33",
+        "median": "213.66",
+        "p95": "222.34",
+        "p99": "222.34",
+        "min": "193.85",
+        "max": "222.34"
+      }
+    },
+    "concurrency": {
+      "1_concurrent": {
+        "totalTime": "194.50",
+        "successful": 1,
+        "failed": 0,
+        "throughput": "5.14 req/s"
+      },
+      "5_concurrent": {
+        "totalTime": "468.73",
+        "successful": 5,
+        "failed": 0,
+        "throughput": "10.67 req/s"
+      },
+      "10_concurrent": {
+        "totalTime": "273.79",
+        "successful": 10,
+        "failed": 0,
+        "throughput": "36.52 req/s"
+      },
+      "20_concurrent": {
+        "totalTime": "275.05",
+        "successful": 20,
+        "failed": 0,
+        "throughput": "72.71 req/s"
+      },
+      "50_concurrent": {
+        "totalTime": "309.96",
+        "successful": 50,
+        "failed": 0,
+        "throughput": "161.31 req/s"
+      }
+    },
+    "payload": {
+      "1KB": {
+        "mean": "2.82",
+        "median": "1.31",
+        "p95": "15.16",
+        "p99": "15.16",
+        "min": "1.13",
+        "max": "15.16"
+      },
+      "10KB": {
+        "mean": "1.29",
+        "median": "1.15",
+        "p95": "2.45",
+        "p99": "2.45",
+        "min": "0.91",
+        "max": "2.45"
+      },
+      "100KB": {
+        "mean": "1.48",
+        "median": "1.54",
+        "p95": "1.71",
+        "p99": "1.71",
+        "min": "1.29",
+        "max": "1.71"
+      }
+    },
+    "latencyDistribution": {
+      "mean": "207.69",
+      "median": "204.54",
+      "p95": "229.45",
+      "p99": "252.90",
+      "min": "193.36",
+      "max": "252.90"
+    },
+    "stability": {
+      "duration": "60s",
+      "totalRequests": 50,
+      "successful": 50,
+      "failed": 0,
+      "availability": "100.00%",
+      "responseTimeStats": {
+        "mean": "206.86",
+        "median": "201.26",
+        "p95": "239.92",
+        "p99": "258.98",
+        "min": "193.39",
+        "max": "258.98"
+      }
+    }
+  },
+  "summary": {
+    "totalTests": 5,
+    "timestamp": "2025-09-11T05:45:10.344Z",
+    "environment": {
+      "nodeVersion": "v20.18.1",
+      "platform": "win32",
+      "arch": "x64"
+    }
+  }
+}

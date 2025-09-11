@@ -177,3 +177,4 @@ Thumbs.db
 # Cache directories
 cache/
 checkpoints/
+node_modules

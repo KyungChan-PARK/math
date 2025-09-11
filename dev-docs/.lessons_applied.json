@@ -1,0 +1,60 @@
+[
+  {
+    "id": "lesson_1757062921460",
+    "issueId": "1757062921434",
+    "issueType": "CONNECTION_ERROR",
+    "solution": {
+      "id": "ai-1",
+      "title": "AI-Generated Solution",
+      "steps": [
+        {
+          "type": "command",
+          "description": "Restart the service",
+          "command": "npm restart"
+        },
+        {
+          "type": "file_edit",
+          "description": "Update configuration",
+          "file": "config.json"
+        }
+      ]
+    },
+    "result": {
+      "success": true,
+      "duration": 100,
+      "notes": "Solution applied successfully (simulated)"
+    },
+    "timestamp": "2025-09-05T09:02:01.460Z",
+    "successRate": 1,
+    "usageCount": 1
+  },
+  {
+    "id": "lesson_1757063356272",
+    "issueId": "1757063356237",
+    "issueType": "CONNECTION_ERROR",
+    "solution": {
+      "id": "ai-1",
+      "title": "AI-Generated Solution",
+      "steps": [
+        {
+          "type": "command",
+          "description": "Restart the service",
+          "command": "npm restart"
+        },
+        {
+          "type": "file_edit",
+          "description": "Update configuration",
+          "file": "config.json"
+        }
+      ]
+    },
+    "result": {
+      "success": true,
+      "duration": 100,
+      "notes": "Solution applied successfully (simulated)"
+    },
+    "timestamp": "2025-09-05T09:09:16.272Z",
+    "successRate": 1,
+    "usageCount": 1
+  }
+]

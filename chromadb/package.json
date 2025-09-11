@@ -1,0 +1,17 @@
+{
+  "name": "math-education-chromadb",
+  "version": "1.0.0",
+  "description": "ChromaDB integration for Math Education System",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test-connection.js",
+    "start": "node chromadb-service.js"
+  },
+  "dependencies": {
+    "chromadb": "^1.8.1",
+    "chromadb-default-embed": "^2.14.0",
+    "dotenv": "^16.3.1",
+    "uuid": "^9.0.1"
+  }
+}

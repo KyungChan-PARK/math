@@ -1,0 +1,241 @@
+{
+  "timestamp": "2025-09-05T09:48:58.876Z",
+  "totalCost": 0.113949,
+  "sessionCost": 0.113949,
+  "limit": 5,
+  "entries": [
+    {
+      "timestamp": "2025-09-05T07:58:16.803Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "mathConcept",
+      "inputTokens": 62,
+      "outputTokens": 295,
+      "inputCost": 0.00018600000000000002,
+      "outputCost": 0.004425,
+      "totalCost": 0.0046110000000000005,
+      "runningTotal": 0.0046110000000000005
+    },
+    {
+      "timestamp": "2025-09-05T07:58:25.425Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "scriptGenerator",
+      "inputTokens": 51,
+      "outputTokens": 388,
+      "inputCost": 0.000153,
+      "outputCost": 0.00582,
+      "totalCost": 0.005973,
+      "runningTotal": 0.010584
+    },
+    {
+      "timestamp": "2025-09-05T07:58:32.378Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "mathConcept",
+      "inputTokens": 48,
+      "outputTokens": 238,
+      "inputCost": 0.000144,
+      "outputCost": 0.0035700000000000003,
+      "totalCost": 0.0037140000000000003,
+      "runningTotal": 0.014298
+    },
+    {
+      "timestamp": "2025-09-05T07:58:45.354Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "scriptGenerator",
+      "inputTokens": 51,
+      "outputTokens": 579,
+      "inputCost": 0.000153,
+      "outputCost": 0.008685,
+      "totalCost": 0.008838,
+      "runningTotal": 0.023136
+    },
+    {
+      "timestamp": "2025-09-05T07:58:54.885Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "mathConcept",
+      "inputTokens": 54,
+      "outputTokens": 360,
+      "inputCost": 0.00016199999999999998,
+      "outputCost": 0.0054,
+      "totalCost": 0.005562,
+      "runningTotal": 0.028698
+    },
+    {
+      "timestamp": "2025-09-05T07:59:05.393Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "scriptGenerator",
+      "inputTokens": 51,
+      "outputTokens": 538,
+      "inputCost": 0.000153,
+      "outputCost": 0.008069999999999999,
+      "totalCost": 0.008223,
+      "runningTotal": 0.036921
+    },
+    {
+      "timestamp": "2025-09-05T08:01:48.430Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "mathConcept",
+      "inputTokens": 52,
+      "outputTokens": 290,
+      "inputCost": 0.000156,
+      "outputCost": 0.00435,
+      "totalCost": 0.004506,
+      "runningTotal": 0.041427000000000005
+    },
+    {
+      "timestamp": "2025-09-05T08:01:59.311Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "scriptGenerator",
+      "inputTokens": 51,
+      "outputTokens": 434,
+      "inputCost": 0.000153,
+      "outputCost": 0.006509999999999999,
+      "totalCost": 0.006663,
+      "runningTotal": 0.04809000000000001
+    },
+    {
+      "timestamp": "2025-09-05T08:02:08.702Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "mathConcept",
+      "inputTokens": 52,
+      "outputTokens": 336,
+      "inputCost": 0.000156,
+      "outputCost": 0.005039999999999999,
+      "totalCost": 0.005195999999999999,
+      "runningTotal": 0.05328600000000001
+    },
+    {
+      "timestamp": "2025-09-05T08:02:17.051Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "scriptGenerator",
+      "inputTokens": 51,
+      "outputTokens": 421,
+      "inputCost": 0.000153,
+      "outputCost": 0.006314999999999999,
+      "totalCost": 0.006468,
+      "runningTotal": 0.05975400000000001
+    },
+    {
+      "timestamp": "2025-09-05T08:02:27.167Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "mathConcept",
+      "inputTokens": 52,
+      "outputTokens": 368,
+      "inputCost": 0.000156,
+      "outputCost": 0.00552,
+      "totalCost": 0.005676,
+      "runningTotal": 0.06543
+    },
+    {
+      "timestamp": "2025-09-05T08:02:38.585Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "scriptGenerator",
+      "inputTokens": 51,
+      "outputTokens": 592,
+      "inputCost": 0.000153,
+      "outputCost": 0.008879999999999999,
+      "totalCost": 0.009033,
+      "runningTotal": 0.074463
+    },
+    {
+      "timestamp": "2025-09-05T08:33:26.976Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "mathConcept",
+      "inputTokens": 62,
+      "outputTokens": 265,
+      "inputCost": 0.00018600000000000002,
+      "outputCost": 0.003975,
+      "totalCost": 0.004161000000000001,
+      "runningTotal": 0.078624
+    },
+    {
+      "timestamp": "2025-09-05T08:33:40.298Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "scriptGenerator",
+      "inputTokens": 51,
+      "outputTokens": 689,
+      "inputCost": 0.000153,
+      "outputCost": 0.010335,
+      "totalCost": 0.010488,
+      "runningTotal": 0.089112
+    },
+    {
+      "timestamp": "2025-09-05T08:33:47.876Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "mathConcept",
+      "inputTokens": 48,
+      "outputTokens": 278,
+      "inputCost": 0.000144,
+      "outputCost": 0.00417,
+      "totalCost": 0.004314,
+      "runningTotal": 0.093426
+    },
+    {
+      "timestamp": "2025-09-05T08:33:58.104Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "scriptGenerator",
+      "inputTokens": 51,
+      "outputTokens": 422,
+      "inputCost": 0.000153,
+      "outputCost": 0.0063300000000000006,
+      "totalCost": 0.006483000000000001,
+      "runningTotal": 0.099909
+    },
+    {
+      "timestamp": "2025-09-05T08:34:09.756Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "mathConcept",
+      "inputTokens": 54,
+      "outputTokens": 372,
+      "inputCost": 0.00016199999999999998,
+      "outputCost": 0.00558,
+      "totalCost": 0.005742,
+      "runningTotal": 0.105651
+    },
+    {
+      "timestamp": "2025-09-05T08:34:21.254Z",
+      "model": "claude-3-5-sonnet-20241022",
+      "agent": "scriptGenerator",
+      "inputTokens": 51,
+      "outputTokens": 543,
+      "inputCost": 0.000153,
+      "outputCost": 0.008145,
+      "totalCost": 0.008298,
+      "runningTotal": 0.113949
+    }
+  ],
+  "summary": {
+    "total": {
+      "cost": 0.113949,
+      "calls": 18,
+      "avgCostPerCall": 0.006330499999999999
+    },
+    "byAgent": {
+      "mathConcept": {
+        "calls": 9,
+        "cost": 0.04348199999999999,
+        "tokens": {
+          "input": 484,
+          "output": 2802
+        }
+      },
+      "scriptGenerator": {
+        "calls": 9,
+        "cost": 0.070467,
+        "tokens": {
+          "input": 459,
+          "output": 4606
+        }
+      }
+    },
+    "byModel": {
+      "claude-3-5-sonnet-20241022": {
+        "calls": 18,
+        "cost": 0.113949,
+        "tokens": {
+          "input": 943,
+          "output": 7408
+        }
+      }
+    }
+  }
+}

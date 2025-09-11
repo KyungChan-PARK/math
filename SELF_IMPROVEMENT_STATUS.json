@@ -1,0 +1,232 @@
+{
+  "timestamp": "2025-09-09T04:23:18.487Z",
+  "metrics": {
+    "documentsScanned": 125,
+    "issuesFound": 54,
+    "issuesFixed": 0,
+    "duplicatesFound": 47,
+    "brokenLinks": 0,
+    "lastScan": null
+  },
+  "issues": [
+    {
+      "file": "C:\\palantir\\math\\dev-docs\\backup\\01-MASTER-INSTRUCTIONS-v5.1-backup.md",
+      "type": "outdated_date",
+      "severity": "info",
+      "message": "Potentially outdated date: 2025-01-31",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\dev-docs\\backup\\01-MASTER-INSTRUCTIONS-v5.1-backup.md",
+      "type": "outdated_date",
+      "severity": "info",
+      "message": "Potentially outdated date: 2025-01-31",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\agents\\prd-ai-agent-master-instruction.md",
+      "type": "outdated_date",
+      "severity": "info",
+      "message": "Potentially outdated date: 2025-01-28",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\agents\\README.md",
+      "type": "broken_link",
+      "severity": "error",
+      "message": "Broken link: ./USAGE_GUIDE.md",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\agents\\README.md",
+      "type": "broken_link",
+      "severity": "error",
+      "message": "Broken link: ./INTEGRATION_GUIDE.md",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\AI_SESSION_CONTEXT.md",
+      "type": "broken_link",
+      "severity": "error",
+      "message": "Broken link: ./DEVELOPMENT_GUIDELINES.md",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\DATE_ERROR_CORRECTION_REPORT.md",
+      "type": "outdated_date",
+      "severity": "info",
+      "message": "Potentially outdated date: 2025-01-06",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\DATE_ERROR_CORRECTION_REPORT.md",
+      "type": "outdated_date",
+      "severity": "info",
+      "message": "Potentially outdated date: 2025-01-06",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\DATE_ERROR_CORRECTION_REPORT.md",
+      "type": "outdated_date",
+      "severity": "info",
+      "message": "Potentially outdated date: 2025-02-06",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\DATE_ERROR_CORRECTION_REPORT.md",
+      "type": "outdated_date",
+      "severity": "info",
+      "message": "Potentially outdated date: 2025-01-06",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\development\\PROJECT_STATUS_20250908.md",
+      "type": "broken_link",
+      "severity": "error",
+      "message": "Broken link: ./PROJECT_CONTEXT.md",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\development\\PROJECT_STATUS_20250908.md",
+      "type": "broken_link",
+      "severity": "error",
+      "message": "Broken link: ./reports/",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\development\\PROJECT_STATUS_20250908.md",
+      "type": "broken_link",
+      "severity": "error",
+      "message": "Broken link: ../.../../src/ai-agents/agent-factory.js",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\development\\TEST_RECOVERY_POINT.md",
+      "type": "outdated_date",
+      "severity": "info",
+      "message": "Potentially outdated date: 2025-01-11",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\PROBLEM_SOLVING_GUIDE.md",
+      "type": "outdated_date",
+      "severity": "info",
+      "message": "Potentially outdated date: 2025-01-11",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\README.md",
+      "type": "empty_content",
+      "severity": "warning",
+      "message": "Document appears to be empty or too short"
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\reports\\DOCUMENTATION_OVERHAUL_REPORT.md",
+      "type": "outdated_date",
+      "severity": "info",
+      "message": "Potentially outdated date: 2025-01-09",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs\\SMART_DOC_IMPLEMENTATION_PLAN.md",
+      "type": "outdated_date",
+      "severity": "info",
+      "message": "Potentially outdated date: 2025-01-06",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs-organized\\archive\\PROJECT_STATUS_20250908.md",
+      "type": "broken_link",
+      "severity": "error",
+      "message": "Broken link: ./PROJECT_CONTEXT.md",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs-organized\\archive\\PROJECT_STATUS_20250908.md",
+      "type": "broken_link",
+      "severity": "error",
+      "message": "Broken link: ./docs/UNIFIED_DOCUMENTATION.md",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs-organized\\archive\\PROJECT_STATUS_20250908.md",
+      "type": "broken_link",
+      "severity": "error",
+      "message": "Broken link: ./docs/API_REFERENCE.md",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs-organized\\archive\\PROJECT_STATUS_20250908.md",
+      "type": "broken_link",
+      "severity": "error",
+      "message": "Broken link: ./reports/",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\docs-organized\\archive\\PROJECT_STATUS_20250908.md",
+      "type": "broken_link",
+      "severity": "error",
+      "message": "Broken link: ./src/ai-agents/agent-factory.js",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\sklearn\\externals\\array_api_compat\\README.md",
+      "type": "empty_content",
+      "severity": "warning",
+      "message": "Document appears to be empty or too short"
+    },
+    {
+      "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\sklearn\\externals\\array_api_extra\\README.md",
+      "type": "empty_content",
+      "severity": "warning",
+      "message": "Document appears to be empty or too short"
+    },
+    {
+      "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\_sounddevice_data\\portaudio-binaries\\README.md",
+      "type": "broken_link",
+      "severity": "error",
+      "message": "Broken link: .github/workflows/build-libs.yml",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\venv\\Lib\\site-packages\\pip-25.2.dist-info\\licenses\\src\\pip\\_vendor\\idna\\LICENSE.md",
+      "type": "duplicate",
+      "severity": "warning",
+      "message": "Duplicate content with C:\\palantir\\math\\venv\\Lib\\site-packages\\idna-3.10.dist-info\\LICENSE.md",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\idna-3.10.dist-info\\LICENSE.md",
+      "type": "duplicate",
+      "severity": "warning",
+      "message": "Duplicate content with C:\\palantir\\math\\venv\\Lib\\site-packages\\idna-3.10.dist-info\\LICENSE.md",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\numpy\\random\\LICENSE.md",
+      "type": "duplicate",
+      "severity": "warning",
+      "message": "Duplicate content with C:\\palantir\\math\\venv\\Lib\\site-packages\\numpy\\random\\LICENSE.md",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\pip-25.2.dist-info\\licenses\\src\\pip\\_vendor\\idna\\LICENSE.md",
+      "type": "duplicate",
+      "severity": "warning",
+      "message": "Duplicate content with C:\\palantir\\math\\venv\\Lib\\site-packages\\idna-3.10.dist-info\\LICENSE.md",
+      "autoFixable": false
+    },
+    {
+      "file": "C:\\palantir\\math\\venv311\\Lib\\site-packages\\werkzeug\\debug\\shared\\ICON_LICENSE.md",
+      "type": "duplicate",
+      "severity": "warning",
+      "message": "Duplicate content with C:\\palantir\\math\\venv\\Lib\\site-packages\\werkzeug\\debug\\shared\\ICON_LICENSE.md",
+      "autoFixable": false
+    }
+  ],
+  "fixes": [],
+  "health": {
+    "score": 38,
+    "status": "poor"
+  }
+}

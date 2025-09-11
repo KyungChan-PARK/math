@@ -1,0 +1,23 @@
+[
+  {
+    "id": "646a8f91-8f35-4a1d-85d7-8bc696032ebc",
+    "threadId": "thread_math_001",
+    "timestamp": 1757322704041,
+    "number": 1,
+    "state": {
+      "currentTopic": "Quadratic Equations",
+      "topics": [
+        "Linear Equations",
+        "Quadratic Equations"
+      ],
+      "problemsSolved": [
+        "x^2 + 5x + 6 = 0",
+        "x^2 - 4 = 0"
+      ],
+      "progress": 45,
+      "nextStep": "Practice factoring techniques"
+    },
+    "tokenCount": 49.75,
+    "summary": "Topics: Linear Equations, Quadratic Equations | Problems: 2 solved"
+  }
+]

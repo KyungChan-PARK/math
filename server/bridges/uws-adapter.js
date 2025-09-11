@@ -10,7 +10,7 @@ let uWS;
 try {
     uWS = await import('uwebsockets.js');
 } catch (error) {
-    console.warn('⚠️ µWebSockets.js not compatible with Node v24.7.0, will use fallback');
+    console.warn('️ µWebSockets.js not compatible with Node v24.7.0, will use fallback');
     uWS = null;
 }
 

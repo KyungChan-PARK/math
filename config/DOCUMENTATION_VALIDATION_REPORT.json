@@ -1,0 +1,149 @@
+{
+  "timestamp": "2025-09-08T07:00:55.299Z",
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "warnings": 25,
+    "score": 63
+  },
+  "results": {
+    "passed": [
+      {
+        "test": "Document exists: UNIFIED_DOCUMENTATION.md",
+        "details": "453 lines, 12343 bytes"
+      },
+      {
+        "test": "Document exists: README.md",
+        "details": "93 lines, 3168 bytes"
+      },
+      {
+        "test": "Document exists: QUICK_START.md",
+        "details": "249 lines, 5254 bytes"
+      },
+      {
+        "test": "Document exists: API_REFERENCE.md",
+        "details": "679 lines, 12223 bytes"
+      },
+      {
+        "test": "Documentation metrics",
+        "details": "4 files, 1474 lines, 32.21 KB"
+      }
+    ],
+    "failed": [
+      {
+        "test": "Internal links",
+        "error": "UNIFIED_DOCUMENTATION.md: Broken link to ./CHANGELOG.md"
+      },
+      {
+        "test": "Internal links",
+        "error": "UNIFIED_DOCUMENTATION.md: Broken link to ./SECURITY.md"
+      },
+      {
+        "test": "Internal links",
+        "error": "API_REFERENCE.md: Broken link to ./CHANGELOG.md"
+      }
+    ],
+    "warnings": [
+      {
+        "test": "Port consistency",
+        "warning": "UNIFIED_DOCUMENTATION.md: websocket has port 3000 (expected 8089)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "UNIFIED_DOCUMENTATION.md: monitoring has port 3000 (expected 8081)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "UNIFIED_DOCUMENTATION.md: neo4j has port 3000 (expected 7687)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "UNIFIED_DOCUMENTATION.md: neo4j has port 12345 (expected 7687)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "UNIFIED_DOCUMENTATION.md: neo4j has port 3600 (expected 7687)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "UNIFIED_DOCUMENTATION.md: neo4j has port 7474 (expected 7687)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "UNIFIED_DOCUMENTATION.md: mongodb has port 7687 (expected 27017)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "UNIFIED_DOCUMENTATION.md: mongodb has port 12345 (expected 27017)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "UNIFIED_DOCUMENTATION.md: chromadb has port 7687 (expected 8000)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "UNIFIED_DOCUMENTATION.md: redis has port 7687 (expected 6379)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "UNIFIED_DOCUMENTATION.md: redis has port 12345 (expected 6379)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "UNIFIED_DOCUMENTATION.md: redis has port 3600 (expected 6379)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "QUICK_START.md: neo4j has port 7474 (expected 7687)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "QUICK_START.md: neo4j has port 7474 (expected 7687)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "QUICK_START.md: neo4j has port 27017 (expected 7687)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "API_REFERENCE.md: websocket has port 8086 (expected 8089)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "API_REFERENCE.md: neo4j has port 12345 (expected 7687)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "API_REFERENCE.md: mongodb has port 8000 (expected 27017)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "API_REFERENCE.md: mongodb has port 12345 (expected 27017)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "API_REFERENCE.md: chromadb has port 12345 (expected 8000)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "API_REFERENCE.md: redis has port 8086 (expected 6379)"
+      },
+      {
+        "test": "Port consistency",
+        "warning": "API_REFERENCE.md: redis has port 12345 (expected 6379)"
+      },
+      {
+        "test": "Completeness: UNIFIED_DOCUMENTATION.md",
+        "warning": "Missing sections: # quick navigation, ## system overview, ## quick start, ## architecture, ## api reference, ## troubleshooting"
+      },
+      {
+        "test": "Completeness: README.md",
+        "warning": "Missing sections: # math learning platform, ## quick start, ## key features, ## project status"
+      },
+      {
+        "test": "Completeness: API_REFERENCE.md",
+        "warning": "Missing sections: ## service endpoints, ## authentication, ## core apis, ## websocket events, ## error handling"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+Claude Opus 4.1 | C:\palantir\math | 75 agents @ 8091 | Load AI_AGENT_MASTER.md | Full tools | Continue work

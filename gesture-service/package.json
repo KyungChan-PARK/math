@@ -1,0 +1,20 @@
+{
+  "name": "ae-gesture-service",
+  "version": "1.0.0",
+  "description": "Gesture recognition service for AE Claude Max",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.44.0",
+    "onnxruntime-node": "^1.16.3",
+    "@tensorflow/tfjs-node": "^4.17.0",
+    "@mediapipe/hands": "^0.4.1675469240",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

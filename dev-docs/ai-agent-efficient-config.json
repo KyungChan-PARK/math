@@ -1,0 +1,147 @@
+{
+  "version": "3.4.0",
+  "agent": "AE Claude Max",
+  "workflow": {
+    "primary_docs": [
+      {
+        "file": "01-AGENT-GUIDELINES.md",
+        "topics": [
+          "migration",
+          "optimization",
+          "architecture",
+          "implementation"
+        ],
+        "size": 8896
+      },
+      {
+        "file": "10-platform-migration-strategy.md",
+        "topics": [
+          "migration",
+          "gesture",
+          "optimization",
+          "architecture",
+          "implementation"
+        ],
+        "size": 12796
+      },
+      {
+        "file": "11-websocket-performance-optimization.md",
+        "topics": [
+          "migration",
+          "gesture",
+          "optimization",
+          "architecture",
+          "implementation"
+        ],
+        "size": 19875
+      },
+      {
+        "file": "12-windows-ml-migration.md",
+        "topics": [
+          "migration",
+          "gesture",
+          "optimization",
+          "architecture",
+          "implementation"
+        ],
+        "size": 22961
+      },
+      {
+        "file": "index.md",
+        "topics": [
+          "migration",
+          "gesture",
+          "optimization",
+          "architecture",
+          "implementation"
+        ],
+        "size": 11385
+      }
+    ],
+    "reference_docs": [
+      {
+        "file": "00-UNIFIED-ARCHITECTURE.md",
+        "topics": [
+          "migration",
+          "gesture",
+          "architecture"
+        ],
+        "size": 4803
+      },
+      {
+        "file": "02-IMPLEMENTATION-PLAN.md",
+        "topics": [
+          "migration",
+          "gesture",
+          "optimization",
+          "architecture",
+          "implementation"
+        ],
+        "size": 4867
+      },
+      {
+        "file": "03-OPTIMIZATION-DETAILED.md",
+        "topics": [
+          "migration",
+          "gesture",
+          "optimization"
+        ],
+        "size": 3563
+      }
+    ],
+    "skip_docs": [
+      {
+        "file": "13-GESTURE-RECOGNITION-ARCHITECTURE.md",
+        "topics": [
+          "migration",
+          "gesture",
+          "optimization",
+          "architecture",
+          "implementation"
+        ],
+        "size": 8761
+      },
+      {
+        "file": "14-GESTURE-IMPLEMENTATION-ROADMAP.md",
+        "topics": [
+          "migration",
+          "gesture",
+          "optimization",
+          "architecture",
+          "implementation"
+        ],
+        "size": 7206
+      },
+      {
+        "file": "Enhanced-Autonomous-Developmen.md",
+        "topics": [
+          "migration",
+          "gesture",
+          "optimization",
+          "architecture",
+          "implementation"
+        ],
+        "size": 16081
+      }
+    ]
+  },
+  "active_migrations": {
+    "uwebsockets": {
+      "progress": 15,
+      "doc": "11-websocket-performance-optimization.md"
+    },
+    "windows_ml": {
+      "progress": 30,
+      "doc": "12-windows-ml-migration.md"
+    },
+    "cep_uxp": {
+      "progress": 60,
+      "doc": "10-platform-migration-strategy.md"
+    }
+  },
+  "memory_optimization": {
+    "max_docs_in_memory": 5,
+    "rotation_strategy": "LRU",
+    "cache_completed": false
+  }
+}

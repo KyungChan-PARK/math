@@ -1,0 +1,35 @@
+{
+  "mathpix": {
+    "credentials": {
+      "app_id": "kcpark_1463bc_952829",
+      "app_key": "c89149d2c80f6a6a96e812da4c07d10ba7f74316f26414825ffbb3ed588c34d9"
+    },
+    "endpoints": {
+      "base_url": "https://api.mathpix.com/v3",
+      "text": "/text",
+      "latex": "/latex",
+      "batch": "/batch",
+      "pdf": "/pdf"
+    },
+    "limits": {
+      "requests_per_month": 1000,
+      "max_image_size_mb": 10,
+      "max_pdf_pages": 100,
+      "rate_limit_per_minute": 20
+    },
+    "settings": {
+      "default_formats": ["text", "latex_styled", "mathml", "asciimath"],
+      "ocr_defaults": {
+        "math_inline_delimiters": ["$", "$"],
+        "math_display_delimiters": ["$$", "$$"],
+        "rm_spaces": true,
+        "numbers_default_to_math": true
+      }
+    }
+  },
+  "security": {
+    "encryption": true,
+    "audit_logging": true,
+    "access_control": "role-based"
+  }
+}

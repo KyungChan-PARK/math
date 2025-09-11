@@ -1,0 +1,17 @@
+{
+  "totalFiles": 256,
+  "analyzedFiles": 217,
+  "categories": {
+    "core": 68,
+    "backend": 33,
+    "ui": 33,
+    "documentation": 83
+  },
+  "complexity": "simple",
+  "health": {
+    "score": 90,
+    "issues": [
+      "Potential duplicate files: 8"
+    ]
+  }
+}

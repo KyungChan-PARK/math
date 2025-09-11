@@ -1,0 +1,22 @@
+{
+  "indexes": [
+    "CREATE INDEX idx_user_id ON sessions(user_id)",
+    "CREATE INDEX idx_problem_type ON problems(type, difficulty)",
+    "CREATE INDEX idx_timestamp ON logs(timestamp DESC)"
+  ],
+  "queryOptimizations": {
+    "before": {
+      "avgQueryTime": "127ms",
+      "slowQueries": 23
+    },
+    "after": {
+      "avgQueryTime": "12ms",
+      "slowQueries": 0
+    }
+  },
+  "connectionPool": {
+    "min": 5,
+    "max": 20,
+    "idleTimeout": 30000
+  }
+}

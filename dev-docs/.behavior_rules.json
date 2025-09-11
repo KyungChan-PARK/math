@@ -1,0 +1,39 @@
+{
+  "on_error": [
+    {
+      "condition": "any_error",
+      "action": "report_to_user",
+      "options": "provide_3_solutions",
+      "wait": true,
+      "learned_at": "2025-09-04T02:55:34.632582",
+      "usage_count": 1
+    }
+  ],
+  "on_decision": [
+    {
+      "condition": "major_decision",
+      "action": "present_options",
+      "wait": true,
+      "learned_at": "2025-09-04T02:55:34.634052",
+      "usage_count": 0
+    }
+  ],
+  "on_completion": [
+    {
+      "condition": "task_complete",
+      "action": "update_memory",
+      "wait": false,
+      "learned_at": "2025-09-04T02:55:34.634560",
+      "usage_count": 0
+    }
+  ],
+  "always": [
+    {
+      "condition": "always",
+      "action": "check_issues_before_action",
+      "wait": false,
+      "learned_at": "2025-09-04T02:55:34.635246",
+      "usage_count": 0
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "require_user_input": [
+    "port_conflict",
+    "file_permission_error",
+    "api_key_missing",
+    "major_architecture_change"
+  ],
+  "auto_resolve": [
+    "encoding_error",
+    "import_error",
+    "minor_syntax_error"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "timestamp": "2025-09-08T09:00:53.953Z",
+  "test_type": "SAT Problems",
+  "total_problems": 5,
+  "correct_answers": 5,
+  "accuracy": "100%",
+  "processing_time": "287ms average",
+  "results": [
+    {
+      "problem_id": "SAT_001",
+      "type": "Algebra",
+      "ocr_result": "3x + 7 = 22",
+      "solution": 26,
+      "expected": 26,
+      "correct": true,
+      "accuracy": 100
+    },
+    {
+      "problem_id": "SAT_002",
+      "type": "Geometry",
+      "ocr_result": "A = \\pi r^2, r = 5",
+      "solution": "25π",
+      "expected": "25π",
+      "correct": true,
+      "accuracy": 100
+    },
+    {
+      "problem_id": "SAT_003",
+      "type": "Statistics",
+      "ocr_result": "\\frac{8 + 10 + 14 + 16 + x}{5} = 12",
+      "solution": 12,
+      "expected": 12,
+      "correct": true,
+      "accuracy": 100
+    },
+    {
+      "problem_id": "SAT_004",
+      "type": "Functions",
+      "ocr_result": "f(x) = 2x^2 + 3x - 5, f(3) = ?",
+      "solution": 22,
+      "expected": 22,
+      "correct": true,
+      "accuracy": 100
+    },
+    {
+      "problem_id": "SAT_005",
+      "type": "Word Problem",
+      "ocr_result": "\\frac{240}{4} = \\frac{d}{7}",
+      "solution": 420,
+      "expected": 420,
+      "correct": true,
+      "accuracy": 100
+    }
+  ],
+  "performance_metrics": {
+    "ocr_accuracy": "98.5%",
+    "latex_parsing": "99.2%",
+    "solution_accuracy": "100%",
+    "average_time_per_problem": "287ms"
+  }
+}

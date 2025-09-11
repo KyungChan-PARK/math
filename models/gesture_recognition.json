@@ -1,0 +1,5 @@
+{
+  "format": "ONNX",
+  "version": 1,
+  "description": "Gesture recognition model for MediaPipe hand landmarks"
+}

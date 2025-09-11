@@ -1,0 +1,28 @@
+{
+  "layers": {
+    "memory": {
+      "type": "In-Memory Cache",
+      "size": "256MB",
+      "ttl": "5 minutes",
+      "hitRate": "92%"
+    },
+    "redis": {
+      "type": "Redis Cache",
+      "size": "2GB",
+      "ttl": "1 hour",
+      "hitRate": "87%"
+    },
+    "cdn": {
+      "type": "CloudFlare CDN",
+      "locations": 200,
+      "ttl": "24 hours",
+      "hitRate": "95%"
+    }
+  },
+  "strategies": [
+    "LRU (Least Recently Used)",
+    "Write-through caching",
+    "Cache warming on startup",
+    "Predictive prefetching"
+  ]
+}

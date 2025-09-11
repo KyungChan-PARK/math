@@ -1,0 +1,100 @@
+{
+  "02-AUTONOMY-GUIDELINES": {
+    "path": "C:\\palantir\\math\\dev-docs\\02-AUTONOMY-GUIDELINES.md",
+    "title": "02-AUTONOMY-GUIDELINES: Teacher-AI Collaborative Learning System",
+    "last_modified": 1756933500.860286,
+    "size": 14743,
+    "category": "core"
+  },
+  "03-NLP-REALTIME-SYSTEM": {
+    "path": "C:\\palantir\\math\\dev-docs\\03-NLP-REALTIME-SYSTEM.md",
+    "title": "️ [KR] [KR] [KR] [KR] [KR]",
+    "last_modified": 1756979162.1264865,
+    "size": 16518,
+    "category": "core"
+  },
+  "04-GESTURE-RECOGNITION": {
+    "path": "C:\\palantir\\math\\dev-docs\\04-GESTURE-RECOGNITION.md",
+    "title": "️ MediaPipe [KR] [KR] - [KR] [KR] [KR]",
+    "last_modified": 1756979054.8883543,
+    "size": 13872,
+    "category": "core"
+  },
+  "05-VIDEO-MOTION-EXTRACTION": {
+    "path": "C:\\palantir\\math\\dev-docs\\05-VIDEO-MOTION-EXTRACTION.md",
+    "title": "?�� Video Motion Extraction & Analysis Framework",
+    "last_modified": 1756928445.7752037,
+    "size": 18672,
+    "category": "core"
+  },
+  "06-WEBSOCKET-OPTIMIZATION": {
+    "path": "C:\\palantir\\math\\dev-docs\\06-WEBSOCKET-OPTIMIZATION.md",
+    "title": "PRACTICAL WEBSOCKET IMPLEMENTATION UPDATE",
+    "last_modified": 1756928445.7752037,
+    "size": 5604,
+    "category": "core"
+  },
+  "07-WINDOWS-ML-INTEGRATION": {
+    "path": "C:\\palantir\\math\\dev-docs\\07-WINDOWS-ML-INTEGRATION.md",
+    "title": "?�� Windows ML Migration Guide - DirectML Transition",
+    "last_modified": 1756928445.7763712,
+    "size": 23569,
+    "category": "core"
+  },
+  "08-CEP-UXP-MIGRATION": {
+    "path": "C:\\palantir\\math\\dev-docs\\08-CEP-UXP-MIGRATION.md",
+    "title": "?�� Platform Migration Strategy - CEP to UXP Transition Plan",
+    "last_modified": 1756928445.7763712,
+    "size": 13451,
+    "category": "core"
+  },
+  "09-PALANTIR-INTEGRATION-PLAN": {
+    "path": "C:\\palantir\\math\\dev-docs\\09-PALANTIR-INTEGRATION-PLAN.md",
+    "title": " PALANTIR INTEGRATION PLAN FOR AE CLAUDE MAX",
+    "last_modified": 1756928445.7763712,
+    "size": 4020,
+    "category": "core"
+  },
+  "10-MCP-TOOL-INTEGRATION": {
+    "path": "C:\\palantir\\math\\dev-docs\\10-MCP-TOOL-INTEGRATION.md",
+    "title": " MCP TOOL INTEGRATION GUIDE - CLAUDE OPUS 4.1",
+    "last_modified": 1756928445.7776134,
+    "size": 13441,
+    "category": "core"
+  },
+  "11-COMPLEX-WORKFLOW-MANAGEMENT": {
+    "path": "C:\\palantir\\math\\dev-docs\\11-COMPLEX-WORKFLOW-MANAGEMENT.md",
+    "title": " COMPLEX WORKFLOW MANAGEMENT - CLAUDE OPUS 4.1",
+    "last_modified": 1756928445.7776134,
+    "size": 16084,
+    "category": "core"
+  },
+  "12-SESSION-START-PROMPT": {
+    "path": "C:\\palantir\\math\\dev-docs\\12-SESSION-START-PROMPT.md",
+    "title": " AI Agent [KR] start [KR] - Claude Opus 4.1",
+    "last_modified": 1756982848.5301073,
+    "size": 9281,
+    "category": "core"
+  },
+  "13-FIGMA-PLUGIN-DEVELOPMENT": {
+    "path": "C:\\palantir\\math\\dev-docs\\13-FIGMA-PLUGIN-DEVELOPMENT.md",
+    "title": " Figma Plugin [KR] - [KR] [KR] [KR] [KR]",
+    "last_modified": 1756979258.5925717,
+    "size": 14045,
+    "category": "core"
+  },
+  "15-ONTOLOGY-ORCHESTRATION-GUIDE": {
+    "path": "C:\\palantir\\math\\dev-docs\\15-ONTOLOGY-ORCHESTRATION-GUIDE.md",
+    "title": " Ontology-Orchestration [KR] [KR] [KR]",
+    "last_modified": 1756979699.9638798,
+    "size": 3995,
+    "category": "core"
+  },
+  "16-IMPLEMENTATION-TRACKER": {
+    "path": "C:\\palantir\\math\\dev-docs\\16-IMPLEMENTATION-TRACKER.md",
+    "title": "AE Claude Max v3.4.0 - Implementation Tracker",
+    "last_modified": 1756983273.8200486,
+    "size": 5375,
+    "category": "implementation"
+  }
+}

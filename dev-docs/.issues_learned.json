@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1757062921434",
+    "type": "CONNECTION_ERROR",
+    "message": "ECONNREFUSED: Connection refused to localhost:8089",
+    "timestamp": "2025-09-05T09:02:01.434Z",
+    "resolved": true
+  },
+  {
+    "id": "1757063356237",
+    "type": "CONNECTION_ERROR",
+    "message": "ECONNREFUSED: Connection refused to localhost:8089",
+    "timestamp": "2025-09-05T09:09:16.237Z",
+    "resolved": true
+  }
+]

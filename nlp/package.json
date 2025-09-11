@@ -1,0 +1,19 @@
+{
+  "name": "math-nlp-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Natural Language Processing server for math commands",
+  "main": "math_nlp_server.js",
+  "scripts": {
+    "start": "node math_nlp_server.js",
+    "dev": "nodemon math_nlp_server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

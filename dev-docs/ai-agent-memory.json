@@ -1,0 +1,115 @@
+{
+  "entities": [
+    {
+      "name": "AE_Claude_Max_v3.4.0",
+      "entityType": "Project",
+      "observations": [
+        "After Effects automation developer",
+        "Version 3.4.0 - gesture recognition completed",
+        "Active migrations: µWebSockets (15%), Windows ML (30%), CEP-UXP (60%)",
+        "Primary path: C:\\palantir\\math",
+        "Using ES modules and Node.js v20.18.1",
+        "PowerShell on Windows 11"
+      ]
+    },
+    {
+      "name": "µWebSockets_Migration",
+      "entityType": "Migration",
+      "observations": [
+        "Progress: 15% complete",
+        "Target: 850 msg/sec (current: 100 msg/sec)",
+        "Primary doc: 11-websocket-performance-optimization.md",
+        "Path: server/uws-migration/",
+        "Priority: HIGH - performance critical"
+      ]
+    },
+    {
+      "name": "Windows_ML_Migration",
+      "entityType": "Migration",
+      "observations": [
+        "Progress: 30% complete",
+        "Target: <15ms inference (current: 45ms)",
+        "Primary doc: 12-windows-ml-migration.md",
+        "Path: ml/windows-ml/",
+        "Using ONNX Runtime for Windows",
+        "Priority: HIGH - ML optimization"
+      ]
+    },
+    {
+      "name": "CEP_UXP_Abstraction",
+      "entityType": "Migration",
+      "observations": [
+        "Progress: 60% complete",
+        "Primary doc: 10-platform-migration-strategy.md",
+        "Path: cep-extension/abstraction/",
+        "Creating compatibility layer for both platforms",
+        "Priority: MEDIUM - platform modernization"
+      ]
+    },
+    {
+      "name": "Completed_Features",
+      "entityType": "System",
+      "observations": [
+        "Gesture recognition - External canvas architecture",
+        "Natural language pipeline - VIBE methodology",
+        "YOLO11 integration - Computer vision",
+        "ES module migration - 100% complete",
+        "Auto-documentation system - Hourly updates"
+      ]
+    },
+    {
+      "name": "PowerShell_Commands",
+      "entityType": "Reference",
+      "observations": [
+        "Always use semicolons: cd path; npm install",
+        "Environment vars: $env:PORT=8080; node server.js",
+        "Never use &&, it causes InvalidEndOfLine error",
+        "Port 8080 may conflict, use 8085 as fallback",
+        "Start auto-update: cd dev-docs; start-auto-update.bat"
+      ]
+    },
+    {
+      "name": "Document_Priority_Map",
+      "entityType": "Reference",
+      "observations": [
+        "HIGH: 01-AGENT-GUIDELINES.md, index.md",
+        "HIGH: 11-websocket-performance-optimization.md",
+        "HIGH: 12-windows-ml-migration.md",
+        "HIGH: 10-platform-migration-strategy.md",
+        "SKIP: Gesture docs (completed), Enhanced-Autonomous-Developmen.md (duplicate)"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "AE_Claude_Max_v3.4.0",
+      "to": "µWebSockets_Migration",
+      "relationType": "REQUIRES"
+    },
+    {
+      "from": "AE_Claude_Max_v3.4.0",
+      "to": "Windows_ML_Migration",
+      "relationType": "REQUIRES"
+    },
+    {
+      "from": "AE_Claude_Max_v3.4.0",
+      "to": "CEP_UXP_Abstraction",
+      "relationType": "REQUIRES"
+    },
+    {
+      "from": "AE_Claude_Max_v3.4.0",
+      "to": "Completed_Features",
+      "relationType": "HAS"
+    },
+    {
+      "from": "AE_Claude_Max_v3.4.0",
+      "to": "PowerShell_Commands",
+      "relationType": "USES"
+    },
+    {
+      "from": "AE_Claude_Max_v3.4.0",
+      "to": "Document_Priority_Map",
+      "relationType": "FOLLOWS"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "name": "Math Education Ontology",
+  "version": "1.0.0",
+  "description": "Knowledge graph structure for AI-in-the-Loop Math Education System",
+  "entities": {
+    "Concept": {
+      "properties": ["id", "name", "description", "level", "prerequisites"],
+      "relations": ["requires", "enables", "contains", "relatedTo"]
+    },
+    "Problem": {
+      "properties": ["id", "statement", "solution", "difficulty", "concepts"],
+      "relations": ["uses", "demonstrates", "solvableBy"]
+    },
+    "Student": {
+      "properties": ["id", "name", "level", "progress", "strengths", "weaknesses"],
+      "relations": ["knows", "learning", "mastered", "strugglingWith"]
+    },
+    "Gesture": {
+      "properties": ["id", "type", "pattern", "meaning", "confidence"],
+      "relations": ["represents", "triggers", "indicates"]
+    },
+    "Lesson": {
+      "properties": ["id", "title", "objectives", "content", "exercises"],
+      "relations": ["teaches", "requires", "follows", "includes"]
+    },
+    "Feedback": {
+      "properties": ["id", "type", "content", "timestamp", "context"],
+      "relations": ["about", "from", "to", "triggers"]
+    }
+  },
+  "relations": {
+    "requires": {
+      "from": "Concept",
+      "to": "Concept",
+      "properties": ["strength", "optional"]
+    },
+    "knows": {
+      "from": "Student",
+      "to": "Concept",
+      "properties": ["confidence", "lastPracticed"]
+    },
+    "uses": {
+      "from": "Problem",
+      "to": "Concept",
+      "properties": ["weight", "primary"]
+    },
+    "represents": {
+      "from": "Gesture",
+      "to": "Concept",
+      "properties": ["accuracy", "context"]
+    }
+  },
+  "rules": {
+    "prerequisiteCheck": "A student can only learn a concept if all required prerequisites are known",
+    "adaptiveDifficulty": "Problem difficulty adjusts based on student's concept mastery",
+    "gestureRecognition": "Gestures trigger corresponding mathematical operations",
+    "feedbackGeneration": "Feedback is generated based on student's interaction patterns"
+  },
+  "integrations": {
+    "neo4j": {
+      "enabled": true,
+      "uri": "bolt://localhost:7687",
+      "database": "math-education"
+    },
+    "chromadb": {
+      "enabled": true,
+      "uri": "http://localhost:8000",
+      "collection": "math-concepts"
+    },
+    "claude": {
+      "enabled": true,
+      "model": "claude-opus-4-1",
+      "orchestration": true
+    }
+  }
+}

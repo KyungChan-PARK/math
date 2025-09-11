@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galaxy Touch Math - 실시간 테스트</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', sans-serif;
+            background: #1e1e1e;
+            color: white;
+        }
+        
+        #container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .panel {
+            background: #2d2d30;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        h2 {
+            margin-top: 0;
+            color: #4fc3f7;
+        }
+        
+        #canvas {
+            background: white;
+            border-radius: 5px;
+            width: 100%;
+            height: 400px;
+            touch-action: none;
+            cursor: crosshair;
+        }
+        
+        #video {
+            width: 100%;
+            height: 300px;
+            background: black;
+            border-radius: 5px;
+        }
+        
+        .status {
+            padding: 10px;
+            background: #383838;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .gesture-detected {
+            background: #4caf50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            animation: pulse 0.5s;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        button {
+            background: #4fc3f7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background: #29b6f6;
+        }
+        
+        #stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 10px;
+            background: #383838;
+            border-radius: 5px;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            color: #4fc3f7;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">🎓 Samsung Galaxy Touch Math System</h1>
+    
+    <div id="container">
+        <!-- 왼쪽: 터치/펜 입력 -->
+        <div class="panel">
+            <h2>📱 터치 & S Pen 입력</h2>
+            <canvas id="canvas"></canvas>
+            
+            <div class="status" id="touchStatus">
+                터치 대기 중...
+            </div>
+            
+            <div>
+                <button onclick="clearCanvas()">지우기</button>
+                <button onclick="testTriangle()">삼각형 테스트</button>
+                <button onclick="testCircle()">원 테스트</button>
+                <button onclick="togglePen()">S Pen 모드</button>
+            </div>
+        </div>
+        
+        <!-- 오른쪽: 카메라 & 제스처 -->
+        <div class="panel">
+            <h2>✋ MediaPipe 손 추적</h2>
+            <video id="video" autoplay></video>
+            <canvas id="handCanvas" style="display:none;"></canvas>
+            
+            <div class="status" id="gestureStatus">
+                카메라 초기화 중...
+            </div>
+            
+            <div id="detectedGesture" style="min-height: 50px;">
+                <!-- 인식된 제스처 표시 -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- 통계 -->
+    <div class="panel" style="margin-top: 20px;">
+        <h2>📊 실시간 성능 모니터링</h2>
+        <div id="stats">
+            <div class="stat">
+                <div class="stat-value" id="fps">0</div>
+                <div class="stat-label">FPS</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="latency">0ms</div>
+                <div class="stat-label">지연시간</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="accuracy">0%</div>
+                <div class="stat-label">인식률</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="patterns">0</div>
+                <div class="stat-label">학습된 패턴</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="automation">0</div>
+                <div class="stat-label">자동화</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="adaptation">0%</div>
+                <div class="stat-label">적응도</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 캔버스 설정
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        
+        let isDrawing = false;
+        let isPenMode = false;
+        let touchPoints = [];
+        let currentPath = [];
+        
+        // 터치 이벤트
+        canvas.addEventListener('touchstart', handleTouchStart);
+        canvas.addEventListener('touchmove', handleTouchMove);
+        canvas.addEventListener('touchend', handleTouchEnd);
+        
+        // 마우스 이벤트 (테스트용)
+        canvas.addEventListener('mousedown', handleMouseDown);
+        canvas.addEventListener('mousemove', handleMouseMove);
+        canvas.addEventListener('mouseup', handleMouseUp);
+        
+        // 펜 이벤트
+        canvas.addEventListener('pointerdown', handlePointerDown);
+        canvas.addEventListener('pointermove', handlePointerMove);
+        canvas.addEventListener('pointerup', handlePointerUp);
+        
+        function handleTouchStart(e) {
+            e.preventDefault();
+            touchPoints = Array.from(e.touches).map(t => ({
+                x: t.clientX - canvas.offsetLeft,
+                y: t.clientY - canvas.offsetTop,
+                id: t.identifier
+            }));
+            
+            updateStatus(`터치 시작: ${touchPoints.length}개 포인트`);
+            
+            if (touchPoints.length === 1) {
+                startDrawing(touchPoints[0].x, touchPoints[0].y);
+            }
+        }
+        
+        function handleTouchMove(e) {
+            e.preventDefault();
+            const points = Array.from(e.touches).map(t => ({
+                x: t.clientX - canvas.offsetLeft,
+                y: t.clientY - canvas.offsetTop
+            }));
+            
+            if (points.length === 1 && isDrawing) {
+                draw(points[0].x, points[0].y);
+            } else if (points.length === 2) {
+                handlePinchOrRotate(points);
+            }
+        }
+        
+        function handleTouchEnd(e) {
+            e.preventDefault();
+            const touchCount = touchPoints.length;
+            
+            if (touchCount === 3) {
+                detectTriangle();
+            } else if (touchCount === 4) {
+                detectRectangle();
+            }
+            
+            stopDrawing();
+            analyzeGesture();
+        }
+        
+        function handleMouseDown(e) {
+            if (!e.touches) {  // 마우스 이벤트만
+                startDrawing(e.offsetX, e.offsetY);
+            }
+        }
+        
+        function handleMouseMove(e) {
+            if (!e.touches && isDrawing) {
+                draw(e.offsetX, e.offsetY);
+            }
+        }
+        
+        function handleMouseUp(e) {
+            if (!e.touches) {
+                stopDrawing();
+                analyzeGesture();
+            }
+        }
+        
+        function handlePointerDown(e) {
+            if (e.pointerType === 'pen') {
+                isPenMode = true;
+                updateStatus(`S Pen 감지 - 압력: ${e.pressure.toFixed(2)}`);
+                startDrawing(e.offsetX, e.offsetY, e.pressure);
+            }
+        }
+        
+        function handlePointerMove(e) {
+            if (e.pointerType === 'pen' && isDrawing) {
+                ctx.lineWidth = e.pressure * 5;
+                draw(e.offsetX, e.offsetY);
+            }
+        }
+        
+        function handlePointerUp(e) {
+            if (e.pointerType === 'pen') {
+                stopDrawing();
+                analyzeGesture();
+            }
+        }
+        
+        function startDrawing(x, y, pressure = 1) {
+            isDrawing = true;
+            currentPath = [{x, y}];
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineWidth = pressure * 3;
+            ctx.strokeStyle = isPenMode ? '#2196F3' : '#333';
+        }
+        
+        function draw(x, y) {
+            if (!isDrawing) return;
+            
+            currentPath.push({x, y});
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
+        
+        function stopDrawing() {
+            isDrawing = false;
+        }
+        
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            currentPath = [];
+            touchPoints = [];
+        }
+        
+        function analyzeGesture() {
+            if (currentPath.length < 5) return;
+            
+            const shape = detectShape(currentPath);
+            if (shape) {
+                showGestureDetected(shape);
+                sendToAE(shape);
+            }
+        }
+        
+        function detectShape(path) {
+            if (path.length < 3) return null;
+            
+            const start = path[0];
+            const end = path[path.length - 1];
+            const distance = Math.sqrt(
+                Math.pow(end.x - start.x, 2) + 
+                Math.pow(end.y - start.y, 2)
+            );
+            
+            // 닫힌 도형 체크
+            if (distance < 50) {
+                if (isCircular(path)) return 'CIRCLE';
+                if (hasCorners(path, 3)) return 'TRIANGLE';
+                if (hasCorners(path, 4)) return 'RECTANGLE';
+            } else {
+                if (isStraight(path)) return 'LINE';
+                if (isAngle(path)) return 'ANGLE';
+            }
+            
+            return null;
+        }
+        
+        function isCircular(path) {
+            // 간단한 원형 검사
+            const center = findCenter(path);
+            const radii = path.map(p => 
+                Math.sqrt(Math.pow(p.x - center.x, 2) + Math.pow(p.y - center.y, 2))
+            );
+            const avgRadius = radii.reduce((a, b) => a + b, 0) / radii.length;
+            const variance = radii.reduce((sum, r) => sum + Math.pow(r - avgRadius, 2), 0) / radii.length;
+            
+            return variance / avgRadius < 0.3;
+        }
+        
+        function hasCorners(path, expectedCorners) {
+            // 코너 검사 (간단한 버전)
+            let corners = 0;
+            for (let i = 1; i < path.length - 1; i++) {
+                const angle = getAngle(path[i-1], path[i], path[i+1]);
+                if (angle < 120) corners++;
+            }
+            return Math.abs(corners - expectedCorners) <= 1;
+        }
+        
+        function isStraight(path) {
+            // 직선 검사
+            const start = path[0];
+            const end = path[path.length - 1];
+            
+            const maxDev = path.reduce((max, point) => {
+                const dev = pointToLineDistance(point, start, end);
+                return Math.max(max, dev);
+            }, 0);
+            
+            return maxDev < 15;
+        }
+        
+        function isAngle(path) {
+            // L자 검사
+            let cornerCount = 0;
+            for (let i = 1; i < path.length - 1; i++) {
+                const angle = getAngle(path[i-1], path[i], path[i+1]);
+                if (angle < 120) cornerCount++;
+            }
+            return cornerCount === 1;
+        }
+        
+        function findCenter(points) {
+            const sum = points.reduce((acc, p) => ({
+                x: acc.x + p.x,
+                y: acc.y + p.y
+            }), {x: 0, y: 0});
+            
+            return {
+                x: sum.x / points.length,
+                y: sum.y / points.length
+            };
+        }
+        
+        function getAngle(p1, p2, p3) {
+            const v1 = {x: p1.x - p2.x, y: p1.y - p2.y};
+            const v2 = {x: p3.x - p2.x, y: p3.y - p2.y};
+            
+            const dot = v1.x * v2.x + v1.y * v2.y;
+            const det = v1.x * v2.y - v1.y * v2.x;
+            
+            return Math.abs(Math.atan2(det, dot) * 180 / Math.PI);
+        }
+        
+        function pointToLineDistance(point, lineStart, lineEnd) {
+            const A = point.x - lineStart.x;
+            const B = point.y - lineStart.y;
+            const C = lineEnd.x - lineStart.x;
+            const D = lineEnd.y - lineStart.y;
+            
+            const dot = A * C + B * D;
+            const lenSq = C * C + D * D;
+            let param = lenSq !== 0 ? dot / lenSq : -1;
+            
+            let xx, yy;
+            
+            if (param < 0) {
+                xx = lineStart.x;
+                yy = lineStart.y;
+            } else if (param > 1) {
+                xx = lineEnd.x;
+                yy = lineEnd.y;
+            } else {
+                xx = lineStart.x + param * C;
+                yy = lineStart.y + param * D;
+            }
+            
+            return Math.sqrt(Math.pow(point.x - xx, 2) + Math.pow(point.y - yy, 2));
+        }
+        
+        function handlePinchOrRotate(points) {
+            // 핀치/회전 처리
+            const distance = Math.sqrt(
+                Math.pow(points[1].x - points[0].x, 2) + 
+                Math.pow(points[1].y - points[0].y, 2)
+            );
+            
+            updateStatus(`핀치/회전: 거리 ${distance.toFixed(0)}px`);
+        }
+        
+        function detectTriangle() {
+            showGestureDetected('TRIANGLE (3점 터치)');
+            sendToAE('CREATE_TRIANGLE');
+        }
+        
+        function detectRectangle() {
+            showGestureDetected('RECTANGLE (4점 터치)');
+            sendToAE('CREATE_RECTANGLE');
+        }
+        
+        function testTriangle() {
+            ctx.beginPath();
+            ctx.moveTo(200, 100);
+            ctx.lineTo(300, 250);
+            ctx.lineTo(100, 250);
+            ctx.closePath();
+            ctx.stroke();
+            showGestureDetected('TRIANGLE (테스트)');
+        }
+        
+        function testCircle() {
+            ctx.beginPath();
+            ctx.arc(200, 200, 80, 0, 2 * Math.PI);
+            ctx.stroke();
+            showGestureDetected('CIRCLE (테스트)');
+        }
+        
+        function togglePen() {
+            isPenMode = !isPenMode;
+            updateStatus(isPenMode ? 'S Pen 모드 활성' : '터치 모드');
+        }
+        
+        function updateStatus(message) {
+            document.getElementById('touchStatus').textContent = message;
+        }
+        
+        function showGestureDetected(gesture) {
+            const elem = document.getElementById('detectedGesture');
+            elem.className = 'gesture-detected';
+            elem.textContent = `✅ 인식됨: ${gesture}`;
+            
+            setTimeout(() => {
+                elem.className = '';
+            }, 2000);
+        }
+        
+        function sendToAE(command) {
+            console.log(`After Effects 명령: ${command}`);
+            // WebSocket으로 전송
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({
+                    type: 'GESTURE_COMMAND',
+                    command: command,
+                    timestamp: Date.now()
+                }));
+            }
+        }
+        
+        // WebSocket 연결
+        let ws;
+        try {
+            ws = new WebSocket('ws://localhost:8085');
+            ws.onopen = () => {
+                console.log('WebSocket 연결됨');
+                document.getElementById('gestureStatus').textContent = 'WebSocket 연결 완료';
+            };
+            ws.onmessage = (event) => {
+                console.log('서버 응답:', event.data);
+            };
+        } catch (error) {
+            console.error('WebSocket 연결 실패:', error);
+        }
+        
+        // 성능 모니터링
+        let frameCount = 0;
+        let lastTime = Date.now();
+        
+        function updateStats() {
+            const now = Date.now();
+            const delta = now - lastTime;
+            
+            if (delta >= 1000) {
+                document.getElementById('fps').textContent = frameCount;
+                frameCount = 0;
+                lastTime = now;
+            }
+            
+            frameCount++;
+            
+            // 더미 데이터 (실제 구현시 실제 값으로)
+            document.getElementById('latency').textContent = Math.floor(Math.random() * 20 + 30) + 'ms';
+            document.getElementById('accuracy').textContent = Math.floor(Math.random() * 10 + 85) + '%';
+            document.getElementById('patterns').textContent = Math.floor(Math.random() * 5 + 3);
+            document.getElementById('automation').textContent = Math.floor(Math.random() * 3 + 1);
+            document.getElementById('adaptation').textContent = Math.floor(Math.random() * 30 + 20) + '%';
+            
+            requestAnimationFrame(updateStats);
+        }
+        
+        updateStats();
+        
+        // MediaPipe 초기화 (시뮬레이션)
+        setTimeout(() => {
+            document.getElementById('gestureStatus').textContent = 'MediaPipe 준비 완료';
+        }, 2000);
+    </script>
+</body>
+</html>

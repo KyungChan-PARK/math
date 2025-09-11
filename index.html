@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Math Learning System v2.0</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Noto Sans KR', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 90%;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .menu-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .menu-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .menu-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .menu-desc {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        .stats {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Adaptive Math Learning System</h1>
+        <p class="subtitle">자가개선형 수학 문제 생성 및 학습 분석 시스템 v2.0</p>
+        
+        <div class="menu-grid">
+            <a href="/ratio-problems" class="menu-item">
+                <div class="menu-icon">📊</div>
+                <div class="menu-title">비와 비율</div>
+                <div class="menu-desc">10개 문제 세트</div>
+            </a>
+            
+            <a href="/dashboard" class="menu-item">
+                <div class="menu-icon">📈</div>
+                <div class="menu-title">학습 대시보드</div>
+                <div class="menu-desc">실시간 분석</div>
+            </a>
+            
+            <a href="#" class="menu-item" onclick="startFactorization()">
+                <div class="menu-icon">🔢</div>
+                <div class="menu-title">인수분해</div>
+                <div class="menu-desc">적응형 문제</div>
+            </a>
+            
+            <a href="#" class="menu-item" onclick="viewReports()">
+                <div class="menu-icon">📝</div>
+                <div class="menu-title">학습 보고서</div>
+                <div class="menu-desc">개인별 분석</div>
+            </a>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="totalStudents">0</div>
+                <div class="stat-label">전체 학생</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="activeToday">0</div>
+                <div class="stat-label">오늘 활동</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="avgAccuracy">0%</div>
+                <div class="stat-label">평균 정답률</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="totalProblems">0</div>
+                <div class="stat-label">생성된 문제</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 통계 로드
+        async function loadStats() {
+            try {
+                const response = await fetch('/api/analytics');
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    document.getElementById('totalStudents').textContent = data.data.totalStudents || 0;
+                    document.getElementById('activeToday').textContent = data.data.activeToday || 0;
+                    document.getElementById('avgAccuracy').textContent = 
+                        Math.round((data.data.averageAccuracy || 0) * 100) + '%';
+                    document.getElementById('totalProblems').textContent = 
+                        (data.data.totalSessions || 0) * 10;
+                }
+            } catch (error) {
+                console.error('Stats loading error:', error);
+            }
+        }
+        
+        function startFactorization() {
+            alert('인수분해 문제 생성 모듈 준비 중...');
+        }
+        
+        function viewReports() {
+            window.location.href = '/api/reports/generate?type=general&period=week&format=html';
+        }
+        
+        // 페이지 로드 시 통계 로드
+        window.onload = loadStats;
+        
+        // 30초마다 통계 업데이트
+        setInterval(loadStats, 30000);
+    </script>
+</body>
+</html>

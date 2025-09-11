@@ -1,0 +1,613 @@
+{
+  "documents": {
+    "00-UNIFIED-ARCHITECTURE": {
+      "id": "00-UNIFIED-ARCHITECTURE",
+      "type": "core",
+      "layer": 0,
+      "dependencies": [],
+      "dependents": [],
+      "ports": [],
+      "status": "draft",
+      "auto_update": true,
+      "last_updated": "2025-09-04T02:42:33.367759",
+      "version": "3.4.0"
+    },
+    "01-AGENT-GUIDELINES": {
+      "id": "01-AGENT-GUIDELINES",
+      "type": "core",
+      "layer": 0,
+      "dependencies": [],
+      "dependents": [],
+      "ports": [],
+      "status": "draft",
+      "auto_update": true,
+      "last_updated": "2025-09-04T02:42:33.367783",
+      "version": "3.4.0"
+    },
+    "08-REALTIME-INTERACTION": {
+      "id": "08-REALTIME-INTERACTION",
+      "type": "integration",
+      "layer": 1,
+      "dependencies": [],
+      "dependents": [],
+      "ports": [
+        8080,
+        8081
+      ],
+      "status": "draft",
+      "auto_update": true,
+      "last_updated": "2025-09-04T02:42:33.367790",
+      "version": "3.4.0"
+    },
+    "10-PLATFORM-MIGRATION": {
+      "id": "10-PLATFORM-MIGRATION",
+      "type": "integration",
+      "layer": 1,
+      "dependencies": [],
+      "dependents": [],
+      "ports": [],
+      "status": "draft",
+      "auto_update": true,
+      "last_updated": "2025-09-04T02:42:33.367800",
+      "version": "3.4.0"
+    },
+    "11-WEBSOCKET-PERFORMANCE": {
+      "id": "11-WEBSOCKET-PERFORMANCE",
+      "type": "integration",
+      "layer": 1,
+      "dependencies": [],
+      "dependents": [],
+      "ports": [
+        8080,
+        8085
+      ],
+      "status": "draft",
+      "auto_update": true,
+      "last_updated": "2025-09-04T02:42:33.367807",
+      "version": "3.4.0"
+    },
+    "12-WINDOWS-ML-MIGRATION": {
+      "id": "12-WINDOWS-ML-MIGRATION",
+      "type": "integration",
+      "layer": 1,
+      "dependencies": [],
+      "dependents": [],
+      "ports": [],
+      "status": "draft",
+      "auto_update": true,
+      "last_updated": "2025-09-04T02:42:33.367815",
+      "version": "3.4.0"
+    },
+    "06-VIBE-CODING": {
+      "id": "06-VIBE-CODING",
+      "type": "feature",
+      "layer": 2,
+      "dependencies": [],
+      "dependents": [],
+      "ports": [
+        8080
+      ],
+      "status": "draft",
+      "auto_update": true,
+      "last_updated": "2025-09-04T02:42:33.367820",
+      "version": "3.4.0"
+    },
+    "13-GESTURE-RECOGNITION": {
+      "id": "13-GESTURE-RECOGNITION",
+      "type": "feature",
+      "layer": 2,
+      "dependencies": [],
+      "dependents": [],
+      "ports": [
+        8081
+      ],
+      "status": "COMPLETED",
+      "auto_update": true,
+      "last_updated": "2025-09-04T02:42:33.367837",
+      "version": "3.4.0"
+    },
+    "07-VIDEO-MOTION": {
+      "id": "07-VIDEO-MOTION",
+      "type": "feature",
+      "layer": 2,
+      "dependencies": [],
+      "dependents": [],
+      "ports": [],
+      "status": "draft",
+      "auto_update": true,
+      "last_updated": "2025-09-04T02:42:33.367847",
+      "version": "3.4.0"
+    },
+    "02-IMPLEMENTATION-PLAN": {
+      "id": "02-IMPLEMENTATION-PLAN",
+      "type": "implementation",
+      "layer": 3,
+      "dependencies": [],
+      "dependents": [],
+      "ports": [],
+      "status": "draft",
+      "auto_update": true,
+      "last_updated": "2025-09-04T02:42:33.367857",
+      "version": "3.4.0"
+    },
+    "09-IMPLEMENTATION-ROADMAP": {
+      "id": "09-IMPLEMENTATION-ROADMAP",
+      "type": "implementation",
+      "layer": 3,
+      "dependencies": [],
+      "dependents": [],
+      "ports": [],
+      "status": "draft",
+      "auto_update": true,
+      "last_updated": "2025-09-04T02:42:33.367872",
+      "version": "3.4.0"
+    },
+    "14-GESTURE-IMPLEMENTATION": {
+      "id": "14-GESTURE-IMPLEMENTATION",
+      "type": "implementation",
+      "layer": 3,
+      "dependencies": [],
+      "dependents": [],
+      "ports": [
+        8081
+      ],
+      "status": "draft",
+      "auto_update": true,
+      "last_updated": "2025-09-04T02:42:33.367886",
+      "version": "3.4.0"
+    }
+  },
+  "relationships": [
+    {
+      "from": "08-REALTIME-INTERACTION",
+      "to": "00-UNIFIED-ARCHITECTURE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367794"
+    },
+    {
+      "from": "08-REALTIME-INTERACTION",
+      "to": "01-AGENT-GUIDELINES",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367797"
+    },
+    {
+      "from": "10-PLATFORM-MIGRATION",
+      "to": "00-UNIFIED-ARCHITECTURE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367802"
+    },
+    {
+      "from": "10-PLATFORM-MIGRATION",
+      "to": "01-AGENT-GUIDELINES",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367804"
+    },
+    {
+      "from": "11-WEBSOCKET-PERFORMANCE",
+      "to": "00-UNIFIED-ARCHITECTURE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367809"
+    },
+    {
+      "from": "11-WEBSOCKET-PERFORMANCE",
+      "to": "01-AGENT-GUIDELINES",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367810"
+    },
+    {
+      "from": "11-WEBSOCKET-PERFORMANCE",
+      "to": "08-REALTIME-INTERACTION",
+      "type": "PORT_CONFLICT",
+      "metadata": [
+        8080
+      ],
+      "created": "2025-09-04T02:42:33.367812"
+    },
+    {
+      "from": "12-WINDOWS-ML-MIGRATION",
+      "to": "00-UNIFIED-ARCHITECTURE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367816"
+    },
+    {
+      "from": "12-WINDOWS-ML-MIGRATION",
+      "to": "01-AGENT-GUIDELINES",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367817"
+    },
+    {
+      "from": "06-VIBE-CODING",
+      "to": "00-UNIFIED-ARCHITECTURE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367822"
+    },
+    {
+      "from": "06-VIBE-CODING",
+      "to": "01-AGENT-GUIDELINES",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367823"
+    },
+    {
+      "from": "06-VIBE-CODING",
+      "to": "08-REALTIME-INTERACTION",
+      "type": "PORT_CONFLICT",
+      "metadata": [
+        8080
+      ],
+      "created": "2025-09-04T02:42:33.367825"
+    },
+    {
+      "from": "06-VIBE-CODING",
+      "to": "08-REALTIME-INTERACTION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367826"
+    },
+    {
+      "from": "06-VIBE-CODING",
+      "to": "10-PLATFORM-MIGRATION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367829"
+    },
+    {
+      "from": "06-VIBE-CODING",
+      "to": "11-WEBSOCKET-PERFORMANCE",
+      "type": "PORT_CONFLICT",
+      "metadata": [
+        8080
+      ],
+      "created": "2025-09-04T02:42:33.367831"
+    },
+    {
+      "from": "06-VIBE-CODING",
+      "to": "11-WEBSOCKET-PERFORMANCE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367832"
+    },
+    {
+      "from": "06-VIBE-CODING",
+      "to": "12-WINDOWS-ML-MIGRATION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367833"
+    },
+    {
+      "from": "13-GESTURE-RECOGNITION",
+      "to": "00-UNIFIED-ARCHITECTURE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367838"
+    },
+    {
+      "from": "13-GESTURE-RECOGNITION",
+      "to": "01-AGENT-GUIDELINES",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367840"
+    },
+    {
+      "from": "13-GESTURE-RECOGNITION",
+      "to": "08-REALTIME-INTERACTION",
+      "type": "PORT_CONFLICT",
+      "metadata": [
+        8081
+      ],
+      "created": "2025-09-04T02:42:33.367841"
+    },
+    {
+      "from": "13-GESTURE-RECOGNITION",
+      "to": "08-REALTIME-INTERACTION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367842"
+    },
+    {
+      "from": "13-GESTURE-RECOGNITION",
+      "to": "10-PLATFORM-MIGRATION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367843"
+    },
+    {
+      "from": "13-GESTURE-RECOGNITION",
+      "to": "11-WEBSOCKET-PERFORMANCE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367844"
+    },
+    {
+      "from": "13-GESTURE-RECOGNITION",
+      "to": "12-WINDOWS-ML-MIGRATION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367845"
+    },
+    {
+      "from": "07-VIDEO-MOTION",
+      "to": "00-UNIFIED-ARCHITECTURE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367849"
+    },
+    {
+      "from": "07-VIDEO-MOTION",
+      "to": "01-AGENT-GUIDELINES",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367850"
+    },
+    {
+      "from": "07-VIDEO-MOTION",
+      "to": "08-REALTIME-INTERACTION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367852"
+    },
+    {
+      "from": "07-VIDEO-MOTION",
+      "to": "10-PLATFORM-MIGRATION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367853"
+    },
+    {
+      "from": "07-VIDEO-MOTION",
+      "to": "11-WEBSOCKET-PERFORMANCE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367854"
+    },
+    {
+      "from": "07-VIDEO-MOTION",
+      "to": "12-WINDOWS-ML-MIGRATION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367855"
+    },
+    {
+      "from": "02-IMPLEMENTATION-PLAN",
+      "to": "00-UNIFIED-ARCHITECTURE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367860"
+    },
+    {
+      "from": "02-IMPLEMENTATION-PLAN",
+      "to": "01-AGENT-GUIDELINES",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367862"
+    },
+    {
+      "from": "02-IMPLEMENTATION-PLAN",
+      "to": "08-REALTIME-INTERACTION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367863"
+    },
+    {
+      "from": "02-IMPLEMENTATION-PLAN",
+      "to": "10-PLATFORM-MIGRATION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367864"
+    },
+    {
+      "from": "02-IMPLEMENTATION-PLAN",
+      "to": "11-WEBSOCKET-PERFORMANCE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367865"
+    },
+    {
+      "from": "02-IMPLEMENTATION-PLAN",
+      "to": "12-WINDOWS-ML-MIGRATION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367866"
+    },
+    {
+      "from": "02-IMPLEMENTATION-PLAN",
+      "to": "06-VIBE-CODING",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367868"
+    },
+    {
+      "from": "02-IMPLEMENTATION-PLAN",
+      "to": "13-GESTURE-RECOGNITION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367869"
+    },
+    {
+      "from": "02-IMPLEMENTATION-PLAN",
+      "to": "07-VIDEO-MOTION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367870"
+    },
+    {
+      "from": "09-IMPLEMENTATION-ROADMAP",
+      "to": "00-UNIFIED-ARCHITECTURE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367873"
+    },
+    {
+      "from": "09-IMPLEMENTATION-ROADMAP",
+      "to": "01-AGENT-GUIDELINES",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367874"
+    },
+    {
+      "from": "09-IMPLEMENTATION-ROADMAP",
+      "to": "08-REALTIME-INTERACTION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367876"
+    },
+    {
+      "from": "09-IMPLEMENTATION-ROADMAP",
+      "to": "10-PLATFORM-MIGRATION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367877"
+    },
+    {
+      "from": "09-IMPLEMENTATION-ROADMAP",
+      "to": "11-WEBSOCKET-PERFORMANCE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367878"
+    },
+    {
+      "from": "09-IMPLEMENTATION-ROADMAP",
+      "to": "12-WINDOWS-ML-MIGRATION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367879"
+    },
+    {
+      "from": "09-IMPLEMENTATION-ROADMAP",
+      "to": "06-VIBE-CODING",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367880"
+    },
+    {
+      "from": "09-IMPLEMENTATION-ROADMAP",
+      "to": "13-GESTURE-RECOGNITION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367882"
+    },
+    {
+      "from": "09-IMPLEMENTATION-ROADMAP",
+      "to": "07-VIDEO-MOTION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367884"
+    },
+    {
+      "from": "14-GESTURE-IMPLEMENTATION",
+      "to": "00-UNIFIED-ARCHITECTURE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367887"
+    },
+    {
+      "from": "14-GESTURE-IMPLEMENTATION",
+      "to": "01-AGENT-GUIDELINES",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367888"
+    },
+    {
+      "from": "14-GESTURE-IMPLEMENTATION",
+      "to": "08-REALTIME-INTERACTION",
+      "type": "PORT_CONFLICT",
+      "metadata": [
+        8081
+      ],
+      "created": "2025-09-04T02:42:33.367890"
+    },
+    {
+      "from": "14-GESTURE-IMPLEMENTATION",
+      "to": "08-REALTIME-INTERACTION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367891"
+    },
+    {
+      "from": "14-GESTURE-IMPLEMENTATION",
+      "to": "10-PLATFORM-MIGRATION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367892"
+    },
+    {
+      "from": "14-GESTURE-IMPLEMENTATION",
+      "to": "11-WEBSOCKET-PERFORMANCE",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367893"
+    },
+    {
+      "from": "14-GESTURE-IMPLEMENTATION",
+      "to": "12-WINDOWS-ML-MIGRATION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367894"
+    },
+    {
+      "from": "14-GESTURE-IMPLEMENTATION",
+      "to": "06-VIBE-CODING",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367895"
+    },
+    {
+      "from": "14-GESTURE-IMPLEMENTATION",
+      "to": "13-GESTURE-RECOGNITION",
+      "type": "PORT_CONFLICT",
+      "metadata": [
+        8081
+      ],
+      "created": "2025-09-04T02:42:33.367898"
+    },
+    {
+      "from": "14-GESTURE-IMPLEMENTATION",
+      "to": "13-GESTURE-RECOGNITION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367900"
+    },
+    {
+      "from": "14-GESTURE-IMPLEMENTATION",
+      "to": "07-VIDEO-MOTION",
+      "type": "DEPENDS_ON",
+      "metadata": null,
+      "created": "2025-09-04T02:42:33.367901"
+    }
+  ],
+  "port_allocations": {
+    "8080": [
+      "08-REALTIME-INTERACTION",
+      "11-WEBSOCKET-PERFORMANCE",
+      "06-VIBE-CODING"
+    ],
+    "8081": [
+      "08-REALTIME-INTERACTION",
+      "13-GESTURE-RECOGNITION",
+      "14-GESTURE-IMPLEMENTATION"
+    ],
+    "8085": [
+      "11-WEBSOCKET-PERFORMANCE"
+    ]
+  },
+  "statistics": {
+    "total_docs": 12,
+    "total_relationships": 59,
+    "port_conflicts": 6,
+    "layers": {
+      "L0_Core": 2,
+      "L1_Integration": 4,
+      "L2_Feature": 3,
+      "L3_Implementation": 3
+    }
+  }
+}

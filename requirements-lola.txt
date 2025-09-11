@@ -1,0 +1,21 @@
+# Python Requirements for LOLA Integration
+# Compatible with Python 3.9 - 3.11
+
+# Core dependencies
+numpy>=1.21.0,<2.0.0
+opencv-python>=4.5.0
+
+# For Python 3.9-3.11 only
+mediapipe>=0.10.0  # Not available for Python 3.13 yet
+
+# TensorFlow (lighter alternative)
+# Instead of full tensorflow, use tensorflow-cpu for faster install
+tensorflow-cpu>=2.10.0,<2.14.0
+
+# Alternative gesture libraries (if MediaPipe unavailable)
+scikit-learn>=1.0.0
+scipy>=1.7.0
+
+# Optional optimizations
+Pillow>=9.0.0
+matplotlib>=3.5.0

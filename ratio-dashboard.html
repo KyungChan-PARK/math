@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비와 비율 학습 분석 대시보드</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', -apple-system, sans-serif;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+        
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .metric-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+        
+        .metric-value {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .metric-change {
+            font-size: 0.85em;
+            padding: 4px 8px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .metric-change.positive {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .metric-change.negative {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .chart-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .chart-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .student-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .table-header {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #555;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        tr:hover {
+            background: #fafafa;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.5s ease;
+        }
+        
+        .concept-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            margin: 2px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            background: #f0f0f0;
+        }
+        
+        .concept-badge.mastered {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .concept-badge.learning {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .concept-badge.struggling {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .realtime-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4caf50;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .filter-controls {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .filter-label {
+            font-size: 0.85em;
+            color: #666;
+            font-weight: 600;
+        }
+        
+        select, input[type="date"] {
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+        
+        select:focus, input[type="date"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .loading-spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📊 비와 비율 학습 분석 대시보드</h1>
+            <p class="subtitle">실시간 학습 데이터 분석 및 개인화 추천 시스템</p>
+        </div>
+        
+        <!-- Filter Controls -->
+        <div class="filter-controls">
+            <div class="filter-group">
+                <label class="filter-label">기간</label>
+                <select id="periodFilter">
+                    <option value="today">오늘</option>
+                    <option value="week" selected>이번 주</option>
+                    <option value="month">이번 달</option>
+                    <option value="custom">직접 선택</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label class="filter-label">학급</label>
+                <select id="classFilter">
+                    <option value="all">전체</option>
+                    <option value="6-1">6학년 1반</option>
+                    <option value="6-2">6학년 2반</option>
+                    <option value="7-1">7학년 1반</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label class="filter-label">문제 유형</label>
+                <select id="typeFilter">
+                    <option value="all">전체</option>
+                    <option value="visual">시각적 비</option>
+                    <option value="numerical">수치적 비</option>
+                    <option value="application">실생활 응용</option>
+                </select>
+            </div>
+            
+            <button class="btn btn-primary" onclick="refreshDashboard()">
+                새로고침
+            </button>
+        </div>
+        
+        <!-- Key Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">활성 학생 수</div>
+                <div class="metric-value" id="activeStudents">0</div>
+                <span class="metric-change positive">▲ 12% 증가</span>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">평균 정답률</div>
+                <div class="metric-value" id="avgAccuracy">0%</div>
+                <span class="metric-change positive">▲ 5% 향상</span>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">완료된 문제</div>
+                <div class="metric-value" id="completedProblems">0</div>
+                <span class="metric-change positive">오늘 +45</span>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">평균 학습 시간</div>
+                <div class="metric-value" id="avgStudyTime">0분</div>
+                <span class="metric-change negative">▼ 3분 감소</span>
+            </div>
+        </div>
+        
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <!-- 개념별 숙달도 차트 -->
+            <div class="chart-card">
+                <h3 class="chart-title">개념별 평균 숙달도</h3>
+                <canvas id="conceptMasteryChart"></canvas>
+            </div>
+            
+            <!-- 시간대별 활동 차트 -->
+            <div class="chart-card">
+                <h3 class="chart-title">시간대별 학습 활동</h3>
+                <canvas id="activityChart"></canvas>
+            </div>
+            
+            <!-- 문제 유형별 성과 -->
+            <div class="chart-card">
+                <h3 class="chart-title">문제 유형별 정답률</h3>
+                <canvas id="problemTypeChart"></canvas>
+            </div>
+            
+            <!-- Scaffolding 효과성 -->
+            <div class="chart-card">
+                <h3 class="chart-title">Scaffolding 사용 패턴</h3>
+                <canvas id="scaffoldingChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Student Progress Table -->
+        <div class="student-table">
+            <div class="table-header">
+                개별 학생 진도 현황
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>학생 이름</th>
+                        <th>진도율</th>
+                        <th>정답률</th>
+                        <th>주요 개념</th>
+                        <th>추천 조치</th>
+                        <th>작업</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody">
+                    <!-- 동적으로 생성됨 -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="exportReport()">
+                📊 보고서 내보내기
+            </button>
+            <button class="btn btn-secondary" onclick="generateRecommendations()">
+                🎯 맞춤 문제 생성
+            </button>
+            <button class="btn btn-secondary" onclick="scheduleIntervention()">
+                👥 개별 지도 예약
+            </button>
+        </div>
+        
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" id="loadingSpinner"></div>
+        
+        <!-- Realtime Status -->
+        <div class="realtime-indicator">
+            <div class="status-dot"></div>
+            <span>실시간 연결됨</span>
+        </div>
+    </div>
+    
+    <script>
+        // 전역 변수
+        let socket = null;
+        let dashboardData = {
+            students: [],
+            problems: [],
+            sessions: [],
+            analytics: {}
+        };
+        
+        // 초기화
+        window.onload = function() {
+            initializeDashboard();
+            connectWebSocket();
+            loadDashboardData();
+            setupCharts();
+        };
+        
+        function initializeDashboard() {
+            // 필터 이벤트 리스너
+            document.getElementById('periodFilter').addEventListener('change', filterData);
+            document.getElementById('classFilter').addEventListener('change', filterData);
+            document.getElementById('typeFilter').addEventListener('change', filterData);
+        }
+        
+        function connectWebSocket() {
+            socket = io('http://localhost:8099');
+            
+            socket.on('connect', () => {
+                console.log('Dashboard connected to server');
+                updateConnectionStatus(true);
+            });
+            
+            socket.on('disconnect', () => {
+                updateConnectionStatus(false);
+            });
+            
+            // 실시간 업데이트
+            socket.on('dashboard_update', (data) => {
+                updateMetrics(data.metrics);
+                updateCharts(data.charts);
+            });
+            
+            socket.on('student_progress', (data) => {
+                updateStudentRow(data);
+            });
+            
+            socket.on('new_completion', (data) => {
+                showCompletionNotification(data);
+                incrementCompletedProblems();
+            });
+        }
+        
+        async function loadDashboardData() {
+            showLoading(true);
+            
+            try {
+                // API에서 데이터 가져오기
+                const [students, analytics] = await Promise.all([
+                    fetch('/api/ratio/students').then(r => r.json()),
+                    fetch('/api/ratio/analytics').then(r => r.json())
+                ]);
+                
+                dashboardData.students = students.data || [];
+                dashboardData.analytics = analytics.data || {};
+                
+                // 메트릭 업데이트
+                updateMetrics({
+                    activeStudents: dashboardData.students.filter(s => s.active).length,
+                    avgAccuracy: calculateAverageAccuracy(),
+                    completedProblems: countCompletedProblems(),
+                    avgStudyTime: calculateAverageStudyTime()
+                });
+                
+                // 테이블 업데이트
+                populateStudentTable();
+                
+                // 차트 업데이트
+                updateAllCharts();
+                
+            } catch (error) {
+                console.error('Error loading dashboard data:', error);
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        function updateMetrics(metrics) {
+            if (metrics.activeStudents !== undefined) {
+                animateNumber('activeStudents', metrics.activeStudents);
+            }
+            if (metrics.avgAccuracy !== undefined) {
+                animateNumber('avgAccuracy', Math.round(metrics.avgAccuracy * 100) + '%');
+            }
+            if (metrics.completedProblems !== undefined) {
+                animateNumber('completedProblems', metrics.completedProblems);
+            }
+            if (metrics.avgStudyTime !== undefined) {
+                animateNumber('avgStudyTime', Math.round(metrics.avgStudyTime) + '분');
+            }
+        }
+        
+        function animateNumber(elementId, newValue) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            // 간단한 애니메이션 효과
+            element.style.transform = 'scale(1.1)';
+            element.textContent = newValue;
+            setTimeout(() => {
+                element.style.transform = 'scale(1)';
+            }, 300);
+        }
+        
+        function setupCharts() {
+            // 개념별 숙달도 차트
+            const conceptCtx = document.getElementById('conceptMasteryChart').getContext('2d');
+            window.conceptChart = new Chart(conceptCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['비의 표현', '비 간단히', '비례식', '단위 비율', '축척', '실생활 응용'],
+                    datasets: [{
+                        label: '평균 숙달도',
+                        data: [0, 0, 0, 0, 0, 0],
+                        backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                        borderColor: 'rgba(102, 126, 234, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+            
+            // 시간대별 활동 차트
+            const activityCtx = document.getElementById('activityChart').getContext('2d');
+            window.activityChart = new Chart(activityCtx, {
+                type: 'line',
+                data: {
+                    labels: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
+                    datasets: [{
+                        label: '활성 학생 수',
+                        data: [0, 0, 0, 0, 0, 0, 0, 0],
+                        borderColor: 'rgba(102, 126, 234, 1)',
+                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+            
+            // 문제 유형별 성과
+            const typeCtx = document.getElementById('problemTypeChart').getContext('2d');
+            window.typeChart = new Chart(typeCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['시각적 비', '수치적 비', '실생활 응용'],
+                    datasets: [{
+                        label: '정답률',
+                        data: [0, 0, 0],
+                        backgroundColor: [
+                            'rgba(76, 175, 80, 0.8)',
+                            'rgba(255, 152, 0, 0.8)',
+                            'rgba(244, 67, 54, 0.8)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+            
+            // Scaffolding 차트
+            const scaffoldingCtx = document.getElementById('scaffoldingChart').getContext('2d');
+            window.scaffoldingChart = new Chart(scaffoldingCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['힌트만', '시각적 도구', '예시 문제', '단계별 가이드'],
+                    datasets: [{
+                        data: [0, 0, 0, 0],
+                        backgroundColor: [
+                            'rgba(102, 126, 234, 0.8)',
+                            'rgba(118, 75, 162, 0.8)',
+                            'rgba(255, 152, 0, 0.8)',
+                            'rgba(76, 175, 80, 0.8)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+        
+        function populateStudentTable() {
+            const tbody = document.getElementById('studentTableBody');
+            tbody.innerHTML = '';
+            
+            // 샘플 데이터 (실제로는 API에서 가져옴)
+            const sampleStudents = [
+                {
+                    name: '김민수',
+                    progress: 70,
+                    accuracy: 85,
+                    concepts: [
+                        { name: '비의 표현', level: 'mastered' },
+                        { name: '비례식', level: 'learning' },
+                        { name: '실생활 응용', level: 'struggling' }
+                    ],
+                    recommendation: '실생활 응용 추가 연습 필요'
+                },
+                {
+                    name: '이서연',
+                    progress: 90,
+                    accuracy: 92,
+                    concepts: [
+                        { name: '비의 표현', level: 'mastered' },
+                        { name: '비례식', level: 'mastered' },
+                        { name: '축척', level: 'learning' }
+                    ],
+                    recommendation: '심화 문제 제공 가능'
+                },
+                {
+                    name: '박준호',
+                    progress: 40,
+                    accuracy: 65,
+                    concepts: [
+                        { name: '비의 표현', level: 'learning' },
+                        { name: '비 간단히', level: 'struggling' },
+                        { name: '비례식', level: 'struggling' }
+                    ],
+                    recommendation: '기초 개념 복습 필요'
+                }
+            ];
+            
+            sampleStudents.forEach(student => {
+                const row = createStudentRow(student);
+                tbody.appendChild(row);
+            });
+        }
+        
+        function createStudentRow(student) {
+            const tr = document.createElement('tr');
+            
+            tr.innerHTML = `
+                <td><strong>${student.name}</strong></td>
+                <td>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${student.progress}%"></div>
+                    </div>
+                    <small>${student.progress}%</small>
+                </td>
+                <td>${student.accuracy}%</td>
+                <td>
+                    ${student.concepts.map(c => 
+                        `<span class="concept-badge ${c.level}">${c.name}</span>`
+                    ).join('')}
+                </td>
+                <td>${student.recommendation}</td>
+                <td>
+                    <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.9em;"
+                            onclick="viewStudentDetail('${student.name}')">
+                        상세보기
+                    </button>
+                </td>
+            `;
+            
+            return tr;
+        }
+        
+        function updateAllCharts() {
+            // 샘플 데이터로 차트 업데이트
+            updateConceptChart([75, 82, 68, 71, 65, 78]);
+            updateActivityChart([5, 12, 18, 15, 8, 10, 14, 6]);
+            updateTypeChart([78, 72, 65]);
+            updateScaffoldingChart([35, 28, 22, 15]);
+        }
+        
+        function updateConceptChart(data) {
+            if (window.conceptChart) {
+                window.conceptChart.data.datasets[0].data = data;
+                window.conceptChart.update();
+            }
+        }
+        
+        function updateActivityChart(data) {
+            if (window.activityChart) {
+                window.activityChart.data.datasets[0].data = data;
+                window.activityChart.update();
+            }
+        }
+        
+        function updateTypeChart(data) {
+            if (window.typeChart) {
+                window.typeChart.data.datasets[0].data = data;
+                window.typeChart.update();
+            }
+        }
+        
+        function updateScaffoldingChart(data) {
+            if (window.scaffoldingChart) {
+                window.scaffoldingChart.data.datasets[0].data = data;
+                window.scaffoldingChart.update();
+            }
+        }
+        
+        function filterData() {
+            const period = document.getElementById('periodFilter').value;
+            const classFilter = document.getElementById('classFilter').value;
+            const typeFilter = document.getElementById('typeFilter').value;
+            
+            // 필터링 로직 구현
+            console.log('Filtering:', { period, class: classFilter, type: typeFilter });
+            
+            // 데이터 다시 로드
+            loadDashboardData();
+        }
+        
+        function refreshDashboard() {
+            loadDashboardData();
+        }
+        
+        function exportReport() {
+            // 보고서 내보내기 로직
+            alert('보고서를 생성 중입니다...');
+            
+            // 실제로는 API 호출하여 PDF/Excel 생성
+            fetch('/api/ratio/export-report', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    period: document.getElementById('periodFilter').value,
+                    format: 'pdf'
+                })
+            }).then(response => response.blob())
+              .then(blob => {
+                  const url = window.URL.createObjectURL(blob);
+                  const a = document.createElement('a');
+                  a.href = url;
+                  a.download = 'ratio-learning-report.pdf';
+                  a.click();
+              });
+        }
+        
+        function generateRecommendations() {
+            // 맞춤 문제 생성
+            alert('개인별 맞춤 문제를 생성 중입니다...');
+            
+            // 실제로는 각 학생별 분석 후 문제 생성
+            socket.emit('generate_adaptive_problems', {
+                students: dashboardData.students.map(s => s.id)
+            });
+        }
+        
+        function scheduleIntervention() {
+            // 개별 지도 예약
+            alert('개별 지도가 필요한 학생 목록을 준비 중입니다...');
+        }
+        
+        function viewStudentDetail(studentName) {
+            // 학생 상세 페이지로 이동
+            window.location.href = `/student-detail.html?name=${encodeURIComponent(studentName)}`;
+        }
+        
+        function updateConnectionStatus(connected) {
+            const indicator = document.querySelector('.realtime-indicator');
+            const dot = document.querySelector('.status-dot');
+            const text = indicator.querySelector('span');
+            
+            if (connected) {
+                dot.style.background = '#4caf50';
+                text.textContent = '실시간 연결됨';
+            } else {
+                dot.style.background = '#f44336';
+                text.textContent = '연결 끊김';
+            }
+        }
+        
+        function showLoading(show) {
+            const spinner = document.getElementById('loadingSpinner');
+            spinner.style.display = show ? 'block' : 'none';
+        }
+        
+        function showCompletionNotification(data) {
+            // 토스트 알림 표시
+            console.log('Student completed:', data);
+        }
+        
+        function incrementCompletedProblems() {
+            const element = document.getElementById('completedProblems');
+            const current = parseInt(element.textContent) || 0;
+            animateNumber('completedProblems', current + 1);
+        }
+        
+        function calculateAverageAccuracy() {
+            if (!dashboardData.students.length) return 0;
+            const total = dashboardData.students.reduce((sum, s) => sum + (s.accuracy || 0), 0);
+            return total / dashboardData.students.length;
+        }
+        
+        function countCompletedProblems() {
+            return dashboardData.students.reduce((sum, s) => sum + (s.completedProblems || 0), 0);
+        }
+        
+        function calculateAverageStudyTime() {
+            if (!dashboardData.students.length) return 0;
+            const total = dashboardData.students.reduce((sum, s) => sum + (s.studyTime || 0), 0);
+            return Math.round(total / dashboardData.students.length);
+        }
+        
+        function updateStudentRow(data) {
+            // 특정 학생 행 실시간 업데이트
+            const rows = document.querySelectorAll('#studentTableBody tr');
+            rows.forEach(row => {
+                const nameCell = row.cells[0];
+                if (nameCell.textContent === data.name) {
+                    // 진도율 업데이트
+                    const progressBar = row.querySelector('.progress-fill');
+                    if (progressBar) {
+                        progressBar.style.width = `${data.progress}%`;
+                    }
+                    
+                    // 정답률 업데이트
+                    row.cells[2].textContent = `${data.accuracy}%`;
+                }
+            });
+        }
+    </script>
+</body>
+</html>

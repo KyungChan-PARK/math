@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-09-04T04:50:21.912061",
+  "connections": {},
+  "isolated_components": [
+    {
+      "component": "ontology-system",
+      "missing_connection": "orchestration",
+      "impact": "Ontology decisions not reflected in orchestration"
+    }
+  ],
+  "missing_links": [
+    {
+      "document": "07-WINDOWS-ML-INTEGRATION.md",
+      "missing_implementations": [
+        "ml-inference.js",
+        "onnx-runtime.js"
+      ],
+      "severity": "HIGH"
+    }
+  ],
+  "recommendations": []
+}

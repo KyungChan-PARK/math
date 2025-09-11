@@ -1,0 +1,8 @@
+ACTIVATE CLAUDE OPUS 4.1:
+Load C:\palantir\math\CLAUDE_OPUS_41_ACTIVATION.md
+Execute all initialization sequences
+Enable extended thinking (64K tokens)
+Activate all MCP tools
+Load Math Learning Platform context
+Check AI_AGENT_MASTER.md
+Continue from last checkpoint

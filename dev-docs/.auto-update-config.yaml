@@ -1,0 +1,48 @@
+# Documentation Auto-Update Configuration
+# Created: 2025-09-03
+
+## System Configuration
+UPDATE_INTERVAL: 3600000  # 1 hour in milliseconds
+MONITOR_PATHS:
+  - C:\palantir\math\server
+  - C:\palantir\math\gesture-app
+  - C:\palantir\math\ml
+  - C:\palantir\math\cep-extension
+
+## Migration Tracking
+MIGRATIONS:
+  uwebsockets:
+    current: 15
+    target: 850  # msg/sec
+    path: server/uws-migration
+  
+  windowsML:
+    current: 30
+    target: 15  # ms inference
+    path: ml/windows-ml
+  
+  cepUxp:
+    current: 60
+    target: 100  # % abstraction
+    path: cep-extension/abstraction
+
+## Performance Targets
+PERFORMANCE:
+  websocket_throughput: 100  # current msg/sec
+  ml_inference: 45  # current ms
+  gesture_recognition: 8  # current ms
+
+## Auto-Update Rules
+RULES:
+  - Update date on any document change
+  - Calculate migration progress from file counts
+  - Update performance metrics from benchmarks
+  - Sync version from package.json
+  - Maintain consistency across all documents
+
+## Monitoring Events
+TRIGGERS:
+  - File changes in migration directories
+  - Benchmark results updates
+  - Package.json version changes
+  - Manual trigger via API

@@ -1,0 +1,9 @@
+# Real-time Gesture Bridge Requirements
+# Install with: pip install -r requirements-realtime.txt
+
+mediapipe==0.10.21
+opencv-python==4.10.0.84
+websockets==13.1
+numpy==1.24.3
+asyncio
+dataclasses

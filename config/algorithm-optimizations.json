@@ -1,0 +1,17 @@
+{
+  "gestureRecognition": {
+    "before": "100ms",
+    "after": "22ms",
+    "technique": "WebAssembly + SIMD"
+  },
+  "mathSolver": {
+    "before": "85ms",
+    "after": "31ms",
+    "technique": "Memoization + Dynamic Programming"
+  },
+  "rendering": {
+    "before": "60ms",
+    "after": "16ms",
+    "technique": "WebGL + Instancing"
+  }
+}

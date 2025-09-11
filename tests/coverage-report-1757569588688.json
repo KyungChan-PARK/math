@@ -1,0 +1,384 @@
+{
+  "timestamp": "2025-09-11T05:46:28.603Z",
+  "modules": {
+    "Core Sources": {
+      "name": "Core Sources",
+      "files": [
+        {
+          "name": "lola-web-server.js",
+          "path": "C:\\palantir\\math\\src\\lola-web-server.js",
+          "hasTest": false,
+          "testPath": null
+        }
+      ],
+      "totalFiles": 1,
+      "testedFiles": 0,
+      "coverage": "0.0",
+      "missingTests": [
+        "lola-web-server.js"
+      ]
+    },
+    "LOLA Integration": {
+      "name": "LOLA Integration",
+      "files": [
+        {
+          "name": "gesture_controller_alt.py",
+          "path": "C:\\palantir\\math\\src\\lola-integration\\gesture_controller_alt.py",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "gesture_physics_controller.py",
+          "path": "C:\\palantir\\math\\src\\lola-integration\\gesture_physics_controller.py",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "lola-server-8090.py",
+          "path": "C:\\palantir\\math\\src\\lola-integration\\lola-server-8090.py",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "lola-server.py",
+          "path": "C:\\palantir\\math\\src\\lola-integration\\lola-server.py",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "LOLAIntegratedPlatform.jsx",
+          "path": "C:\\palantir\\math\\src\\lola-integration\\LOLAIntegratedPlatform.jsx",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "LOLAPhysicsEmulator.jsx",
+          "path": "C:\\palantir\\math\\src\\lola-integration\\LOLAPhysicsEmulator.jsx",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "lola_math_intent_system.py",
+          "path": "C:\\palantir\\math\\src\\lola-integration\\lola_math_intent_system.py",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "lola_v2_enhanced.py",
+          "path": "C:\\palantir\\math\\src\\lola-integration\\lola_v2_enhanced.py",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "MathContentMapper.js",
+          "path": "C:\\palantir\\math\\src\\lola-integration\\MathContentMapper.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "PrecisionGestureRecognizer.jsx",
+          "path": "C:\\palantir\\math\\src\\lola-integration\\PrecisionGestureRecognizer.jsx",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "TouchMathSystem.jsx",
+          "path": "C:\\palantir\\math\\src\\lola-integration\\TouchMathSystem.jsx",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "WebGPUAccelerator.jsx",
+          "path": "C:\\palantir\\math\\src\\lola-integration\\WebGPUAccelerator.jsx",
+          "hasTest": false,
+          "testPath": null
+        }
+      ],
+      "totalFiles": 12,
+      "testedFiles": 0,
+      "coverage": "0.0",
+      "missingTests": [
+        "gesture_controller_alt.py",
+        "gesture_physics_controller.py",
+        "lola-server-8090.py",
+        "lola-server.py",
+        "LOLAIntegratedPlatform.jsx",
+        "LOLAPhysicsEmulator.jsx",
+        "lola_math_intent_system.py",
+        "lola_v2_enhanced.py",
+        "MathContentMapper.js",
+        "PrecisionGestureRecognizer.jsx",
+        "TouchMathSystem.jsx",
+        "WebGPUAccelerator.jsx"
+      ]
+    },
+    "AI Agents": {
+      "name": "AI Agents",
+      "files": [],
+      "totalFiles": 0,
+      "testedFiles": 0,
+      "coverage": 0,
+      "missingTests": []
+    },
+    "Server": {
+      "name": "Server",
+      "files": [
+        {
+          "name": "ae-bridge.js",
+          "path": "C:\\palantir\\math\\server\\ae-bridge.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "benchmark-ws.js",
+          "path": "C:\\palantir\\math\\server\\benchmark-ws.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "error-handler.js",
+          "path": "C:\\palantir\\math\\server\\error-handler.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "gesture-service.js",
+          "path": "C:\\palantir\\math\\server\\gesture-service.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "gesture-websocket-bridge.js",
+          "path": "C:\\palantir\\math\\server\\gesture-websocket-bridge.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "gesture-ws-bridge.js",
+          "path": "C:\\palantir\\math\\server\\gesture-ws-bridge.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "index.js",
+          "path": "C:\\palantir\\math\\server\\index.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "message-worker.js",
+          "path": "C:\\palantir\\math\\server\\message-worker.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "nlp-engine.js",
+          "path": "C:\\palantir\\math\\server\\nlp-engine.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "optimized-ws-adapter.js",
+          "path": "C:\\palantir\\math\\server\\optimized-ws-adapter.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "optimized-ws-server.js",
+          "path": "C:\\palantir\\math\\server\\optimized-ws-server.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "parallel-ws-adapter.js",
+          "path": "C:\\palantir\\math\\server\\parallel-ws-adapter.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "script-generator.js",
+          "path": "C:\\palantir\\math\\server\\script-generator.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "test-bridge.js",
+          "path": "C:\\palantir\\math\\server\\test-bridge.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "test-optimized-ws.js",
+          "path": "C:\\palantir\\math\\server\\test-optimized-ws.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "test-parallel-ws.js",
+          "path": "C:\\palantir\\math\\server\\test-parallel-ws.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "uws-adapter.js",
+          "path": "C:\\palantir\\math\\server\\uws-adapter.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "uws-debug.js",
+          "path": "C:\\palantir\\math\\server\\uws-debug.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "uws-migration-test.js",
+          "path": "C:\\palantir\\math\\server\\uws-migration-test.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "uws-optimized.js",
+          "path": "C:\\palantir\\math\\server\\uws-optimized.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "uws-production.js",
+          "path": "C:\\palantir\\math\\server\\uws-production.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "uws-server.js",
+          "path": "C:\\palantir\\math\\server\\uws-server.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "uws-simple-test.js",
+          "path": "C:\\palantir\\math\\server\\uws-simple-test.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "websocket-bridge.js",
+          "path": "C:\\palantir\\math\\server\\websocket-bridge.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "worker-pool.js",
+          "path": "C:\\palantir\\math\\server\\worker-pool.js",
+          "hasTest": false,
+          "testPath": null
+        }
+      ],
+      "totalFiles": 25,
+      "testedFiles": 0,
+      "coverage": "0.0",
+      "missingTests": [
+        "ae-bridge.js",
+        "benchmark-ws.js",
+        "error-handler.js",
+        "gesture-service.js",
+        "gesture-websocket-bridge.js",
+        "gesture-ws-bridge.js",
+        "index.js",
+        "message-worker.js",
+        "nlp-engine.js",
+        "optimized-ws-adapter.js",
+        "optimized-ws-server.js",
+        "parallel-ws-adapter.js",
+        "script-generator.js",
+        "test-bridge.js",
+        "test-optimized-ws.js",
+        "test-parallel-ws.js",
+        "uws-adapter.js",
+        "uws-debug.js",
+        "uws-migration-test.js",
+        "uws-optimized.js",
+        "uws-production.js",
+        "uws-server.js",
+        "uws-simple-test.js",
+        "websocket-bridge.js",
+        "worker-pool.js"
+      ]
+    },
+    "Frontend": {
+      "name": "Frontend",
+      "files": [
+        {
+          "name": "craco.config.js",
+          "path": "C:\\palantir\\math\\frontend\\craco.config.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "jest.config.js",
+          "path": "C:\\palantir\\math\\frontend\\jest.config.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "session-manager.js",
+          "path": "C:\\palantir\\math\\frontend\\session-manager.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "test-camera-debug.js",
+          "path": "C:\\palantir\\math\\frontend\\test-camera-debug.js",
+          "hasTest": false,
+          "testPath": null
+        },
+        {
+          "name": "test-mock-debug.js",
+          "path": "C:\\palantir\\math\\frontend\\test-mock-debug.js",
+          "hasTest": false,
+          "testPath": null
+        }
+      ],
+      "totalFiles": 5,
+      "testedFiles": 0,
+      "coverage": "0.0",
+      "missingTests": [
+        "craco.config.js",
+        "jest.config.js",
+        "session-manager.js",
+        "test-camera-debug.js",
+        "test-mock-debug.js"
+      ]
+    },
+    "PALANTIR API": {
+      "name": "PALANTIR API",
+      "files": [
+        {
+          "name": "main.py",
+          "path": "C:\\palantir-project\\palantir-api\\main.py",
+          "hasTest": false,
+          "testPath": null
+        }
+      ],
+      "totalFiles": 1,
+      "testedFiles": 0,
+      "coverage": "0.0",
+      "missingTests": [
+        "main.py"
+      ]
+    },
+    "PALANTIR Dashboard": {
+      "name": "PALANTIR Dashboard",
+      "files": [],
+      "totalFiles": 0,
+      "testedFiles": 0,
+      "coverage": 0,
+      "missingTests": []
+    }
+  },
+  "summary": {
+    "totalFiles": 44,
+    "testedFiles": 0,
+    "coverage": "0.0"
+  }
+}

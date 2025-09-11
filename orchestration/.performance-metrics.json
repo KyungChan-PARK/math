@@ -1,0 +1,25 @@
+{
+  "sessions": [],
+  "issues": [],
+  "resolutions": [
+    {
+      "timestamp": 1757063356282,
+      "issueType": "CONNECTION_ERROR",
+      "resolutionType": "auto",
+      "timeSpent": 45,
+      "success": true,
+      "automated": false,
+      "agentUsed": "none"
+    }
+  ],
+  "patterns": [],
+  "improvements": [
+    {
+      "timestamp": 1757063356274,
+      "lessonId": "lesson_1757063356274",
+      "applications": 1,
+      "successes": 1,
+      "successRate": 1
+    }
+  ]
+}

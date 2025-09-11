@@ -1,0 +1,5444 @@
+{
+  "timestamp": "2025-09-09T08:05:28.124Z",
+  "ontology": {
+    "objectTypes": {
+      "SourceCode": [
+        "*.js",
+        "*.ts",
+        "*.jsx",
+        "*.tsx"
+      ],
+      "Documentation": [
+        "*.md",
+        "*.txt"
+      ],
+      "Configuration": [
+        "*.json",
+        "*.yml",
+        "*.yaml",
+        ".env*"
+      ],
+      "Test": [
+        "test-*.js",
+        "*.test.js",
+        "*.spec.js"
+      ],
+      "AIAgent": [
+        "*agent*.js",
+        "*Agent*.js"
+      ],
+      "Script": [
+        "*.bat",
+        "*.sh",
+        "*.ps1"
+      ],
+      "Style": [
+        "*.css",
+        "*.scss",
+        "*.less"
+      ],
+      "Asset": [
+        "*.png",
+        "*.jpg",
+        "*.svg",
+        "*.gif"
+      ]
+    }
+  },
+  "objects": [
+    {
+      "id": "7fe30a59",
+      "type": "Unknown",
+      "properties": {
+        "fileName": "post_tool_use_enhanced_part1.py",
+        "filePath": ".claude\\hooks\\archive\\post_tool_use_enhanced_part1.py",
+        "extension": ".py",
+        "size": 3201,
+        "created": "2025-09-03T13:43:28.403Z",
+        "modified": "2025-09-02T07:41:41.816Z"
+      }
+    },
+    {
+      "id": "ae554897",
+      "type": "Unknown",
+      "properties": {
+        "fileName": "post_tool_use_enhanced_part2.py",
+        "filePath": ".claude\\hooks\\archive\\post_tool_use_enhanced_part2.py",
+        "extension": ".py",
+        "size": 4636,
+        "created": "2025-09-03T13:43:28.405Z",
+        "modified": "2025-09-02T07:42:12.412Z"
+      }
+    },
+    {
+      "id": "51fcc6cf",
+      "type": "Unknown",
+      "properties": {
+        "fileName": "post_tool_use.py",
+        "filePath": ".claude\\hooks\\post_tool_use.py",
+        "extension": ".py",
+        "size": 5106,
+        "created": "2025-09-03T13:43:28.394Z",
+        "modified": "2025-09-02T07:43:20.054Z"
+      }
+    },
+    {
+      "id": "d63db895",
+      "type": "Unknown",
+      "properties": {
+        "fileName": "pre_tool_use.py",
+        "filePath": ".claude\\hooks\\pre_tool_use.py",
+        "extension": ".py",
+        "size": 3868,
+        "created": "2025-09-03T13:43:28.397Z",
+        "modified": "2025-09-01T15:45:48.966Z"
+      }
+    },
+    {
+      "id": "3eeed0a5",
+      "type": "Unknown",
+      "properties": {
+        "fileName": "pre_tool_use_enhanced.py",
+        "filePath": ".claude\\hooks\\pre_tool_use_enhanced.py",
+        "extension": ".py",
+        "size": 6597,
+        "created": "2025-09-03T13:43:28.397Z",
+        "modified": "2025-09-02T07:41:15.107Z"
+      }
+    },
+    {
+      "id": "1161d7cb",
+      "type": "Unknown",
+      "properties": {
+        "fileName": "session_start.py",
+        "filePath": ".claude\\hooks\\session_start.py",
+        "extension": ".py",
+        "size": 3667,
+        "created": "2025-09-03T13:43:28.397Z",
+        "modified": "2025-09-02T07:40:32.977Z"
+      }
+    },
+    {
+      "id": "79489fc8",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "SESSION_CHECKPOINT.json",
+        "filePath": ".claude-memory\\SESSION_CHECKPOINT.json",
+        "extension": ".json",
+        "size": 1119,
+        "created": "2025-09-09T03:36:16.136Z",
+        "modified": "2025-09-09T04:16:16.117Z"
+      },
+      "analysis": {
+        "lines": 48,
+        "complexity": 1,
+        "keywords": [
+          "let",
+          "if",
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "00ec3755",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "session_current.json",
+        "filePath": ".claude-memory\\session_current.json",
+        "extension": ".json",
+        "size": 901,
+        "created": "2025-09-08T11:12:45.261Z",
+        "modified": "2025-09-08T11:12:45.262Z"
+      },
+      "analysis": {
+        "lines": 42,
+        "complexity": 1,
+        "keywords": [
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "923e4553",
+      "type": "Configuration",
+      "properties": {
+        "fileName": ".env",
+        "filePath": ".env",
+        "extension": "",
+        "size": 1743,
+        "created": "2025-09-05T07:50:06.512Z",
+        "modified": "2025-09-09T06:53:22.030Z"
+      }
+    },
+    {
+      "id": "56b6c3f4",
+      "type": "Configuration",
+      "properties": {
+        "fileName": ".env.example",
+        "filePath": ".env.example",
+        "extension": ".example",
+        "size": 708,
+        "created": "2025-09-08T06:41:30.892Z",
+        "modified": "2025-09-08T10:34:57.419Z"
+      }
+    },
+    {
+      "id": "49ebdf3c",
+      "type": "Unknown",
+      "properties": {
+        "fileName": ".gitignore",
+        "filePath": ".gitignore",
+        "extension": "",
+        "size": 2564,
+        "created": "2025-09-03T13:42:34.730Z",
+        "modified": "2025-09-09T03:40:36.622Z"
+      }
+    },
+    {
+      "id": "53300cc3",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": ".monitor_status.json",
+        "filePath": ".monitor_status.json",
+        "extension": ".json",
+        "size": 1282,
+        "created": "2025-09-08T10:43:49.887Z",
+        "modified": "2025-09-08T15:29:54.036Z"
+      },
+      "analysis": {
+        "lines": 45,
+        "complexity": 4,
+        "keywords": [
+          "class",
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "85eb8af8",
+      "type": "Script",
+      "properties": {
+        "fileName": "activate-claude.ps1",
+        "filePath": "activate-claude.ps1",
+        "extension": ".ps1",
+        "size": 344,
+        "created": "2025-09-09T03:45:53.589Z",
+        "modified": "2025-09-09T03:45:53.589Z"
+      },
+      "analysis": {
+        "lines": 9,
+        "complexity": 0,
+        "keywords": [],
+        "imports": [],
+        "exports": []
+      }
+    },
+    {
+      "id": "bcb1397c",
+      "type": "AIAgent",
+      "properties": {
+        "fileName": "activate-opus41-power.js",
+        "filePath": "activate-opus41-power.js",
+        "extension": ".js",
+        "size": 549,
+        "created": "2025-09-08T10:42:53.573Z",
+        "modified": "2025-09-08T10:42:53.573Z"
+      },
+      "analysis": {
+        "lines": 13,
+        "complexity": 1,
+        "keywords": [
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "10a63bca",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "activate-opus41.js",
+        "filePath": "activate-opus41.js",
+        "extension": ".js",
+        "size": 874,
+        "created": "2025-09-08T10:17:01.507Z",
+        "modified": "2025-09-08T10:17:01.507Z"
+      },
+      "analysis": {
+        "lines": 21,
+        "complexity": 1,
+        "keywords": [
+          "await",
+          "const",
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "7643637f",
+      "type": "Script",
+      "properties": {
+        "fileName": "ACTIVATE_CLAUDE.bat",
+        "filePath": "ACTIVATE_CLAUDE.bat",
+        "extension": ".bat",
+        "size": 312,
+        "created": "2025-09-09T03:45:53.591Z",
+        "modified": "2025-09-09T03:45:53.591Z"
+      },
+      "analysis": {
+        "lines": 12,
+        "complexity": 0,
+        "keywords": [],
+        "imports": [],
+        "exports": []
+      }
+    },
+    {
+      "id": "08dc5e7f",
+      "type": "Documentation",
+      "properties": {
+        "fileName": "ACTIVATE_ME.txt",
+        "filePath": "ACTIVATE_ME.txt",
+        "extension": ".txt",
+        "size": 265,
+        "created": "2025-09-09T03:45:53.589Z",
+        "modified": "2025-09-09T03:45:53.589Z"
+      },
+      "analysis": {
+        "lines": 8,
+        "complexity": 0,
+        "keywords": [],
+        "imports": [],
+        "exports": [],
+        "headings": [],
+        "linkCount": 0
+      }
+    },
+    {
+      "id": "9ebc0f08",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "advanced-artifact-system.js",
+        "filePath": "advanced-artifact-system.js",
+        "extension": ".js",
+        "size": 20496,
+        "created": "2025-09-08T09:36:02.498Z",
+        "modified": "2025-09-08T09:36:02.498Z"
+      },
+      "analysis": {
+        "lines": 635,
+        "complexity": 11,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "function",
+          "const",
+          "let",
+          "var",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "605560f2",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "aggressive-duplicate-remover.js",
+        "filePath": "aggressive-duplicate-remover.js",
+        "extension": ".js",
+        "size": 7786,
+        "created": "2025-09-09T04:06:09.805Z",
+        "modified": "2025-09-09T04:06:09.805Z"
+      },
+      "analysis": {
+        "lines": 198,
+        "complexity": 35,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "fc1ff45d",
+      "type": "AIAgent",
+      "properties": {
+        "fileName": "AI_AGENTS_SYSTEM.md",
+        "filePath": "AI_AGENTS_SYSTEM.md",
+        "extension": ".md",
+        "size": 7342,
+        "created": "2025-09-08T15:13:08.151Z",
+        "modified": "2025-09-08T15:13:08.152Z"
+      },
+      "analysis": {
+        "lines": 253,
+        "complexity": 1,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "if",
+          "for",
+          "try"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "7cbea781",
+      "type": "Documentation",
+      "properties": {
+        "fileName": "AI_AGENT_MASTER.md",
+        "filePath": "AI_AGENT_MASTER.md",
+        "extension": ".md",
+        "size": 1730,
+        "created": "2025-09-09T03:17:41.958Z",
+        "modified": "2025-09-09T04:00:52.429Z"
+      },
+      "analysis": {
+        "lines": 74,
+        "complexity": 0,
+        "keywords": [],
+        "imports": [],
+        "exports": [],
+        "headings": [
+          "AI AGENT MASTER REFERENCE",
+          "Claude Opus 4.1 Exclusive Document",
+          "Last Update: 2025-09-09",
+          "SYSTEM STATUS",
+          "QUICK ACCESS",
+          "PROJECT METRICS",
+          "ACTIVE ISSUES",
+          "NEXT ACTIONS",
+          "AI AGENT CATEGORIES (75 total)",
+          "EXECUTION COMMANDS",
+          "Start Orchestrator",
+          "Monitor Documents",
+          "Check Status",
+          "MEMORY CHECKPOINT"
+        ],
+        "linkCount": 0
+      }
+    },
+    {
+      "id": "24c709e6",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "analyze-documents.js",
+        "filePath": "analyze-documents.js",
+        "extension": ".js",
+        "size": 10666,
+        "created": "2025-09-06T15:01:54.048Z",
+        "modified": "2025-09-08T07:20:53.498Z"
+      },
+      "analysis": {
+        "lines": 320,
+        "complexity": 34,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "52f949f6",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "auto-checkpoint.js",
+        "filePath": "auto-checkpoint.js",
+        "extension": ".js",
+        "size": 3219,
+        "created": "2025-09-07T15:21:28.577Z",
+        "modified": "2025-09-08T07:20:53.499Z"
+      },
+      "analysis": {
+        "lines": 102,
+        "complexity": 10,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "467874fd",
+      "type": "Unknown",
+      "properties": {
+        "fileName": "auto-cross-reference.py",
+        "filePath": "auto-cross-reference.py",
+        "extension": ".py",
+        "size": 5089,
+        "created": "2025-09-03T19:34:29.522Z",
+        "modified": "2025-09-08T08:58:16.842Z"
+      }
+    },
+    {
+      "id": "f224126e",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "auto-documentation-system.js",
+        "filePath": "auto-documentation-system.js",
+        "extension": ".js",
+        "size": 13378,
+        "created": "2025-09-08T11:00:47.113Z",
+        "modified": "2025-09-08T11:01:39.696Z"
+      },
+      "analysis": {
+        "lines": 447,
+        "complexity": 40,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "c5ba7108",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "auto-prevention.js",
+        "filePath": "auto-prevention.js",
+        "extension": ".js",
+        "size": 1743,
+        "created": "2025-09-06T14:17:43.096Z",
+        "modified": "2025-09-08T08:58:16.844Z"
+      },
+      "analysis": {
+        "lines": 60,
+        "complexity": 6,
+        "keywords": [
+          "function",
+          "const",
+          "if",
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "4c54f729",
+      "type": "AIAgent",
+      "properties": {
+        "fileName": "auto-session-context.js",
+        "filePath": "auto-session-context.js",
+        "extension": ".js",
+        "size": 20136,
+        "created": "2025-09-09T07:37:57.895Z",
+        "modified": "2025-09-09T07:37:57.895Z"
+      },
+      "analysis": {
+        "lines": 503,
+        "complexity": 41,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "324d1b49",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "AUTO_SYNC_STATUS.json",
+        "filePath": "AUTO_SYNC_STATUS.json",
+        "extension": ".json",
+        "size": 577,
+        "created": "2025-09-07T16:28:58.377Z",
+        "modified": "2025-09-08T15:29:42.280Z"
+      },
+      "analysis": {
+        "lines": 23,
+        "complexity": 1,
+        "keywords": [],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "2f5dc032",
+      "type": "Configuration",
+      "properties": {
+        "fileName": ".env",
+        "filePath": "backend\\.env",
+        "extension": "",
+        "size": 496,
+        "created": "2025-09-05T13:05:02.242Z",
+        "modified": "2025-09-07T10:11:35.608Z"
+      }
+    },
+    {
+      "id": "574cd1ea",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "ai-context-loader.js",
+        "filePath": "backend\\ai-context-loader.js",
+        "extension": ".js",
+        "size": 9166,
+        "created": "2025-09-05T14:52:38.711Z",
+        "modified": "2025-09-08T07:20:53.502Z"
+      },
+      "analysis": {
+        "lines": 256,
+        "complexity": 20,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "2d8c1951",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "auto-improve-docs.js",
+        "filePath": "backend\\auto-improve-docs.js",
+        "extension": ".js",
+        "size": 12416,
+        "created": "2025-09-05T13:34:26.597Z",
+        "modified": "2025-09-08T07:20:53.502Z"
+      },
+      "analysis": {
+        "lines": 404,
+        "complexity": 44,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "function",
+          "const",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "48b8c9ac",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "auto-sync-improvements.js",
+        "filePath": "backend\\auto-sync-improvements.js",
+        "extension": ".js",
+        "size": 3938,
+        "created": "2025-09-05T16:10:51.703Z",
+        "modified": "2025-09-08T08:58:16.847Z"
+      },
+      "analysis": {
+        "lines": 129,
+        "complexity": 9,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "a12bc8b5",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "debug-chromadb.js",
+        "filePath": "backend\\debug-chromadb.js",
+        "extension": ".js",
+        "size": 4747,
+        "created": "2025-09-07T10:59:38.175Z",
+        "modified": "2025-09-08T08:58:16.848Z"
+      },
+      "analysis": {
+        "lines": 139,
+        "complexity": 13,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "22852d6e",
+      "type": "Unknown",
+      "properties": {
+        "fileName": "Dockerfile",
+        "filePath": "backend\\Dockerfile",
+        "extension": "",
+        "size": 386,
+        "created": "2025-09-05T13:14:53.921Z",
+        "modified": "2025-09-07T10:16:19.034Z"
+      }
+    },
+    {
+      "id": "ce4bfbbc",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "fix-chromadb-dimensions.js",
+        "filePath": "backend\\fix-chromadb-dimensions.js",
+        "extension": ".js",
+        "size": 5327,
+        "created": "2025-09-07T10:25:23.061Z",
+        "modified": "2025-09-08T08:58:16.848Z"
+      },
+      "analysis": {
+        "lines": 142,
+        "complexity": 9,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "3a9caba3",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "init-ontology.js",
+        "filePath": "backend\\init-ontology.js",
+        "extension": ".js",
+        "size": 2971,
+        "created": "2025-09-07T09:31:24.670Z",
+        "modified": "2025-09-08T08:58:16.849Z"
+      },
+      "analysis": {
+        "lines": 75,
+        "complexity": 3,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "5bc9de86",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "jest.config.js",
+        "filePath": "backend\\jest.config.js",
+        "extension": ".js",
+        "size": 750,
+        "created": "2025-09-07T11:53:06.514Z",
+        "modified": "2025-09-07T11:53:06.514Z"
+      },
+      "analysis": {
+        "lines": 34,
+        "complexity": 1,
+        "keywords": [
+          "function",
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "fbe6931e",
+      "type": "Unknown",
+      "properties": {
+        "fileName": "combined.log",
+        "filePath": "backend\\logs\\combined.log",
+        "extension": ".log",
+        "size": 216092,
+        "created": "2025-09-05T15:53:00.378Z",
+        "modified": "2025-09-09T06:20:55.837Z"
+      }
+    },
+    {
+      "id": "ca014dba",
+      "type": "Unknown",
+      "properties": {
+        "fileName": "error.log",
+        "filePath": "backend\\logs\\error.log",
+        "extension": ".log",
+        "size": 91586,
+        "created": "2025-09-05T15:53:00.377Z",
+        "modified": "2025-09-07T10:40:09.429Z"
+      }
+    },
+    {
+      "id": "3463adf4",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "package-lock.json",
+        "filePath": "backend\\package-lock.json",
+        "extension": ".json",
+        "size": 229393,
+        "created": "2025-09-05T13:17:52.372Z",
+        "modified": "2025-09-07T10:16:02.905Z"
+      },
+      "analysis": {
+        "lines": 6352,
+        "complexity": 134,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "function",
+          "var",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "ba3d89b5",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "package.json",
+        "filePath": "backend\\package.json",
+        "extension": ".json",
+        "size": 1086,
+        "created": "2025-09-05T12:57:26.836Z",
+        "modified": "2025-09-07T10:11:48.142Z"
+      },
+      "analysis": {
+        "lines": 44,
+        "complexity": 1,
+        "keywords": [],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "ad44a4f9",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "recreate-chromadb-collection.js",
+        "filePath": "backend\\recreate-chromadb-collection.js",
+        "extension": ".js",
+        "size": 3047,
+        "created": "2025-09-07T09:37:19.120Z",
+        "modified": "2025-09-08T07:20:53.508Z"
+      },
+      "analysis": {
+        "lines": 89,
+        "complexity": 6,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "4c1c4634",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "scan-documents.js",
+        "filePath": "backend\\scan-documents.js",
+        "extension": ".js",
+        "size": 2535,
+        "created": "2025-09-07T09:31:52.179Z",
+        "modified": "2025-09-08T07:20:53.508Z"
+      },
+      "analysis": {
+        "lines": 67,
+        "complexity": 8,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "d153c9b1",
+      "type": "AIAgent",
+      "properties": {
+        "fileName": "ClaudeService.js",
+        "filePath": "backend\\services\\ClaudeService.js",
+        "extension": ".js",
+        "size": 8916,
+        "created": "2025-09-07T15:05:53.722Z",
+        "modified": "2025-09-07T15:05:53.722Z"
+      },
+      "analysis": {
+        "lines": 324,
+        "complexity": 32,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "636907c2",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "OntologyService.js",
+        "filePath": "backend\\services\\OntologyService.js",
+        "extension": ".js",
+        "size": 4651,
+        "created": "2025-09-07T15:05:16.093Z",
+        "modified": "2025-09-08T08:58:16.851Z"
+      },
+      "analysis": {
+        "lines": 165,
+        "complexity": 16,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "a4f97dd3",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "setup-hybrid-chromadb.js",
+        "filePath": "backend\\setup-hybrid-chromadb.js",
+        "extension": ".js",
+        "size": 4866,
+        "created": "2025-09-07T09:56:20.507Z",
+        "modified": "2025-09-08T08:58:16.852Z"
+      },
+      "analysis": {
+        "lines": 131,
+        "complexity": 14,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "2493a544",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "setup-openai-chromadb.js",
+        "filePath": "backend\\setup-openai-chromadb.js",
+        "extension": ".js",
+        "size": 4037,
+        "created": "2025-09-07T09:50:48.498Z",
+        "modified": "2025-09-08T07:20:53.511Z"
+      },
+      "analysis": {
+        "lines": 117,
+        "complexity": 10,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "f295adaa",
+      "type": "AIAgent",
+      "properties": {
+        "fileName": "AIAgentController.js",
+        "filePath": "backend\\src\\controllers\\AIAgentController.js",
+        "extension": ".js",
+        "size": 10405,
+        "created": "2025-09-05T13:02:21.739Z",
+        "modified": "2025-09-08T08:58:16.853Z"
+      },
+      "analysis": {
+        "lines": 371,
+        "complexity": 33,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "435b8cdd",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "WebSocketHandler.js",
+        "filePath": "backend\\src\\handlers\\WebSocketHandler.js",
+        "extension": ".js",
+        "size": 6812,
+        "created": "2025-09-05T13:03:04.732Z",
+        "modified": "2025-09-08T08:58:16.854Z"
+      },
+      "analysis": {
+        "lines": 264,
+        "complexity": 18,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "ee4473aa",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "ClaudeIntegration.js",
+        "filePath": "backend\\src\\mcp\\ClaudeIntegration.js",
+        "extension": ".js",
+        "size": 13975,
+        "created": "2025-09-06T09:57:13.015Z",
+        "modified": "2025-09-06T09:57:13.015Z"
+      },
+      "analysis": {
+        "lines": 423,
+        "complexity": 70,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "function",
+          "const",
+          "let",
+          "var",
+          "if",
+          "else",
+          "for",
+          "while",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "7adf216c",
+      "type": "AIAgent",
+      "properties": {
+        "fileName": "IntegratedMCPServer.js",
+        "filePath": "backend\\src\\mcp\\IntegratedMCPServer.js",
+        "extension": ".js",
+        "size": 18090,
+        "created": "2025-09-05T17:37:32.859Z",
+        "modified": "2025-09-08T08:58:16.855Z"
+      },
+      "analysis": {
+        "lines": 501,
+        "complexity": 38,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "var",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "c75b7959",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "MCPServer.js",
+        "filePath": "backend\\src\\mcp\\MCPServer.js",
+        "extension": ".js",
+        "size": 14948,
+        "created": "2025-09-05T17:36:49.274Z",
+        "modified": "2025-09-08T08:58:16.855Z"
+      },
+      "analysis": {
+        "lines": 490,
+        "complexity": 29,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "function",
+          "const",
+          "let",
+          "var",
+          "if",
+          "for",
+          "while",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "f52a2cc9",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "start-mcp-server.js",
+        "filePath": "backend\\src\\mcp\\start-mcp-server.js",
+        "extension": ".js",
+        "size": 2643,
+        "created": "2025-09-05T17:37:52.949Z",
+        "modified": "2025-09-08T08:58:16.856Z"
+      },
+      "analysis": {
+        "lines": 76,
+        "complexity": 6,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "var",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "83fe477a",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "InteractionProcessor.js",
+        "filePath": "backend\\src\\processors\\InteractionProcessor.js",
+        "extension": ".js",
+        "size": 7680,
+        "created": "2025-09-05T13:00:36.781Z",
+        "modified": "2025-09-08T08:58:16.857Z"
+      },
+      "analysis": {
+        "lines": 281,
+        "complexity": 41,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "85a1d2a6",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "MultiModalProcessor.js",
+        "filePath": "backend\\src\\processors\\MultiModalProcessor.js",
+        "extension": ".js",
+        "size": 7932,
+        "created": "2025-09-05T13:01:20.357Z",
+        "modified": "2025-09-08T08:58:16.858Z"
+      },
+      "analysis": {
+        "lines": 279,
+        "complexity": 38,
+        "keywords": [
+          "async",
+          "class",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "335d5d99",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "DemonstrationCollector.js",
+        "filePath": "backend\\src\\rlhf\\DemonstrationCollector.js",
+        "extension": ".js",
+        "size": 7935,
+        "created": "2025-09-05T13:04:50.890Z",
+        "modified": "2025-09-08T08:58:16.859Z"
+      },
+      "analysis": {
+        "lines": 283,
+        "complexity": 32,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "68d35852",
+      "type": "Unknown",
+      "properties": {
+        "fileName": "reward_model.py",
+        "filePath": "backend\\src\\rlhf\\reward_model.py",
+        "extension": ".py",
+        "size": 14569,
+        "created": "2025-09-05T13:06:12.974Z",
+        "modified": "2025-09-05T13:06:12.974Z"
+      }
+    },
+    {
+      "id": "494a9adb",
+      "type": "AIAgent",
+      "properties": {
+        "fileName": "agentActionSchemas.js",
+        "filePath": "backend\\src\\schemas\\agentActionSchemas.js",
+        "extension": ".js",
+        "size": 3497,
+        "created": "2025-09-05T13:04:01.006Z",
+        "modified": "2025-09-05T13:04:01.006Z"
+      },
+      "analysis": {
+        "lines": 143,
+        "complexity": 8,
+        "keywords": [
+          "function",
+          "const",
+          "let",
+          "if",
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "fde3ad56",
+      "type": "AIAgent",
+      "properties": {
+        "fileName": "server.js",
+        "filePath": "backend\\src\\server.js",
+        "extension": ".js",
+        "size": 14444,
+        "created": "2025-09-05T12:57:57.497Z",
+        "modified": "2025-09-08T08:58:16.860Z"
+      },
+      "analysis": {
+        "lines": 526,
+        "complexity": 40,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "var",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [
+          "../../auto-prevention.js"
+        ],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "91fb9809",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "DatabaseManager.js",
+        "filePath": "backend\\src\\services\\DatabaseManager.js",
+        "extension": ".js",
+        "size": 10640,
+        "created": "2025-09-05T12:59:45.761Z",
+        "modified": "2025-09-08T08:58:16.860Z"
+      },
+      "analysis": {
+        "lines": 397,
+        "complexity": 38,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "ee301156",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "DocumentImprovementService.js",
+        "filePath": "backend\\src\\services\\DocumentImprovementService.js",
+        "extension": ".js",
+        "size": 15292,
+        "created": "2025-09-05T13:31:04.991Z",
+        "modified": "2025-09-08T08:58:16.861Z"
+      },
+      "analysis": {
+        "lines": 482,
+        "complexity": 44,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "9233a059",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "HybridEmbeddingService.js",
+        "filePath": "backend\\src\\services\\HybridEmbeddingService.js",
+        "extension": ".js",
+        "size": 9644,
+        "created": "2025-09-07T09:55:20.667Z",
+        "modified": "2025-09-08T07:20:53.523Z"
+      },
+      "analysis": {
+        "lines": 292,
+        "complexity": 33,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [
+          "openai"
+        ],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "e6f2f55b",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "MCPIntegratedSelfImprovementEngine.js",
+        "filePath": "backend\\src\\services\\MCPIntegratedSelfImprovementEngine.js",
+        "extension": ".js",
+        "size": 33566,
+        "created": "2025-09-05T14:04:07.652Z",
+        "modified": "2025-09-08T08:58:16.863Z"
+      },
+      "analysis": {
+        "lines": 1220,
+        "complexity": 104,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "4b64febd",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "OpenAIEmbeddingService.js",
+        "filePath": "backend\\src\\services\\OpenAIEmbeddingService.js",
+        "extension": ".js",
+        "size": 7530,
+        "created": "2025-09-07T09:49:52.576Z",
+        "modified": "2025-09-08T07:20:53.525Z"
+      },
+      "analysis": {
+        "lines": 233,
+        "complexity": 33,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "7c8a15a1",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "PalantirOntologySystem.js",
+        "filePath": "backend\\src\\services\\PalantirOntologySystem.js",
+        "extension": ".js",
+        "size": 26596,
+        "created": "2025-09-06T10:28:21.018Z",
+        "modified": "2025-09-08T08:58:16.864Z"
+      },
+      "analysis": {
+        "lines": 789,
+        "complexity": 92,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "function",
+          "const",
+          "let",
+          "var",
+          "if",
+          "else",
+          "for",
+          "while",
+          "try",
+          "catch"
+        ],
+        "imports": [
+          "fs/promises",
+          "fs/promises",
+          "path"
+        ],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "f4042f07",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "PalantirOntologySystemLite.js",
+        "filePath": "backend\\src\\services\\PalantirOntologySystemLite.js",
+        "extension": ".js",
+        "size": 21012,
+        "created": "2025-09-06T10:35:23.544Z",
+        "modified": "2025-09-08T08:58:16.864Z"
+      },
+      "analysis": {
+        "lines": 649,
+        "complexity": 83,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "function",
+          "const",
+          "let",
+          "var",
+          "if",
+          "else",
+          "for",
+          "while",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "57185280",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "RealTimeSelfImprovementEngine.js",
+        "filePath": "backend\\src\\services\\RealTimeSelfImprovementEngine.js",
+        "extension": ".js",
+        "size": 37300,
+        "created": "2025-09-05T13:48:31.644Z",
+        "modified": "2025-09-08T08:58:16.865Z"
+      },
+      "analysis": {
+        "lines": 1386,
+        "complexity": 175,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "function",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "while",
+          "try",
+          "catch"
+        ],
+        "imports": [
+          ",\n        source: match[1]\n      });\n    }\n    \n    return references;\n  }\n\n  /**\n   * API 참조 추출\n   */\n  extractAPIReferences(content) {\n    const references = [];\n    const apiRegex = /(?:GET|POST|PUT|DELETE|PATCH)\\s+([^\\s\\n]+)/g;\n    const endpointRegex = /\\/api\\/[^\\s\\n,)]+/g;\n    \n    let match;\n    \n    while ((match = apiRegex.exec(content)) !== null) {\n      references.push({\n        type: ",
+          ") {\n          const codePath = this.findCodeFile(ref.source);\n          if (codePath) {\n            docNode.dependencies.push(codePath);\n            this.projectGraph.get(codePath).dependents.push(docPath);\n          }\n        }\n      }\n    }\n  }\n\n  /**\n   * 실시간 감시자 설정\n   */\n  setupWatchers() {\n    const watcher = chokidar.watch(Object.values(this.watchTargets).flat(), {\n      ignored: [",
+          ") {\n      return this.findCodeFile(reference.source) !== null;\n    }\n    \n    if (reference.type === "
+        ],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "86064a20",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "reset-chromadb-collection.js",
+        "filePath": "backend\\src\\services\\reset-chromadb-collection.js",
+        "extension": ".js",
+        "size": 3818,
+        "created": "2025-09-07T10:57:08.035Z",
+        "modified": "2025-09-08T08:58:16.866Z"
+      },
+      "analysis": {
+        "lines": 104,
+        "complexity": 9,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "ee90319a",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "logger.js",
+        "filePath": "backend\\src\\utils\\logger.js",
+        "extension": ".js",
+        "size": 1770,
+        "created": "2025-09-05T13:03:29.307Z",
+        "modified": "2025-09-08T08:58:16.867Z"
+      },
+      "analysis": {
+        "lines": 83,
+        "complexity": 4,
+        "keywords": [
+          "const",
+          "if",
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "83334276",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "start-self-improvement.js",
+        "filePath": "backend\\start-self-improvement.js",
+        "extension": ".js",
+        "size": 3148,
+        "created": "2025-09-05T13:49:31.843Z",
+        "modified": "2025-09-08T08:58:16.867Z"
+      },
+      "analysis": {
+        "lines": 83,
+        "complexity": 6,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "557d6f91",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "sync-docs-code.js",
+        "filePath": "backend\\sync-docs-code.js",
+        "extension": ".js",
+        "size": 2774,
+        "created": "2025-09-05T16:09:13.721Z",
+        "modified": "2025-09-08T08:58:16.868Z"
+      },
+      "analysis": {
+        "lines": 76,
+        "complexity": 8,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "c004aa9b",
+      "type": "Test",
+      "properties": {
+        "fileName": "test-claude-integration.js",
+        "filePath": "backend\\test-claude-integration.js",
+        "extension": ".js",
+        "size": 8214,
+        "created": "2025-09-06T10:00:40.705Z",
+        "modified": "2025-09-08T07:20:53.533Z"
+      },
+      "analysis": {
+        "lines": 200,
+        "complexity": 17,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "var",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "c25ae9f5",
+      "type": "Test",
+      "properties": {
+        "fileName": "test-integration.js",
+        "filePath": "backend\\test-integration.js",
+        "extension": ".js",
+        "size": 7634,
+        "created": "2025-09-05T13:15:56.580Z",
+        "modified": "2025-09-05T13:15:56.580Z"
+      },
+      "analysis": {
+        "lines": 290,
+        "complexity": 14,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "caa91ed2",
+      "type": "Test",
+      "properties": {
+        "fileName": "test-mcp-integration.js",
+        "filePath": "backend\\test-mcp-integration.js",
+        "extension": ".js",
+        "size": 9394,
+        "created": "2025-09-05T14:05:46.043Z",
+        "modified": "2025-09-08T08:58:16.869Z"
+      },
+      "analysis": {
+        "lines": 218,
+        "complexity": 11,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "b1d70ab4",
+      "type": "Test",
+      "properties": {
+        "fileName": "test-mcp-server.js",
+        "filePath": "backend\\test-mcp-server.js",
+        "extension": ".js",
+        "size": 7329,
+        "created": "2025-09-05T17:38:18.483Z",
+        "modified": "2025-09-08T07:20:53.535Z"
+      },
+      "analysis": {
+        "lines": 182,
+        "complexity": 18,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "0e032743",
+      "type": "Test",
+      "properties": {
+        "fileName": "test-palantir-ontology-fixed.js",
+        "filePath": "backend\\test-palantir-ontology-fixed.js",
+        "extension": ".js",
+        "size": 1638,
+        "created": "2025-09-07T10:58:16.443Z",
+        "modified": "2025-09-08T08:58:16.870Z"
+      },
+      "analysis": {
+        "lines": 49,
+        "complexity": 4,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "5f005c32",
+      "type": "Test",
+      "properties": {
+        "fileName": "test-real-claude.js",
+        "filePath": "backend\\test-real-claude.js",
+        "extension": ".js",
+        "size": 2255,
+        "created": "2025-09-06T10:09:09.272Z",
+        "modified": "2025-09-08T07:20:53.536Z"
+      },
+      "analysis": {
+        "lines": 57,
+        "complexity": 3,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "var",
+          "if",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "5c40bea9",
+      "type": "Test",
+      "properties": {
+        "fileName": "test-self-improvement.js",
+        "filePath": "backend\\test-self-improvement.js",
+        "extension": ".js",
+        "size": 7426,
+        "created": "2025-09-05T13:51:06.705Z",
+        "modified": "2025-09-08T08:58:16.871Z"
+      },
+      "analysis": {
+        "lines": 245,
+        "complexity": 9,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "function",
+          "const",
+          "if",
+          "else",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "ff30fc4d",
+      "type": "Test",
+      "properties": {
+        "fileName": "test-sync-system.js",
+        "filePath": "backend\\test-sync-system.js",
+        "extension": ".js",
+        "size": 4842,
+        "created": "2025-09-05T16:10:02.036Z",
+        "modified": "2025-09-08T07:20:53.538Z"
+      },
+      "analysis": {
+        "lines": 153,
+        "complexity": 19,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "2bcdb60c",
+      "type": "Test",
+      "properties": {
+        "fileName": "test-websocket-connection.js",
+        "filePath": "backend\\test-websocket-connection.js",
+        "extension": ".js",
+        "size": 1295,
+        "created": "2025-09-05T16:41:35.522Z",
+        "modified": "2025-09-08T07:20:53.538Z"
+      },
+      "analysis": {
+        "lines": 53,
+        "complexity": 1,
+        "keywords": [
+          "const",
+          "if"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "08b47dfa",
+      "type": "Test",
+      "properties": {
+        "fileName": "DatabaseManager.test.js",
+        "filePath": "backend\\tests\\services\\DatabaseManager.test.js",
+        "extension": ".js",
+        "size": 16397,
+        "created": "2025-09-07T11:55:15.231Z",
+        "modified": "2025-09-08T08:58:16.872Z"
+      },
+      "analysis": {
+        "lines": 541,
+        "complexity": 5,
+        "keywords": [
+          "async",
+          "await",
+          "const",
+          "let",
+          "if",
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "da647cf6",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "setup.js",
+        "filePath": "backend\\tests\\setup.js",
+        "extension": ".js",
+        "size": 3279,
+        "created": "2025-09-07T11:53:37.296Z",
+        "modified": "2025-09-07T11:53:37.296Z"
+      },
+      "analysis": {
+        "lines": 136,
+        "complexity": 2,
+        "keywords": [
+          "async",
+          "const",
+          "let",
+          "var",
+          "if",
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "5f0a3a9a",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "uws-benchmark.js",
+        "filePath": "benchmarks\\uws-benchmark.js",
+        "extension": ".js",
+        "size": 5060,
+        "created": "2025-09-03T15:23:03.462Z",
+        "modified": "2025-09-08T07:20:53.541Z"
+      },
+      "analysis": {
+        "lines": 189,
+        "complexity": 11,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "function",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "2a114300",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "uws-performance.js",
+        "filePath": "benchmarks\\uws-performance.js",
+        "extension": ".js",
+        "size": 2185,
+        "created": "2025-09-03T13:43:28.272Z",
+        "modified": "2025-09-08T07:20:53.541Z"
+      },
+      "analysis": {
+        "lines": 77,
+        "complexity": 6,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "6c264d4c",
+      "type": "Test",
+      "properties": {
+        "fileName": "websocket-performance-test.js",
+        "filePath": "benchmarks\\websocket-performance-test.js",
+        "extension": ".js",
+        "size": 9991,
+        "created": "2025-09-03T18:18:26.472Z",
+        "modified": "2025-09-08T07:20:53.542Z"
+      },
+      "analysis": {
+        "lines": 271,
+        "complexity": 33,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "else",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "dad73401",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "websocket-performance.js",
+        "filePath": "benchmarks\\websocket-performance.js",
+        "extension": ".js",
+        "size": 9138,
+        "created": "2025-09-03T16:23:48.499Z",
+        "modified": "2025-09-08T07:20:53.542Z"
+      },
+      "analysis": {
+        "lines": 236,
+        "complexity": 17,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "d69706b8",
+      "type": "Unknown",
+      "properties": {
+        "fileName": "check-system-connectivity.py",
+        "filePath": "check-system-connectivity.py",
+        "extension": ".py",
+        "size": 6550,
+        "created": "2025-09-03T19:50:01.542Z",
+        "modified": "2025-09-03T19:50:17.311Z"
+      }
+    },
+    {
+      "id": "8da57587",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "extendscript_cleanup_complete.json",
+        "filePath": "checkpoints\\extendscript_cleanup_complete.json",
+        "extension": ".json",
+        "size": 5845,
+        "created": "2025-09-03T13:43:28.410Z",
+        "modified": "2025-09-02T07:28:31.879Z"
+      },
+      "analysis": {
+        "lines": 173,
+        "complexity": 6,
+        "keywords": [
+          "let",
+          "if",
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "b38136c7",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "initial_production_state.json",
+        "filePath": "checkpoints\\initial_production_state.json",
+        "extension": ".json",
+        "size": 4798,
+        "created": "2025-09-03T13:43:28.410Z",
+        "modified": "2025-09-02T07:19:12.101Z"
+      },
+      "analysis": {
+        "lines": 148,
+        "complexity": 4,
+        "keywords": [
+          "let",
+          "if",
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "a279f2ee",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "chromadb-service.js",
+        "filePath": "chromadb\\chromadb-service.js",
+        "extension": ".js",
+        "size": 5373,
+        "created": "2025-09-06T11:30:23.823Z",
+        "modified": "2025-09-06T11:30:56.378Z"
+      },
+      "analysis": {
+        "lines": 209,
+        "complexity": 18,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "9f3e187a",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "package-lock.json",
+        "filePath": "chromadb\\package-lock.json",
+        "extension": ".json",
+        "size": 39799,
+        "created": "2025-09-06T11:28:50.910Z",
+        "modified": "2025-09-06T11:29:45.455Z"
+      },
+      "analysis": {
+        "lines": 1075,
+        "complexity": 5,
+        "keywords": [
+          "class",
+          "const",
+          "if",
+          "for",
+          "try"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "a250f7d8",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "package.json",
+        "filePath": "chromadb\\package.json",
+        "extension": ".json",
+        "size": 408,
+        "created": "2025-09-06T11:28:38.961Z",
+        "modified": "2025-09-06T11:29:45.436Z"
+      },
+      "analysis": {
+        "lines": 18,
+        "complexity": 2,
+        "keywords": [
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "427ca203",
+      "type": "Test",
+      "properties": {
+        "fileName": "test-connection.js",
+        "filePath": "chromadb\\test-connection.js",
+        "extension": ".js",
+        "size": 2169,
+        "created": "2025-09-06T11:29:09.716Z",
+        "modified": "2025-09-06T11:29:09.716Z"
+      },
+      "analysis": {
+        "lines": 70,
+        "complexity": 4,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "deaab8dc",
+      "type": "Test",
+      "properties": {
+        "fileName": "test-integration.js",
+        "filePath": "chromadb\\test-integration.js",
+        "extension": ".js",
+        "size": 3854,
+        "created": "2025-09-06T11:31:06.172Z",
+        "modified": "2025-09-08T08:58:16.877Z"
+      },
+      "analysis": {
+        "lines": 122,
+        "complexity": 7,
+        "keywords": [
+          "async",
+          "await",
+          "function",
+          "const",
+          "let",
+          "if",
+          "for",
+          "try",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "5defad41",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "claude-activation-system.js",
+        "filePath": "claude-activation-system.js",
+        "extension": ".js",
+        "size": 5537,
+        "created": "2025-09-09T03:45:45.977Z",
+        "modified": "2025-09-09T03:45:45.981Z"
+      },
+      "analysis": {
+        "lines": 152,
+        "complexity": 4,
+        "keywords": [
+          "async",
+          "await",
+          "class",
+          "const",
+          "if",
+          "for",
+          "catch"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": true
+      }
+    },
+    {
+      "id": "ceb7fd3c",
+      "type": "AIAgent",
+      "properties": {
+        "fileName": "CLAUDE_OPUS_41_ACTIVATION.md",
+        "filePath": "CLAUDE_OPUS_41_ACTIVATION.md",
+        "extension": ".md",
+        "size": 5503,
+        "created": "2025-09-09T03:45:05.498Z",
+        "modified": "2025-09-09T03:45:05.500Z"
+      },
+      "analysis": {
+        "lines": 201,
+        "complexity": 4,
+        "keywords": [
+          "await",
+          "if",
+          "for",
+          "try"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "62964777",
+      "type": "AIAgent",
+      "properties": {
+        "fileName": "CLAUDE_SESSION_CONTEXT.md",
+        "filePath": "CLAUDE_SESSION_CONTEXT.md",
+        "extension": ".md",
+        "size": 1705,
+        "created": "2025-09-09T07:39:34.777Z",
+        "modified": "2025-09-09T07:39:34.778Z"
+      },
+      "analysis": {
+        "lines": 58,
+        "complexity": 3,
+        "keywords": [
+          "let",
+          "if",
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "eca2a4a9",
+      "type": "SourceCode",
+      "properties": {
+        "fileName": "CLAUDE_STATE.json",
+        "filePath": "CLAUDE_STATE.json",
+        "extension": ".json",
+        "size": 935,
+        "created": "2025-09-09T03:45:53.592Z",
+        "modified": "2025-09-09T03:45:53.593Z"
+      },
+      "analysis": {
+        "lines": 45,
+        "complexity": 1,
+        "keywords": [
+          "if",
+          "for"
+        ],
+        "imports": [],
+        "exports": [],
+        "hasExports": false
+      }
+    },
+    {
+      "id": "b4442251",
+      "type": "Documentation",
+      "properties": {
+        "fileName": "commands.txt",
+        "filePath": "commands.txt",
+        "extension": ".txt",
+        "size": 330,
+        "created": "2025-09-08T14:13:42.363Z",
+        "modified": "2025-09-08T14:13:42.363Z"
+      },
+      "analysis": {
+        "lines": 14,
+        "complexity": 0,
+        "keywords": [],
+        "imports": [],
+        "exports": [],
+        "headings": [],
+        "linkCount": 0
+      }
+    },
+    {
+      "id": "91e1ca74",
+      "type": "Unknown",
+      "properties": {
+        "fileName": "complete-memory-checkpoint.py",
+        "filePath": "complete-memory-checkpoint.py",
+        "extension": ".py",
+        "size": 13285,
+        "created": "2025-09-03T19:00:01.561Z",
+        "modified": "2025-09-03T19:00:01.562Z"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from": "fde3ad56",
+      "to": "c5ba7108",
+      "type": "IMPORTS",
+      "detail": "../../auto-prevention.js"
+    },
+    {
+      "from": "9233a059",
+      "to": "2493a544",
+      "type": "IMPORTS",
+      "detail": "openai"
+    },
+    {
+      "from": "7c8a15a1",
+      "to": "d58af3c0",
+      "type": "IMPORTS",
+      "detail": "path"
+    },
+    {
+      "from": "c25ae9f5",
+      "to": "d1891c83",
+      "type": "TESTS"
+    },
+    {
+      "from": "caa91ed2",
+      "to": "38464f3c",
+      "type": "TESTS"
+    },
+    {
+      "from": "b1d70ab4",
+      "to": "f52a2cc9",
+      "type": "TESTS"
+    },
+    {
+      "from": "5c40bea9",
+      "to": "83334276",
+      "type": "TESTS"
+    },
+    {
+      "from": "08b47dfa",
+      "to": "91fb9809",
+      "type": "TESTS"
+    },
+    {
+      "from": "6c264d4c",
+      "to": "dad73401",
+      "type": "TESTS"
+    },
+    {
+      "from": "deaab8dc",
+      "to": "d1891c83",
+      "type": "TESTS"
+    },
+    {
+      "from": "53400c94",
+      "to": "8a03dce5",
+      "type": "IMPORTS",
+      "detail": "cors"
+    },
+    {
+      "from": "53400c94",
+      "to": "5f0a3a9a",
+      "type": "IMPORTS",
+      "detail": "ws"
+    },
+    {
+      "from": "53400c94",
+      "to": "77a5d08a",
+      "type": "IMPORTS",
+      "detail": "cluster"
+    },
+    {
+      "from": "53400c94",
+      "to": "7fe30a59",
+      "type": "IMPORTS",
+      "detail": "os"
+    },
+    {
+      "from": "7d7551fe",
+      "to": "5f0a3a9a",
+      "type": "IMPORTS",
+      "detail": "ws"
+    },
+    {
+      "from": "7d7551fe",
+      "to": "5f0a3a9a",
+      "type": "IMPORTS",
+      "detail": "ws"
+    },
+    {
+      "from": "fd8365ce",
+      "to": "d70a165b",
+      "type": "IMPORTS",
+      "detail": "./App.css"
+    },
+    {
+      "from": "9f77ce08",
+      "to": "da8c902d",
+      "type": "IMPORTS",
+      "detail": "./index.css"
+    },
+    {
+      "from": "c8b6eeb3",
+      "to": "87983f06",
+      "type": "IMPORTS",
+      "detail": "fs"
+    },
+    {
+      "from": "c8b6eeb3",
+      "to": "d58af3c0",
+      "type": "IMPORTS",
+      "detail": "path"
+    },
+    {
+      "from": "8f78714b",
+      "to": "fd8365ce",
+      "type": "TESTS"
+    },
+    {
+      "from": "c0d5a5e5",
+      "to": "d70a165b",
+      "type": "IMPORTS",
+      "detail": "./App.css"
+    },
+    {
+      "from": "dfecf536",
+      "to": "115c2647",
+      "type": "IMPORTS",
+      "detail": "../managers/GestureManager"
+    },
+    {
+      "from": "dfecf536",
+      "to": "3e85c636",
+      "type": "IMPORTS",
+      "detail": "../managers/SceneManager"
+    },
+    {
+      "from": "dfecf536",
+      "to": "0f127edd",
+      "type": "IMPORTS",
+      "detail": "../managers/InteractionLogger"
+    },
+    {
+      "from": "dfecf536",
+      "to": "115c2647",
+      "type": "IMPORTS",
+      "detail": "../managers/GestureManager"
+    },
+    {
+      "from": "dfecf536",
+      "to": "115c2647",
+      "type": "IMPORTS",
+      "detail": "../managers/GestureManager"
+    },
+    {
+      "from": "dfecf536",
+      "to": "0f127edd",
+      "type": "IMPORTS",
+      "detail": "../managers/InteractionLogger"
+    },
+    {
+      "from": "dfecf536",
+      "to": "115c2647",
+      "type": "IMPORTS",
+      "detail": "../managers/GestureManager"
+    },
+    {
+      "from": "dfecf536",
+      "to": "f3775c59",
+      "type": "TESTS"
+    },
+    {
+      "from": "099bffe9",
+      "to": "da8c902d",
+      "type": "IMPORTS",
+      "detail": "./index.css"
+    },
+    {
+      "from": "e9014b92",
+      "to": "115c2647",
+      "type": "TESTS"
+    },
+    {
+      "from": "68d5d5ee",
+      "to": "203e89e8",
+      "type": "IMPORTS",
+      "detail": "./__mocks__/three"
+    },
+    {
+      "from": "1c6e4d64",
+      "to": "b468b4a9",
+      "type": "IMPORTS",
+      "detail": "../orchestration/claude-api-orchestrator"
+    },
+    {
+      "from": "1c6e4d64",
+      "to": "c7828b0c",
+      "type": "IMPORTS",
+      "detail": "../models/gesture-onnx-model"
+    },
+    {
+      "from": "5ddc65f3",
+      "to": "c7828b0c",
+      "type": "IMPORTS",
+      "detail": "../models/gesture-onnx-model"
+    },
+    {
+      "from": "c7828b0c",
+      "to": "87983f06",
+      "type": "IMPORTS",
+      "detail": "fs"
+    },
+    {
+      "from": "c7828b0c",
+      "to": "d58af3c0",
+      "type": "IMPORTS",
+      "detail": "path"
+    },
+    {
+      "from": "0a426441",
+      "to": "f2cc606c",
+      "type": "TESTS"
+    },
+    {
+      "from": "77a5d08a",
+      "to": "238c7e65",
+      "type": "IMPORTS",
+      "detail": "./worker-handler.js"
+    },
+    {
+      "from": "2cb631bb",
+      "to": "a54b84e9",
+      "type": "IMPORTS",
+      "detail": "net"
+    },
+    {
+      "from": "fe71cbf4",
+      "to": "d1891c83",
+      "type": "TESTS"
+    },
+    {
+      "from": "6149089e",
+      "to": "97a27dcc",
+      "type": "IMPORTS",
+      "detail": "events"
+    },
+    {
+      "from": "6149089e",
+      "to": "5f0a3a9a",
+      "type": "IMPORTS",
+      "detail": "ws"
+    },
+    {
+      "from": "25cc8aab",
+      "to": "2493a544",
+      "type": "IMPORTS",
+      "detail": "openai"
+    },
+    {
+      "from": "f5226af2",
+      "to": "546b11b4",
+      "type": "IMPORTS",
+      "detail": "./self-improving-system-patch.js"
+    },
+    {
+      "from": "f5226af2",
+      "to": "6477c23b",
+      "type": "IMPORTS",
+      "detail": "./orchestrator-bridge.js"
+    },
+    {
+      "from": "f5226af2",
+      "to": "aa08e59d",
+      "type": "IMPORTS",
+      "detail": "./performance-bridge.js"
+    },
+    {
+      "from": "038930ac",
+      "to": "5f0a3a9a",
+      "type": "IMPORTS",
+      "detail": "ws"
+    },
+    {
+      "from": "038930ac",
+      "to": "3175d470",
+      "type": "IMPORTS",
+      "detail": "http"
+    },
+    {
+      "from": "a3b2ddd7",
+      "to": "4250a345",
+      "type": "TESTS"
+    },
+    {
+      "from": "c24d7505",
+      "to": "6477c23b",
+      "type": "TESTS"
+    },
+    {
+      "from": "1ce6bfa1",
+      "to": "8702f22d",
+      "type": "IMPORTS",
+      "detail": "./nlp-engine.js"
+    },
+    {
+      "from": "1ce6bfa1",
+      "to": "e47484f8",
+      "type": "IMPORTS",
+      "detail": "./script-generator.js"
+    },
+    {
+      "from": "1ce6bfa1",
+      "to": "0a38b714",
+      "type": "IMPORTS",
+      "detail": "./ae-bridge.js"
+    },
+    {
+      "from": "e9e5b530",
+      "to": "f224126e",
+      "type": "IMPORTS",
+      "detail": "./auto-documentation-system.js"
+    },
+    {
+      "from": "8386291f",
+      "to": "5539bf76",
+      "type": "IMPORTS",
+      "detail": "./styles/lola-integration.css"
+    },
+    {
+      "from": "c43bc5ac",
+      "to": "e9e5b530",
+      "type": "IMPORTS",
+      "detail": "./session-init.js"
+    },
+    {
+      "from": "c43bc5ac",
+      "to": "f224126e",
+      "type": "IMPORTS",
+      "detail": "./auto-documentation-system.js"
+    },
+    {
+      "from": "4e5bd2c1",
+      "to": "d1891c83",
+      "type": "TESTS"
+    },
+    {
+      "from": "374e7a7c",
+      "to": "a63dddd5",
+      "type": "TESTS"
+    },
+    {
+      "from": "7e79c545",
+      "to": "a3a80abe",
+      "type": "TESTS"
+    },
+    {
+      "from": "38bbd9c3",
+      "to": "c5ba7108",
+      "type": "TESTS"
+    },
+    {
+      "from": "da2e2260",
+      "to": "d1891c83",
+      "type": "TESTS"
+    },
+    {
+      "from": "42da2470",
+      "to": "a54b84e9",
+      "type": "IMPORTS",
+      "detail": "net"
+    },
+    {
+      "from": "807e40c7",
+      "to": "a54b84e9",
+      "type": "IMPORTS",
+      "detail": "net"
+    }
+  ],
+  "statistics": {
+    "totalFiles": 8810,
+    "byType": {
+      "Unknown": 6053,
+      "SourceCode": 570,
+      "Configuration": 13,
+      "Script": 120,
+      "AIAgent": 96,
+      "Documentation": 596,
+      "Test": 1300,
+      "Style": 15,
+      "Asset": 47
+    },
+    "complexity": {
+      "high": [
+        "aggressive-duplicate-remover.js",
+        "analyze-documents.js",
+        "auto-documentation-system.js",
+        "auto-session-context.js",
+        "auto-improve-docs.js",
+        "package-lock.json",
+        "ClaudeService.js",
+        "AIAgentController.js",
+        "ClaudeIntegration.js",
+        "IntegratedMCPServer.js",
+        "MCPServer.js",
+        "InteractionProcessor.js",
+        "MultiModalProcessor.js",
+        "DemonstrationCollector.js",
+        "server.js",
+        "DatabaseManager.js",
+        "DocumentImprovementService.js",
+        "HybridEmbeddingService.js",
+        "MCPIntegratedSelfImprovementEngine.js",
+        "OpenAIEmbeddingService.js",
+        "PalantirOntologySystem.js",
+        "PalantirOntologySystemLite.js",
+        "RealTimeSelfImprovementEngine.js",
+        "websocket-performance-test.js",
+        "DOCUMENT_ANALYSIS_REPORT.json",
+        "DOCUMENT_OPTIMIZATION_REPORT.json",
+        "agent-03-composition-builder.md",
+        "agent-06-vibe-coding.md",
+        "01-MASTER-INSTRUCTIONS-v5.1-backup.md",
+        "docs-ontology.js",
+        "unified-doc-system.js",
+        "document-analyzer.js",
+        "document-self-improvement-v2.js",
+        "document-self-improvement.js",
+        "enhanced-doc-fixer.js",
+        "fix-api-endpoints.js",
+        "main.df3eb97e.js",
+        "coverage-final.json",
+        "prettify.js",
+        "sorter.js",
+        "MathCanvas.tsx.html",
+        "GestureManager.ts.html",
+        "InteractionLogger.ts.html",
+        "SceneManager.ts.html",
+        "package-lock.json",
+        "session-manager.js",
+        "GestureManager.ts",
+        "InteractionLogger.ts",
+        "SceneManager.ts",
+        "three-mocks.ts",
+        "teacher-gesture-learning.js",
+        "test-interface.html",
+        "gesture-controller.js",
+        "server-claude-integrated.js",
+        "server.js",
+        "graphrag-vector-embedding.js",
+        "integration-test-75-agents.js",
+        "learning-path-recommendation.js",
+        "mcp-demo-simplified.js",
+        "windows-ml-accelerator.js",
+        "gesture-onnx-model.js",
+        "math_nlp_server.js",
+        "ontology-based-classifier.js",
+        "complete-neo4j-ontology.js",
+        "advanced-mcp-orchestrator.js",
+        "ai-agents-fixed.js",
+        "auto-doc-sync-watcher.js",
+        "claude-api-orchestrator.js",
+        "claude-orchestrator-real.js",
+        "claude-orchestrator-v2.js",
+        "claude-qwen-collaborative-solver.js",
+        "generate-agent-docs.js",
+        "integration-test.js",
+        "math-education-orchestrator-v2.js",
+        "math-education-orchestrator.js",
+        "memory-double-check.js",
+        "multi-claude-orchestrator.js",
+        "ontology-orchestration-connector.js",
+        "orchestration-engine.js",
+        "performance-tracker.js",
+        "qwen-agents-75-complete.js",
+        "qwen-orchestrator-75.js",
+        "qwen-orchestrator-enhanced.js",
+        "self-improving-development-system.js",
+        "self-improving-system-patch.js",
+        "service-integration-bridge.js",
+        "package-lock.json",
+        "project-reorganizer.js",
+        "project-state-manager.js",
+        "reorganize-docs.js",
+        "restore-session.js",
+        "websocket-abstraction.js",
+        "websocket-bridge.js",
+        "ws-adapter.js",
+        "error-handler.js",
+        "gesture-websocket-bridge.js",
+        "gesture-ws-bridge.js",
+        "index.js",
+        "uws-optimized.js",
+        "uws-production.js",
+        "websocket-bridge.js",
+        "session-init.js",
+        "smart-doc-system.js",
+        "LOLAIntegratedPlatform.jsx",
+        "LOLAPhysicsEmulator.jsx",
+        "PrecisionGestureRecognizer.jsx",
+        "TouchMathSystem.jsx",
+        "WebGPUAccelerator.jsx",
+        "opus41-autonomous-agent.js",
+        "opus41-full-potential.js",
+        "opus41-orchestration-system.js",
+        "integration-checker.js",
+        "mathpix-integration.js",
+        "mcp-integration.js",
+        "realtime-monitoring-dashboard.js",
+        "realtime-neo4j-integration.js",
+        "system-health-monitor.js",
+        "trivial-issue-monitor.js",
+        "surgical-precision-refactor.js",
+        "enhanced-self-improvement.js",
+        "realtime-dev-system.js",
+        "personalization-engine.js",
+        "test-complete-integration.js",
+        "test-suite.js",
+        "trivial-issue-prevention-v2.js",
+        "trivial-issue-prevention.js",
+        "unified-content-mapper.js",
+        "validate-docs.js",
+        "mpl.js",
+        "nbagg_mpl.js",
+        "debugger.js",
+        "windows11-desktop-memory-boost.js"
+      ],
+      "medium": [
+        "advanced-artifact-system.js",
+        "ai-context-loader.js",
+        "debug-chromadb.js",
+        "OntologyService.js",
+        "setup-hybrid-chromadb.js",
+        "WebSocketHandler.js",
+        "test-claude-integration.js",
+        "test-integration.js",
+        "test-mcp-integration.js",
+        "test-mcp-server.js",
+        "test-sync-system.js",
+        "uws-benchmark.js",
+        "websocket-performance.js",
+        "chromadb-service.js",
+        "auto-update-system.js",
+        "monitor-changes.js",
+        "MCP_SERVER_GUIDE.md",
+        "UNIFIED_DOCUMENTATION_SYSTEM.md",
+        "document-optimizer.js",
+        "fixed-integration-test.js",
+        "block-navigation.js",
+        "three-mocks.ts.html",
+        "MathCanvas.tsx",
+        "setupTests.ts",
+        "github-copilot-windows11.js",
+        "gmail-notifier.js",
+        "enhanced-ontology-system.js",
+        "math-education-ontology.js",
+        "ai-agents-75-complete.js",
+        "benchmark-websocket.js",
+        "claude-api-monitor.js",
+        "claude-orchestrator-75.js",
+        "claude-orchestrator-fixed.js",
+        "claude-orchestrator.js",
+        "cluster-orchestration.js",
+        "constraint-manager.js",
+        "integrate-all-servers.js",
+        "intelligent-issue-resolver.js",
+        "orchestrator-integration.js",
+        "performance-benchmark.js",
+        "practical-integration-optimizer.js",
+        "qwen-auth-system.js",
+        "realtime-doc-sync.js",
+        "setup-dashscope.js",
+        "simple-orchestration.js",
+        "system-monitor.js",
+        "test-qwen-real.js",
+        "test-qwen-system.js",
+        "worker-handler.js",
+        "save-worksheets.js",
+        "uws-adapter.js",
+        "gesture-service.js",
+        "knowledge-graph.js",
+        "optimized-ws-adapter.js",
+        "optimized-ws-server.js",
+        "uws-adapter.js",
+        "session-initializer.js",
+        "agent-factory.js",
+        "MathContentMapper.js",
+        "LOLAIntegrationTests.js",
+        "claude-opus-41-windows11-ultimate.js",
+        "git-native-orchestration.js",
+        "master-orchestrator.js",
+        "test-comprehensive-session.js",
+        "test-lola-components.bat",
+        "test-claude-orchestration.js",
+        "test-mathpix-sat.js",
+        "test-multi-claude-orchestration.js",
+        "test-ontology-orchestration.js",
+        "integration-test.js",
+        "uws-test-client.html",
+        "websocket-test-client.js",
+        "unified-launcher.js"
+      ],
+      "low": [
+        "SESSION_CHECKPOINT.json",
+        "session_current.json",
+        ".monitor_status.json",
+        "activate-opus41-power.js",
+        "activate-opus41.js",
+        "AI_AGENTS_SYSTEM.md",
+        "auto-checkpoint.js",
+        "auto-prevention.js",
+        "AUTO_SYNC_STATUS.json",
+        "auto-sync-improvements.js",
+        "fix-chromadb-dimensions.js",
+        "init-ontology.js",
+        "jest.config.js",
+        "package.json",
+        "recreate-chromadb-collection.js",
+        "scan-documents.js",
+        "setup-openai-chromadb.js",
+        "start-mcp-server.js",
+        "agentActionSchemas.js",
+        "reset-chromadb-collection.js",
+        "logger.js",
+        "start-self-improvement.js",
+        "sync-docs-code.js",
+        "test-palantir-ontology-fixed.js",
+        "test-real-claude.js",
+        "test-self-improvement.js",
+        "test-websocket-connection.js",
+        "DatabaseManager.test.js",
+        "setup.js",
+        "uws-performance.js",
+        "extendscript_cleanup_complete.json",
+        "initial_production_state.json",
+        "package-lock.json",
+        "package.json",
+        "test-connection.js",
+        "test-integration.js",
+        "claude-activation-system.js",
+        "CLAUDE_OPUS_41_ACTIVATION.md",
+        "CLAUDE_SESSION_CONTEXT.md",
+        "CLAUDE_STATE.json",
+        ".checkpoint.json",
+        ".connectivity_check.json",
+        ".monitor_status.json",
+        ".pause_state.json",
+        ".trivial_issues.json",
+        "algorithm-optimizations.json",
+        "AUTO_SYNC_STATUS.json",
+        "cache-config.json",
+        "claude_desktop_config.json",
+        "db-optimizations.json",
+        "DOCUMENTATION_VALIDATION_REPORT.json",
+        "FEATURES_COMPLETE.json",
+        "FINAL_100_PERCENT_REPORT.json",
+        "INNOVATION_ACHIEVEMENT.json",
+        "INTEGRATION_OPTIMIZATION_REPORT.json",
+        "INTEGRATION_STATUS_REPORT.json",
+        "OPTIMIZATION_REPORT.json",
+        "opus-41-config.js",
+        "OPUS41_UNLEASHED.json",
+        "PERFORMANCE_OPTIMIZED.json",
+        "PERFORMANCE_REPORT.json",
+        "SAT_TEST_REPORT.json",
+        "SELF_IMPROVEMENT_STATUS.json",
+        "SYSTEM_HEALTH_REPORT.json",
+        "SYSTEM_HEALTH_REPORT_UPDATED.json",
+        "demo-orchestration.js",
+        "demo-tools.js",
+        ".behavior_rules.json",
+        ".checkpoint.json",
+        ".decisions_log.json",
+        "index.json",
+        ".issues_learned.json",
+        ".learned_patterns.json",
+        ".lessons_applied.json",
+        ".patterns_recognized.json",
+        ".session_init.json",
+        "ai-agent-efficient-config.json",
+        "ai-agent-memory.json",
+        "analyze-efficiency.js",
+        "ports.js",
+        "CONSISTENCY-FIX-REPORT.json",
+        "docs-ontology.json",
+        "initialize-memory.js",
+        "package.json",
+        "force-update.js",
+        ".auto-update-process.json",
+        "algebraExpert.md",
+        "calculusExpert.md",
+        "geometryExpert.md",
+        "statisticsExpert.md",
+        "trigonometryExpert.md",
+        "API_REFERENCE.md",
+        "analytics.md",
+        "assessment.md",
+        "content.md",
+        "interaction.md",
+        "math_concepts.md",
+        "pedagogy.md",
+        "technical.md",
+        "visualization.md",
+        "README.md",
+        "AGENT_LIST.md",
+        "API_DOCUMENTATION.md",
+        "PROJECT_STATUS_20250908.md",
+        "DOCUMENTATION_METRICS.json",
+        "INNOVATION_100_ACHIEVEMENT_REPORT.md",
+        "OPUS41_FULL_POTENTIAL_ANALYSIS.md",
+        "Palantir Ontology & Orchestration 시스템 구현 연구 문서.md",
+        "PROJECT_OVERVIEW_AUTO.md",
+        "PROJECT_STATUS_AUTO.md",
+        "DOCUMENTATION_OVERHAUL_REPORT.md",
+        "SMART_DOC_IMPLEMENTATION_PLAN.md",
+        "PROJECT_STATUS_20250908.md",
+        "AI_SESSION_STATE.json",
+        "asset-manifest.json",
+        "main.df3eb97e.js.LICENSE.txt",
+        "App.tsx.html",
+        "ControlPanel.tsx.html",
+        "GestureIndicator.tsx.html",
+        "index.tsx.html",
+        "craco.config.js",
+        "jest.config.js",
+        "package.json",
+        "SESSION_CHECKPOINT.json",
+        "App.test.tsx",
+        "App.tsx",
+        "ControlPanel.tsx",
+        "GestureIndicator.tsx",
+        "MathCanvas.test.tsx",
+        "index.tsx",
+        "GestureManager.test.ts",
+        "fileMock.ts",
+        "three-controls.js",
+        "three.js",
+        "test-camera-debug.js",
+        "test-mock-debug.js",
+        "tsconfig.json",
+        "three.js",
+        "galaxy-touch-system.js",
+        "requirements.txt",
+        "gesture-app.js",
+        "package.json",
+        "server-simple.js",
+        "innovation-score-booster.js",
+        "instant-prompt-generator.js",
+        "integrated-ae-automation.js",
+        "integration-test-report.json",
+        "session_8094a2fc_attempt_0001.json",
+        "session_8094a2fc_attempt_0002.json",
+        "session_8094a2fc_attempt_0003.json",
+        "session_8094a2fc_attempt_0004.json",
+        "session_8094a2fc_attempt_0005.json",
+        "session_8094a2fc_attempt_0006.json",
+        "session_8094a2fc_attempt_0007.json",
+        "session_8094a2fc_attempt_0008.json",
+        "session_8094a2fc_attempt_0009.json",
+        "session_8094a2fc_attempt_0010.json",
+        "session_8094a2fc_attempt_0011.json",
+        "session_8094a2fc_attempt_0012.json",
+        "session_8094a2fc_attempt_0013.json",
+        "session_8094a2fc_attempt_0014.json",
+        "session_8094a2fc_attempt_0015.json",
+        "session_8094a2fc_attempt_0016.json",
+        "session_8094a2fc_attempt_0017.json",
+        "session_8094a2fc_attempt_0018.json",
+        "session_8094a2fc_attempt_0019.json",
+        "session_b4b01851_attempt_0001.json",
+        "session_b4b01851_attempt_0002.json",
+        "session_b4b01851_attempt_0003.json",
+        "session_b4b01851_attempt_0004.json",
+        "session_b4b01851_attempt_0005.json",
+        "session_b4b01851_attempt_0006.json",
+        "manual-suggestion.js",
+        "checkpoint_thread_math_001.json",
+        "patterns.json",
+        "student_001_memory.json",
+        "gesture_recognition.json",
+        "package-lock.json",
+        "package.json",
+        "ontology.json",
+        "fix-names.js",
+        "neo4j-ontology.js",
+        "semantic-layer.js",
+        "test-neo4j-integration.js",
+        "update-neo4j-docs.js",
+        ".api-usage.json",
+        ".memory-checkpoint.json",
+        ".memory-verification.json",
+        ".performance-metrics.json",
+        "enhanced-orchestration.js",
+        "install-qwen-dependencies.js",
+        "intelligent-dev-system.js",
+        "master-integration-orchestrator.js",
+        "orchestrator-bridge.js",
+        "package-lock.json",
+        "package.json",
+        "performance-bridge.js",
+        "QWEN3_MAX_IMPLEMENTATION.md",
+        "QWEN_SYSTEM_OPERATIONAL.md",
+        "realtime-doc-sync-orchestrator.js",
+        "start-self-improving-system.js",
+        "test-collaboration.js",
+        "test-intelligent-system.js",
+        "test-nlp.js",
+        "test-qwen-auth.js",
+        "test-qwen-simulation.js",
+        "test-real-api.js",
+        "test-ws-connection.js",
+        "package.json",
+        "performance-optimizer-v2.js",
+        "project-analysis-report.json",
+        "PROJECT_CONTEXT.md",
+        "PROJECT_CURRENT_STATE.json",
+        "PROJECT_IMPROVEMENT_REPORT_20250909.md",
+        "quick-doc-test.js",
+        "quick-state.js",
+        "QUICK_REFERENCE.txt",
+        "recover-session.js",
+        "REORGANIZATION_COMPLETE.md",
+        "performance_1757328836464.json",
+        "performance_1757328907204.json",
+        "requirements-lola.txt",
+        "requirements-realtime.txt",
+        "requirements.txt",
+        "run-performance-test.js",
+        "safe-memory-helper.js",
+        "migration-status.js",
+        "SELF_IMPROVEMENT_STATUS.json",
+        "ae-bridge.js",
+        "benchmark-ws.js",
+        "ae-ontology.json",
+        "nlp-engine-graphrag.js",
+        "test-graphrag.js",
+        "message-worker.js",
+        "nlp-engine.js",
+        "parallel-ws-adapter.js",
+        "script-generator.js",
+        "test-bridge.js",
+        "test-optimized-ws.js",
+        "test-parallel-ws.js",
+        "uws-debug.js",
+        "uws-migration-test.js",
+        "uws-server.js",
+        "uws-simple-test.js",
+        "worker-pool.js",
+        "session-recovery-system.js",
+        "comprehensive_test_1757330597380.json",
+        "comprehensive_test_1757330780458.json",
+        "session_1757329458781.json",
+        "session_1757329502470.json",
+        "session_1757329887668.json",
+        "session_1757330542253.json",
+        "session_1757330597371.json",
+        "session_1757330780449.json",
+        "SESSION_START_PROMPT.md",
+        "SESSION_STATE.json",
+        "lola-web-server.js",
+        "claude-opus-41-demo.js",
+        "claude-opus-41-ultimate.js",
+        "init-ontology-orchestration.js",
+        "opus41-demo.js",
+        "opus41-full-power-config.js",
+        "sparc-workflow.js",
+        "start-doc-sync.js",
+        "start-recovery.js",
+        "test-all-tools.js",
+        "test-api-key.js",
+        "test-auto-docs.js",
+        "test-real-api.js",
+        "integration-test.js",
+        "orchestration-test.js",
+        "test-realtime-feedback.html",
+        "test-suite.js",
+        "test-uws.html",
+        "test-complete-neo4j-integration.js",
+        "test-connection.js",
+        "test-mathpix-api.js",
+        "test-neo4j-realtime.js",
+        "test-neo4j-simple.js",
+        "test-palantir-ontology.js",
+        "test-prevention-system.js",
+        "test-prevention.js",
+        "test-realtime-integration.js",
+        "test-palantir-integration.js",
+        "test-uws-integration.js",
+        "TEST_COVERAGE_REPORT.md",
+        "trigger-step8-update.js",
+        "update-project-purpose.js",
+        "entry_points.txt",
+        "entry_points.txt",
+        "haarcascade_lefteye_2splits.xml",
+        "haarcascade_righteye_2splits.xml",
+        "entry_points.txt",
+        "entry_points.txt",
+        "entry_points.txt",
+        "entry_points.txt",
+        "mpl_tornado.js",
+        "entry_points.txt",
+        "entry_points.txt",
+        "label_inputs.txt",
+        "label_results.txt",
+        "studentized_range_mpmath_ref.json",
+        "entry_points.txt",
+        "estimator.js",
+        "entry_points.txt",
+        "entry_points.txt",
+        "entry_points.txt",
+        "verify-completion.js"
+      ]
+    },
+    "largeFiles": [
+      {
+        "file": "combined.log",
+        "size": "211.03 KB"
+      },
+      {
+        "file": "package-lock.json",
+        "size": "224.02 KB"
+      },
+      {
+        "file": "DOCUMENT_ANALYSIS_REPORT.json",
+        "size": "227.20 KB"
+      },
+      {
+        "file": "main.df3eb97e.js",
+        "size": "654.90 KB"
+      },
+      {
+        "file": "main.df3eb97e.js.map",
+        "size": "2342.91 KB"
+      },
+      {
+        "file": "package-lock.json",
+        "size": "846.24 KB"
+      },
+      {
+        "file": "combined.log",
+        "size": "255.05 KB"
+      },
+      {
+        "file": "checkpoint.0",
+        "size": "1024.00 KB"
+      },
+      {
+        "file": "neostore.transaction.db.0",
+        "size": "262144.00 KB"
+      },
+      {
+        "file": "checkpoint.0",
+        "size": "1024.00 KB"
+      },
+      {
+        "file": "neostore.transaction.db.0",
+        "size": "262144.00 KB"
+      },
+      {
+        "file": "package-lock.json",
+        "size": "315.20 KB"
+      },
+      {
+        "file": "absltest.py",
+        "size": "103.20 KB"
+      },
+      {
+        "file": "core.py",
+        "size": "114.59 KB"
+      },
+      {
+        "file": "_contourpy.cp311-win_amd64.pyd",
+        "size": "440.00 KB"
+      },
+      {
+        "file": "cv2.pyd",
+        "size": "69304.00 KB"
+      },
+      {
+        "file": "haarcascade_eye.xml",
+        "size": "333.40 KB"
+      },
+      {
+        "file": "haarcascade_eye_tree_eyeglasses.xml",
+        "size": "587.56 KB"
+      },
+      {
+        "file": "haarcascade_frontalcatface.xml",
+        "size": "401.75 KB"
+      },
+      {
+        "file": "haarcascade_frontalcatface_extended.xml",
+        "size": "373.94 KB"
+      },
+      {
+        "file": "haarcascade_frontalface_alt.xml",
+        "size": "660.85 KB"
+      },
+      {
+        "file": "haarcascade_frontalface_alt2.xml",
+        "size": "527.95 KB"
+      },
+      {
+        "file": "haarcascade_frontalface_alt_tree.xml",
+        "size": "2626.02 KB"
+      },
+      {
+        "file": "haarcascade_frontalface_default.xml",
+        "size": "908.33 KB"
+      },
+      {
+        "file": "haarcascade_fullbody.xml",
+        "size": "465.65 KB"
+      },
+      {
+        "file": "haarcascade_lefteye_2splits.xml",
+        "size": "190.79 KB"
+      },
+      {
+        "file": "haarcascade_lowerbody.xml",
+        "size": "386.06 KB"
+      },
+      {
+        "file": "haarcascade_profileface.xml",
+        "size": "809.10 KB"
+      },
+      {
+        "file": "haarcascade_righteye_2splits.xml",
+        "size": "191.57 KB"
+      },
+      {
+        "file": "haarcascade_smile.xml",
+        "size": "184.09 KB"
+      },
+      {
+        "file": "haarcascade_upperbody.xml",
+        "size": "767.40 KB"
+      },
+      {
+        "file": "LICENSE-3RD-PARTY.txt",
+        "size": "173.77 KB"
+      },
+      {
+        "file": "opencv_videoio_ffmpeg4120_64.dll",
+        "size": "27685.00 KB"
+      },
+      {
+        "file": "__init__.pyi",
+        "size": "308.17 KB"
+      },
+      {
+        "file": "dateutil-zoneinfo.tar.gz",
+        "size": "152.73 KB"
+      },
+      {
+        "file": "applications.py",
+        "size": "172.41 KB"
+      },
+      {
+        "file": "routing.py",
+        "size": "172.20 KB"
+      },
+      {
+        "file": "agl.py",
+        "size": "115.41 KB"
+      },
+      {
+        "file": "__init__.py",
+        "size": "108.96 KB"
+      },
+      {
+        "file": "cu2qu.c",
+        "size": "633.76 KB"
+      },
+      {
+        "file": "__init__.py",
+        "size": "129.49 KB"
+      },
+      {
+        "file": "lexer.c",
+        "size": "753.32 KB"
+      },
+      {
+        "file": "lexer.cp311-win_amd64.pyd",
+        "size": "119.00 KB"
+      },
+      {
+        "file": "bezierTools.c",
+        "size": "1818.01 KB"
+      },
+      {
+        "file": "bezierTools.cp311-win_amd64.pyd",
+        "size": "334.00 KB"
+      },
+      {
+        "file": "builder.py",
+        "size": "129.09 KB"
+      },
+      {
+        "file": "momentsPen.c",
+        "size": "564.98 KB"
+      },
+      {
+        "file": "qu2cu.c",
+        "size": "690.26 KB"
+      },
+      {
+        "file": "qu2cu.cp311-win_amd64.pyd",
+        "size": "104.00 KB"
+      },
+      {
+        "file": "__init__.py",
+        "size": "138.35 KB"
+      },
+      {
+        "file": "otData.py",
+        "size": "198.89 KB"
+      },
+      {
+        "file": "Scripts.py",
+        "size": "130.75 KB"
+      },
+      {
+        "file": "iup.c",
+        "size": "827.42 KB"
+      },
+      {
+        "file": "iup.cp311-win_amd64.pyd",
+        "size": "125.50 KB"
+      },
+      {
+        "file": "METADATA",
+        "size": "109.31 KB"
+      },
+      {
+        "file": "descriptor_pb2.py",
+        "size": "170.25 KB"
+      },
+      {
+        "file": "_message.pyd",
+        "size": "749.89 KB"
+      },
+      {
+        "file": "uts46data.py",
+        "size": "233.68 KB"
+      },
+      {
+        "file": "jax2tf.py",
+        "size": "143.39 KB"
+      },
+      {
+        "file": "fragmented_array.py",
+        "size": "134.77 KB"
+      },
+      {
+        "file": "bcoo.py",
+        "size": "126.53 KB"
+      },
+      {
+        "file": "api.py",
+        "size": "130.77 KB"
+      },
+      {
+        "file": "core.py",
+        "size": "140.80 KB"
+      },
+      {
+        "file": "rocm_eigh_hipsolver_syev.py",
+        "size": "112.32 KB"
+      },
+      {
+        "file": "test_harnesses.py",
+        "size": "123.47 KB"
+      },
+      {
+        "file": "mlir.py",
+        "size": "137.38 KB"
+      },
+      {
+        "file": "partial_eval.py",
+        "size": "119.73 KB"
+      },
+      {
+        "file": "pxla.py",
+        "size": "137.77 KB"
+      },
+      {
+        "file": "loops.py",
+        "size": "132.37 KB"
+      },
+      {
+        "file": "lax.py",
+        "size": "352.84 KB"
+      },
+      {
+        "file": "slicing.py",
+        "size": "147.10 KB"
+      },
+      {
+        "file": "lax_numpy.py",
+        "size": "328.37 KB"
+      },
+      {
+        "file": "reductions.py",
+        "size": "106.76 KB"
+      },
+      {
+        "file": "ufuncs.py",
+        "size": "115.97 KB"
+      },
+      {
+        "file": "lowering.py",
+        "size": "139.91 KB"
+      },
+      {
+        "file": "lowering.py",
+        "size": "121.63 KB"
+      },
+      {
+        "file": "primitives.py",
+        "size": "106.59 KB"
+      },
+      {
+        "file": "pjit.py",
+        "size": "143.16 KB"
+      },
+      {
+        "file": "random.py",
+        "size": "111.38 KB"
+      },
+      {
+        "file": "_lapack.pyd",
+        "size": "967.50 KB"
+      },
+      {
+        "file": "_sparse.pyd",
+        "size": "245.00 KB"
+      },
+      {
+        "file": "jax_common.dll",
+        "size": "212984.00 KB"
+      },
+      {
+        "file": "_gpu_ops_gen.py",
+        "size": "150.27 KB"
+      },
+      {
+        "file": "_llvm_ops_gen.py",
+        "size": "521.98 KB"
+      },
+      {
+        "file": "_mhlo_ops_gen.py",
+        "size": "241.35 KB"
+      },
+      {
+        "file": "_nvvm_ops_gen.py",
+        "size": "236.30 KB"
+      },
+      {
+        "file": "_stablehlo_ops_gen.py",
+        "size": "217.39 KB"
+      },
+      {
+        "file": "_tpu_gen.py",
+        "size": "120.40 KB"
+      },
+      {
+        "file": "LICENSE.txt",
+        "size": "223.66 KB"
+      },
+      {
+        "file": "_cext.cp311-win_amd64.pyd",
+        "size": "155.50 KB"
+      },
+      {
+        "file": "_axes.py",
+        "size": "345.55 KB"
+      },
+      {
+        "file": "_base.py",
+        "size": "182.08 KB"
+      },
+      {
+        "file": "axis.py",
+        "size": "102.26 KB"
+      },
+      {
+        "file": "backend_pdf.py",
+        "size": "102.85 KB"
+      },
+      {
+        "file": "_backend_agg.cp311-win_amd64.pyd",
+        "size": "471.00 KB"
+      },
+      {
+        "file": "_tkagg.cp311-win_amd64.pyd",
+        "size": "161.00 KB"
+      },
+      {
+        "file": "backend_bases.py",
+        "size": "128.86 KB"
+      },
+      {
+        "file": "colors.py",
+        "size": "134.08 KB"
+      },
+      {
+        "file": "figure.py",
+        "size": "138.54 KB"
+      },
+      {
+        "file": "ft2font.cp311-win_amd64.pyd",
+        "size": "897.50 KB"
+      },
+      {
+        "file": "DejaVuSans-Bold.ttf",
+        "size": "687.63 KB"
+      },
+      {
+        "file": "DejaVuSans-BoldOblique.ttf",
+        "size": "626.68 KB"
+      },
+      {
+        "file": "DejaVuSans-Oblique.ttf",
+        "size": "618.98 KB"
+      },
+      {
+        "file": "DejaVuSans.ttf",
+        "size": "738.35 KB"
+      },
+      {
+        "file": "DejaVuSansMono-Bold.ttf",
+        "size": "323.77 KB"
+      },
+      {
+        "file": "DejaVuSansMono-BoldOblique.ttf",
+        "size": "247.18 KB"
+      },
+      {
+        "file": "DejaVuSansMono-Oblique.ttf",
+        "size": "245.58 KB"
+      },
+      {
+        "file": "DejaVuSansMono.ttf",
+        "size": "332.27 KB"
+      },
+      {
+        "file": "DejaVuSerif-Bold.ttf",
+        "size": "347.36 KB"
+      },
+      {
+        "file": "DejaVuSerif-BoldItalic.ttf",
+        "size": "338.93 KB"
+      },
+      {
+        "file": "DejaVuSerif-Italic.ttf",
+        "size": "337.51 KB"
+      },
+      {
+        "file": "DejaVuSerif.ttf",
+        "size": "370.84 KB"
+      },
+      {
+        "file": "STIXGeneral.ttf",
+        "size": "437.72 KB"
+      },
+      {
+        "file": "STIXGeneralBol.ttf",
+        "size": "231.80 KB"
+      },
+      {
+        "file": "STIXGeneralBolIta.ttf",
+        "size": "176.91 KB"
+      },
+      {
+        "file": "STIXGeneralItalic.ttf",
+        "size": "170.94 KB"
+      },
+      {
+        "file": "jacksboro_fault_dem.npz",
+        "size": "169.98 KB"
+      },
+      {
+        "file": "patches.py",
+        "size": "161.20 KB"
+      },
+      {
+        "file": "pyplot.py",
+        "size": "146.20 KB"
+      },
+      {
+        "file": "test_axes.py",
+        "size": "322.20 KB"
+      },
+      {
+        "file": "ticker.py",
+        "size": "104.86 KB"
+      },
+      {
+        "file": "widgets.py",
+        "size": "149.09 KB"
+      },
+      {
+        "file": "_cm_listed.py",
+        "size": "131.84 KB"
+      },
+      {
+        "file": "_c_internal_utils.cp311-win_amd64.pyd",
+        "size": "146.50 KB"
+      },
+      {
+        "file": "_image.cp311-win_amd64.pyd",
+        "size": "342.50 KB"
+      },
+      {
+        "file": "_mathtext.py",
+        "size": "105.32 KB"
+      },
+      {
+        "file": "_path.cp311-win_amd64.pyd",
+        "size": "300.00 KB"
+      },
+      {
+        "file": "_qhull.cp311-win_amd64.pyd",
+        "size": "527.00 KB"
+      },
+      {
+        "file": "_tri.cp311-win_amd64.pyd",
+        "size": "282.50 KB"
+      },
+      {
+        "file": "face_detection_full_range_sparse.tflite",
+        "size": "660.88 KB"
+      },
+      {
+        "file": "face_detection_short_range.tflite",
+        "size": "224.33 KB"
+      },
+      {
+        "file": "face_landmark.tflite",
+        "size": "1213.28 KB"
+      },
+      {
+        "file": "face_landmark_with_attention.tflite",
+        "size": "2436.63 KB"
+      },
+      {
+        "file": "hand_landmark_full.tflite",
+        "size": "5350.50 KB"
+      },
+      {
+        "file": "hand_landmark_lite.tflite",
+        "size": "2023.04 KB"
+      },
+      {
+        "file": "hand_recrop.tflite",
+        "size": "120.89 KB"
+      },
+      {
+        "file": "iris_landmark.tflite",
+        "size": "2578.68 KB"
+      },
+      {
+        "file": "palm_detection_full.tflite",
+        "size": "2285.01 KB"
+      },
+      {
+        "file": "palm_detection_lite.tflite",
+        "size": "1938.91 KB"
+      },
+      {
+        "file": "pose_detection.tflite",
+        "size": "2889.69 KB"
+      },
+      {
+        "file": "pose_landmark_full.tflite",
+        "size": "6289.56 KB"
+      },
+      {
+        "file": "selfie_segmentation.tflite",
+        "size": "243.66 KB"
+      },
+      {
+        "file": "selfie_segmentation_landscape.tflite",
+        "size": "244.28 KB"
+      },
+      {
+        "file": "opencv_world3410.dll",
+        "size": "54597.00 KB"
+      },
+      {
+        "file": "_framework_bindings.cp311-win_amd64.pyd",
+        "size": "11244.00 KB"
+      },
+      {
+        "file": "_pywrap_metadata_version.cp311-win_amd64.pyd",
+        "size": "148.50 KB"
+      },
+      {
+        "file": "metadata_schema_py_generated.py",
+        "size": "114.73 KB"
+      },
+      {
+        "file": "schema_py_generated.py",
+        "size": "625.80 KB"
+      },
+      {
+        "file": "_pywrap_flatbuffers.cp311-win_amd64.pyd",
+        "size": "494.50 KB"
+      },
+      {
+        "file": "RECORD",
+        "size": "112.75 KB"
+      },
+      {
+        "file": "_ml_dtypes_ext.cp311-win_amd64.pyd",
+        "size": "771.50 KB"
+      },
+      {
+        "file": "axes3d.py",
+        "size": "154.22 KB"
+      },
+      {
+        "file": "ccompiler_opt.py",
+        "size": "100.65 KB"
+      },
+      {
+        "file": "system_info.py",
+        "size": "114.42 KB"
+      },
+      {
+        "file": "crackfortran.py",
+        "size": "148.28 KB"
+      },
+      {
+        "file": "_pocketfft_umath.cp311-win_amd64.pyd",
+        "size": "272.50 KB"
+      },
+      {
+        "file": "test_function_base.py",
+        "size": "169.26 KB"
+      },
+      {
+        "file": "test_io.py",
+        "size": "110.22 KB"
+      },
+      {
+        "file": "_function_base_impl.py",
+        "size": "197.13 KB"
+      },
+      {
+        "file": "_linalg.py",
+        "size": "115.54 KB"
+      },
+      {
+        "file": "_umath_linalg.cp311-win_amd64.pyd",
+        "size": "105.50 KB"
+      },
+      {
+        "file": "core.py",
+        "size": "292.46 KB"
+      },
+      {
+        "file": "test_core.py",
+        "size": "219.78 KB"
+      },
+      {
+        "file": "bit_generator.cp311-win_amd64.pyd",
+        "size": "160.00 KB"
+      },
+      {
+        "file": "npyrandom.lib",
+        "size": "144.71 KB"
+      },
+      {
+        "file": "mtrand.cp311-win_amd64.pyd",
+        "size": "594.50 KB"
+      },
+      {
+        "file": "test_generator_mt19937.py",
+        "size": "117.27 KB"
+      },
+      {
+        "file": "_bounded_integers.cp311-win_amd64.pyd",
+        "size": "225.00 KB"
+      },
+      {
+        "file": "_common.cp311-win_amd64.pyd",
+        "size": "153.50 KB"
+      },
+      {
+        "file": "_generator.cp311-win_amd64.pyd",
+        "size": "698.00 KB"
+      },
+      {
+        "file": "random.pyi",
+        "size": "103.40 KB"
+      },
+      {
+        "file": "fromnumeric.py",
+        "size": "144.70 KB"
+      },
+      {
+        "file": "npymath.lib",
+        "size": "150.56 KB"
+      },
+      {
+        "file": "test_datetime.py",
+        "size": "121.46 KB"
+      },
+      {
+        "file": "test_multiarray.py",
+        "size": "393.21 KB"
+      },
+      {
+        "file": "test_nditer.py",
+        "size": "131.40 KB"
+      },
+      {
+        "file": "test_numeric.py",
+        "size": "158.89 KB"
+      },
+      {
+        "file": "test_ufunc.py",
+        "size": "132.43 KB"
+      },
+      {
+        "file": "test_umath.py",
+        "size": "193.44 KB"
+      },
+      {
+        "file": "_add_newdocs.py",
+        "size": "210.67 KB"
+      },
+      {
+        "file": "_multiarray_umath.cp311-win_amd64.pyd",
+        "size": "4072.00 KB"
+      },
+      {
+        "file": "_simd.cp311-win_amd64.pyd",
+        "size": "2186.00 KB"
+      },
+      {
+        "file": "__init__.pyi",
+        "size": "212.00 KB"
+      },
+      {
+        "file": "RECORD",
+        "size": "122.69 KB"
+      },
+      {
+        "file": "libscipy_openblas64_-13e2df515630b4a41f92893938845698.dll",
+        "size": "19913.00 KB"
+      },
+      {
+        "file": "msvcp140-263139962577ecda4cd9469ca360a746.dll",
+        "size": "561.58 KB"
+      },
+      {
+        "file": "LICENSE-3RD-PARTY.txt",
+        "size": "151.81 KB"
+      },
+      {
+        "file": "LICENSE-3RD-PARTY.txt",
+        "size": "173.77 KB"
+      },
+      {
+        "file": "Image.py",
+        "size": "149.00 KB"
+      },
+      {
+        "file": "_avif.cp311-win_amd64.pyd",
+        "size": "7648.50 KB"
+      },
+      {
+        "file": "_imaging.cp311-win_amd64.pyd",
+        "size": "2431.50 KB"
+      },
+      {
+        "file": "_imagingcms.cp311-win_amd64.pyd",
+        "size": "261.00 KB"
+      },
+      {
+        "file": "_imagingft.cp311-win_amd64.pyd",
+        "size": "1963.50 KB"
+      },
+      {
+        "file": "_webp.cp311-win_amd64.pyd",
+        "size": "400.00 KB"
+      },
+      {
+        "file": "cacert.pem",
+        "size": "283.26 KB"
+      },
+      {
+        "file": "t64-arm.exe",
+        "size": "178.50 KB"
+      },
+      {
+        "file": "t64.exe",
+        "size": "105.50 KB"
+      },
+      {
+        "file": "w64-arm.exe",
+        "size": "164.50 KB"
+      },
+      {
+        "file": "uts46data.py",
+        "size": "235.09 KB"
+      },
+      {
+        "file": "__init__.py",
+        "size": "121.53 KB"
+      },
+      {
+        "file": "_emoji_codes.py",
+        "size": "119.74 KB"
+      },
+      {
+        "file": "more.py",
+        "size": "129.46 KB"
+      },
+      {
+        "file": "core.py",
+        "size": "208.31 KB"
+      },
+      {
+        "file": "__init__.py",
+        "size": "106.02 KB"
+      },
+      {
+        "file": "yacc.py",
+        "size": "134.10 KB"
+      },
+      {
+        "file": "yacctab.py",
+        "size": "204.82 KB"
+      },
+      {
+        "file": "json_schema.py",
+        "size": "112.72 KB"
+      },
+      {
+        "file": "types.py",
+        "size": "102.33 KB"
+      },
+      {
+        "file": "_generate_schema.py",
+        "size": "130.68 KB"
+      },
+      {
+        "file": "core_schema.py",
+        "size": "150.37 KB"
+      },
+      {
+        "file": "_pydantic_core.cp311-win_amd64.pyd",
+        "size": "5158.50 KB"
+      },
+      {
+        "file": "core.py",
+        "size": "229.27 KB"
+      },
+      {
+        "file": "RECORD",
+        "size": "142.74 KB"
+      },
+      {
+        "file": "hierarchy.py",
+        "size": "157.38 KB"
+      },
+      {
+        "file": "_hierarchy.cp311-win_amd64.pyd",
+        "size": "257.50 KB"
+      },
+      {
+        "file": "_optimal_leaf_ordering.cp311-win_amd64.pyd",
+        "size": "184.00 KB"
+      },
+      {
+        "file": "_vq.cp311-win_amd64.pyd",
+        "size": "101.50 KB"
+      },
+      {
+        "file": "_codata.py",
+        "size": "199.82 KB"
+      },
+      {
+        "file": "pypocketfft.cp311-win_amd64.pyd",
+        "size": "1073.50 KB"
+      },
+      {
+        "file": "convolve.cp311-win_amd64.pyd",
+        "size": "121.50 KB"
+      },
+      {
+        "file": "fftw_double_ref.npz",
+        "size": "158.32 KB"
+      },
+      {
+        "file": "fftw_longdouble_ref.npz",
+        "size": "289.13 KB"
+      },
+      {
+        "file": "_dop.cp311-win_amd64.pyd",
+        "size": "424.00 KB"
+      },
+      {
+        "file": "_lebedev.py",
+        "size": "261.21 KB"
+      },
+      {
+        "file": "_lsoda.cp311-win_amd64.pyd",
+        "size": "542.00 KB"
+      },
+      {
+        "file": "_odepack.cp311-win_amd64.pyd",
+        "size": "522.00 KB"
+      },
+      {
+        "file": "_quadpack.cp311-win_amd64.pyd",
+        "size": "139.50 KB"
+      },
+      {
+        "file": "_test_odeint_banded.cp311-win_amd64.pyd",
+        "size": "544.00 KB"
+      },
+      {
+        "file": "_vode.cp311-win_amd64.pyd",
+        "size": "602.00 KB"
+      },
+      {
+        "file": "test_bsplines.py",
+        "size": "132.45 KB"
+      },
+      {
+        "file": "_dfitpack.cp311-win_amd64.pyd",
+        "size": "660.00 KB"
+      },
+      {
+        "file": "_dierckx.cp311-win_amd64.pyd",
+        "size": "962.00 KB"
+      },
+      {
+        "file": "_fitpack.cp311-win_amd64.pyd",
+        "size": "411.00 KB"
+      },
+      {
+        "file": "_interpnd.cp311-win_amd64.pyd",
+        "size": "274.00 KB"
+      },
+      {
+        "file": "_ppoly.cp311-win_amd64.pyd",
+        "size": "300.50 KB"
+      },
+      {
+        "file": "_rbfinterp_pythran.cp311-win_amd64.pyd",
+        "size": "1138.00 KB"
+      },
+      {
+        "file": "_rgi_cython.cp311-win_amd64.pyd",
+        "size": "141.50 KB"
+      },
+      {
+        "file": "test10.arff",
+        "size": "194.35 KB"
+      },
+      {
+        "file": "_mio5_utils.cp311-win_amd64.pyd",
+        "size": "191.50 KB"
+      },
+      {
+        "file": "_streams.cp311-win_amd64.pyd",
+        "size": "107.00 KB"
+      },
+      {
+        "file": "_fmm_core.cp311-win_amd64.pyd",
+        "size": "2742.00 KB"
+      },
+      {
+        "file": "_test_fortran.cp311-win_amd64.pyd",
+        "size": "373.00 KB"
+      },
+      {
+        "file": "cython_blas.cp311-win_amd64.pyd",
+        "size": "150.50 KB"
+      },
+      {
+        "file": "cython_lapack.cp311-win_amd64.pyd",
+        "size": "510.00 KB"
+      },
+      {
+        "file": "cython_lapack.pxd",
+        "size": "201.25 KB"
+      },
+      {
+        "file": "cython_lapack.pyx",
+        "size": "702.20 KB"
+      },
+      {
+        "file": "carex_18_data.npz",
+        "size": "157.70 KB"
+      },
+      {
+        "file": "test_decomp.py",
+        "size": "120.48 KB"
+      },
+      {
+        "file": "test_lapack.py",
+        "size": "138.74 KB"
+      },
+      {
+        "file": "_cythonized_array_utils.cp311-win_amd64.pyd",
+        "size": "412.50 KB"
+      },
+      {
+        "file": "_decomp_interpolative.cp311-win_amd64.pyd",
+        "size": "779.00 KB"
+      },
+      {
+        "file": "_decomp_lu_cython.cp311-win_amd64.pyd",
+        "size": "121.50 KB"
+      },
+      {
+        "file": "_decomp_update.cp311-win_amd64.pyd",
+        "size": "302.00 KB"
+      },
+      {
+        "file": "_fblas.cp311-win_amd64.pyd",
+        "size": "719.50 KB"
+      },
+      {
+        "file": "_flapack.cp311-win_amd64.pyd",
+        "size": "2213.50 KB"
+      },
+      {
+        "file": "_lapack_subroutines.h",
+        "size": "235.21 KB"
+      },
+      {
+        "file": "_linalg_pythran.cp311-win_amd64.pyd",
+        "size": "1036.50 KB"
+      },
+      {
+        "file": "_matfuncs_expm.cp311-win_amd64.pyd",
+        "size": "224.00 KB"
+      },
+      {
+        "file": "_matfuncs_schur_sqrtm.cp311-win_amd64.pyd",
+        "size": "205.50 KB"
+      },
+      {
+        "file": "_matfuncs_sqrtm_triu.cp311-win_amd64.pyd",
+        "size": "125.50 KB"
+      },
+      {
+        "file": "_solve_toeplitz.cp311-win_amd64.pyd",
+        "size": "141.50 KB"
+      },
+      {
+        "file": "test_filters.py",
+        "size": "133.08 KB"
+      },
+      {
+        "file": "test_morphology.py",
+        "size": "131.08 KB"
+      },
+      {
+        "file": "_morphology.py",
+        "size": "101.17 KB"
+      },
+      {
+        "file": "_nd_image.cp311-win_amd64.pyd",
+        "size": "172.00 KB"
+      },
+      {
+        "file": "_ni_label.cp311-win_amd64.pyd",
+        "size": "249.50 KB"
+      },
+      {
+        "file": "_rank_filter_1d.cp311-win_amd64.pyd",
+        "size": "142.00 KB"
+      },
+      {
+        "file": "__odrpack.cp311-win_amd64.pyd",
+        "size": "673.50 KB"
+      },
+      {
+        "file": "test_linprog.py",
+        "size": "102.80 KB"
+      },
+      {
+        "file": "test_optimize.py",
+        "size": "130.50 KB"
+      },
+      {
+        "file": "_bglu_dense.cp311-win_amd64.pyd",
+        "size": "194.00 KB"
+      },
+      {
+        "file": "_group_columns.cp311-win_amd64.pyd",
+        "size": "1008.00 KB"
+      },
+      {
+        "file": "_core.cp311-win_amd64.pyd",
+        "size": "5752.50 KB"
+      },
+      {
+        "file": "_highs_options.cp311-win_amd64.pyd",
+        "size": "1208.00 KB"
+      },
+      {
+        "file": "_lbfgsb.cp311-win_amd64.pyd",
+        "size": "167.50 KB"
+      },
+      {
+        "file": "_lsap.cp311-win_amd64.pyd",
+        "size": "173.50 KB"
+      },
+      {
+        "file": "_minpack.cp311-win_amd64.pyd",
+        "size": "120.00 KB"
+      },
+      {
+        "file": "_moduleTNC.cp311-win_amd64.pyd",
+        "size": "139.00 KB"
+      },
+      {
+        "file": "_optimize.py",
+        "size": "150.33 KB"
+      },
+      {
+        "file": "_pava_pybind.cp311-win_amd64.pyd",
+        "size": "294.00 KB"
+      },
+      {
+        "file": "_slsqplib.cp311-win_amd64.pyd",
+        "size": "167.50 KB"
+      },
+      {
+        "file": "_trlib.cp311-win_amd64.pyd",
+        "size": "201.00 KB"
+      },
+      {
+        "file": "test_filter_design.py",
+        "size": "209.33 KB"
+      },
+      {
+        "file": "test_signaltools.py",
+        "size": "190.96 KB"
+      },
+      {
+        "file": "_filter_design.py",
+        "size": "198.17 KB"
+      },
+      {
+        "file": "_ltisys.py",
+        "size": "121.65 KB"
+      },
+      {
+        "file": "_max_len_seq_inner.cp311-win_amd64.pyd",
+        "size": "982.50 KB"
+      },
+      {
+        "file": "_peak_finding_utils.cp311-win_amd64.pyd",
+        "size": "152.00 KB"
+      },
+      {
+        "file": "_signaltools.py",
+        "size": "193.40 KB"
+      },
+      {
+        "file": "_sigtools.cp311-win_amd64.pyd",
+        "size": "124.50 KB"
+      },
+      {
+        "file": "_sosfilt.cp311-win_amd64.pyd",
+        "size": "148.50 KB"
+      },
+      {
+        "file": "_upfirdn_apply.cp311-win_amd64.pyd",
+        "size": "231.00 KB"
+      },
+      {
+        "file": "_flow.cp311-win_amd64.pyd",
+        "size": "193.50 KB"
+      },
+      {
+        "file": "_matching.cp311-win_amd64.pyd",
+        "size": "199.50 KB"
+      },
+      {
+        "file": "_min_spanning_tree.cp311-win_amd64.pyd",
+        "size": "115.50 KB"
+      },
+      {
+        "file": "_reordering.cp311-win_amd64.pyd",
+        "size": "171.50 KB"
+      },
+      {
+        "file": "_shortest_path.cp311-win_amd64.pyd",
+        "size": "590.50 KB"
+      },
+      {
+        "file": "_tools.cp311-win_amd64.pyd",
+        "size": "170.00 KB"
+      },
+      {
+        "file": "_traversal.cp311-win_amd64.pyd",
+        "size": "442.50 KB"
+      },
+      {
+        "file": "propack_test_data.npz",
+        "size": "586.28 KB"
+      },
+      {
+        "file": "_superlu.cp311-win_amd64.pyd",
+        "size": "529.00 KB"
+      },
+      {
+        "file": "_arpack.cp311-win_amd64.pyd",
+        "size": "905.00 KB"
+      },
+      {
+        "file": "_cpropack.cp311-win_amd64.pyd",
+        "size": "590.00 KB"
+      },
+      {
+        "file": "_dpropack.cp311-win_amd64.pyd",
+        "size": "560.00 KB"
+      },
+      {
+        "file": "_spropack.cp311-win_amd64.pyd",
+        "size": "561.50 KB"
+      },
+      {
+        "file": "_zpropack.cp311-win_amd64.pyd",
+        "size": "580.50 KB"
+      },
+      {
+        "file": "test_base.py",
+        "size": "221.04 KB"
+      },
+      {
+        "file": "_csparsetools.cp311-win_amd64.pyd",
+        "size": "547.50 KB"
+      },
+      {
+        "file": "_sparsetools.cp311-win_amd64.pyd",
+        "size": "4011.50 KB"
+      },
+      {
+        "file": "pdist-chebyshev-ml-iris.txt",
+        "size": "174.61 KB"
+      },
+      {
+        "file": "pdist-cityblock-ml-iris.txt",
+        "size": "174.61 KB"
+      },
+      {
+        "file": "pdist-correlation-ml-iris.txt",
+        "size": "174.61 KB"
+      },
+      {
+        "file": "pdist-cosine-ml-iris.txt",
+        "size": "174.61 KB"
+      },
+      {
+        "file": "pdist-euclidean-ml-iris.txt",
+        "size": "174.61 KB"
+      },
+      {
+        "file": "pdist-jensenshannon-ml-iris.txt",
+        "size": "168.69 KB"
+      },
+      {
+        "file": "pdist-minkowski-3.2-ml-iris.txt",
+        "size": "174.61 KB"
+      },
+      {
+        "file": "pdist-minkowski-5.8-ml-iris.txt",
+        "size": "174.61 KB"
+      },
+      {
+        "file": "pdist-seuclidean-ml-iris.txt",
+        "size": "174.61 KB"
+      },
+      {
+        "file": "_rigid_transform.cp311-win_amd64.pyd",
+        "size": "365.50 KB"
+      },
+      {
+        "file": "_rotation.cp311-win_amd64.pyd",
+        "size": "758.50 KB"
+      },
+      {
+        "file": "_ckdtree.cp311-win_amd64.pyd",
+        "size": "1542.50 KB"
+      },
+      {
+        "file": "_distance_pybind.cp311-win_amd64.pyd",
+        "size": "1355.00 KB"
+      },
+      {
+        "file": "_distance_wrap.cp311-win_amd64.pyd",
+        "size": "108.50 KB"
+      },
+      {
+        "file": "_qhull.cp311-win_amd64.pyd",
+        "size": "878.50 KB"
+      },
+      {
+        "file": "cython_special.cp311-win_amd64.pyd",
+        "size": "2950.00 KB"
+      },
+      {
+        "file": "boost.npz",
+        "size": "1240.86 KB"
+      },
+      {
+        "file": "local.npz",
+        "size": "198.67 KB"
+      },
+      {
+        "file": "test_basic.py",
+        "size": "195.01 KB"
+      },
+      {
+        "file": "_add_newdocs.py",
+        "size": "276.05 KB"
+      },
+      {
+        "file": "_basic.py",
+        "size": "112.70 KB"
+      },
+      {
+        "file": "_ellip_harm_2.cp311-win_amd64.pyd",
+        "size": "131.00 KB"
+      },
+      {
+        "file": "_gufuncs.cp311-win_amd64.pyd",
+        "size": "1480.00 KB"
+      },
+      {
+        "file": "_specfun.cp311-win_amd64.pyd",
+        "size": "291.50 KB"
+      },
+      {
+        "file": "_special_ufuncs.cp311-win_amd64.pyd",
+        "size": "2230.50 KB"
+      },
+      {
+        "file": "_test_internal.cp311-win_amd64.pyd",
+        "size": "105.00 KB"
+      },
+      {
+        "file": "_ufuncs.cp311-win_amd64.pyd",
+        "size": "1441.50 KB"
+      },
+      {
+        "file": "_ufuncs.pyx",
+        "size": "559.30 KB"
+      },
+      {
+        "file": "_ufuncs_cxx.cp311-win_amd64.pyd",
+        "size": "2276.50 KB"
+      },
+      {
+        "file": "stable-Z1-cdf-sample-data.npy",
+        "size": "179.42 KB"
+      },
+      {
+        "file": "stable-Z1-pdf-sample-data.npy",
+        "size": "179.38 KB"
+      },
+      {
+        "file": "SmLs03.dat",
+        "size": "458.63 KB"
+      },
+      {
+        "file": "SmLs06.dat",
+        "size": "528.98 KB"
+      },
+      {
+        "file": "SmLs09.dat",
+        "size": "581.74 KB"
+      },
+      {
+        "file": "test_distributions.py",
+        "size": "414.37 KB"
+      },
+      {
+        "file": "test_morestats.py",
+        "size": "142.85 KB"
+      },
+      {
+        "file": "test_multivariate.py",
+        "size": "173.52 KB"
+      },
+      {
+        "file": "test_stats.py",
+        "size": "408.53 KB"
+      },
+      {
+        "file": "_ansari_swilk_statistics.cp311-win_amd64.pyd",
+        "size": "118.50 KB"
+      },
+      {
+        "file": "_biasedurn.cp311-win_amd64.pyd",
+        "size": "345.00 KB"
+      },
+      {
+        "file": "_continuous_distns.py",
+        "size": "409.25 KB"
+      },
+      {
+        "file": "_distn_infrastructure.py",
+        "size": "152.88 KB"
+      },
+      {
+        "file": "_distribution_infrastructure.py",
+        "size": "233.81 KB"
+      },
+      {
+        "file": "_morestats.py",
+        "size": "172.92 KB"
+      },
+      {
+        "file": "_mstats_basic.py",
+        "size": "123.60 KB"
+      },
+      {
+        "file": "_multivariate.py",
+        "size": "249.91 KB"
+      },
+      {
+        "file": "_qmc.py",
+        "size": "108.17 KB"
+      },
+      {
+        "file": "_qmc_cy.cp311-win_amd64.pyd",
+        "size": "289.00 KB"
+      },
+      {
+        "file": "_qmvnt_cy.cp311-win_amd64.pyd",
+        "size": "129.50 KB"
+      },
+      {
+        "file": "rcont.cp311-win_amd64.pyd",
+        "size": "111.00 KB"
+      },
+      {
+        "file": "_resampling.py",
+        "size": "102.89 KB"
+      },
+      {
+        "file": "_sobol.cp311-win_amd64.pyd",
+        "size": "228.00 KB"
+      },
+      {
+        "file": "_sobol_direction_numbers.npz",
+        "size": "575.52 KB"
+      },
+      {
+        "file": "_stats.cp311-win_amd64.pyd",
+        "size": "542.00 KB"
+      },
+      {
+        "file": "_stats_py.py",
+        "size": "423.71 KB"
+      },
+      {
+        "file": "_stats_pythran.cp311-win_amd64.pyd",
+        "size": "1061.00 KB"
+      },
+      {
+        "file": "unuran_wrapper.cp311-win_amd64.pyd",
+        "size": "1285.00 KB"
+      },
+      {
+        "file": "_cyutility.cp311-win_amd64.pyd",
+        "size": "174.50 KB"
+      },
+      {
+        "file": "_ccallback_c.cp311-win_amd64.pyd",
+        "size": "106.00 KB"
+      },
+      {
+        "file": "_uarray.cp311-win_amd64.pyd",
+        "size": "228.00 KB"
+      },
+      {
+        "file": "RECORD",
+        "size": "202.47 KB"
+      },
+      {
+        "file": "libscipy_openblas-6b2103f2ae4d8547998b5d188e9801fb.dll",
+        "size": "19683.00 KB"
+      },
+      {
+        "file": "nfkc.bin",
+        "size": "234.38 KB"
+      },
+      {
+        "file": "nfkc_cf.bin",
+        "size": "241.24 KB"
+      },
+      {
+        "file": "nmt_nfkc.bin",
+        "size": "234.38 KB"
+      },
+      {
+        "file": "nmt_nfkc_cf.bin",
+        "size": "241.24 KB"
+      },
+      {
+        "file": "sentencepiece_wrap.cxx",
+        "size": "382.93 KB"
+      },
+      {
+        "file": "_sentencepiece.cp311-win_amd64.pyd",
+        "size": "986.00 KB"
+      },
+      {
+        "file": "cli-arm64.exe",
+        "size": "134.00 KB"
+      },
+      {
+        "file": "fastjsonschema_validations.py",
+        "size": "263.57 KB"
+      },
+      {
+        "file": "gui-arm64.exe",
+        "size": "134.50 KB"
+      },
+      {
+        "file": "more.py",
+        "size": "115.19 KB"
+      },
+      {
+        "file": "core.py",
+        "size": "208.31 KB"
+      },
+      {
+        "file": "msvcp140.dll",
+        "size": "544.66 KB"
+      },
+      {
+        "file": "vcomp140.dll",
+        "size": "188.63 KB"
+      },
+      {
+        "file": "_linkage.cp311-win_amd64.pyd",
+        "size": "103.00 KB"
+      },
+      {
+        "file": "_reachability.cp311-win_amd64.pyd",
+        "size": "173.50 KB"
+      },
+      {
+        "file": "_tree.cp311-win_amd64.pyd",
+        "size": "196.50 KB"
+      },
+      {
+        "file": "_hierarchical_fast.cp311-win_amd64.pyd",
+        "size": "153.00 KB"
+      },
+      {
+        "file": "_k_means_common.cp311-win_amd64.pyd",
+        "size": "265.50 KB"
+      },
+      {
+        "file": "_k_means_elkan.cp311-win_amd64.pyd",
+        "size": "269.00 KB"
+      },
+      {
+        "file": "_k_means_lloyd.cp311-win_amd64.pyd",
+        "size": "176.50 KB"
+      },
+      {
+        "file": "_k_means_minibatch.cp311-win_amd64.pyd",
+        "size": "133.00 KB"
+      },
+      {
+        "file": "breast_cancer.csv",
+        "size": "117.66 KB"
+      },
+      {
+        "file": "china.jpg",
+        "size": "192.04 KB"
+      },
+      {
+        "file": "flower.jpg",
+        "size": "139.64 KB"
+      },
+      {
+        "file": "_svmlight_format_fast.cp311-win_amd64.pyd",
+        "size": "313.00 KB"
+      },
+      {
+        "file": "_online_lda_fast.cp311-win_amd64.pyd",
+        "size": "125.50 KB"
+      },
+      {
+        "file": "_forest.py",
+        "size": "117.91 KB"
+      },
+      {
+        "file": "histogram.cp311-win_amd64.pyd",
+        "size": "155.00 KB"
+      },
+      {
+        "file": "splitting.cp311-win_amd64.pyd",
+        "size": "165.00 KB"
+      },
+      {
+        "file": "_cd_fast.cp311-win_amd64.pyd",
+        "size": "263.50 KB"
+      },
+      {
+        "file": "_coordinate_descent.py",
+        "size": "118.95 KB"
+      },
+      {
+        "file": "_ridge.py",
+        "size": "103.92 KB"
+      },
+      {
+        "file": "_sag_fast.cp311-win_amd64.pyd",
+        "size": "122.50 KB"
+      },
+      {
+        "file": "_sgd_fast.cp311-win_amd64.pyd",
+        "size": "166.50 KB"
+      },
+      {
+        "file": "test_classification.py",
+        "size": "121.14 KB"
+      },
+      {
+        "file": "_classification.py",
+        "size": "139.88 KB"
+      },
+      {
+        "file": "_dist_metrics.cp311-win_amd64.pyd",
+        "size": "460.50 KB"
+      },
+      {
+        "file": "_argkmin.cp311-win_amd64.pyd",
+        "size": "158.00 KB"
+      },
+      {
+        "file": "_argkmin_classmode.cp311-win_amd64.pyd",
+        "size": "108.50 KB"
+      },
+      {
+        "file": "_base.cp311-win_amd64.pyd",
+        "size": "138.00 KB"
+      },
+      {
+        "file": "_datasets_pair.cp311-win_amd64.pyd",
+        "size": "247.50 KB"
+      },
+      {
+        "file": "_middle_term_computer.cp311-win_amd64.pyd",
+        "size": "249.50 KB"
+      },
+      {
+        "file": "_radius_neighbors.cp311-win_amd64.pyd",
+        "size": "174.50 KB"
+      },
+      {
+        "file": "_radius_neighbors_classmode.cp311-win_amd64.pyd",
+        "size": "118.00 KB"
+      },
+      {
+        "file": "_pairwise_fast.cp311-win_amd64.pyd",
+        "size": "117.00 KB"
+      },
+      {
+        "file": "_split.py",
+        "size": "110.03 KB"
+      },
+      {
+        "file": "_ball_tree.cp311-win_amd64.pyd",
+        "size": "435.00 KB"
+      },
+      {
+        "file": "_binary_tree.pxi.tp",
+        "size": "100.70 KB"
+      },
+      {
+        "file": "_kd_tree.cp311-win_amd64.pyd",
+        "size": "435.00 KB"
+      },
+      {
+        "file": "_quad_tree.cp311-win_amd64.pyd",
+        "size": "136.50 KB"
+      },
+      {
+        "file": "_csr_polynomial_expansion.cp311-win_amd64.pyd",
+        "size": "247.50 KB"
+      },
+      {
+        "file": "_data.py",
+        "size": "128.52 KB"
+      },
+      {
+        "file": "_target_encoder_fast.cp311-win_amd64.pyd",
+        "size": "308.50 KB"
+      },
+      {
+        "file": "_liblinear.cp311-win_amd64.pyd",
+        "size": "134.50 KB"
+      },
+      {
+        "file": "_libsvm.cp311-win_amd64.pyd",
+        "size": "270.50 KB"
+      },
+      {
+        "file": "_libsvm_sparse.cp311-win_amd64.pyd",
+        "size": "221.50 KB"
+      },
+      {
+        "file": "_criterion.cp311-win_amd64.pyd",
+        "size": "158.50 KB"
+      },
+      {
+        "file": "_partitioner.cp311-win_amd64.pyd",
+        "size": "135.50 KB"
+      },
+      {
+        "file": "_splitter.cp311-win_amd64.pyd",
+        "size": "113.00 KB"
+      },
+      {
+        "file": "_tree.cp311-win_amd64.pyd",
+        "size": "343.00 KB"
+      },
+      {
+        "file": "arrayfuncs.cp311-win_amd64.pyd",
+        "size": "130.00 KB"
+      },
+      {
+        "file": "estimator_checks.py",
+        "size": "193.90 KB"
+      },
+      {
+        "file": "sparsefuncs_fast.cp311-win_amd64.pyd",
+        "size": "523.00 KB"
+      },
+      {
+        "file": "validation.py",
+        "size": "108.85 KB"
+      },
+      {
+        "file": "_cython_blas.cp311-win_amd64.pyd",
+        "size": "245.50 KB"
+      },
+      {
+        "file": "_fast_dict.cp311-win_amd64.pyd",
+        "size": "115.00 KB"
+      },
+      {
+        "file": "_random.cp311-win_amd64.pyd",
+        "size": "161.00 KB"
+      },
+      {
+        "file": "_seq_dataset.cp311-win_amd64.pyd",
+        "size": "151.00 KB"
+      },
+      {
+        "file": "_typedefs.cp311-win_amd64.pyd",
+        "size": "109.00 KB"
+      },
+      {
+        "file": "_vector_sentinel.cp311-win_amd64.pyd",
+        "size": "106.00 KB"
+      },
+      {
+        "file": "_cyutility.cp311-win_amd64.pyd",
+        "size": "117.50 KB"
+      },
+      {
+        "file": "_isotonic.cp311-win_amd64.pyd",
+        "size": "129.00 KB"
+      },
+      {
+        "file": "_loss.cp311-win_amd64.pyd",
+        "size": "1817.50 KB"
+      },
+      {
+        "file": "sounddevice.py",
+        "size": "107.64 KB"
+      },
+      {
+        "file": "typing_extensions.py",
+        "size": "156.67 KB"
+      },
+      {
+        "file": "_cffi_backend.cp311-win_amd64.pyd",
+        "size": "174.00 KB"
+      },
+      {
+        "file": "libportaudio64bit-asio.dll",
+        "size": "333.00 KB"
+      },
+      {
+        "file": "libportaudio64bit.dll",
+        "size": "299.50 KB"
+      },
+      {
+        "file": "f2py.exe",
+        "size": "105.83 KB"
+      },
+      {
+        "file": "fastapi.exe",
+        "size": "105.82 KB"
+      },
+      {
+        "file": "flask.exe",
+        "size": "105.82 KB"
+      },
+      {
+        "file": "fonttools.exe",
+        "size": "105.83 KB"
+      },
+      {
+        "file": "numpy-config.exe",
+        "size": "105.83 KB"
+      },
+      {
+        "file": "pip.exe",
+        "size": "105.86 KB"
+      },
+      {
+        "file": "pip3.11.exe",
+        "size": "105.86 KB"
+      },
+      {
+        "file": "pip3.exe",
+        "size": "105.86 KB"
+      },
+      {
+        "file": "pyftmerge.exe",
+        "size": "105.83 KB"
+      },
+      {
+        "file": "pyftsubset.exe",
+        "size": "105.83 KB"
+      },
+      {
+        "file": "python.exe",
+        "size": "268.27 KB"
+      },
+      {
+        "file": "pythonw.exe",
+        "size": "257.27 KB"
+      },
+      {
+        "file": "ttx.exe",
+        "size": "105.82 KB"
+      },
+      {
+        "file": "uvicorn.exe",
+        "size": "105.82 KB"
+      },
+      {
+        "file": "watchmedo.exe",
+        "size": "105.83 KB"
+      },
+      {
+        "file": "websockets.exe",
+        "size": "105.83 KB"
+      }
+    ],
+    "relationships": 66
+  },
+  "recommendations": [
+    {
+      "type": "REFACTOR",
+      "priority": "HIGH",
+      "message": "132 files have high complexity and should be refactored",
+      "files": [
+        "aggressive-duplicate-remover.js",
+        "analyze-documents.js",
+        "auto-documentation-system.js",
+        "auto-session-context.js",
+        "auto-improve-docs.js"
+      ]
+    },
+    {
+      "type": "ADD_TESTS",
+      "priority": "MEDIUM",
+      "message": "558 source files lack test coverage",
+      "files": [
+        "SESSION_CHECKPOINT.json",
+        "session_current.json",
+        ".monitor_status.json",
+        "activate-opus41.js",
+        "advanced-artifact-system.js"
+      ]
+    },
+    {
+      "type": "OPTIMIZE",
+      "priority": "LOW",
+      "message": "465 files are larger than 100KB",
+      "files": [
+        {
+          "file": "combined.log",
+          "size": "211.03 KB"
+        },
+        {
+          "file": "package-lock.json",
+          "size": "224.02 KB"
+        },
+        {
+          "file": "DOCUMENT_ANALYSIS_REPORT.json",
+          "size": "227.20 KB"
+        },
+        {
+          "file": "main.df3eb97e.js",
+          "size": "654.90 KB"
+        },
+        {
+          "file": "main.df3eb97e.js.map",
+          "size": "2342.91 KB"
+        }
+      ]
+    }
+  ]
+}

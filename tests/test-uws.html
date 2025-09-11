@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>µWebSockets Test</title>
+</head>
+<body>
+    <h1>µWebSockets Connection Test</h1>
+    <div id="status">Connecting...</div>
+    <div id="stats"></div>
+    
+    <script>
+        const ws = new WebSocket('ws://localhost:8085/');
+        let messageCount = 0;
+        let startTime = Date.now();
+        
+        ws.onopen = () => {
+            document.getElementById('status').textContent = '✅ Connected';
+            console.log('Connected to µWebSockets');
+            
+            // Send test messages
+            setInterval(() => {
+                ws.send(JSON.stringify({
+                    type: 'TEST',
+                    timestamp: Date.now(),
+                    data: 'x'.repeat(1024)
+                }));
+                messageCount++;
+                
+                const elapsed = (Date.now() - startTime) / 1000;
+                const throughput = Math.round(messageCount / elapsed);
+                document.getElementById('stats').textContent = `Throughput: ${throughput} msg/sec (${messageCount} messages)`;
+            }, 10);
+        };
+        
+        ws.onerror = (error) => {
+            document.getElementById('status').textContent = '❌ Error: ' + error;
+            console.error('WebSocket error:', error);
+        };
+        
+        ws.onmessage = (event) => {
+            console.log('Received:', event.data.substring(0, 50));
+        };
+    </script>
+</body>
+</html>
