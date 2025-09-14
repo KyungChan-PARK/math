@@ -1,19 +1,49 @@
 {
-  "name": "math-problem-generator",
-  "version": "1.0.0",
+  "name": "math-education-platform",
+  "version": "4.2.0",
+  "description": "AI-powered math education platform with LOLA technology",
+  "type": "module",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "test": "node unified-qwen-test.js",
+    "clean": "rm -rf node_modules package-lock.json && npm install",
+    "audit": "npm audit fix"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.62.0",
     "@google-cloud/datastore": "^10.0.1",
     "@google-cloud/firestore": "^7.11.3",
     "@google/generative-ai": "^0.24.1",
     "axios": "^1.12.1",
+    "chalk": "^5.6.2",
+    "chokidar": "^4.0.3",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^4.21.2",
     "glob": "^11.0.3",
-    "pdfkit": "^0.17.2"
-  }
+    "openai": "^5.20.2",
+    "pdfkit": "^0.17.2",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/palantir/math-education-platform.git"
+  },
+  "keywords": [
+    "math",
+    "education",
+    "AI",
+    "LOLA",
+    "Qwen",
+    "Claude",
+    "Gemini"
+  ],
+  "author": "Palantir",
+  "license": "MIT"
 }
