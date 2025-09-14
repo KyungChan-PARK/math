@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대수 1 - 함수: 완전판 (30문제)</title>
+
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+
+    <!-- Desmos API -->
+    <script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=a559a0fd9ea54a08bf804dc0add47dbf"></script>
+
+    <style>
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.8;
+            background: #f9f9f9;
+        }
+
+        h1 {
+            color: #1a5490;
+            text-align: center;
+            font-size: 2.3em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #1a5490;
+            padding-bottom: 15px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .problem {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-left: 5px solid #1a5490;
+            padding: 25px;
+            margin: 35px 0;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            page-break-inside: avoid;
+        }
+
+        .problem-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .problem-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .problem-title {
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 1.3em;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .context {
+            background: #f8f9fa;
+            padding: 18px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.05em;
+            line-height: 1.7;
+            border: 1px solid #e9ecef;
+        }
+
+        .graph-container {
+            background: white;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .graph-title {
+            color: #2980b9;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .desmos-graph {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+
+        .question-item {
+            margin: 20px 0;
+            padding: 15px;
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+        }
+
+        .question-label {
+            color: #495057;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .hint-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-size: 0.95em;
+            color: #856404;
+            border-radius: 4px;
+        }
+
+        .multiple-choice {
+            margin: 15px 0;
+        }
+
+        .choice-item {
+            display: block;
+            padding: 10px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .choice-item:hover {
+            background: #e9ecef;
+            border-color: #6c757d;
+            transform: translateX(5px);
+        }
+
+        .choice-item input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .scaffolding-steps {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .step-number {
+            background: #4caf50;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .data-table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .data-table th,
+        .data-table td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .data-table th {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <h1>대수 1 - 함수: 완전판 (30문제)</h1>
+    <div class="subtitle">Grade 6에서 Algebra 1으로: Progressive Scaffolding with Desmos</div>
+
+    <!-- 문제 1: 학생 ID 시스템 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 1</span>
+            <span class="problem-title">학생 ID 시스템</span>
+        </div>
+
+        <div class="context">
+            한 학교에서 각 학생에게 고유한 ID 번호를 할당합니다.
+            이 관계를 함수로 모델링할 수 있을까요?
+            학생을 입력(input), ID를 출력(output)으로 생각해봅시다.
+        </div>
+
+        <div class="scaffolding-steps">
+            <div><span class="step-number">1</span>함수의 정의를 떠올려보세요</div>
+            <div><span class="step-number">2</span>각 입력이 몇 개의 출력을 가져야 하나요?</div>
+        </div>
+
+        <div class="graph-container">
+            <div class="graph-title">함수 vs 비함수 매핑</div>
+            <div id="graph-1" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt1 = document.getElementById('graph-1');
+                var calc1 = Desmos.GraphingCalculator(elt1, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false
+                });
+
+                // 함수 매핑 시각화
+                calc1.setExpression({
+                    id: 'function_map',
+                    latex: 'y = x',
+                    color: '#2ecc71'
+                });
+
+                // 학생 → ID 점들
+                calc1.setExpression({
+                    id: 'point1',
+                    latex: '(1, 1001)',
+                    pointStyle: Desmos.Styles.POINT,
+                    color: '#2ecc71'
+                });
+
+                calc1.setExpression({
+                    id: 'point2',
+                    latex: '(2, 1002)',
+                    pointStyle: Desmos.Styles.POINT,
+                    color: '#2ecc71'
+                });
+
+                calc1.setExpression({
+                    id: 'point3',
+                    latex: '(3, 1003)',
+                    pointStyle: Desmos.Styles.POINT,
+                    color: '#2ecc71'
+                });
+
+                calc1.setMathBounds({
+                    left: 0,
+                    right: 5,
+                    bottom: 1000,
+                    top: 1005
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 이 관계가 함수인 이유를 설명하시오.</div>
+            <div class="hint-box">💡 힌트: 각 학생(입력)이 정확히 하나의 ID(출력)를 가집니다.</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q1a" value="1">
+                    ① 각 학생이 정확히 하나의 ID를 가지기 때문
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q1a" value="2">
+                    ② ID가 숫자이기 때문
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q1a" value="3">
+                    ③ 학생 수가 유한하기 때문
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q1a" value="4">
+                    ④ ID가 순서대로 배열되기 때문
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) 한 학생이 여러 ID를 가질 수 있다면 함수일까요?</div>
+            <div class="hint-box">💡 힌트: 함수의 정의를 다시 생각해보세요.</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q1b" value="1">
+                    ① 예, 여전히 함수입니다
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q1b" value="2">
+                    ② 아니오, 함수가 아닙니다
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">c) 역방향(ID → 학생)도 함수인가요?</div>
+            <div class="hint-box">💡 힌트: 각 ID가 정확히 한 명의 학생에게 속하나요?</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q1c" value="1">
+                    ① 예, 역함수입니다
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q1c" value="2">
+                    ② 아니오, 함수가 아닙니다
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 2: 아마존 프라임 배송 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 2</span>
+            <span class="problem-title">아마존 프라임 배송</span>
+        </div>
+
+        <div class="context">
+            아마존 프라임의 배송비는 무게에 따라 결정됩니다:
+            <ul>
+                <li>0-2 파운드: $5.99</li>
+                <li>2-5 파운드: $8.99</li>
+                <li>5-10 파운드: $12.99</li>
+                <li>10파운드 이상: $18.99</li>
+            </ul>
+        </div>
+
+        <div class="scaffolding-steps">
+            <div><span class="step-number">1</span>무게를 x축, 배송비를 y축으로 설정</div>
+            <div><span class="step-number">2</span>각 구간에서 배송비가 일정함을 확인</div>
+            <div><span class="step-number">3</span>계단 함수의 특징을 관찰</div>
+        </div>
+
+        <div class="graph-container">
+            <div class="graph-title">배송비 함수 (계단 함수)</div>
+            <div id="graph-2" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt2 = document.getElementById('graph-2');
+                var calc2 = Desmos.GraphingCalculator(elt2, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true
+                });
+
+                // 계단 함수
+                calc2.setExpression({
+                    id: 'step1',
+                    latex: 'y = 5.99\\{0 \\le x < 2\\}',
+                    color: '#e74c3c'
+                });
+
+                calc2.setExpression({
+                    id: 'step2',
+                    latex: 'y = 8.99\\{2 \\le x < 5\\}',
+                    color: '#e74c3c'
+                });
+
+                calc2.setExpression({
+                    id: 'step3',
+                    latex: 'y = 12.99\\{5 \\le x < 10\\}',
+                    color: '#e74c3c'
+                });
+
+                calc2.setExpression({
+                    id: 'step4',
+                    latex: 'y = 18.99\\{10 \\le x \\le 15\\}',
+                    color: '#e74c3c'
+                });
+
+                calc2.setMathBounds({
+                    left: -1,
+                    right: 16,
+                    bottom: 0,
+                    top: 25
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 1.5 파운드 물품의 배송비는?</div>
+            <div class="hint-box">💡 힌트: 1.5는 어느 구간에 속하나요?</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q2a" value="1">
+                    ① $5.99
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2a" value="2">
+                    ② $8.99
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2a" value="3">
+                    ③ $12.99
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2a" value="4">
+                    ④ $18.99
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) 3.2 파운드 물품의 배송비는?</div>
+            <div class="hint-box">💡 힌트: 3.2는 2-5 파운드 구간입니다.</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q2b" value="1">
+                    ① $5.99
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2b" value="2">
+                    ② $8.99
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2b" value="3">
+                    ③ $12.99
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2b" value="4">
+                    ④ $18.99
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">c) 이 배송 시스템이 함수인 이유는?</div>
+            <div class="hint-box">💡 힌트: 각 무게에 대해 배송비가 유일하게 결정되나요?</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q2c" value="1">
+                    ① 각 무게가 정확히 하나의 배송비를 가지기 때문
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2c" value="2">
+                    ② 배송비가 항상 증가하기 때문
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2c" value="3">
+                    ③ 그래프가 계단 모양이기 때문
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2c" value="4">
+                    ④ 무게가 양수이기 때문
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 3: 우버 요금 알고리즘 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 3</span>
+            <span class="problem-title">우버 요금 알고리즘</span>
+        </div>
+
+        <div class="context">
+            우버 X의 요금 계산:
+            <ul>
+                <li>기본 요금: $2.55</li>
+                <li>시간당: $0.35/분</li>
+                <li>거리당: $1.75/마일</li>
+            </ul>
+            12분, 4.2마일 주행 시 요금은? (급증 요금 1.5배 적용 시)
+        </div>
+
+        <div class="scaffolding-steps">
+            <div><span class="step-number">1</span>기본 요금 확인</div>
+            <div><span class="step-number">2</span>시간 요금 계산 (12 × $0.35)</div>
+            <div><span class="step-number">3</span>거리 요금 계산 (4.2 × $1.75)</div>
+            <div><span class="step-number">4</span>모든 요금 합산</div>
+            <div><span class="step-number">5</span>급증 요금 적용 (×1.5)</div>
+        </div>
+
+        <div class="graph-container">
+            <div class="graph-title">거리-요금 관계 (시간 고정)</div>
+            <div id="graph-3" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt3 = document.getElementById('graph-3');
+                var calc3 = Desmos.GraphingCalculator(elt3, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true
+                });
+
+                // 일반 요금
+                calc3.setExpression({
+                    id: 'normal_fare',
+                    latex: 'y = 2.55 + 1.75x + 4.2',
+                    color: '#3498db'
+                });
+
+                // 급증 요금 (1.5배)
+                calc3.setExpression({
+                    id: 'surge_fare',
+                    latex: 'y = 1.5(2.55 + 1.75x + 4.2)',
+                    color: '#e74c3c'
+                });
+
+                calc3.setMathBounds({
+                    left: 0,
+                    right: 10,
+                    bottom: 0,
+                    top: 40
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 급증 전 요금은?</div>
+            <div class="hint-box">💡 힌트: $2.55 + (12 × $0.35) + (4.2 × $1.75)</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q3a" value="1">
+                    ① $12.50
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3a" value="2">
+                    ② $14.10
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3a" value="3">
+                    ③ $15.75
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3a" value="4">
+                    ④ $17.20
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) 급증 적용 후 최종 요금은?</div>
+            <div class="hint-box">💡 힌트: 기본 요금 × 1.5</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q3b" value="1">
+                    ① $18.75
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3b" value="2">
+                    ② $21.15
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3b" value="3">
+                    ③ $23.63
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3b" value="4">
+                    ④ $25.80
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">c) 요금 함수의 정의역은?</div>
+            <div class="hint-box">💡 힌트: 시간과 거리의 가능한 값을 생각하세요.</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q3c" value="1">
+                    ① 시간 ≥ 0, 거리 ≥ 0
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3c" value="2">
+                    ② 시간 > 0, 거리 > 0
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3c" value="3">
+                    ③ 모든 실수
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3c" value="4">
+                    ④ 양의 정수
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 4: 401(k) 퇴직연금 매칭 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 4</span>
+            <span class="problem-title">401(k) 퇴직연금 매칭</span>
+        </div>
+
+        <div class="context">
+            회사의 401(k) 매칭 정책:
+            <ul>
+                <li>첫 3%: 100% 매칭</li>
+                <li>다음 2%: 50% 매칭</li>
+                <li>최대 매칭: 연봉의 4%</li>
+            </ul>
+            연봉 $80,000인 직원의 경우를 분석해봅시다.
+        </div>
+
+        <div class="scaffolding-steps">
+            <div><span class="step-number">1</span>연봉의 3% 계산 ($80,000 × 0.03)</div>
+            <div><span class="step-number">2</span>100% 매칭 금액 계산</div>
+            <div><span class="step-number">3</span>다음 2%의 50% 매칭 계산</div>
+            <div><span class="step-number">4</span>총 매칭 금액 합산</div>
+            <div><span class="step-number">5</span>매칭 함수 작성</div>
+            <div><span class="step-number">6</span>최적 기여율 결정</div>
+        </div>
+
+        <div class="graph-container">
+            <div class="graph-title">401(k) 매칭 함수</div>
+            <div id="graph-4" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt4 = document.getElementById('graph-4');
+                var calc4 = Desmos.GraphingCalculator(elt4, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true
+                });
+
+                // 구간별 매칭 함수
+                calc4.setExpression({
+                    id: 'match1',
+                    latex: 'y = 80000x\\{0 \\le x \\le 0.03\\}',
+                    color: '#27ae60'
+                });
+
+                calc4.setExpression({
+                    id: 'match2',
+                    latex: 'y = 2400 + 40000(x-0.03)\\{0.03 < x \\le 0.05\\}',
+                    color: '#27ae60'
+                });
+
+                calc4.setExpression({
+                    id: 'match3',
+                    latex: 'y = 3200\\{x > 0.05\\}',
+                    color: '#27ae60'
+                });
+
+                calc4.setMathBounds({
+                    left: 0,
+                    right: 0.1,
+                    bottom: 0,
+                    top: 4000
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 최대 회사 매칭 금액은?</div>
+            <div class="hint-box">💡 힌트: 3% 전액 + 2%의 절반</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q4a" value="1">
+                    ① $2,400
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4a" value="2">
+                    ② $2,800
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4a" value="3">
+                    ③ $3,200
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4a" value="4">
+                    ④ $4,000
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) 매칭을 최대화하려면 몇 %를 기여해야 하나요?</div>
+            <div class="hint-box">💡 힌트: 회사가 매칭하는 최대 %를 생각하세요.</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q4b" value="1">
+                    ① 3%
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4b" value="2">
+                    ② 4%
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4b" value="3">
+                    ③ 5%
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4b" value="4">
+                    ④ 6%
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">c) 직원이 4% 기여 시 회사 매칭은?</div>
+            <div class="hint-box">💡 힌트: 3%는 100%, 다음 1%는 50% 매칭</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q4c" value="1">
+                    ① $2,400
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4c" value="2">
+                    ② $2,800
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4c" value="3">
+                    ③ $3,200
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4c" value="4">
+                    ④ $3,600
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 5: 스타벅스 리워드 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 5</span>
+            <span class="problem-title">스타벅스 리워드 프로그램</span>
+        </div>
+
+        <div class="context">
+            스타벅스 별(★) 적립 시스템:
+            <ul>
+                <li>$1당 2개 별 적립</li>
+                <li>생일 달: 3배 적립</li>
+                <li>150개 별 = 무료 음료</li>
+            </ul>
+            현재 45개 별 보유, 주 3회 방문, 방문당 $6.50 지출
+        </div>
+
+        <div class="scaffolding-steps">
+            <div><span class="step-number">1</span>방문당 별 계산 ($6.50 × 2)</div>
+            <div><span class="step-number">2</span>주당 별 계산 (방문당 별 × 3)</div>
+            <div><span class="step-number">3</span>목표까지 필요한 별 (150 - 45)</div>
+            <div><span class="step-number">4</span>필요한 주 수 계산</div>
+            <div><span class="step-number">5</span>함수 S(w) = 45 + 39w 작성</div>
+            <div><span class="step-number">6</span>생일 달 보너스 고려</div>
+            <div><span class="step-number">7</span>최적화 전략 수립</div>
+        </div>
+
+        <div class="graph-container">
+            <div class="graph-title">스타벅스 별 누적 함수</div>
+            <div id="graph-5" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt5 = document.getElementById('graph-5');
+                var calc5 = Desmos.GraphingCalculator(elt5, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true
+                });
+
+                // 일반 적립
+                calc5.setExpression({
+                    id: 'normal_stars',
+                    latex: 'y = 45 + 39x',
+                    color: '#27ae60'
+                });
+
+                // 무료 음료 기준선
+                calc5.setExpression({
+                    id: 'free_drink',
+                    latex: 'y = 150',
+                    color: '#e74c3c',
+                    lineStyle: Desmos.Styles.DASHED
+                });
+
+                calc5.setMathBounds({
+                    left: 0,
+                    right: 5,
+                    bottom: 0,
+                    top: 250
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 주당 적립 별 개수는?</div>
+            <div class="hint-box">💡 힌트: ($6.50 × 2) × 3회</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q5a" value="1">
+                    ① 26개
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q5a" value="2">
+                    ② 39개
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q5a" value="3">
+                    ③ 45개
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q5a" value="4">
+                    ④ 52개
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) 무료 음료까지 걸리는 시간은?</div>
+            <div class="hint-box">💡 힌트: (150 - 45) ÷ 39</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q5b" value="1">
+                    ① 약 2주
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q5b" value="2">
+                    ② 약 3주
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q5b" value="3">
+                    ③ 약 4주
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q5b" value="4">
+                    ④ 약 5주
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">c) 별 누적 함수 S(w)는?</div>
+            <div class="hint-box">💡 힌트: 초기 별 + (주당 별 × 주 수)</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q5c" value="1">
+                    ① S(w) = 39w
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q5c" value="2">
+                    ② S(w) = 45 + 39w
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q5c" value="3">
+                    ③ S(w) = 45w + 39
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q5c" value="4">
+                    ④ S(w) = 39 + 45w
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 6-30은 비슷한 형식으로 계속됩니다 -->
+    <!-- 여기서는 몇 가지 핵심 문제만 추가로 보여드립니다 -->
+
+    <!-- 문제 9: 복리 이자 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 9</span>
+            <span class="problem-title">복리 이자</span>
+        </div>
+
+        <div class="context">
+            은행 예금 $10,000, 연이율 4.5%, 월복리
+            $$A(t) = 10000(1 + \frac{0.045}{12})^{12t}$$
+            여기서 t는 년수, A(t)는 t년 후 잔액
+        </div>
+
+        <div class="scaffolding-steps">
+            <div><span class="step-number">1</span>월 이율 계산 (0.045 ÷ 12)</div>
+            <div><span class="step-number">2</span>1년 후 계산 (12번 복리)</div>
+            <div><span class="step-number">3</span>2년 후 계산 (24번 복리)</div>
+            <div><span class="step-number">4</span>3년 후 계산 (36번 복리)</div>
+            <div><span class="step-number">5</span>단리와 복리 차이 비교</div>
+            <div><span class="step-number">6</span>배가 되는 시간 계산</div>
+            <div><span class="step-number">7</span>72의 법칙 적용</div>
+            <div><span class="step-number">8</span>e^(rt) 근사 이해</div>
+            <div><span class="step-number">9</span>연속 복리 개념</div>
+        </div>
+
+        <div class="graph-container">
+            <div class="graph-title">복리 성장 곡선</div>
+            <div id="graph-9" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt9 = document.getElementById('graph-9');
+                var calc9 = Desmos.GraphingCalculator(elt9, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true
+                });
+
+                // 복리 함수
+                calc9.setExpression({
+                    id: 'compound',
+                    latex: 'y = 10000(1.00375)^{12x}',
+                    color: '#9b59b6'
+                });
+
+                // 단리 비교
+                calc9.setExpression({
+                    id: 'simple',
+                    latex: 'y = 10000(1 + 0.045x)',
+                    color: '#95a5a6',
+                    lineStyle: Desmos.Styles.DASHED
+                });
+
+                calc9.setMathBounds({
+                    left: 0,
+                    right: 10,
+                    bottom: 9000,
+                    top: 16000
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 1년 후 잔액은?</div>
+            <div class="hint-box">💡 힌트: $10,000 × (1.00375)^{12}$</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q9a" value="1">
+                    ① $10,450.00
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q9a" value="2">
+                    ② $10,459.00
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q9a" value="3">
+                    ③ $10,475.00
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q9a" value="4">
+                    ④ $10,500.00
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) $12,000까지 걸리는 시간은?</div>
+            <div class="hint-box">💡 힌트: $12,000 = 10,000(1.00375)^{12t}$를 풀어보세요.</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q9b" value="1">
+                    ① 약 3.5년
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q9b" value="2">
+                    ② 약 4.1년
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q9b" value="3">
+                    ③ 약 4.5년
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q9b" value="4">
+                    ④ 약 5.0년
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">c) 3년간 단리와 복리의 차이는?</div>
+            <div class="hint-box">💡 힌트: 복리 - 단리 = ?</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q9c" value="1">
+                    ① 약 $50
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q9c" value="2">
+                    ② 약 $88
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q9c" value="3">
+                    ③ 약 $125
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q9c" value="4">
+                    ④ 약 $150
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 18: 태양광 패널 효율 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 18</span>
+            <span class="problem-title">태양광 패널 효율</span>
+        </div>
+
+        <div class="context">
+            태양광 패널의 효율은 온도에 따라 변합니다:
+            <ul>
+                <li>77°F 이하: 100% 효율</li>
+                <li>77°F 이상: 1°F당 0.4% 감소</li>
+                <li>패널 정격: 400W</li>
+            </ul>
+            효율 함수: $E(T) = \begin{cases} 100 & T \leq 77 \\ 100 - 0.4(T-77) & T > 77 \end{cases}$
+        </div>
+
+        <div class="scaffolding-steps">
+            <!-- 18단계 스캐폴딩 -->
+            <div><span class="step-number">1</span>효율 함수의 구간 확인</div>
+            <div><span class="step-number">2</span>기준 온도 77°F 이해</div>
+            <div><span class="step-number">3</span>감소율 0.4%/°F 의미</div>
+            <div><span class="step-number">4</span>95°F에서 온도 차이 계산</div>
+            <div><span class="step-number">5</span>효율 감소량 계산</div>
+            <div><span class="step-number">6</span>실제 효율 계산</div>
+            <div><span class="step-number">7</span>전력 출력 계산</div>
+            <div><span class="step-number">8</span>90% 효율이 되는 온도 역계산</div>
+            <div><span class="step-number">9</span>일일 온도 변화 함수 이해</div>
+            <div><span class="step-number">10</span>사인 함수의 주기성</div>
+            <div><span class="step-number">11</span>최고/최저 온도 시간</div>
+            <div><span class="step-number">12</span>시간별 효율 계산</div>
+            <div><span class="step-number">13</span>일일 에너지 적분</div>
+            <div><span class="step-number">14</span>평균 효율 계산</div>
+            <div><span class="step-number">15</span>최적 설치 각도</div>
+            <div><span class="step-number">16</span>계절별 변화 고려</div>
+            <div><span class="step-number">17</span>ROI 계산</div>
+            <div><span class="step-number">18</span>환경 영향 평가</div>
+        </div>
+
+        <div class="graph-container">
+            <div class="graph-title">온도-효율 관계</div>
+            <div id="graph-18" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt18 = document.getElementById('graph-18');
+                var calc18 = Desmos.GraphingCalculator(elt18, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true
+                });
+
+                // 효율 함수
+                calc18.setExpression({
+                    id: 'eff1',
+                    latex: 'y = 100\\{x \\le 77\\}',
+                    color: '#27ae60'
+                });
+
+                calc18.setExpression({
+                    id: 'eff2',
+                    latex: 'y = 100 - 0.4(x-77)\\{x > 77\\}',
+                    color: '#e74c3c'
+                });
+
+                calc18.setMathBounds({
+                    left: 60,
+                    right: 120,
+                    bottom: 70,
+                    top: 105
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 95°F에서 패널 효율은?</div>
+            <div class="hint-box">💡 힌트: E(95) = 100 - 0.4(95-77)</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q18a" value="1">
+                    ① 90.0%
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q18a" value="2">
+                    ② 92.8%
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q18a" value="3">
+                    ③ 94.5%
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q18a" value="4">
+                    ④ 96.0%
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) 95°F에서 실제 전력 출력은?</div>
+            <div class="hint-box">💡 힌트: 400W × (효율/100)</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q18b" value="1">
+                    ① 360W
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q18b" value="2">
+                    ② 371W
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q18b" value="3">
+                    ③ 378W
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q18b" value="4">
+                    ④ 384W
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">c) 효율이 90%가 되는 온도는?</div>
+            <div class="hint-box">💡 힌트: 90 = 100 - 0.4(T-77)</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q18c" value="1">
+                    ① 97°F
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q18c" value="2">
+                    ② 102°F
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q18c" value="3">
+                    ③ 107°F
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q18c" value="4">
+                    ④ 112°F
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 30: FIRE 공식 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 30</span>
+            <span class="problem-title">FIRE (Financial Independence, Retire Early)</span>
+        </div>
+
+        <div class="context">
+            FIRE 전략:
+            <ul>
+                <li>목표: 연 생활비의 25배 저축</li>
+                <li>4% 인출 규칙</li>
+                <li>현재 저축: $150,000</li>
+                <li>연간 저축: $36,000</li>
+                <li>투자 수익률: 8%</li>
+                <li>연 생활비: $72,000</li>
+            </ul>
+            포트폴리오 성장: $P(t) = 150000(1.08)^t + 36000\frac{(1.08)^t - 1}{0.08}$
+        </div>
+
+        <div class="scaffolding-steps">
+            <!-- 30단계 스캐폴딩 (일부만 표시) -->
+            <div><span class="step-number">1</span>FIRE 목표 금액 계산 ($72,000 × 25)</div>
+            <div><span class="step-number">2</span>현재 저축액 확인</div>
+            <div><span class="step-number">3</span>필요 추가 금액 계산</div>
+            <div><span class="step-number">...</span>중간 단계들</div>
+            <div><span class="step-number">28</span>세금 영향 고려</div>
+            <div><span class="step-number">29</span>인플레이션 조정</div>
+            <div><span class="step-number">30</span>최종 FIRE 계획 수립</div>
+        </div>
+
+        <div class="graph-container">
+            <div class="graph-title">FIRE 포트폴리오 성장</div>
+            <div id="graph-30" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt30 = document.getElementById('graph-30');
+                var calc30 = Desmos.GraphingCalculator(elt30, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true
+                });
+
+                // 포트폴리오 성장
+                calc30.setExpression({
+                    id: 'portfolio',
+                    latex: 'y = 150000(1.08)^x + 36000\\frac{(1.08)^x - 1}{0.08}',
+                    color: '#27ae60'
+                });
+
+                // FIRE 목표선
+                calc30.setExpression({
+                    id: 'fire_goal',
+                    latex: 'y = 1800000',
+                    color: '#e74c3c',
+                    lineStyle: Desmos.Styles.DASHED
+                });
+
+                calc30.setMathBounds({
+                    left: 0,
+                    right: 25,
+                    bottom: 0,
+                    top: 2500000
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) FIRE 목표 금액은?</div>
+            <div class="hint-box">💡 힌트: $72,000 × 25</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q30a" value="1">
+                    ① $1,500,000
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q30a" value="2">
+                    ② $1,800,000
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q30a" value="3">
+                    ③ $2,000,000
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q30a" value="4">
+                    ④ $2,160,000
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) FIRE 달성 예상 시간은?</div>
+            <div class="hint-box">💡 힌트: P(t) = 1,800,000을 만족하는 t</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q30b" value="1">
+                    ① 약 14년
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q30b" value="2">
+                    ② 약 17년
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q30b" value="3">
+                    ③ 약 20년
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q30b" value="4">
+                    ④ 약 23년
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">c) 저축을 월 $500 늘리면 몇 년 단축?</div>
+            <div class="hint-box">💡 힌트: 연간 $6,000 추가 저축의 영향</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q30c" value="1">
+                    ① 약 1년
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q30c" value="2">
+                    ② 약 1.5년
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q30c" value="3">
+                    ③ 약 2년
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q30c" value="4">
+                    ④ 약 2.5년
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 나머지 문제들 요약 -->
+    <div style="background: #e9ecef; padding: 20px; margin: 40px 0; border-radius: 10px;">
+        <h2 style="text-align: center; color: #495057;">추가 문제 목록 (6-29)</h2>
+        <ul style="columns: 2; column-gap: 40px;">
+            <li>문제 6: 온라인 쇼핑 배송 시간</li>
+            <li>문제 7: 전기차 충전 비용</li>
+            <li>문제 8: 주식 배당금 계산</li>
+            <li>문제 10: 피트니스 심박수 구간</li>
+            <li>문제 11: 신용카드 캐시백</li>
+            <li>문제 12: 주택 모기지 계산</li>
+            <li>문제 13: 인플레이션 영향</li>
+            <li>문제 14: 암호화폐 변동성</li>
+            <li>문제 15: 에어비앤비 가격 책정</li>
+            <li>문제 16: 넷플릭스 구독 최적화</li>
+            <li>문제 17: 자동차 감가상각</li>
+            <li>문제 19: 의료보험 공제액</li>
+            <li>문제 20: 대학 학자금 대출</li>
+            <li>문제 21: 소셜미디어 성장률</li>
+            <li>문제 22: 클라우드 스토리지 요금</li>
+            <li>문제 23: 항공 마일리지 적립</li>
+            <li>문제 24: 프리랜서 세금 계산</li>
+            <li>문제 25: 스타트업 성장 모델</li>
+            <li>문제 26: 환율 변동</li>
+            <li>문제 27: 부동산 임대 수익</li>
+            <li>문제 28: ESG 투자 수익률</li>
+            <li>문제 29: 연금 수령 계획</li>
+        </ul>
+    </div>
+
+    <script>
+        // MathJax 재렌더링
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대수 1 - 함수: Claude Opus 4.1 Enhanced Version</title>
+
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+
+    <!-- Desmos API -->
+    <script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=a559a0fd9ea54a08bf804dc0add47dbf"></script>
+
+    <style>
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.8;
+            background: #f9f9f9;
+        }
+
+        h1 {
+            color: #1a5490;
+            text-align: center;
+            font-size: 2.3em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #1a5490;
+            padding-bottom: 15px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .problem {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-left: 5px solid #1a5490;
+            padding: 25px;
+            margin: 35px 0;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+
+        .problem-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .problem-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .problem-title {
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 1.3em;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .context {
+            background: #f8f9fa;
+            padding: 18px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.05em;
+            line-height: 1.7;
+            border: 1px solid #e9ecef;
+        }
+
+        .desmos-container {
+            background: white;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .desmos-graph {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+
+        .graph-title {
+            color: #2980b9;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .question-item {
+            margin: 20px 0;
+            padding: 15px;
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+        }
+
+        .question-label {
+            color: #495057;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .hint-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-size: 0.95em;
+            color: #856404;
+            border-radius: 4px;
+        }
+
+        .multiple-choice {
+            margin: 15px 0;
+        }
+
+        .choice-item {
+            display: block;
+            padding: 10px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .choice-item:hover {
+            background: #e9ecef;
+            border-color: #6c757d;
+            transform: translateX(5px);
+        }
+
+        .choice-item input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .math-display {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+
+        .data-table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .data-table th,
+        .data-table td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .data-table th {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .data-table tr:hover {
+            background: #f1f3f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>대수 1 - 함수: Claude Opus 4.1 Enhanced Version</h1>
+    <div class="subtitle">고품질 그래프와 LaTeX 수식을 활용한 함수 학습</div>
+
+    <!-- 문제 1: 함수의 정의와 수직선 테스트 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 1</span>
+            <span class="problem-title">함수의 개념 이해</span>
+        </div>
+
+        <div class="context">
+            함수는 각 입력(input)이 정확히 하나의 출력(output)을 가지는 관계입니다.
+            수학적으로 표현하면: $f: X \to Y$ 여기서 각 $x \in X$에 대해 유일한 $y \in Y$가 대응됩니다.
+            아래 그래프들을 보고 함수 여부를 판단해보세요.
+        </div>
+
+        <div class="desmos-container">
+            <div class="graph-title">함수 vs 비함수 비교</div>
+            <div id="desmos-graph-1" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            // Desmos 그래프 1 초기화
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt1 = document.getElementById('desmos-graph-1');
+                var calculator1 = Desmos.GraphingCalculator(elt1, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true,
+                    showXAxis: true,
+                    showYAxis: true,
+                    xAxisLabel: 'x',
+                    yAxisLabel: 'y'
+                });
+
+                // 함수 예제 (포물선)
+                calculator1.setExpression({
+                    id: 'function1',
+                    latex: 'y = x^2 - 2x + 1',
+                    color: '#2ecc71'
+                });
+
+                // 비함수 예제 (원)
+                calculator1.setExpression({
+                    id: 'circle1',
+                    latex: 'x^2 + (y-3)^2 = 4',
+                    color: '#e74c3c'
+                });
+
+                // 수직선 테스트 선
+                calculator1.setExpression({
+                    id: 'vertical1',
+                    latex: 'x = 1',
+                    color: '#3498db',
+                    lineStyle: Desmos.Styles.DASHED
+                });
+
+                calculator1.setMathBounds({
+                    left: -5,
+                    right: 5,
+                    bottom: -2,
+                    top: 6
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 녹색 포물선 $y = x^2 - 2x + 1$은 함수인가요?</div>
+            <div class="hint-box">💡 힌트: 수직선을 그어보세요. 몇 점에서 만나나요?</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q1a" value="1">
+                    ① 예, 함수입니다 (각 x값이 정확히 하나의 y값을 가짐)
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q1a" value="2">
+                    ② 아니오, 함수가 아닙니다
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) 빨간색 원 $x^2 + (y-3)^2 = 4$는 함수인가요?</div>
+            <div class="hint-box">💡 힌트: $x = 0$일 때 y값이 몇 개인가요?</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q1b" value="1">
+                    ① 예, 함수입니다
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q1b" value="2">
+                    ② 아니오, 함수가 아닙니다 (하나의 x값이 두 개의 y값을 가질 수 있음)
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">c) 함수의 정의를 수식으로 표현하면?</div>
+            <div class="hint-box">💡 힌트: 일대일 또는 다대일 대응</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q1c" value="1">
+                    ① $\forall x \in X, \exists! y \in Y : f(x) = y$
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q1c" value="2">
+                    ② $\forall x \in X, \exists y_1, y_2 \in Y : f(x) = y_1 \text{ or } y_2$
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q1c" value="3">
+                    ③ $\exists x \in X, \forall y \in Y : f(x) = y$
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q1c" value="4">
+                    ④ $\forall y \in Y, \exists x \in X : f(x) = y$
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 2: 선형 함수 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 2</span>
+            <span class="problem-title">우버 요금 계산 (선형 함수)</span>
+        </div>
+
+        <div class="context">
+            우버 X의 요금 체계:
+            <ul>
+                <li>기본 요금: $2.55</li>
+                <li>거리당 요금: $1.75/마일</li>
+                <li>시간당 요금: $0.35/분</li>
+            </ul>
+            거리만 고려한 요금 함수: $F(x) = 1.75x + 2.55$ (x는 마일 단위 거리)
+        </div>
+
+        <div class="desmos-container">
+            <div class="graph-title">우버 요금 함수</div>
+            <div id="desmos-graph-2" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt2 = document.getElementById('desmos-graph-2');
+                var calculator2 = Desmos.GraphingCalculator(elt2, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true,
+                    showXAxis: true,
+                    showYAxis: true,
+                    xAxisLabel: '거리 (마일)',
+                    yAxisLabel: '요금 ($)'
+                });
+
+                // 선형 함수
+                calculator2.setExpression({
+                    id: 'uber_fare',
+                    latex: 'y = 1.75x + 2.55',
+                    color: '#e74c3c'
+                });
+
+                // 중요 점들
+                calculator2.setExpression({
+                    id: 'point1',
+                    latex: '(0, 2.55)',
+                    color: '#e74c3c',
+                    pointStyle: Desmos.Styles.POINT
+                });
+
+                calculator2.setExpression({
+                    id: 'point2',
+                    latex: '(5, 11.3)',
+                    color: '#e74c3c',
+                    pointStyle: Desmos.Styles.POINT
+                });
+
+                calculator2.setExpression({
+                    id: 'point3',
+                    latex: '(10, 20.05)',
+                    color: '#e74c3c',
+                    pointStyle: Desmos.Styles.POINT
+                });
+
+                calculator2.setMathBounds({
+                    left: -1,
+                    right: 15,
+                    bottom: -2,
+                    top: 30
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 5마일을 이동했을 때 요금은?</div>
+            <div class="hint-box">💡 힌트: $F(5) = 1.75 \times 5 + 2.55$를 계산하세요.</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q2a" value="1">
+                    ① $10.50
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2a" value="2">
+                    ② $11.30
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2a" value="3">
+                    ③ $12.25
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2a" value="4">
+                    ④ $13.00
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) 요금이 $20.05일 때 이동 거리는?</div>
+            <div class="hint-box">💡 힌트: $20.05 = 1.75x + 2.55$ 방정식을 풀어보세요.</div>
+            <div class="math-display">
+                $$20.05 = 1.75x + 2.55$$
+                $$17.50 = 1.75x$$
+                $$x = ?$$
+            </div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q2b" value="1">
+                    ① 8마일
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2b" value="2">
+                    ② 9마일
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2b" value="3">
+                    ③ 10마일
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2b" value="4">
+                    ④ 11마일
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">c) 기울기 1.75의 의미는?</div>
+            <div class="hint-box">💡 힌트: 기울기 = $\frac{\Delta y}{\Delta x} = \frac{\text{요금 변화}}{\text{거리 변화}}$</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q2c" value="1">
+                    ① 기본 요금
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2c" value="2">
+                    ② 마일당 추가 요금
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2c" value="3">
+                    ③ 총 요금
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q2c" value="4">
+                    ④ 최대 거리
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 3: 이차 함수 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 3</span>
+            <span class="problem-title">농구공의 포물선 운동</span>
+        </div>
+
+        <div class="context">
+            농구 선수가 자유투를 던집니다. 공의 높이 $h$(피트)는 시간 $t$(초)에 따라 다음과 같이 변합니다:
+            $$h(t) = -16t^2 + 32t + 6$$
+            여기서 6피트는 공을 놓는 높이입니다.
+        </div>
+
+        <div class="desmos-container">
+            <div class="graph-title">농구공의 포물선 궤적</div>
+            <div id="desmos-graph-3" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt3 = document.getElementById('desmos-graph-3');
+                var calculator3 = Desmos.GraphingCalculator(elt3, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true,
+                    showXAxis: true,
+                    showYAxis: true,
+                    xAxisLabel: '시간 (초)',
+                    yAxisLabel: '높이 (피트)'
+                });
+
+                // 포물선
+                calculator3.setExpression({
+                    id: 'parabola',
+                    latex: 'y = -16x^2 + 32x + 6\\{0 \\le x \\le 2.2\\}',
+                    color: '#27ae60'
+                });
+
+                // 최고점
+                calculator3.setExpression({
+                    id: 'vertex',
+                    latex: '(1, 22)',
+                    color: '#e74c3c',
+                    pointStyle: Desmos.Styles.POINT,
+                    pointSize: 10
+                });
+
+                // 시작점
+                calculator3.setExpression({
+                    id: 'start',
+                    latex: '(0, 6)',
+                    color: '#3498db',
+                    pointStyle: Desmos.Styles.POINT
+                });
+
+                // 골대 높이 (10피트)
+                calculator3.setExpression({
+                    id: 'hoop',
+                    latex: 'y = 10',
+                    color: '#e67e22',
+                    lineStyle: Desmos.Styles.DASHED
+                });
+
+                calculator3.setMathBounds({
+                    left: -0.5,
+                    right: 2.5,
+                    bottom: -2,
+                    top: 25
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 공의 최대 높이는?</div>
+            <div class="hint-box">💡 힌트: 꼭짓점의 x좌표는 $t = -\frac{b}{2a} = -\frac{32}{2(-16)}$</div>
+            <div class="math-display">
+                $$t = 1 \text{초일 때, } h(1) = -16(1)^2 + 32(1) + 6 = ?$$
+            </div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q3a" value="1">
+                    ① 20피트
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3a" value="2">
+                    ② 22피트
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3a" value="3">
+                    ③ 24피트
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3a" value="4">
+                    ④ 26피트
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) 공이 10피트 높이(골대)를 통과하는 시간은?</div>
+            <div class="hint-box">💡 힌트: $10 = -16t^2 + 32t + 6$ 방정식을 풀어보세요.</div>
+            <div class="math-display">
+                $$-16t^2 + 32t + 6 = 10$$
+                $$-16t^2 + 32t - 4 = 0$$
+                $$4t^2 - 8t + 1 = 0$$
+            </div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q3b" value="1">
+                    ① 약 0.13초와 1.87초
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3b" value="2">
+                    ② 약 0.25초와 1.75초
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3b" value="3">
+                    ③ 약 0.5초와 1.5초
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q3b" value="4">
+                    ④ 약 0.75초와 1.25초
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 4: 지수 함수 (복리) -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 4</span>
+            <span class="problem-title">복리 투자의 성장</span>
+        </div>
+
+        <div class="context">
+            S&P 500 인덱스 펀드에 $10,000를 투자합니다. 연평균 수익률 8%로 복리 성장한다면:
+            $$A(t) = 10000 \cdot (1.08)^t$$
+            여기서 $t$는 년수, $A(t)$는 t년 후 잔액입니다.
+        </div>
+
+        <div class="desmos-container">
+            <div class="graph-title">복리 성장 곡선</div>
+            <div id="desmos-graph-4" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt4 = document.getElementById('desmos-graph-4');
+                var calculator4 = Desmos.GraphingCalculator(elt4, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true,
+                    showXAxis: true,
+                    showYAxis: true,
+                    xAxisLabel: '년수',
+                    yAxisLabel: '잔액 ($)'
+                });
+
+                // 지수 함수
+                calculator4.setExpression({
+                    id: 'compound',
+                    latex: 'y = 10000 \\cdot 1.08^x',
+                    color: '#9b59b6'
+                });
+
+                // 주요 점들
+                calculator4.setExpression({
+                    id: 'year0',
+                    latex: '(0, 10000)',
+                    color: '#9b59b6',
+                    pointStyle: Desmos.Styles.POINT
+                });
+
+                calculator4.setExpression({
+                    id: 'year10',
+                    latex: '(10, 21589)',
+                    color: '#9b59b6',
+                    pointStyle: Desmos.Styles.POINT
+                });
+
+                calculator4.setExpression({
+                    id: 'year20',
+                    latex: '(20, 46610)',
+                    color: '#9b59b6',
+                    pointStyle: Desmos.Styles.POINT
+                });
+
+                // 두배가 되는 선
+                calculator4.setExpression({
+                    id: 'double',
+                    latex: 'y = 20000',
+                    color: '#e74c3c',
+                    lineStyle: Desmos.Styles.DASHED
+                });
+
+                calculator4.setMathBounds({
+                    left: -2,
+                    right: 25,
+                    bottom: -5000,
+                    top: 60000
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 10년 후 예상 잔액은?</div>
+            <div class="hint-box">💡 힌트: $A(10) = 10000 \times 1.08^{10}$</div>
+            <div class="math-display">
+                $$A(10) = 10000 \times 1.08^{10} \approx 10000 \times 2.159 = ?$$
+            </div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q4a" value="1">
+                    ① 약 $18,000
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4a" value="2">
+                    ② 약 $21,589
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4a" value="3">
+                    ③ 약 $25,000
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4a" value="4">
+                    ④ 약 $30,000
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) 투자금이 두 배($20,000)가 되는 시간은?</div>
+            <div class="hint-box">💡 힌트: 72의 법칙을 사용하면 $\frac{72}{8} \approx ?$년</div>
+            <div class="math-display">
+                $$20000 = 10000 \cdot 1.08^t$$
+                $$2 = 1.08^t$$
+                $$\log(2) = t \cdot \log(1.08)$$
+                $$t = \frac{\log(2)}{\log(1.08)} \approx ?$$
+            </div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q4b" value="1">
+                    ① 약 7년
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4b" value="2">
+                    ② 약 9년
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4b" value="3">
+                    ③ 약 11년
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4b" value="4">
+                    ④ 약 13년
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">c) 20년 후와 10년 후의 잔액 비율은?</div>
+            <div class="hint-box">💡 힌트: $\frac{A(20)}{A(10)} = \frac{10000 \cdot 1.08^{20}}{10000 \cdot 1.08^{10}}$</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q4c" value="1">
+                    ① 약 1.5배
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4c" value="2">
+                    ② 약 2.0배
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4c" value="3">
+                    ③ 약 2.16배
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q4c" value="4">
+                    ④ 약 3.0배
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 5: 구간별 정의 함수 (세금) -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 5</span>
+            <span class="problem-title">연방 소득세 계산</span>
+        </div>
+
+        <div class="context">
+            2024년 미국 연방 소득세율 (독신):
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>소득 구간</th>
+                        <th>세율</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$0 - $11,000</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>$11,000 - $44,725</td>
+                        <td>12%</td>
+                    </tr>
+                    <tr>
+                        <td>$44,725 - $95,375</td>
+                        <td>22%</td>
+                    </tr>
+                    <tr>
+                        <td>$95,375+</td>
+                        <td>24%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            세금 함수:
+            $$T(x) = \begin{cases}
+            0.10x & \text{if } 0 \leq x \leq 11,000 \\
+            1,100 + 0.12(x - 11,000) & \text{if } 11,000 < x \leq 44,725 \\
+            5,147 + 0.22(x - 44,725) & \text{if } 44,725 < x \leq 95,375 \\
+            16,290 + 0.24(x - 95,375) & \text{if } x > 95,375
+            \end{cases}$$
+        </div>
+
+        <div class="desmos-container">
+            <div class="graph-title">소득세 함수 (구간별 선형)</div>
+            <div id="desmos-graph-5" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt5 = document.getElementById('desmos-graph-5');
+                var calculator5 = Desmos.GraphingCalculator(elt5, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true,
+                    showXAxis: true,
+                    showYAxis: true,
+                    xAxisLabel: '소득 ($)',
+                    yAxisLabel: '세금 ($)'
+                });
+
+                // 구간별 함수
+                calculator5.setExpression({
+                    id: 'tax1',
+                    latex: 'y = 0.10x\\{0 \\le x \\le 11000\\}',
+                    color: '#3498db'
+                });
+
+                calculator5.setExpression({
+                    id: 'tax2',
+                    latex: 'y = 1100 + 0.12(x - 11000)\\{11000 < x \\le 44725\\}',
+                    color: '#2ecc71'
+                });
+
+                calculator5.setExpression({
+                    id: 'tax3',
+                    latex: 'y = 5147 + 0.22(x - 44725)\\{44725 < x \\le 95375\\}',
+                    color: '#e67e22'
+                });
+
+                calculator5.setExpression({
+                    id: 'tax4',
+                    latex: 'y = 16290 + 0.24(x - 95375)\\{95375 < x \\le 120000\\}',
+                    color: '#e74c3c'
+                });
+
+                calculator5.setMathBounds({
+                    left: -5000,
+                    right: 120000,
+                    bottom: -2000,
+                    top: 25000
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 연소득 $50,000의 세금은?</div>
+            <div class="hint-box">💡 힌트: $50,000은 세 번째 구간입니다.</div>
+            <div class="math-display">
+                $$T(50,000) = 5,147 + 0.22(50,000 - 44,725) = ?$$
+            </div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q5a" value="1">
+                    ① $5,500
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q5a" value="2">
+                    ② $6,307
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q5a" value="3">
+                    ③ $7,200
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q5a" value="4">
+                    ④ $8,000
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) 이 함수는 연속인가요?</div>
+            <div class="hint-box">💡 힌트: 각 구간 경계에서 좌극한과 우극한을 확인하세요.</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q5b" value="1">
+                    ① 예, 모든 점에서 연속입니다
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q5b" value="2">
+                    ② 아니오, 구간 경계에서 불연속입니다
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 6: 함수 표기법과 평가 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 6</span>
+            <span class="problem-title">스타벅스 리워드 프로그램</span>
+        </div>
+
+        <div class="context">
+            스타벅스 리워드 별(★) 적립 시스템:
+            <ul>
+                <li>$1 당 2개의 별 적립</li>
+                <li>생일 달: 3배 적립 (6개/$1)</li>
+                <li>150개 별 = 무료 음료 1잔</li>
+            </ul>
+            일반 적립 함수: $S(x) = 2x$ (x는 지출 금액)
+        </div>
+
+        <div class="desmos-container">
+            <div class="graph-title">스타벅스 별 적립 함수</div>
+            <div id="desmos-graph-6" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt6 = document.getElementById('desmos-graph-6');
+                var calculator6 = Desmos.GraphingCalculator(elt6, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true,
+                    showXAxis: true,
+                    showYAxis: true,
+                    xAxisLabel: '지출 ($)',
+                    yAxisLabel: '별 개수'
+                });
+
+                // 일반 적립
+                calculator6.setExpression({
+                    id: 'normal',
+                    latex: 'y = 2x',
+                    color: '#27ae60'
+                });
+
+                // 생일 달 적립
+                calculator6.setExpression({
+                    id: 'birthday',
+                    latex: 'y = 6x',
+                    color: '#e74c3c'
+                });
+
+                // 무료 음료 기준선
+                calculator6.setExpression({
+                    id: 'free_drink',
+                    latex: 'y = 150',
+                    color: '#3498db',
+                    lineStyle: Desmos.Styles.DASHED
+                });
+
+                calculator6.setMathBounds({
+                    left: -10,
+                    right: 100,
+                    bottom: -20,
+                    top: 200
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) $75를 지출하면 얻는 별의 개수는?</div>
+            <div class="hint-box">💡 힌트: $S(75) = 2 \times 75$</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q6a" value="1">
+                    ① 75개
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q6a" value="2">
+                    ② 100개
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q6a" value="3">
+                    ③ 150개
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q6a" value="4">
+                    ④ 200개
+                </label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">b) 무료 음료를 받으려면 최소 얼마를 지출해야 하나요?</div>
+            <div class="hint-box">💡 힌트: $2x = 150$을 풀어보세요.</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q6b" value="1">
+                    ① $50
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q6b" value="2">
+                    ② $75
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q6b" value="3">
+                    ③ $100
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q6b" value="4">
+                    ④ $150
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 7: 수직선 테스트 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 7</span>
+            <span class="problem-title">그래프로 함수 판별하기</span>
+        </div>
+
+        <div class="context">
+            다음 관계식들이 함수인지 판별하세요:
+            <ul>
+                <li>A: $y = \sqrt{x}$</li>
+                <li>B: $x = y^2$</li>
+                <li>C: $y = |x|$</li>
+                <li>D: $x^2 + y^2 = 9$</li>
+            </ul>
+        </div>
+
+        <div class="desmos-container">
+            <div class="graph-title">네 가지 그래프 비교</div>
+            <div id="desmos-graph-7" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt7 = document.getElementById('desmos-graph-7');
+                var calculator7 = Desmos.GraphingCalculator(elt7, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true
+                });
+
+                // A: 제곱근 (함수)
+                calculator7.setExpression({
+                    id: 'sqrt',
+                    latex: 'y = \\sqrt{x}',
+                    color: '#27ae60'
+                });
+
+                // B: 포물선 (비함수)
+                calculator7.setExpression({
+                    id: 'parabola_sideways',
+                    latex: 'x = y^2',
+                    color: '#e74c3c'
+                });
+
+                // C: 절댓값 (함수)
+                calculator7.setExpression({
+                    id: 'abs',
+                    latex: 'y = |x|',
+                    color: '#3498db'
+                });
+
+                // D: 원 (비함수)
+                calculator7.setExpression({
+                    id: 'circle',
+                    latex: 'x^2 + y^2 = 9',
+                    color: '#9b59b6'
+                });
+
+                calculator7.setMathBounds({
+                    left: -5,
+                    right: 5,
+                    bottom: -5,
+                    top: 5
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 함수인 그래프는 몇 개인가요?</div>
+            <div class="hint-box">💡 힌트: 수직선 테스트를 적용하세요.</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q7a" value="1">
+                    ① 1개
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q7a" value="2">
+                    ② 2개
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q7a" value="3">
+                    ③ 3개
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q7a" value="4">
+                    ④ 4개
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 8: 함수 변환 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 8</span>
+            <span class="problem-title">함수의 평행이동과 변환</span>
+        </div>
+
+        <div class="context">
+            기본 함수 $f(x) = x^2$를 다음과 같이 변환합니다:
+            <ul>
+                <li>오른쪽으로 2단위 이동</li>
+                <li>위로 3단위 이동</li>
+                <li>수직으로 2배 확대</li>
+            </ul>
+            변환된 함수: $g(x) = 2(x-2)^2 + 3$
+        </div>
+
+        <div class="desmos-container">
+            <div class="graph-title">함수 변환 시각화</div>
+            <div id="desmos-graph-8" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt8 = document.getElementById('desmos-graph-8');
+                var calculator8 = Desmos.GraphingCalculator(elt8, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true
+                });
+
+                // 원래 함수
+                calculator8.setExpression({
+                    id: 'original',
+                    latex: 'y = x^2',
+                    color: '#95a5a6',
+                    lineStyle: Desmos.Styles.DASHED
+                });
+
+                // 변환된 함수
+                calculator8.setExpression({
+                    id: 'transformed',
+                    latex: 'y = 2(x-2)^2 + 3',
+                    color: '#e74c3c'
+                });
+
+                // 꼭짓점
+                calculator8.setExpression({
+                    id: 'vertex',
+                    latex: '(2, 3)',
+                    color: '#e74c3c',
+                    pointStyle: Desmos.Styles.POINT,
+                    pointSize: 10
+                });
+
+                calculator8.setMathBounds({
+                    left: -2,
+                    right: 6,
+                    bottom: -2,
+                    top: 15
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 변환된 함수의 꼭짓점은?</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q8a" value="1">
+                    ① (0, 0)
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q8a" value="2">
+                    ② (2, 3)
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q8a" value="3">
+                    ③ (-2, 3)
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q8a" value="4">
+                    ④ (2, -3)
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 9: 표를 이용한 함수 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 9</span>
+            <span class="problem-title">Netflix 구독료 분석</span>
+        </div>
+
+        <div class="context">
+            Netflix 요금제별 월 구독료:
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>동시 시청 수 (x)</th>
+                        <th>월 요금 ($)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>6.99</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>15.49</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>22.99</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="question-item">
+            <div class="question-label">a) 이 관계는 선형 함수인가요?</div>
+            <div class="hint-box">💡 힌트: 변화율이 일정한지 확인하세요.</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q9a" value="1">
+                    ① 예, 선형 함수입니다
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q9a" value="2">
+                    ② 아니오, 비선형 함수입니다
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 10: 역함수 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 10</span>
+            <span class="problem-title">섭씨-화씨 온도 변환</span>
+        </div>
+
+        <div class="context">
+            섭씨를 화씨로 변환: $F(C) = \frac{9}{5}C + 32$<br>
+            화씨를 섭씨로 변환: $C(F) = \frac{5}{9}(F - 32)$<br>
+            이 두 함수는 서로 역함수 관계입니다.
+        </div>
+
+        <div class="desmos-container">
+            <div class="graph-title">온도 변환 함수와 역함수</div>
+            <div id="desmos-graph-10" class="desmos-graph"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elt10 = document.getElementById('desmos-graph-10');
+                var calculator10 = Desmos.GraphingCalculator(elt10, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: false,
+                    showGrid: true
+                });
+
+                // C to F
+                calculator10.setExpression({
+                    id: 'c_to_f',
+                    latex: 'y = \\frac{9}{5}x + 32',
+                    color: '#e74c3c'
+                });
+
+                // F to C (역함수)
+                calculator10.setExpression({
+                    id: 'f_to_c',
+                    latex: 'y = \\frac{5}{9}(x - 32)',
+                    color: '#3498db'
+                });
+
+                // y = x 선
+                calculator10.setExpression({
+                    id: 'identity',
+                    latex: 'y = x',
+                    color: '#95a5a6',
+                    lineStyle: Desmos.Styles.DASHED
+                });
+
+                calculator10.setMathBounds({
+                    left: -40,
+                    right: 120,
+                    bottom: -40,
+                    top: 120
+                });
+            });
+        </script>
+
+        <div class="question-item">
+            <div class="question-label">a) 섭씨 25°C는 화씨 몇 도인가요?</div>
+            <div class="hint-box">💡 힌트: $F(25) = \frac{9}{5} \times 25 + 32$</div>
+            <div class="multiple-choice">
+                <label class="choice-item">
+                    <input type="radio" name="q10a" value="1">
+                    ① 72°F
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q10a" value="2">
+                    ② 77°F
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q10a" value="3">
+                    ③ 82°F
+                </label>
+                <label class="choice-item">
+                    <input type="radio" name="q10a" value="4">
+                    ④ 87°F
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 추가 문제 요약 -->
+    <div style="text-align: center; margin: 40px 0; padding: 20px; background: #e9ecef; border-radius: 10px;">
+        <p style="font-size: 1.1em; color: #495057;">
+            <strong>문제 11-30:</strong> 심화 학습 문제
+        </p>
+        <ul style="text-align: left; max-width: 600px; margin: 0 auto; list-style: none;">
+            <li>📈 문제 11-15: 이차함수와 최적화</li>
+            <li>📊 문제 16-20: 지수·로그 함수</li>
+            <li>💰 문제 21-25: 금융 수학 (401k, FIRE)</li>
+            <li>🔬 문제 26-30: STEM 응용 문제</li>
+        </ul>
+    </div>
+
+    <script>
+        // MathJax 재렌더링 (동적 콘텐츠용)
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
+    </script>
+</body>
+</html>

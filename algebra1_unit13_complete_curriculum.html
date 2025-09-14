@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algebra 1 Unit 13: Quadratic Functions & Equations - Complete Curriculum</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #5a67d8;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .unit-overview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .learning-path {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .topic-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid #5a67d8;
+            transition: transform 0.3s;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .topic-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .topic-number {
+            background: #5a67d8;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .topic-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .topic-type {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 5px 5px 5px 0;
+            font-weight: 600;
+        }
+        
+        .type-learn {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        .type-practice {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        
+        .type-quiz {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .type-test {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .scaffolding-level {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-left: 10px;
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #1a1a2e;
+        }
+        
+        .problem-count {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .prerequisite-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .learning-objectives {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .objective-item {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .objective-item::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .section-divider {
+            margin: 40px 0;
+            padding: 20px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+        
+        .mastery-tracker {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .mastery-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .mastery-score {
+            font-size: 2em;
+            font-weight: bold;
+            color: #5a67d8;
+        }
+        
+        .mastery-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .problem-set {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .problem-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .problem-item:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+        
+        .difficulty-indicator {
+            display: flex;
+            gap: 3px;
+            margin-top: 8px;
+        }
+        
+        .difficulty-star {
+            width: 15px;
+            height: 15px;
+            background: #ffd700;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        
+        .difficulty-star.empty {
+            background: #e0e0e0;
+        }
+        
+        .sat-badge {
+            display: inline-block;
+            background: #ff5722;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-left: 8px;
+            font-weight: bold;
+        }
+        
+        .connection-note {
+            background: #e1f5fe;
+            border-left: 4px solid #03a9f4;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        
+        .visual-concept {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #fff;
+            border: 2px dashed #9e9e9e;
+            border-radius: 10px;
+        }
+        
+        .concept-diagram {
+            display: inline-block;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            margin: 30px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #5a67d8;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            width: calc(50% - 30px);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            margin-left: auto;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #5a67d8;
+            border-radius: 50%;
+            top: 20px;
+        }
+        
+        .timeline-item:nth-child(odd)::before {
+            left: -22px;
+        }
+        
+        .timeline-item:nth-child(even)::before {
+            right: -22px;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 50px);
+                margin-left: 50px !important;
+            }
+            
+            .timeline-item::before {
+                left: -31px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📐 Algebra 1 Unit 13: Quadratic Functions & Equations</h1>
+        <p style="text-align: center; color: #666; font-size: 1.2em; margin-bottom: 30px;">
+            이차함수와 방정식의 완벽한 마스터를 위한 체계적 학습 경로
+        </p>
+        
+        <!-- Unit Overview -->
+        <div class="unit-overview">
+            <h2>📚 Unit Overview / 단원 개요</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div>
+                    <h3>📊 학습 구성</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• 총 20개 Topics</li>
+                        <li>• 12 Learn (개념학습)</li>
+                        <li>• 8 Practice (연습문제)</li>
+                        <li>• 약 150개 문제</li>
+                        <li>• 예상 학습시간: 15-20시간</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🎯 핵심 목표</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• 이차함수의 그래프 이해</li>
+                        <li>• 다양한 인수분해 기법 습득</li>
+                        <li>• 이차방정식 해법 마스터</li>
+                        <li>• 실생활 응용 능력 개발</li>
+                        <li>• SAT 대비 문제해결력 향상</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🔗 연계 학습</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• 선수: Unit 12 (Polynomials)</li>
+                        <li>• 후속: Unit 14 (Exponentials)</li>
+                        <li>• 관련: Functions (Unit 7)</li>
+                        <li>• 응용: Physics, Economics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prerequisites -->
+        <div class="prerequisite-box">
+            <h3>📋 선수 학습 요구사항 / Prerequisites</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
+                <div>✅ 일차방정식과 함수 (Unit 3, 6)</div>
+                <div>✅ 지수법칙과 근호 (Unit 15)</div>
+                <div>✅ 분배법칙과 인수분해 기초 (Unit 12)</div>
+                <div>✅ 좌표평면과 그래프 (Unit 6)</div>
+            </div>
+        </div>
+
+        <!-- Learning Objectives -->
+        <div class="learning-objectives">
+            <h3>🎯 학습 목표 / Learning Objectives</h3>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                <div>
+                    <h4>개념적 이해 (Conceptual Understanding)</h4>
+                    <div class="objective-item">이차함수의 표준형, 꼭짓점형, 인수분해형 이해</div>
+                    <div class="objective-item">포물선의 기하학적 성질 파악</div>
+                    <div class="objective-item">판별식과 해의 관계 이해</div>
+                    <div class="objective-item">최댓값과 최솟값의 의미 파악</div>
+                </div>
+                <div>
+                    <h4>절차적 능력 (Procedural Skills)</h4>
+                    <div class="objective-item">FOIL 방법을 이용한 이항식 전개</div>
+                    <div class="objective-item">다양한 인수분해 기법 적용</div>
+                    <div class="objective-item">근의 공식을 이용한 정확한 계산</div>
+                    <div class="objective-item">완전제곱식 만들기 숙달</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Foundation -->
+        <div class="section-divider">
+            📘 Section 1: Foundation - 이차식의 기초 (Topics 1-5)
+        </div>
+
+        <div class="learning-path">
+            <!-- Topic 1 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">1</div>
+                    <div class="topic-title">Introduction to Parabolas</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 1</span>
+                <div class="problem-count">📝 8 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>핵심 내용:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>포물선의 정의와 기본 형태</li>
+                        <li>$y = x^2$ 그래프 탐구</li>
+                        <li>위/아래로 볼록한 포물선</li>
+                        <li>대칭축과 꼭짓점 개념</li>
+                    </ul>
+                </div>
+                <div class="visual-concept">
+                    <div class="concept-diagram">
+                        기본 포물선: $y = x^2$<br>
+                        꼭짓점: $(0, 0)$<br>
+                        대칭축: $x = 0$
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 2 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">2</div>
+                    <div class="topic-title">Multiplying Binomials (FOIL)</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 1-2</span>
+                <div class="problem-count">📝 10 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>핵심 내용:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>분배법칙의 확장</li>
+                        <li>FOIL 방법: First, Outer, Inner, Last</li>
+                        <li>$(x + a)(x + b) = x^2 + (a+b)x + ab$</li>
+                        <li>실수 계수 포함 연습</li>
+                    </ul>
+                </div>
+                <div style="background: #f5f5f5; padding: 10px; border-radius: 8px; margin-top: 10px;">
+                    <strong>예제:</strong> $(x + 3)(x + 2) = x^2 + 5x + 6$
+                </div>
+            </div>
+
+            <!-- Topic 3 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">3</div>
+                    <div class="topic-title">Special Products</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 2</span>
+                <span class="sat-badge">SAT</span>
+                <div class="problem-count">📝 8 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>핵심 공식:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>완전제곱: $(a + b)^2 = a^2 + 2ab + b^2$</li>
+                        <li>완전제곱: $(a - b)^2 = a^2 - 2ab + b^2$</li>
+                        <li>합차공식: $(a + b)(a - b) = a^2 - b^2$</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 4 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">4</div>
+                    <div class="topic-title">Practice: Multiplying Binomials</div>
+                </div>
+                <span class="topic-type type-practice">Practice</span>
+                <span class="scaffolding-level">Level 2-3</span>
+                <div class="problem-count">📝 12 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>난이도 진행:</strong>
+                    <div class="difficulty-indicator">
+                        <div class="difficulty-star"></div>
+                        <div class="difficulty-star"></div>
+                        <div class="difficulty-star empty"></div>
+                        <div class="difficulty-star empty"></div>
+                        <div class="difficulty-star empty"></div>
+                    </div>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>Problems 1-4: 기본 FOIL (Level 2)</li>
+                        <li>Problems 5-8: 음수 포함 (Level 2-3)</li>
+                        <li>Problems 9-12: 특수 공식 적용 (Level 3)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 5 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">5</div>
+                    <div class="topic-title">Quadratic Expressions with Coefficients</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 3</span>
+                <div class="problem-count">📝 10 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>핵심 내용:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>$(ax + b)(cx + d)$ 형태</li>
+                        <li>계수가 있는 완전제곱식</li>
+                        <li>복잡한 이항식 곱셈</li>
+                    </ul>
+                </div>
+                <div style="background: #fff3cd; padding: 10px; border-radius: 8px; margin-top: 10px;">
+                    💡 <strong>팁:</strong> 계수를 먼저 곱하고, 같은 차수끼리 정리
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Factoring -->
+        <div class="section-divider">
+            📘 Section 2: Factoring - 인수분해 마스터 (Topics 6-10)
+        </div>
+
+        <div class="learning-path">
+            <!-- Topic 6 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">6</div>
+                    <div class="topic-title">Common Factor & Grouping</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 2</span>
+                <div class="problem-count">📝 8 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>핵심 전략:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>최대공약수 찾기</li>
+                        <li>공통인수 빼내기: $ax + ay = a(x + y)$</li>
+                        <li>묶음 인수분해</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 7 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">7</div>
+                    <div class="topic-title">Factoring $x^2 + bx + c$</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 3</span>
+                <div class="problem-count">📝 12 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>핵심 전략:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>곱이 $c$, 합이 $b$인 두 수 찾기</li>
+                        <li>양수/음수 조합 판단</li>
+                        <li>검증: 전개하여 확인</li>
+                    </ul>
+                </div>
+                <div class="problem-set">
+                    <strong>연습 문제 구성:</strong>
+                    <div class="problem-grid">
+                        <div class="problem-item">
+                            1-3: $c > 0, b > 0$
+                            <div class="difficulty-indicator">
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star empty"></div>
+                                <div class="difficulty-star empty"></div>
+                            </div>
+                        </div>
+                        <div class="problem-item">
+                            4-6: $c > 0, b < 0$
+                            <div class="difficulty-indicator">
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star empty"></div>
+                            </div>
+                        </div>
+                        <div class="problem-item">
+                            7-9: $c < 0$
+                            <div class="difficulty-indicator">
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star empty"></div>
+                            </div>
+                        </div>
+                        <div class="problem-item">
+                            10-12: 혼합
+                            <div class="difficulty-indicator">
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 8 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">8</div>
+                    <div class="topic-title">Factoring $ax^2 + bx + c$ (a ≠ 1)</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 4</span>
+                <span class="sat-badge">SAT</span>
+                <div class="problem-count">📝 10 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>핵심 방법:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>AC 방법: $a \times c$ 계산</li>
+                        <li>중간항 분해</li>
+                        <li>묶음 인수분해 적용</li>
+                        <li>Trial and Error 방법</li>
+                    </ul>
+                </div>
+                <div style="background: #e8f5e9; padding: 10px; border-radius: 8px; margin-top: 10px;">
+                    <strong>예제:</strong> $2x^2 + 7x + 3 = (2x + 1)(x + 3)$
+                </div>
+            </div>
+
+            <!-- Topic 9 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">9</div>
+                    <div class="topic-title">Special Factoring Patterns</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 3-4</span>
+                <span class="sat-badge">SAT</span>
+                <div class="problem-count">📝 8 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>특수 패턴:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>완전제곱식: $a^2 + 2ab + b^2 = (a + b)^2$</li>
+                        <li>차제곱: $a^2 - b^2 = (a + b)(a - b)$</li>
+                        <li>세제곱 공식 (선택)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 10 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">10</div>
+                    <div class="topic-title">Practice: Complete Factoring</div>
+                </div>
+                <span class="topic-type type-practice">Practice</span>
+                <span class="scaffolding-level">Level 3-5</span>
+                <div class="problem-count">📝 15 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>종합 연습:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>1-5: 공통인수 + 인수분해</li>
+                        <li>6-10: 특수 패턴 인식</li>
+                        <li>11-15: 복합 인수분해</li>
+                    </ul>
+                </div>
+                <div class="difficulty-indicator">
+                    <div class="difficulty-star"></div>
+                    <div class="difficulty-star"></div>
+                    <div class="difficulty-star"></div>
+                    <div class="difficulty-star"></div>
+                    <div class="difficulty-star empty"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Solving Equations -->
+        <div class="section-divider">
+            📘 Section 3: Solving Quadratic Equations - 해법 마스터 (Topics 11-15)
+        </div>
+
+        <div class="learning-path">
+            <!-- Topic 11 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">11</div>
+                    <div class="topic-title">Zero Product Property</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 3</span>
+                <div class="problem-count">📝 8 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>핵심 개념:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>영인수 정리: $ab = 0 \Rightarrow a = 0$ 또는 $b = 0$</li>
+                        <li>인수분해 후 각 인수 = 0</li>
+                        <li>해의 검증 방법</li>
+                    </ul>
+                </div>
+                <div class="connection-note">
+                    💡 인수분해 능력이 핵심! Topic 7-9의 기술을 활용합니다.
+                </div>
+            </div>
+
+            <!-- Topic 12 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">12</div>
+                    <div class="topic-title">Square Root Method</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 3-4</span>
+                <div class="problem-count">📝 8 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>핵심 방법:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>$x^2 = k \Rightarrow x = \pm\sqrt{k}$</li>
+                        <li>$(x - h)^2 = k$ 형태</li>
+                        <li>양수/음수 근의 의미</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 13 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">13</div>
+                    <div class="topic-title">Completing the Square</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 4-5</span>
+                <span class="sat-badge">SAT</span>
+                <div class="problem-count">📝 10 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>핵심 단계:</strong>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li>$x^2 + bx$에서 $(\frac{b}{2})^2$ 더하기</li>
+                        <li>완전제곱식 만들기</li>
+                        <li>제곱근 방법 적용</li>
+                        <li>꼭짓점 형태로 변환</li>
+                    </ol>
+                </div>
+                <div style="background: #fff3cd; padding: 10px; border-radius: 8px; margin-top: 10px;">
+                    ⚠️ <strong>주의:</strong> 양변에 같은 수를 더해야 등식 유지!
+                </div>
+            </div>
+
+            <!-- Topic 14 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">14</div>
+                    <div class="topic-title">The Quadratic Formula</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 4-5</span>
+                <span class="sat-badge">SAT 필수</span>
+                <div class="problem-count">📝 12 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>근의 공식:</strong>
+                    <div style="text-align: center; font-size: 1.2em; margin: 15px 0; padding: 15px; background: #f5f5f5; border-radius: 8px;">
+                        $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+                    </div>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>판별식 $D = b^2 - 4ac$</li>
+                        <li>$D > 0$: 두 실근</li>
+                        <li>$D = 0$: 중근</li>
+                        <li>$D < 0$: 실근 없음</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 15 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">15</div>
+                    <div class="topic-title">Practice: All Solving Methods</div>
+                </div>
+                <span class="topic-type type-practice">Practice</span>
+                <span class="scaffolding-level">Level 3-5</span>
+                <div class="problem-count">📝 20 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>방법 선택 전략:</strong>
+                    <div class="problem-grid">
+                        <div class="problem-item">
+                            1-5: 인수분해 가능
+                            <div class="difficulty-indicator">
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star empty"></div>
+                            </div>
+                        </div>
+                        <div class="problem-item">
+                            6-10: 제곱근 방법
+                            <div class="difficulty-indicator">
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star"></div>
+                            </div>
+                        </div>
+                        <div class="problem-item">
+                            11-15: 완전제곱
+                            <div class="difficulty-indicator">
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star"></div>
+                            </div>
+                        </div>
+                        <div class="problem-item">
+                            16-20: 근의 공식
+                            <div class="difficulty-indicator">
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star"></div>
+                                <div class="difficulty-star"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Graphs and Applications -->
+        <div class="section-divider">
+            📘 Section 4: Graphs & Applications - 그래프와 응용 (Topics 16-20)
+        </div>
+
+        <div class="learning-path">
+            <!-- Topic 16 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">16</div>
+                    <div class="topic-title">Graphing Quadratic Functions</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 3-4</span>
+                <div class="problem-count">📝 10 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>핵심 요소:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>꼭짓점: $(-\frac{b}{2a}, f(-\frac{b}{2a}))$</li>
+                        <li>대칭축: $x = -\frac{b}{2a}$</li>
+                        <li>y절편: $(0, c)$</li>
+                        <li>x절편: 방정식의 해</li>
+                    </ul>
+                </div>
+                <div class="visual-concept">
+                    <div class="concept-diagram">
+                        포물선의 3가지 형태<br>
+                        • 표준형: $y = ax^2 + bx + c$<br>
+                        • 꼭짓점형: $y = a(x - h)^2 + k$<br>
+                        • 인수분해형: $y = a(x - p)(x - q)$
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 17 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">17</div>
+                    <div class="topic-title">Transformations of Parabolas</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 4</span>
+                <div class="problem-count">📝 8 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>변환 규칙:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>$y = f(x) + k$: 위/아래 평행이동</li>
+                        <li>$y = f(x - h)$: 좌/우 평행이동</li>
+                        <li>$y = af(x)$: 수직 확대/축소</li>
+                        <li>$y = -f(x)$: x축 대칭</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 18 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">18</div>
+                    <div class="topic-title">Maximum and Minimum Values</div>
+                </div>
+                <span class="topic-type type-learn">Learn</span>
+                <span class="scaffolding-level">Level 4-5</span>
+                <span class="sat-badge">SAT</span>
+                <div class="problem-count">📝 10 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>최적화 문제:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>$a > 0$: 최솟값 존재</li>
+                        <li>$a < 0$: 최댓값 존재</li>
+                        <li>실생활 최적화 문제</li>
+                        <li>제약 조건이 있는 최적화</li>
+                    </ul>
+                </div>
+                <div style="background: #e8f5e9; padding: 10px; border-radius: 8px; margin-top: 10px;">
+                    <strong>응용:</strong> 최대 넓이, 최소 비용, 최적 가격 등
+                </div>
+            </div>
+
+            <!-- Topic 19 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">19</div>
+                    <div class="topic-title">Word Problems & Modeling</div>
+                </div>
+                <span class="topic-type type-practice">Practice</span>
+                <span class="scaffolding-level">Level 4-5</span>
+                <div class="problem-count">📝 15 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>응용 분야:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>물리: 포물선 운동, 자유낙하</li>
+                        <li>경제: 수익 최대화, 비용 최소화</li>
+                        <li>기하: 넓이와 둘레 문제</li>
+                        <li>일반: 수의 관계, 시간 문제</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 20 -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <div class="topic-number">20</div>
+                    <div class="topic-title">Unit Test & Review</div>
+                </div>
+                <span class="topic-type type-test">Test</span>
+                <span class="scaffolding-level">Level 3-5</span>
+                <span class="sat-badge">SAT Ready</span>
+                <div class="problem-count">📝 25 problems</div>
+                <div style="margin-top: 15px;">
+                    <strong>종합 평가:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>개념 이해 (5문제)</li>
+                        <li>계산 능력 (8문제)</li>
+                        <li>문제 해결 (8문제)</li>
+                        <li>SAT 유형 (4문제)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Timeline -->
+        <h2 style="color: #5a67d8; margin: 40px 0 20px;">📅 권장 학습 일정 (3주 과정)</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Week 1: Foundation</h3>
+                <p>Topics 1-5 완료</p>
+                <p>• 포물선 기초 이해</p>
+                <p>• 이항식 곱셈 숙달</p>
+                <p>• 매일 30-40분 학습</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Week 2: Factoring</h3>
+                <p>Topics 6-10 완료</p>
+                <p>• 인수분해 완벽 마스터</p>
+                <p>• 다양한 패턴 인식</p>
+                <p>• 매일 40-50분 학습</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Week 3: Equations</h3>
+                <p>Topics 11-15 완료</p>
+                <p>• 모든 해법 습득</p>
+                <p>• 적절한 방법 선택</p>
+                <p>• 매일 50-60분 학습</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Week 4: Applications</h3>
+                <p>Topics 16-20 완료</p>
+                <p>• 그래프와 응용</p>
+                <p>• 실생활 문제 해결</p>
+                <p>• 종합 복습과 평가</p>
+            </div>
+        </div>
+
+        <!-- Mastery Tracker -->
+        <h2 style="color: #5a67d8; margin: 40px 0 20px;">📊 학습 완성도 추적기</h2>
+        <div class="mastery-tracker">
+            <div class="mastery-item">
+                <div class="mastery-score">0%</div>
+                <div class="mastery-label">이항식 곱셈</div>
+            </div>
+            <div class="mastery-item">
+                <div class="mastery-score">0%</div>
+                <div class="mastery-label">인수분해</div>
+            </div>
+            <div class="mastery-item">
+                <div class="mastery-score">0%</div>
+                <div class="mastery-label">방정식 해법</div>
+            </div>
+            <div class="mastery-item">
+                <div class="mastery-score">0%</div>
+                <div class="mastery-label">그래프 분석</div>
+            </div>
+            <div class="mastery-item">
+                <div class="mastery-score">0%</div>
+                <div class="mastery-label">응용 문제</div>
+            </div>
+        </div>
+
+        <!-- Study Tips -->
+        <div style="background: #f3e5f5; padding: 25px; border-radius: 15px; margin: 30px 0;">
+            <h2 style="color: #7b1fa2; margin-bottom: 20px;">💡 학습 팁과 전략</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div>
+                    <h3>📝 효과적인 학습법</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• 매일 꾸준히 30분 이상</li>
+                        <li>• 개념 이해 후 연습 문제</li>
+                        <li>• 틀린 문제 다시 풀기</li>
+                        <li>• 풀이 과정 기록하기</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>⚠️ 흔한 실수 예방</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• 부호 실수 주의</li>
+                        <li>• 모든 해 찾기 (±)</li>
+                        <li>• 답 검증 습관화</li>
+                        <li>• 단위와 조건 확인</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🎯 SAT 대비 전략</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• 시간 관리 연습</li>
+                        <li>• 계산기 없이 연습</li>
+                        <li>• 특수 공식 암기</li>
+                        <li>• 다양한 표현 형태 익히기</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources -->
+        <div style="background: #e1f5fe; padding: 25px; border-radius: 15px; margin: 30px 0;">
+            <h2 style="color: #0277bd; margin-bottom: 20px;">📚 추가 학습 자료</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                <div style="background: white; padding: 15px; border-radius: 8px;">
+                    <strong>🎥 Khan Academy Videos</strong>
+                    <p style="margin-top: 10px; font-size: 0.9em;">각 Topic별 무료 동영상 강의</p>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 8px;">
+                    <strong>📝 Practice Worksheets</strong>
+                    <p style="margin-top: 10px; font-size: 0.9em;">인쇄 가능한 연습 문제지</p>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 8px;">
+                    <strong>🎮 Interactive Tools</strong>
+                    <p style="margin-top: 10px; font-size: 0.9em;">Desmos 그래프 계산기</p>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 8px;">
+                    <strong>📖 Reference Sheet</strong>
+                    <p style="margin-top: 10px; font-size: 0.9em;">공식과 핵심 개념 요약</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Assessment Criteria -->
+        <div style="background: #ffebee; padding: 25px; border-radius: 15px; margin: 30px 0;">
+            <h2 style="color: #c62828; margin-bottom: 20px;">✅ Unit 13 완료 기준</h2>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                <div>
+                    <h3>최소 완료 기준 (Pass)</h3>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>모든 Learn topics 완료</li>
+                        <li>Practice 문제 70% 이상 정답</li>
+                        <li>Unit Test 60% 이상</li>
+                        <li>핵심 공식 암기</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>우수 완료 기준 (Excellence)</h3>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>모든 Topics 100% 완료</li>
+                        <li>Practice 문제 90% 이상 정답</li>
+                        <li>Unit Test 85% 이상</li>
+                        <li>SAT 문제 자신있게 해결</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="unit-overview" style="background: linear-gradient(135deg, #43a047 0%, #66bb6a 100%);">
+            <h2>🎊 Unit 13 학습 완료 후</h2>
+            <div style="margin-top: 20px;">
+                <p style="font-size: 1.1em; margin-bottom: 15px;">
+                    축하합니다! Unit 13을 마스터하면 다음을 할 수 있습니다:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div>✅ 모든 이차방정식 해결</div>
+                    <div>✅ 포물선 그래프 완벽 이해</div>
+                    <div>✅ 실생활 최적화 문제 해결</div>
+                    <div>✅ SAT 이차방정식 문제 정복</div>
+                </div>
+                <p style="margin-top: 20px; font-size: 1.2em; text-align: center;">
+                    <strong>다음 단계:</strong> Unit 14 (Exponential Functions) 또는 AP Calculus 준비
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 인터랙티브 기능 추가 가능
+        document.querySelectorAll('.topic-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // 클릭 시 상세 정보 표시 등
+                console.log('Topic selected:', this.querySelector('.topic-title').textContent);
+            });
+        });
+
+        // Mastery 점수 업데이트 시뮬레이션
+        function updateMasteryScore(category, score) {
+            const items = document.querySelectorAll('.mastery-item');
+            items.forEach(item => {
+                if (item.querySelector('.mastery-label').textContent === category) {
+                    item.querySelector('.mastery-score').textContent = score + '%';
+                    // 색상 변경
+                    if (score >= 80) {
+                        item.querySelector('.mastery-score').style.color = '#4caf50';
+                    } else if (score >= 60) {
+                        item.querySelector('.mastery-score').style.color = '#ff9800';
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

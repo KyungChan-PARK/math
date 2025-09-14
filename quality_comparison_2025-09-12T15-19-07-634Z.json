@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "generated_at": "2025-09-12T15:19:07.634Z",
+    "total_problems": 20,
+    "models": [
+      "Claude Code",
+      "Qwen"
+    ],
+    "pdf_optimized": true
+  },
+  "structure_comparison": {
+    "claude": {
+      "style": "단계별, 시각적, 친근한 설명",
+      "visual_quality": "ASCII art 기반 정적 다이어그램",
+      "scaffolding": "한국어 기반 체계적 단계",
+      "problem_type": "구체적 수치와 실생활 연계"
+    },
+    "qwen": {
+      "style": "논리적, 구조화된 접근",
+      "visual_quality": "Mock 시각화 (실제 API 비활성화)",
+      "scaffolding": "영어 기반 단계적 접근",
+      "problem_type": "일반적 템플릿 기반"
+    }
+  },
+  "quality_metrics": {
+    "pdf_compatibility": "✅ 완벽 지원 (A4, 정적 디자인)",
+    "scaffolding_completeness": "✅ 20문제 4단계 구조",
+    "visual_elements": "✅ 모든 문제에 시각적 요소 포함",
+    "print_optimization": "✅ CMYK 색상, 고정 여백"
+  },
+  "recommendations": {
+    "for_teachers": "Claude 버전: 더 친근하고 단계적 설명",
+    "for_students": "두 버전 모두 PDF 인쇄 가능, 학습자 선호에 따라 선택",
+    "for_curriculum": "Phase별 난이도 조절이 효과적으로 구현됨"
+  }
+}

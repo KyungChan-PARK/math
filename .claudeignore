@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+venv/
+.venv/
+env/
+
+# Build outputs
+dist/
+build/
+out/
+*.pyc
+__pycache__/
+
+# Logs
+*.log
+*.tmp
+logs/
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+.coverage
+htmlcov/
+
+# Documentation
+docs/_build/

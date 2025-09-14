@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algebra 1 Unit 13: 이차방정식 마스터하기 - 25문제 단계별 학습</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #5a67d8;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .level-indicator {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+        
+        .level-1 {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #1a1a2e;
+        }
+        
+        .level-2 {
+            background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
+            color: #1a1a2e;
+        }
+        
+        .level-3 {
+            background: linear-gradient(135deg, #ffd3b6 0%, #ffaaa5 100%);
+            color: #1a1a2e;
+        }
+        
+        .level-4 {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: #1a1a2e;
+        }
+        
+        .level-5 {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+        }
+        
+        .problem-section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #5a67d8;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .problem-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .problem-number {
+            background: #5a67d8;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+        
+        .concept-box {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .concept-title {
+            color: #495057;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .scaffold-hint {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .scaffold-hint::before {
+            content: "💡 힌트: ";
+            font-weight: bold;
+            color: #856404;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 25px 0;
+        }
+        
+        .example-box, .practice-box {
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .example-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px solid #2196f3;
+        }
+        
+        .practice-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px solid #ff9800;
+        }
+        
+        .box-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .example-box .box-title {
+            color: #1565c0;
+        }
+        
+        .practice-box .box-title {
+            color: #e65100;
+        }
+        
+        .step {
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 8px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: #5a67d8;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+        
+        .solution {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 2px solid #4caf50;
+        }
+        
+        .solution-title {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+        
+        .blank {
+            display: inline-block;
+            min-width: 80px;
+            border-bottom: 2px solid #333;
+            margin: 0 5px;
+            text-align: center;
+        }
+        
+        .math {
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+            font-size: 1.1em;
+        }
+        
+        .connection-note {
+            background: #e1f5fe;
+            border-left: 4px solid #03a9f4;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        
+        .sat-badge {
+            display: inline-block;
+            background: #ff5722;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+        
+        .check-box {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #666;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+        
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Algebra 1 Unit 13: 이차방정식 완벽 마스터</h1>
+        
+        <div class="intro">
+            <h2>📚 학습 안내</h2>
+            <p><strong>대상:</strong> Grade 8 학생들을 위한 Algebra 1 선행학습</p>
+            <p><strong>목표:</strong> 이차방정식의 곱셈, 인수분해, 해법을 단계별로 완벽 이해</p>
+            <p><strong>구성:</strong> 25문제 (Level 1-5 점진적 scaffolding)</p>
+            <p><strong>특징:</strong> SAT 대비 문제 포함, 실생활 응용 강조</p>
+        </div>
+
+        <!-- Section 1: 이항식의 곱셈 (문제 1-5) -->
+        <h2 style="color: #5a67d8; margin: 40px 0 20px; padding: 10px; background: #e3f2fd; border-radius: 10px;">
+            📝 Section 1: 이항식의 곱셈 (Multiplying Binomials)
+        </h2>
+
+        <!-- 문제 1 -->
+        <div class="problem-section">
+            <span class="level-indicator level-1">Level 1: Minimal Support</span>
+            <div class="problem-header">
+                <div class="problem-number">1</div>
+                <h2>이항식 곱셈: 분배법칙 기초</h2>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $(x + 2)(x + 3)$</p>
+                    <p><strong>풀이:</strong></p>
+                    <p>$= x \cdot x + x \cdot 3 + 2 \cdot x + 2 \cdot 3$</p>
+                    <p>$= x^2 + 3x + 2x + 6$</p>
+                    <p>$= x^2 + 5x + 6$</p>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $(x + 1)(x + 4)$</p>
+                    <p>$= x^2 +$ <span class="blank">___</span>$x +$ <span class="blank">___</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 2 -->
+        <div class="problem-section">
+            <span class="level-indicator level-1">Level 1: Minimal Support</span>
+            <div class="problem-header">
+                <div class="problem-number">2</div>
+                <h2>음수 포함 이항식 곱셈</h2>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $(x - 2)(x + 5)$</p>
+                    <p><strong>풀이:</strong></p>
+                    <p>$= x^2 + 5x - 2x - 10$</p>
+                    <p>$= x^2 + 3x - 10$</p>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $(x - 3)(x + 7)$</p>
+                    <p>$= x^2 +$ <span class="blank">___</span>$x$ <span class="blank">___</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 3 -->
+        <div class="problem-section">
+            <span class="level-indicator level-2">Level 2: Guided Discovery</span>
+            <div class="problem-header">
+                <div class="problem-number">3</div>
+                <h2>FOIL 방법 도입</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념: FOIL</div>
+                <p><strong>F</strong>irst (첫 항끼리), <strong>O</strong>uter (바깥 항끼리), <strong>I</strong>nner (안쪽 항끼리), <strong>L</strong>ast (마지막 항끼리)</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $(2x + 3)(x + 1)$</p>
+                    <div class="step">
+                        <span class="step-number">F</span>
+                        First: $2x \cdot x = 2x^2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">O</span>
+                        Outer: $2x \cdot 1 = 2x$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">I</span>
+                        Inner: $3 \cdot x = 3x$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">L</span>
+                        Last: $3 \cdot 1 = 3$
+                    </div>
+                    <p><strong>답:</strong> $2x^2 + 5x + 3$</p>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $(3x + 2)(x + 4)$</p>
+                    <div class="step">
+                        <span class="step-number">F</span>
+                        $3x \cdot x =$ <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">O</span>
+                        $3x \cdot 4 =$ <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">I</span>
+                        $2 \cdot x =$ <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">L</span>
+                        $2 \cdot 4 =$ <span class="blank">_____</span>
+                    </div>
+                    <p><strong>답:</strong> <span class="blank">___________</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 4 -->
+        <div class="problem-section">
+            <span class="level-indicator level-2">Level 2: Guided Discovery</span>
+            <div class="problem-header">
+                <div class="problem-number">4</div>
+                <h2>완전제곱식 $(a+b)^2$</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 공식</div>
+                <p>$(a + b)^2 = a^2 + 2ab + b^2$</p>
+            </div>
+            
+            <div class="scaffold-hint">
+                $(3+4)^2 = 49$를 생각해보세요. $3^2 + 2(3 \times 4) + 4^2 = 9 + 24 + 16 = 49$
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $(x + 5)^2$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $a = x$, $b = 5$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $a^2 = x^2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $2ab = 2(x)(5) = 10x$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        $b^2 = 25$
+                    </div>
+                    <p><strong>답:</strong> $x^2 + 10x + 25$</p>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $(2x + 3)^2$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $a =$ <span class="blank">___</span>, $b =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $a^2 =$ <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $2ab =$ <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        $b^2 =$ <span class="blank">_____</span>
+                    </div>
+                    <p><strong>답:</strong> <span class="blank">___________</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 5 -->
+        <div class="problem-section">
+            <span class="level-indicator level-2">Level 2: Guided Discovery</span>
+            <div class="problem-header">
+                <div class="problem-number">5</div>
+                <h2>합차 공식 $(a+b)(a-b)$</h2>
+                <span class="sat-badge">SAT 빈출</span>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 공식</div>
+                <p>$(a + b)(a - b) = a^2 - b^2$</p>
+                <p>중간항이 서로 상쇄되어 사라집니다!</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $(x + 3)(x - 3)$</p>
+                    <p><strong>공식 적용:</strong></p>
+                    <p>$a = x$, $b = 3$</p>
+                    <p>$= x^2 - 3^2$</p>
+                    <p>$= x^2 - 9$</p>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $(2x + 5)(2x - 5)$</p>
+                    <p>$a =$ <span class="blank">___</span>, $b =$ <span class="blank">___</span></p>
+                    <p>$=$ <span class="blank">_____</span> $-$ <span class="blank">_____</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: 인수분해 (문제 6-12) -->
+        <h2 style="color: #5a67d8; margin: 40px 0 20px; padding: 10px; background: #e3f2fd; border-radius: 10px;">
+            📝 Section 2: 인수분해 (Factoring)
+        </h2>
+
+        <!-- 문제 6 -->
+        <div class="problem-section">
+            <span class="level-indicator level-2">Level 2: Guided Discovery</span>
+            <div class="problem-header">
+                <div class="problem-number">6</div>
+                <h2>공통인수 찾기</h2>
+            </div>
+            
+            <div class="scaffold-hint">
+                $12 + 18 = 6(2 + 3)$처럼, 각 항의 최대공약수를 찾아 빼내세요.
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $3x^2 + 12x$ 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        공통인수: $3x$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $3x^2 = 3x \cdot x$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $12x = 3x \cdot 4$
+                    </div>
+                    <p><strong>답:</strong> $3x(x + 4)$</p>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $2x^2 + 8x$</p>
+                    <p>공통인수: <span class="blank">___</span></p>
+                    <p>$=$ <span class="blank">___</span>$($<span class="blank">_____</span>$)$</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 7 -->
+        <div class="problem-section">
+            <span class="level-indicator level-3">Level 3: Structured Steps</span>
+            <div class="problem-header">
+                <div class="problem-number">7</div>
+                <h2>$x^2 + bx + c$ 형태 인수분해</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 전략</div>
+                <p>두 수의 곱이 $c$이고 합이 $b$인 두 수를 찾습니다.</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $x^2 + 7x + 12$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        곱이 12: $1 \times 12$, $2 \times 6$, $3 \times 4$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        합이 7: $3 + 4 = 7$ ✓
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        인수분해: $(x + 3)(x + 4)$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">✓</span>
+                        검증: $(x+3)(x+4) = x^2 + 7x + 12$ ✓
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $x^2 + 8x + 15$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        곱이 15인 두 수: <span class="blank">___</span>와 <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        합이 8인지 확인: <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        답: $(x +$ <span class="blank">___</span>$)(x +$ <span class="blank">___</span>$)$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 8 -->
+        <div class="problem-section">
+            <span class="level-indicator level-3">Level 3: Structured Steps</span>
+            <div class="problem-header">
+                <div class="problem-number">8</div>
+                <h2>음수 포함 인수분해</h2>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $x^2 - 5x + 6$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        곱이 6, 합이 -5인 두 수
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $(-2) \times (-3) = 6$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $(-2) + (-3) = -5$ ✓
+                    </div>
+                    <p><strong>답:</strong> $(x - 2)(x - 3)$</p>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $x^2 - 7x + 10$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        곱이 10, 합이 -7인 두 수: <span class="blank">___</span>, <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        답: $(x$ <span class="blank">___</span>$)(x$ <span class="blank">___</span>$)$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 9 -->
+        <div class="problem-section">
+            <span class="level-indicator level-3">Level 3: Structured Steps</span>
+            <div class="problem-header">
+                <div class="problem-number">9</div>
+                <h2>$ax^2 + bx + c$ 형태 (계수가 1이 아닌 경우)</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 AC 방법</div>
+                <p>1. $a \times c$를 계산</p>
+                <p>2. 곱이 $ac$이고 합이 $b$인 두 수 찾기</p>
+                <p>3. 중간항을 분해하여 인수분해</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $2x^2 + 7x + 3$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $ac = 2 \times 3 = 6$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        곱이 6, 합이 7: $1$과 $6$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $2x^2 + x + 6x + 3$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        $x(2x + 1) + 3(2x + 1)$
+                    </div>
+                    <p><strong>답:</strong> $(2x + 1)(x + 3)$</p>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $3x^2 + 10x + 3$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $ac =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        곱이 <span class="blank">___</span>, 합이 10: <span class="blank">___</span>과 <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        답: <span class="blank">___________</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 10 -->
+        <div class="problem-section">
+            <span class="level-indicator level-3">Level 3: Structured Steps</span>
+            <div class="problem-header">
+                <div class="problem-number">10</div>
+                <h2>완전제곱식 인수분해</h2>
+                <span class="sat-badge">SAT 빈출</span>
+            </div>
+            
+            <div class="scaffold-hint">
+                $a^2 + 2ab + b^2 = (a + b)^2$ 패턴을 찾아보세요!
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $x^2 + 6x + 9$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        첫 항: $x^2 = (x)^2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        마지막 항: $9 = 3^2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        중간항 확인: $6x = 2 \cdot x \cdot 3$ ✓
+                    </div>
+                    <p><strong>답:</strong> $(x + 3)^2$</p>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $4x^2 + 12x + 9$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $4x^2 = ($<span class="blank">___</span>$)^2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $9 = ($<span class="blank">___</span>$)^2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        답: $($<span class="blank">_____</span>$)^2$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 11 -->
+        <div class="problem-section">
+            <span class="level-indicator level-3">Level 3: Structured Steps</span>
+            <div class="problem-header">
+                <div class="problem-number">11</div>
+                <h2>차제곱 인수분해</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 공식</div>
+                <p>$a^2 - b^2 = (a + b)(a - b)$</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $x^2 - 16$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $x^2 - 16 = x^2 - 4^2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        공식 적용: $(x + 4)(x - 4)$
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $9x^2 - 25$</p>
+                    <p>$= ($<span class="blank">___</span>$)^2 - ($<span class="blank">___</span>$)^2$</p>
+                    <p>$= ($<span class="blank">_____</span>$)($<span class="blank">_____</span>$)$</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 12 -->
+        <div class="problem-section">
+            <span class="level-indicator level-4">Level 4: Conceptual Bridge</span>
+            <div class="problem-header">
+                <div class="problem-number">12</div>
+                <h2>종합 인수분해 전략</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 인수분해 체크리스트</div>
+                <p>1. 공통인수가 있는가?</p>
+                <p>2. 완전제곱식인가?</p>
+                <p>3. 차제곱인가?</p>
+                <p>4. 일반 삼항식인가?</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $2x^2 - 8$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        공통인수: $2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $= 2(x^2 - 4)$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        차제곱 인식: $x^2 - 4 = x^2 - 2^2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        $= 2(x + 2)(x - 2)$
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $3x^2 - 27$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        공통인수: <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $=$ <span class="blank">___</span>$(x^2 -$ <span class="blank">___</span>$)$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        최종답: <span class="blank">___________</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: 이차방정식 해법 (문제 13-20) -->
+        <h2 style="color: #5a67d8; margin: 40px 0 20px; padding: 10px; background: #e3f2fd; border-radius: 10px;">
+            📝 Section 3: 이차방정식 해법 (Solving Quadratic Equations)
+        </h2>
+
+        <!-- 문제 13 -->
+        <div class="problem-section">
+            <span class="level-indicator level-4">Level 4: Conceptual Bridge</span>
+            <div class="problem-header">
+                <div class="problem-number">13</div>
+                <h2>인수분해를 이용한 해법</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 영인수 정리</div>
+                <p>$ab = 0$이면 $a = 0$ 또는 $b = 0$</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $x^2 + 5x + 6 = 0$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        인수분해: $(x + 2)(x + 3) = 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $x + 2 = 0$ 또는 $x + 3 = 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $x = -2$ 또는 $x = -3$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">✓</span>
+                        검증: $(-2)^2 + 5(-2) + 6 = 0$ ✓
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $x^2 + 7x + 12 = 0$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        인수분해: <span class="blank">___________</span> $= 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $x =$ <span class="blank">___</span> 또는 $x =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">✓</span>
+                        검증: <span class="check-box"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 14 -->
+        <div class="problem-section">
+            <span class="level-indicator level-4">Level 4: Conceptual Bridge</span>
+            <div class="problem-header">
+                <div class="problem-number">14</div>
+                <h2>제곱근을 이용한 해법</h2>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $x^2 = 25$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        양변에 제곱근: $\sqrt{x^2} = \sqrt{25}$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $|x| = 5$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $x = 5$ 또는 $x = -5$
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $(x - 3)^2 = 16$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $x - 3 = \pm$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $x =$ <span class="blank">___</span> 또는 $x =$ <span class="blank">___</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 15 -->
+        <div class="problem-section">
+            <span class="level-indicator level-4">Level 4: Conceptual Bridge</span>
+            <div class="problem-header">
+                <div class="problem-number">15</div>
+                <h2>완전제곱식 만들기 (Completing the Square)</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 전략</div>
+                <p>$x^2 + bx$에 $(\frac{b}{2})^2$를 더하면 완전제곱식이 됩니다.</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $x^2 + 6x + 5 = 0$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $x^2 + 6x = -5$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $(\frac{6}{2})^2 = 9$ 더하기
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $x^2 + 6x + 9 = -5 + 9 = 4$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        $(x + 3)^2 = 4$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        $x + 3 = \pm 2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">6</span>
+                        $x = -1$ 또는 $x = -5$
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $x^2 + 4x - 5 = 0$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $x^2 + 4x =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        더할 수: $(\frac{4}{2})^2 =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $(x +$ <span class="blank">___</span>$)^2 =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        $x =$ <span class="blank">___</span> 또는 $x =$ <span class="blank">___</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 16-20: 근의 공식과 응용 -->
+        <!-- 문제 16 -->
+        <div class="problem-section">
+            <span class="level-indicator level-4">Level 4: Conceptual Bridge</span>
+            <div class="problem-header">
+                <div class="problem-number">16</div>
+                <h2>근의 공식 도입</h2>
+                <span class="sat-badge">SAT 필수</span>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 이차방정식의 근의 공식</div>
+                <p>$ax^2 + bx + c = 0$의 해:</p>
+                <p style="text-align: center; font-size: 1.2em;">$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $2x^2 + 5x - 3 = 0$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        계수 확인: $a = 2$, $b = 5$, $c = -3$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        판별식: $b^2 - 4ac = 25 - 4(2)(-3) = 49$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $x = \frac{-5 \pm \sqrt{49}}{4} = \frac{-5 \pm 7}{4}$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        $x = \frac{1}{2}$ 또는 $x = -3$
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $3x^2 - 7x + 2 = 0$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $a =$ <span class="blank">___</span>, $b =$ <span class="blank">___</span>, $c =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        판별식: $b^2 - 4ac =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $x =$ <span class="blank">___</span> 또는 $x =$ <span class="blank">___</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 17 -->
+        <div class="problem-section">
+            <span class="level-indicator level-5">Level 5: Full Support</span>
+            <div class="problem-header">
+                <div class="problem-number">17</div>
+                <h2>판별식과 해의 개수</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 판별식 $D = b^2 - 4ac$</div>
+                <p>• $D > 0$: 서로 다른 두 실근</p>
+                <p>• $D = 0$: 중근 (하나의 실근)</p>
+                <p>• $D < 0$: 실근 없음 (복소수 해)</p>
+            </div>
+            
+            <div class="connection-note">
+                판별식은 포물선이 x축과 만나는 점의 개수를 알려줍니다!
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $x^2 - 4x + 4 = 0$의 해의 개수는?</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $a = 1$, $b = -4$, $c = 4$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $D = (-4)^2 - 4(1)(4) = 16 - 16 = 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $D = 0$이므로 중근
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        해: $x = \frac{4}{2} = 2$ (중근)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">💡</span>
+                        $(x - 2)^2 = 0$으로도 확인 가능!
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $2x^2 - 3x + 5 = 0$의 해의 개수는?</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        계수: $a =$ <span class="blank">___</span>, $b =$ <span class="blank">___</span>, $c =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $D =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        해의 개수: <span class="blank">___________</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">💡</span>
+                        힌트: $D < 0$이면 실근이 없습니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 18 -->
+        <div class="problem-section">
+            <span class="level-indicator level-5">Level 5: Full Support</span>
+            <div class="problem-header">
+                <div class="problem-number">18</div>
+                <h2>실생활 응용: 포물선 운동</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 포물선 운동 공식</div>
+                <p>높이: $h(t) = -\frac{1}{2}gt^2 + v_0t + h_0$</p>
+                <p>여기서 $g = 10 m/s^2$ (중력가속도 근사값)</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> 20m 높이에서 위로 15m/s로 던진 공이 땅에 닿는 시간은?</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        식 세우기: $h(t) = -5t^2 + 15t + 20 = 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        근의 공식: $a = -5$, $b = 15$, $c = 20$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $D = 225 + 400 = 625$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        $t = \frac{-15 \pm 25}{-10}$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        $t = 4$ 또는 $t = -1$ (음수 제외)
+                    </div>
+                    <p><strong>답:</strong> 4초 후 땅에 닿습니다.</p>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> 45m 높이에서 떨어뜨린 공($v_0 = 0$)이 땅에 닿는 시간은?</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        식: $-5t^2 +$ <span class="blank">___</span> $+ 45 = 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        간단히: $t^2 =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        답: $t =$ <span class="blank">___</span> 초
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 19 -->
+        <div class="problem-section">
+            <span class="level-indicator level-5">Level 5: Full Support</span>
+            <div class="problem-header">
+                <div class="problem-number">19</div>
+                <h2>최적화 문제</h2>
+                <span class="sat-badge">SAT 응용</span>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 꼭짓점 공식</div>
+                <p>$y = ax^2 + bx + c$의 꼭짓점 x좌표: $x = -\frac{b}{2a}$</p>
+                <p>최댓값(a < 0) 또는 최솟값(a > 0)을 구할 때 사용</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> 둘레가 24m인 직사각형의 최대 넓이는?</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        변수 설정: 가로 $x$, 세로 $y$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        조건: $2x + 2y = 24$ → $y = 12 - x$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        넓이: $A = x \cdot y = x(12 - x) = -x^2 + 12x$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        최댓값 위치: $x = -\frac{12}{2(-1)} = 6$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        최대 넓이: $A = 6 \times 6 = 36m^2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">✓</span>
+                        정사각형일 때 최대!
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> 수의 합이 10인 두 수의 곱의 최댓값은?</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        두 수: $x$와 <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        곱: $P = x \cdot$ <span class="blank">_____</span> $=$ <span class="blank">___________</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        최댓값 위치: $x =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        최댓값: <span class="blank">___</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 20 -->
+        <div class="problem-section">
+            <span class="level-indicator level-5">Level 5: Full Support</span>
+            <div class="problem-header">
+                <div class="problem-number">20</div>
+                <h2>비에타 공식과 근과 계수의 관계</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 비에타 공식</div>
+                <p>$ax^2 + bx + c = 0$의 두 근을 $\alpha$, $\beta$라 하면:</p>
+                <p>• 합: $\alpha + \beta = -\frac{b}{a}$</p>
+                <p>• 곱: $\alpha \cdot \beta = \frac{c}{a}$</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $x^2 - 5x + 6 = 0$의 두 근의 합과 곱은?</p>
+                    <div class="step">
+                        <span class="step-number">방법 1</span>
+                        비에타 공식
+                    </div>
+                    <div class="step">
+                        <span class="step-number">•</span>
+                        합: $-\frac{(-5)}{1} = 5$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">•</span>
+                        곱: $\frac{6}{1} = 6$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">방법 2</span>
+                        직접 계산
+                    </div>
+                    <div class="step">
+                        <span class="step-number">•</span>
+                        $(x - 2)(x - 3) = 0$ → 근: 2, 3
+                    </div>
+                    <div class="step">
+                        <span class="step-number">•</span>
+                        합: $2 + 3 = 5$ ✓, 곱: $2 \times 3 = 6$ ✓
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> 두 근의 합이 7, 곱이 10인 이차방정식은?</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        표준형: $x^2 - ($합$)x + ($곱$) = 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        답: $x^2$ <span class="blank">___</span>$x$ <span class="blank">___</span> $= 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">✓</span>
+                        검증: 근은 <span class="blank">___</span>와 <span class="blank">___</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: 고급 응용과 SAT 대비 (문제 21-25) -->
+        <h2 style="color: #5a67d8; margin: 40px 0 20px; padding: 10px; background: #e3f2fd; border-radius: 10px;">
+            📝 Section 4: 고급 응용과 SAT 대비 (Advanced Applications)
+        </h2>
+
+        <!-- 문제 21 -->
+        <div class="problem-section">
+            <span class="level-indicator level-5">Level 5: Full Support</span>
+            <div class="problem-header">
+                <div class="problem-number">21</div>
+                <h2>연립 이차방정식</h2>
+                <span class="sat-badge">SAT 고급</span>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 해법 전략</div>
+                <p>1. 한 변수를 다른 식으로 표현</p>
+                <p>2. 대입하여 이차방정식 만들기</p>
+                <p>3. 해를 구하고 다시 대입</p>
+                <p>4. 모든 해 검증</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong></p>
+                    <p>$\begin{cases} x + y = 5 \\ xy = 6 \end{cases}$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        첫 식에서: $y = 5 - x$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        둘째 식에 대입: $x(5 - x) = 6$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        정리: $5x - x^2 = 6$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        $x^2 - 5x + 6 = 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        $(x - 2)(x - 3) = 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">6</span>
+                        해: $(x, y) = (2, 3)$ 또는 $(3, 2)$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">✓</span>
+                        검증: $2 + 3 = 5$ ✓, $2 \times 3 = 6$ ✓
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong></p>
+                    <p>$\begin{cases} x - y = 1 \\ x^2 + y^2 = 13 \end{cases}$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        첫 식에서: $x =$ <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        대입: $($<span class="blank">_____</span>$)^2 + y^2 = 13$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        정리: <span class="blank">___________</span> $= 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        $y =$ <span class="blank">___</span> 또는 <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        해: $(x, y) =$ <span class="blank">_____</span> 또는 <span class="blank">_____</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 22 -->
+        <div class="problem-section">
+            <span class="level-indicator level-5">Level 5: Full Support</span>
+            <div class="problem-header">
+                <div class="problem-number">22</div>
+                <h2>부등식과 이차함수</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 이차부등식 해법</div>
+                <p>1. 이차방정식의 근 구하기</p>
+                <p>2. 포물선의 개형 그리기</p>
+                <p>3. 부등호에 따라 영역 선택</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $x^2 - 4x - 5 < 0$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        근 구하기: $(x - 5)(x + 1) = 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        근: $x = -1, 5$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        포물선이 위로 볼록 (a = 1 > 0)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        $< 0$이므로 x축 아래 부분
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        답: $-1 < x < 5$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">✓</span>
+                        테스트: $x = 0$일 때 $-5 < 0$ ✓
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $-x^2 + 6x - 8 \geq 0$</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $x^2 - 6x + 8 \leq 0$로 변형
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        근: $x =$ <span class="blank">___</span>, <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        답: <span class="blank">___</span> $\leq x \leq$ <span class="blank">___</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 23 -->
+        <div class="problem-section">
+            <span class="level-indicator level-5">Level 5: Full Support</span>
+            <div class="problem-header">
+                <div class="problem-number">23</div>
+                <h2>함수의 변환과 이차함수</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 함수 변환 규칙</div>
+                <p>• $f(x) + k$: 위로 $k$만큼 평행이동</p>
+                <p>• $f(x - h)$: 오른쪽으로 $h$만큼 평행이동</p>
+                <p>• $-f(x)$: x축 대칭</p>
+                <p>• $af(x)$: 수직 방향으로 $a$배</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $y = x^2$를 꼭짓점이 $(2, -3)$이 되도록 변환</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        오른쪽으로 2: $y = (x - 2)^2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        아래로 3: $y = (x - 2)^2 - 3$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">✓</span>
+                        전개: $y = x^2 - 4x + 4 - 3$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">✓</span>
+                        최종: $y = x^2 - 4x + 1$
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $y = 2x^2$의 꼭짓점을 $(-1, 4)$로 이동</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        꼭짓점 형태: $y = 2(x -$ <span class="blank">___</span>$)^2 +$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        전개: $y =$ <span class="blank">___________</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 24 -->
+        <div class="problem-section">
+            <span class="level-indicator level-5">Level 5: Full Support</span>
+            <div class="problem-header">
+                <div class="problem-number">24</div>
+                <h2>SAT 실전 문제: 종합 응용</h2>
+                <span class="sat-badge">SAT 실전</span>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> 포물선 $y = -2x^2 + 8x - 5$의 최댓값과 그때의 x값은?</p>
+                    <div class="step">
+                        <span class="step-number">방법 1</span>
+                        꼭짓점 공식
+                    </div>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $x = -\frac{8}{2(-2)} = 2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $y = -2(2)^2 + 8(2) - 5 = 3$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">방법 2</span>
+                        완전제곱식
+                    </div>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $y = -2(x^2 - 4x) - 5$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $y = -2(x^2 - 4x + 4 - 4) - 5$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $y = -2(x - 2)^2 + 8 - 5 = -2(x - 2)^2 + 3$
+                    </div>
+                    <p><strong>답:</strong> 최댓값 3 (x = 2일 때)</p>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $f(x) = 3x^2 - 12x + 7$의 최솟값은?</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        $x_{vertex} =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        최솟값: $f($<span class="blank">___</span>$) =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">💡</span>
+                        $a > 0$이므로 최솟값이 존재합니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 25 -->
+        <div class="problem-section">
+            <span class="level-indicator level-5">Level 5: Full Support</span>
+            <div class="problem-header">
+                <div class="problem-number">25</div>
+                <h2>도전 문제: 매개변수와 이차방정식</h2>
+                <span class="sat-badge">SAT 최고급</span>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 매개변수 문제 접근법</div>
+                <p>1. 주어진 조건을 식으로 표현</p>
+                <p>2. 판별식이나 비에타 공식 활용</p>
+                <p>3. 매개변수의 값 또는 범위 결정</p>
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 예제</div>
+                    <p><strong>문제:</strong> $x^2 + 2x + k = 0$이 실근을 가질 k의 범위는?</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        실근 조건: $D \geq 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $D = 4 - 4k \geq 0$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $4 \geq 4k$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        $k \leq 1$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">✓</span>
+                        테스트: $k = 1$일 때 $(x + 1)^2 = 0$ (중근) ✓
+                    </div>
+                    <div class="step">
+                        <span class="step-number">✓</span>
+                        테스트: $k = 0$일 때 $x(x + 2) = 0$ (두 실근) ✓
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 연습</div>
+                    <p><strong>문제:</strong> $x^2 - 6x + m = 0$의 두 근의 차가 2일 때, m의 값은?</p>
+                    <div class="step">
+                        <span class="step-number">힌트</span>
+                        두 근을 $\alpha$, $\beta$라 하면 $|\alpha - \beta| = 2$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        비에타: $\alpha + \beta =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        $(\alpha - \beta)^2 = (\alpha + \beta)^2 - 4\alpha\beta$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        $4 = 36 - 4m$
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        $m =$ <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">✓</span>
+                        검증: 근은 <span class="blank">___</span>와 <span class="blank">___</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 마무리 섹션 -->
+        <div class="intro" style="margin-top: 50px;">
+            <h2>🎊 축하합니다!</h2>
+            <p>Algebra 1 Unit 13의 25문제를 모두 완료했습니다!</p>
+            <p><strong>학습한 내용:</strong></p>
+            <ul style="margin-left: 20px;">
+                <li>✅ 이항식의 곱셈 (FOIL, 특수 공식)</li>
+                <li>✅ 인수분해 (공통인수, 삼항식, 특수 형태)</li>
+                <li>✅ 이차방정식 해법 (인수분해, 제곱근, 완전제곱, 근의 공식)</li>
+                <li>✅ 실생활 응용과 SAT 대비 문제</li>
+            </ul>
+            <p style="margin-top: 20px;"><strong>다음 단계:</strong> Unit 14 (지수함수와 로그함수)로 진행하세요!</p>
+        </div>
+    </div>
+</body>
+</html>

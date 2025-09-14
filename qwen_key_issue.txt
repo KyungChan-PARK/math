@@ -1,0 +1,13 @@
+제공된 로그를 분석한 결과, 문제는 크게 두 가지입니다.
+
+### 1. Qwen API: 잘못된 지역의 엔드포인트(Endpoint) 사용
+
+**Qwen API**는 성공적으로 호출된 **International Endpoint(국제용)**와 실패한 **China Endpoint(중국 내수용)**가 있습니다.
+
+* **문제점:** 현재 사용 중인 API 키(`sk-8410...`)는 **국제용**으로 발급된 키입니다. 이 키로 중국 내수용 엔드포인트(`https://dashscope.aliyuncs.com`)에 요청을 보내니 `401 Unauthorized` (권한 없음) 오류가 발생한 것입니다.
+* **해결책:**
+    * 계속해서 성공했던 **International Endpoint** (`https://dashscope-intl.aliyuncs.com`)를 사용해야 합니다.
+    * 만약 중국 내수용 엔드포인트를 꼭 사용해야 한다면, 해당 서비스에 맞는 새로운 API 키를 발급받아야 합니다.
+
+---
+

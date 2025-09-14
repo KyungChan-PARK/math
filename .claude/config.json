@@ -1,0 +1,17 @@
+{
+  "contextStrategy": "focused",
+  "maxFiles": 30,
+  "excludePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/*.log",
+    "**/venv/**",
+    "**/__pycache__/**",
+    "**/.git/**"
+  ],
+  "semanticSearch": true,
+  "cacheEnabled": true,
+  "performanceMode": "high",
+  "tokenOptimization": true,
+  "parallelProcessing": true
+}

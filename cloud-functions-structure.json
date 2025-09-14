@@ -1,0 +1,97 @@
+{
+  "project": "math-project-472006",
+  "region": "us-central1",
+  "functions": [
+    {
+      "name": "generateMathProblems",
+      "description": "수학 문제 생성 API",
+      "source": "cloud-functions/math-generator",
+      "runtime": "nodejs20",
+      "memory": "512MB",
+      "timeout": "60s",
+      "trigger": "http",
+      "public": true,
+      "endpoints": {
+        "generate": "/problems/generate",
+        "batch": "/problems/batch",
+        "curriculum": "/problems/curriculum"
+      }
+    },
+    {
+      "name": "aiOrchestrator",
+      "description": "AI 모델 협업 오케스트레이터",
+      "source": "cloud-functions/ai-orchestrator",
+      "runtime": "nodejs20",
+      "memory": "1GB",
+      "timeout": "120s",
+      "trigger": "http",
+      "public": true,
+      "endpoints": {
+        "collaborate": "/ai/collaborate",
+        "qwen": "/ai/qwen",
+        "gemini": "/ai/gemini"
+      }
+    },
+    {
+      "name": "documentProcessor",
+      "description": "Document AI를 활용한 수학 문서 처리",
+      "source": "cloud-functions/document-processor",
+      "runtime": "nodejs20",
+      "memory": "512MB",
+      "timeout": "60s",
+      "trigger": "http",
+      "public": true,
+      "endpoints": {
+        "ocr": "/document/ocr",
+        "parse": "/document/parse",
+        "analyze": "/document/analyze"
+      }
+    },
+    {
+      "name": "firestoreSync",
+      "description": "Firestore 실시간 데이터 동기화",
+      "source": "cloud-functions/firestore-sync",
+      "runtime": "nodejs20",
+      "memory": "256MB",
+      "timeout": "30s",
+      "trigger": "http",
+      "public": false,
+      "endpoints": {
+        "sync": "/data/sync",
+        "backup": "/data/backup",
+        "restore": "/data/restore"
+      }
+    },
+    {
+      "name": "vertexAIIntegration",
+      "description": "Vertex AI 모델 통합",
+      "source": "cloud-functions/vertex-ai",
+      "runtime": "nodejs20",
+      "memory": "1GB",
+      "timeout": "120s",
+      "trigger": "http",
+      "public": false,
+      "endpoints": {
+        "predict": "/vertex/predict",
+        "train": "/vertex/train",
+        "evaluate": "/vertex/evaluate"
+      }
+    }
+  ],
+  "dependencies": {
+    "@google-cloud/firestore": "^7.0.0",
+    "@google-cloud/aiplatform": "^3.0.0",
+    "@google-cloud/documentai": "^7.0.0",
+    "@google-cloud/storage": "^7.0.0",
+    "axios": "^1.6.0",
+    "express": "^4.18.0",
+    "@google/generative-ai": "^0.1.0"
+  },
+  "environment_variables": {
+    "PROJECT_ID": "math-project-472006",
+    "REGION": "us-central1",
+    "FIRESTORE_DATABASE": "(default)",
+    "GEMINI_API_KEY": "${GEMINI_API_KEY}",
+    "DASHSCOPE_API_KEY": "${DASHSCOPE_API_KEY}"
+  }
+}

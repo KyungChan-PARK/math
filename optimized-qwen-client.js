@@ -20,7 +20,10 @@ dotenv.config({ path: path.join(__dirname, '..', '.env') });
 const CONFIG = {
     QWEN_MODEL: 'qwen3-max-preview',
     BASE_URL: 'https://dashscope-intl.aliyuncs.com/compatible-mode/v1',
-    API_KEY: process.env.DASHSCOPE_API_KEY || 'sk-f2ab784cfdc7467495fa72ced5477c2a',
+    API_KEY: process.env.DASHSCOPE_API_KEY || (() => {
+        console.error('❌ DASHSCOPE_API_KEY is required in .env file');
+        process.exit(1);
+    })(),
     
     // 성능 최적화 설정
     CONNECTION_TIMEOUT: 60000,       // 60초 (연결 타임아웃 증가)

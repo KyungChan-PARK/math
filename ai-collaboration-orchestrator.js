@@ -20,42 +20,43 @@ class AICollaborationOrchestrator extends EventEmitter {
         this.config = {
             qwen: {
                 apiKey: process.env.DASHSCOPE_API_KEY,
-                endpoint: 'https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation',
+                endpoint: 'https://dashscope-intl.aliyuncs.com/api/v1/services/aigc/text-generation/generation',
                 models: {
+                    'qwen3-max-preview': 'qwen3-max-preview',  // 무료 모델
                     'qwen-max': 'qwen-max',
                     'qwen-plus': 'qwen-plus', 
                     'qwen-turbo': 'qwen-turbo'
                 },
-                defaultModel: 'qwen-plus'
+                defaultModel: 'qwen3-max-preview'  // 무료 모델로 변경
             },
             gemini: {
                 apiKey: process.env.GEMINI_API_KEY || 'demo-key', // 환경변수에 추가 필요
                 endpoint: 'https://generativelanguage.googleapis.com/v1beta/models',
                 models: {
-                    'gemini-pro': 'gemini-pro',
-                    'gemini-pro-vision': 'gemini-pro-vision'
+                    'gemini-1.5-flash': 'gemini-1.5-flash',
+                    'gemini-1.5-pro': 'gemini-1.5-pro',
+                    'gemini-2.0-flash-exp': 'gemini-2.0-flash-exp'
                 },
-                defaultModel: 'gemini-pro'
+                defaultModel: 'gemini-2.0-flash-exp'
             }
         };
         
-        // 협업 가중치
+        // 협업 가중치 (Claude API 제거)
         this.weights = {
-            qwen: 0.35,
-            gemini: 0.25,
-            claude: 0.40  // Claude Code (무료)
+            qwen: 0.60,
+            gemini: 0.40
+            // claude: Claude Code Max 사용으로 API 호출 불필요
         };
         
         // 캐시 설정
         this.cache = new Map();
         this.cacheTimeout = 60 * 60 * 1000; // 1시간
         
-        // 성능 메트릭
+        // 성능 메트릭 (Claude API 제거)
         this.metrics = {
             totalRequests: 0,
             qwenRequests: 0,
             geminiRequests: 0,
-            claudeRequests: 0,
             cacheHits: 0,
             errors: 0,
             avgResponseTime: 0
@@ -133,17 +134,18 @@ class AICollaborationOrchestrator extends EventEmitter {
         // 병렬로 모든 AI 모델 호출
         const promises = [];
         
-        // Qwen API 호출
+        // API 키가 없으면 외부 API 호출 건너뛰기 (비용 방지)
         if (this.config.qwen.apiKey) {
-            promises.push(this.analyzeWithQwen(content, context));
+            console.log('⚠️ Qwen API 키 발견 - 비용 방지를 위해 건너뛰기');
+            // promises.push(this.analyzeWithQwen(content, context));
         }
         
-        // Gemini API 호출
         if (this.config.gemini.apiKey && this.config.gemini.apiKey !== 'demo-key') {
-            promises.push(this.analyzeWithGemini(content, context));
+            console.log('⚠️ Gemini API 키 발견 - 비용 방지를 위해 건너뛰기');
+            // promises.push(this.analyzeWithGemini(content, context));
         }
         
-        // Claude Code 분석 (로컬)
+        // Claude Code 분석만 사용 (무료)
         promises.push(this.analyzeWithClaudeCode(content, context));
         
         // 모든 결과 수집

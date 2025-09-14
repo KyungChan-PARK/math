@@ -1,0 +1,17 @@
+{
+  "name": "userDataSync",
+  "version": "1.0.0",
+  "description": "Cloud Function for userDataSync",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^7.0.0",
+    "@google-cloud/aiplatform": "^3.0.0",
+    "axios": "^1.6.0"
+  },
+  "engines": {
+    "node": "20"
+  }
+}

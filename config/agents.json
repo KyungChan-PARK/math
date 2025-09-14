@@ -1,0 +1,47 @@
+{
+  "categories": {
+    "math_concepts": {
+      "agents": ["algebra", "geometry", "calculus", "statistics", "trigonometry"],
+      "defaultTokens": 2000,
+      "description": "수학 개념 전문가"
+    },
+    "pedagogy": {
+      "agents": ["curriculum", "lesson", "assessment", "differentiation", "scaffolding"],
+      "defaultTokens": 2000,
+      "description": "교육학 전문가"
+    },
+    "visualization": {
+      "agents": ["graph", "shape3D", "animation", "color", "infographic"],
+      "defaultTokens": 2500,
+      "description": "시각화 전문가"
+    },
+    "interaction": {
+      "agents": ["gesture", "voice", "touch", "pen", "dragdrop"],
+      "defaultTokens": 1500,
+      "description": "상호작용 전문가"
+    },
+    "assessment": {
+      "agents": ["progress", "error", "hint", "solution", "rubric"],
+      "defaultTokens": 2000,
+      "description": "평가 전문가"
+    },
+    "technical": {
+      "agents": ["extendscript", "debug", "performance", "api", "database"],
+      "defaultTokens": 3000,
+      "description": "기술 전문가"
+    },
+    "content": {
+      "agents": ["problem", "example", "worksheet", "video", "quiz"],
+      "defaultTokens": 2000,
+      "description": "콘텐츠 전문가"
+    },
+    "analytics": {
+      "agents": ["learning", "usage", "predictive", "report", "dashboard"],
+      "defaultTokens": 2500,
+      "description": "분석 전문가"
+    }
+  },
+  "totalAgents": 40,
+  "version": "1.0.0",
+  "lastUpdated": "2025-09-11"
+}

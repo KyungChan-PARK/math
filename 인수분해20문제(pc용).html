@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>곱셈공식과 인수분해 마스터하기 - 20문제 단계별 학습</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #5a67d8;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .level-indicator {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+        
+        .level-basic {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #1a1a2e;
+        }
+        
+        .level-intermediate {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: #1a1a2e;
+        }
+        
+        .level-advanced {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+        }
+        
+        .problem-section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #5a67d8;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .problem-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .problem-number {
+            background: #5a67d8;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+        
+        .concept-box {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .concept-title {
+            color: #495057;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .scaffold-hint {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .scaffold-hint::before {
+            content: "💡 힌트: ";
+            font-weight: bold;
+            color: #856404;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 25px 0;
+        }
+        
+        .example-box, .practice-box {
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .example-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px solid #2196f3;
+        }
+        
+        .practice-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px solid #ff9800;
+        }
+        
+        .box-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .example-box .box-title {
+            color: #1565c0;
+        }
+        
+        .practice-box .box-title {
+            color: #e65100;
+        }
+        
+        .visual-area {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            border: 2px dashed #dee2e6;
+        }
+        
+        .area-model {
+            display: inline-block;
+            border: 2px solid #333;
+            margin: 10px;
+        }
+        
+        .area-cell {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border: 1px solid #666;
+            text-align: center;
+            line-height: 80px;
+            font-weight: bold;
+            vertical-align: top;
+        }
+        
+        .solution {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 2px solid #4caf50;
+        }
+        
+        .solution-title {
+            color: #2e7d32;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .blank {
+            display: inline-block;
+            min-width: 60px;
+            border-bottom: 2px solid #ff9800;
+            margin: 0 5px;
+            text-align: center;
+            color: #ff9800;
+            font-weight: bold;
+        }
+        
+        .math {
+            font-family: 'Courier New', monospace;
+            background: #f5f5f5;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 2px;
+        }
+        
+        .connection-note {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+        
+        .connection-note::before {
+            content: "🔗 연결: ";
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 3px solid #5a67d8;
+            border-radius: 5px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #5a67d8;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 곱셈공식과 인수분해 마스터하기</h1>
+        
+        <div class="intro">
+            <h2>📚 학습 안내</h2>
+            <p>이 문제집은 곱셈공식과 인수분해를 단계별로 마스터할 수 있도록 설계되었습니다.</p>
+            <p>✨ <strong>특징:</strong> 각 문제는 이전 개념을 확장하여 자연스럽게 심화 내용으로 연결됩니다.</p>
+            <p>🎯 <strong>목표:</strong> 기초 개념이 어떻게 복잡한 문제에 적용되는지 체감하며 학습합니다.</p>
+        </div>
+
+        <!-- 기초 레벨 (1-7번) -->
+        <div class="level-indicator level-basic">기초 레벨 (1-7번)</div>
+        
+        <!-- 문제 1 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">1</div>
+                <h2>단항식 × 다항식: 분배법칙의 기초</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>분배법칙: <span class="math">a(b + c) = ab + ac</span></p>
+                <p>단항식을 다항식의 각 항에 곱합니다. 이것이 모든 곱셈공식의 기초입니다!</p>
+            </div>
+            
+            <div class="scaffold-hint">
+                분배법칙은 "나누어 곱하기"입니다. 예: 3×(10+2) = 3×10 + 3×2 = 30 + 6 = 36
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">2x(x + 3)</span></p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        2x를 각 항에 곱하기
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="math">2x · x = 2x²</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="math">2x · 3 = 6x</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">2x² + 6x</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">3x(x + 4)</span></p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        3x를 각 항에 곱하기
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="math">3x · x = </span><span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="math">3x · 4 = </span><span class="blank">_____</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="blank">_____</span> + <span class="blank">_____</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> 3x를 (x+4)의 각 항에 곱합니다. 3x×x = 3x², 3x×4 = 12x이므로 답은 3x² + 12x입니다.</p>
+                <p><strong>English:</strong> Multiply 3x by each term in (x+4). Since 3x×x = 3x² and 3x×4 = 12x, the answer is 3x² + 12x.</p>
+            </div>
+        </div>
+
+        <!-- 문제 2 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">2</div>
+                <h2>이항식 × 이항식: 면적 모델로 이해하기</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>이항식의 곱셈을 직사각형의 넓이로 시각화합니다.</p>
+                <p><span class="math">(a + b)(c + d)</span>는 네 개의 작은 직사각형 넓이의 합입니다.</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 1의 분배법칙을 두 번 적용하는 것과 같습니다!
+            </div>
+            
+            <div class="scaffold-hint">
+                직사각형을 그려보세요. 가로를 (x+2), 세로를 (x+3)으로 나누면 4개의 작은 직사각형이 생깁니다.
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">(x + 2)(x + 3)</span></p>
+                    
+                    <div class="visual-area">
+                        <table class="area-model">
+                            <tr>
+                                <td class="area-cell"></td>
+                                <td class="area-cell">x</td>
+                                <td class="area-cell">2</td>
+                            </tr>
+                            <tr>
+                                <td class="area-cell">x</td>
+                                <td class="area-cell" style="background:#e3f2fd">x²</td>
+                                <td class="area-cell" style="background:#fff3e0">2x</td>
+                            </tr>
+                            <tr>
+                                <td class="area-cell">3</td>
+                                <td class="area-cell" style="background:#fff3e0">3x</td>
+                                <td class="area-cell" style="background:#e8f5e9">6</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        네 영역의 넓이 구하기
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="math">x² + 2x + 3x + 6</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        동류항 정리: <span class="math">x² + 5x + 6</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">(x + 3)(x + 4)</span></p>
+                    
+                    <div class="visual-area">
+                        <table class="area-model">
+                            <tr>
+                                <td class="area-cell"></td>
+                                <td class="area-cell">x</td>
+                                <td class="area-cell">3</td>
+                            </tr>
+                            <tr>
+                                <td class="area-cell">x</td>
+                                <td class="area-cell"><span class="blank">___</span></td>
+                                <td class="area-cell"><span class="blank">___</span></td>
+                            </tr>
+                            <tr>
+                                <td class="area-cell">4</td>
+                                <td class="area-cell"><span class="blank">___</span></td>
+                                <td class="area-cell"><span class="blank">___</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        네 영역: <span class="blank">___</span> + <span class="blank">___</span> + <span class="blank">___</span> + <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        답: <span class="blank">___________</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> 면적 모델: x×x=x², x×3=3x, 4×x=4x, 4×3=12. 합: x²+3x+4x+12 = x²+7x+12</p>
+                <p><strong>English:</strong> Area model: x×x=x², x×3=3x, 4×x=4x, 4×3=12. Sum: x²+3x+4x+12 = x²+7x+12</p>
+            </div>
+        </div>
+
+        <!-- 문제 3 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">3</div>
+                <h2>FOIL 방법: 체계적인 이항식 곱셈</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>FOIL = First(첫 항끼리), Outer(바깥 항끼리), Inner(안쪽 항끼리), Last(끝 항끼리)</p>
+                <p>이항식 곱셈을 빠뜨리지 않고 체계적으로 계산하는 방법입니다.</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 2의 면적 모델을 순서대로 정리한 것이 FOIL입니다!
+            </div>
+            
+            <div class="scaffold-hint">
+                (a+b)(c+d)에서: F=a×c, O=a×d, I=b×c, L=b×d. 네 개를 모두 더하면 답!
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">(2x + 1)(x + 3)</span></p>
+                    <div class="step">
+                        <span class="step-number">F</span>
+                        First: <span class="math">2x × x = 2x²</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">O</span>
+                        Outer: <span class="math">2x × 3 = 6x</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">I</span>
+                        Inner: <span class="math">1 × x = x</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">L</span>
+                        Last: <span class="math">1 × 3 = 3</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">2x² + 6x + x + 3 = 2x² + 7x + 3</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">(3x + 2)(x + 4)</span></p>
+                    <div class="step">
+                        <span class="step-number">F</span>
+                        First: <span class="math">3x × x = </span><span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">O</span>
+                        Outer: <span class="math">3x × 4 = </span><span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">I</span>
+                        Inner: <span class="math">2 × x = </span><span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">L</span>
+                        Last: <span class="math">2 × 4 = </span><span class="blank">_____</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="blank">___________</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> F=3x², O=12x, I=2x, L=8. 합: 3x²+12x+2x+8 = 3x²+14x+8</p>
+                <p><strong>English:</strong> F=3x², O=12x, I=2x, L=8. Sum: 3x²+12x+2x+8 = 3x²+14x+8</p>
+            </div>
+        </div>
+
+        <!-- 문제 4 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">4</div>
+                <h2>완전제곱식 (a+b)²: 패턴 발견하기</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>완전제곱식 공식: <span class="math">(a + b)² = a² + 2ab + b²</span></p>
+                <p>중간항이 "2×(첫 항)×(끝 항)"이 되는 특별한 패턴입니다.</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 3의 FOIL에서 O와 I가 같아지는 특별한 경우입니다! (a+b)(a+b)에서 O=ab, I=ba=ab
+            </div>
+            
+            <div class="scaffold-hint">
+                (3+4)² = 9+24+16 = 49를 생각해보세요. 3²+2(3×4)+4² = 9+24+16입니다!
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">(x + 5)²</span></p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        공식 적용: <span class="math">a = x, b = 5</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="math">a² = x²</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="math">2ab = 2(x)(5) = 10x</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="math">b² = 25</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">x² + 10x + 25</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">(2x + 3)²</span></p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        공식 적용: <span class="math">a = </span><span class="blank">___</span>, <span class="math">b = </span><span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="math">a² = </span><span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="math">2ab = 2(</span><span class="blank">___</span>)(<span class="blank">___</span>) = <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="math">b² = </span><span class="blank">_____</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="blank">___________</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> a=2x, b=3. a²=(2x)²=4x², 2ab=2(2x)(3)=12x, b²=9. 답: 4x²+12x+9</p>
+                <p><strong>English:</strong> a=2x, b=3. a²=(2x)²=4x², 2ab=2(2x)(3)=12x, b²=9. Answer: 4x²+12x+9</p>
+                <p><strong>시각화:</strong> 정사각형을 그려보면 전체 넓이 (2x+3)²는 4개 영역(4x², 6x, 6x, 9)의 합입니다.</p>
+            </div>
+        </div>
+
+        <!-- 문제 5 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">5</div>
+                <h2>완전제곱식 (a-b)²: 음수 처리하기</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>음의 완전제곱식: <span class="math">(a - b)² = a² - 2ab + b²</span></p>
+                <p>중간항만 음수가 됩니다. 마지막 항은 여전히 양수!</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 4와 비교: 중간항의 부호만 다릅니다. (-b)²=b²이므로 마지막 항은 같습니다!
+            </div>
+            
+            <div class="scaffold-hint">
+                (5-2)² = 9를 계산해보면: 5²-2(5×2)+2² = 25-20+4 = 9. 음수의 제곱은 양수!
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">(x - 4)²</span></p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        공식 적용: <span class="math">a = x, b = 4</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="math">a² = x²</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="math">-2ab = -2(x)(4) = -8x</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="math">b² = 16</span> (양수!)
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">x² - 8x + 16</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">(3x - 2)²</span></p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        공식 적용: <span class="math">a = </span><span class="blank">___</span>, <span class="math">b = </span><span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="math">a² = </span><span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="math">-2ab = </span><span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="math">b² = </span><span class="blank">_____</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="blank">___________</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> a=3x, b=2. a²=9x², -2ab=-2(3x)(2)=-12x, b²=4. 답: 9x²-12x+4</p>
+                <p><strong>English:</strong> a=3x, b=2. a²=9x², -2ab=-2(3x)(2)=-12x, b²=4. Answer: 9x²-12x+4</p>
+            </div>
+        </div>
+
+        <!-- 문제 6 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">6</div>
+                <h2>합차 공식 (a+b)(a-b): 중간항 소거</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>합차 공식: <span class="math">(a + b)(a - b) = a² - b²</span></p>
+                <p>중간항이 서로 상쇄되어 사라지는 특별한 패턴입니다.</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 3의 FOIL 적용: O=a(-b)=-ab, I=b(a)=ab → 합하면 0! 중간항이 사라집니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                (7+3)(7-3) = 10×4 = 40을 확인: 7²-3² = 49-9 = 40. 중간항 없이 바로 계산!
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">(x + 3)(x - 3)</span></p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        공식 인식: <span class="math">a = x, b = 3</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        공식 적용: <span class="math">a² - b²</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="math">x² - 9</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">x² - 9</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">(2x + 5)(2x - 5)</span></p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        공식 인식: <span class="math">a = </span><span class="blank">___</span>, <span class="math">b = </span><span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="math">a² = </span><span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="math">b² = </span><span class="blank">_____</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="blank">___________</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> a=2x, b=5. a²=(2x)²=4x², b²=25. 답: 4x²-25 (중간항 없음!)</p>
+                <p><strong>English:</strong> a=2x, b=5. a²=(2x)²=4x², b²=25. Answer: 4x²-25 (no middle term!)</p>
+            </div>
+        </div>
+
+        <!-- 문제 7 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">7</div>
+                <h2>인수분해 기초: 공통인수 빼내기</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>인수분해는 곱셈의 역과정입니다. 공통인수를 찾아 밖으로 빼냅니다.</p>
+                <p>검증: 인수분해한 결과를 다시 곱하면 원래 식이 나와야 합니다.</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 1의 역과정! 2x²+6x를 보고 2x(x+3)을 찾는 것입니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                12+18 = 6(2+3)처럼, 각 항의 최대공약수를 찾아 빼내세요.
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">3x² + 12x</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        공통인수 찾기: 3x
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        각 항을 3x로 나누기
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="math">3x² ÷ 3x = x</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="math">12x ÷ 3x = 4</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">3x(x + 4)</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">4x² + 8x</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        공통인수: <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="math">4x² ÷ </span><span class="blank">___</span> = <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="math">8x ÷ </span><span class="blank">___</span> = <span class="blank">___</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="blank">___</span>(<span class="blank">_____</span>)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> 공통인수 4x. 4x²÷4x=x, 8x÷4x=2. 답: 4x(x+2). 검증: 4x(x+2)=4x²+8x ✓</p>
+                <p><strong>English:</strong> Common factor 4x. 4x²÷4x=x, 8x÷4x=2. Answer: 4x(x+2). Check: 4x(x+2)=4x²+8x ✓</p>
+            </div>
+        </div>
+
+        <!-- 중급 레벨 (8-15번) -->
+        <div class="level-indicator level-intermediate">중급 레벨 (8-15번)</div>
+
+        <!-- 문제 8 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">8</div>
+                <h2>삼항식 인수분해: (x+a)(x+b) 형태</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p><span class="math">x² + (a+b)x + ab = (x+a)(x+b)</span></p>
+                <p>두 수의 합이 중간항 계수, 곱이 상수항이 되는 수를 찾습니다.</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 2의 역과정! (x+2)(x+3)=x²+5x+6에서, x²+5x+6을 보고 2와 3을 찾는 것입니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                x²+7x+12에서: 합이 7, 곱이 12인 두 수? 3+4=7, 3×4=12 → (x+3)(x+4)
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">x² + 8x + 15</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        합이 8, 곱이 15인 두 수 찾기
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        15의 약수: 1×15, 3×5
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        3+5=8 ✓, 3×5=15 ✓
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">(x + 3)(x + 5)</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">x² + 9x + 20</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        합이 <span class="blank">___</span>, 곱이 <span class="blank">___</span>인 두 수
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        20의 약수: <span class="blank">_________</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="blank">___</span> + <span class="blank">___</span> = 9
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        (<span class="blank">_____</span>)(<span class="blank">_____</span>)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> 20의 약수: 1×20, 2×10, 4×5. 이 중 4+5=9. 답: (x+4)(x+5)</p>
+                <p><strong>English:</strong> Factors of 20: 1×20, 2×10, 4×5. Among these, 4+5=9. Answer: (x+4)(x+5)</p>
+            </div>
+        </div>
+
+        <!-- 문제 9 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">9</div>
+                <h2>음수가 포함된 삼항식 인수분해</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>음수 처리: 두 수의 곱이 음수면 하나는 양수, 하나는 음수</p>
+                <p>두 수의 곱이 양수면 둘 다 양수이거나 둘 다 음수</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 8의 확장! 이제 음수도 고려해야 합니다. 부호를 주의깊게 확인하세요.
+            </div>
+            
+            <div class="scaffold-hint">
+                x²-5x+6: 곱이 양수(+6), 합이 음수(-5) → 둘 다 음수! -2×(-3)=6, -2+(-3)=-5
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">x² - 7x + 12</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        합이 -7, 곱이 +12
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        곱이 양수 → 같은 부호
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        합이 음수 → 둘 다 음수
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        -3 + (-4) = -7, (-3)×(-4) = 12
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">(x - 3)(x - 4)</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">x² + 2x - 15</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        합이 <span class="blank">___</span>, 곱이 <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        곱이 음수 → <span class="blank">__________</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="blank">___</span> + <span class="blank">___</span> = 2
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        (<span class="blank">_____</span>)(<span class="blank">_____</span>)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> 곱이 -15(음수) → 하나는 양수, 하나는 음수. 5+(-3)=2, 5×(-3)=-15. 답: (x+5)(x-3)</p>
+                <p><strong>English:</strong> Product -15(negative) → one positive, one negative. 5+(-3)=2, 5×(-3)=-15. Answer: (x+5)(x-3)</p>
+            </div>
+        </div>
+
+        <!-- 문제 10 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">10</div>
+                <h2>계수가 있는 이차식 인수분해 (ax²+bx+c)</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>AC 방법: ax²+bx+c에서 a×c의 값을 구하고, 이를 이용해 인수분해</p>
+                <p>예: 2x²+7x+3에서 ac=6, 합이 7이고 곱이 6인 두 수를 찾습니다.</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 8-9의 심화! 이제 x²의 계수가 1이 아닙니다. AC 방법으로 해결합니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                2x²+7x+3: ac=2×3=6. 합 7, 곱 6인 수는? 1과 6! 2x²+x+6x+3으로 쪼개기.
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">3x² + 10x + 8</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        ac = 3×8 = 24
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        합 10, 곱 24: 4와 6
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="math">3x² + 4x + 6x + 8</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="math">x(3x+4) + 2(3x+4)</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">(x + 2)(3x + 4)</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">2x² + 9x + 10</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        ac = <span class="blank">___</span> × <span class="blank">___</span> = <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        합 9, 곱 <span class="blank">___</span>: <span class="blank">___</span>와 <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="math">2x² + </span><span class="blank">___</span>x + <span class="blank">___</span>x + 10
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        (<span class="blank">_____</span>)(<span class="blank">_____</span>)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> ac=2×10=20. 합 9, 곱 20: 4와 5. 2x²+4x+5x+10 = 2x(x+2)+5(x+2) = (x+2)(2x+5)</p>
+                <p><strong>English:</strong> ac=2×10=20. Sum 9, product 20: 4 and 5. 2x²+4x+5x+10 = 2x(x+2)+5(x+2) = (x+2)(2x+5)</p>
+            </div>
+        </div>
+
+        <!-- 문제 11 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">11</div>
+                <h2>완전제곱식 인수분해 인식하기</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>완전제곱식 판별: a²±2ab+b² 형태인지 확인</p>
+                <p>중간항이 ±2√(첫항×끝항)이면 완전제곱식입니다.</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 4-5의 역과정! 전개된 식을 보고 완전제곱식임을 알아내는 것입니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                x²+6x+9: √9=3, 2×x×3=6x (중간항과 일치!) → (x+3)²
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">4x² + 12x + 9</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        √(4x²) = 2x, √9 = 3
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        2×(2x)×3 = 12x ✓
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        완전제곱식 확인!
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">(2x + 3)²</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">9x² - 24x + 16</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        √(9x²) = <span class="blank">___</span>, √16 = <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        2×<span class="blank">___</span>×<span class="blank">___</span> = <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        중간항 -24x와 <span class="blank">_____</span>?
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        (<span class="blank">_____</span>)²
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> √(9x²)=3x, √16=4. 2×3x×4=24x. 중간항이 -24x이므로 (3x-4)²</p>
+                <p><strong>English:</strong> √(9x²)=3x, √16=4. 2×3x×4=24x. Middle term is -24x, so (3x-4)²</p>
+            </div>
+        </div>
+
+        <!-- 문제 12 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">12</div>
+                <h2>합차 공식으로 인수분해 (a²-b²)</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>차의 제곱 인수분해: <span class="math">a² - b² = (a+b)(a-b)</span></p>
+                <p>두 완전제곱수의 차는 항상 이 방법으로 인수분해됩니다.</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 6의 역과정! x²-9를 보고 (x+3)(x-3)을 찾는 것입니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                25-16 = 5²-4² = (5+4)(5-4) = 9×1 = 9
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">16x² - 25</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        16x² = (4x)²
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        25 = 5²
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        a = 4x, b = 5
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">(4x + 5)(4x - 5)</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">36x² - 49</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        36x² = (<span class="blank">___</span>)²
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        49 = <span class="blank">___</span>²
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        a = <span class="blank">___</span>, b = <span class="blank">___</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        (<span class="blank">_____</span>)(<span class="blank">_____</span>)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> 36x²=(6x)², 49=7². 답: (6x+7)(6x-7)</p>
+                <p><strong>English:</strong> 36x²=(6x)², 49=7². Answer: (6x+7)(6x-7)</p>
+            </div>
+        </div>
+
+        <!-- 문제 13 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">13</div>
+                <h2>세제곱 공식: (a+b)³ 전개</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>세제곱 공식: <span class="math">(a+b)³ = a³ + 3a²b + 3ab² + b³</span></p>
+                <p>계수가 1, 3, 3, 1의 패턴을 가집니다 (파스칼의 삼각형).</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 4의 확장! (a+b)²를 한 번 더 (a+b)와 곱한 것입니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                (2+1)³ = 8+12+6+1 = 27을 확인: 2³+3(2²)(1)+3(2)(1²)+1³ = 8+12+6+1
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">(x + 2)³</span> 전개</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        a = x, b = 2
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        a³ = x³
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        3a²b = 3x²(2) = 6x²
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        3ab² = 3x(4) = 12x
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        b³ = 8
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">x³ + 6x² + 12x + 8</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">(2x + 1)³</span> 전개</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        a = <span class="blank">___</span>, b = <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        a³ = <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        3a²b = <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        3ab² = <span class="blank">_____</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="blank">___________</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> a=2x, b=1. (2x)³=8x³, 3(2x)²(1)=12x², 3(2x)(1)²=6x, 1³=1. 답: 8x³+12x²+6x+1</p>
+                <p><strong>English:</strong> a=2x, b=1. (2x)³=8x³, 3(2x)²(1)=12x², 3(2x)(1)²=6x, 1³=1. Answer: 8x³+12x²+6x+1</p>
+            </div>
+        </div>
+
+        <!-- 문제 14 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">14</div>
+                <h2>세제곱의 합/차 인수분해</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>세제곱의 합: <span class="math">a³ + b³ = (a+b)(a²-ab+b²)</span></p>
+                <p>세제곱의 차: <span class="math">a³ - b³ = (a-b)(a²+ab+b²)</span></p>
+            </div>
+            
+            <div class="connection-note">
+                문제 12의 3차원 버전! 이제 세제곱도 인수분해할 수 있습니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                8+27 = 2³+3³ = (2+3)(4-6+9) = 5×7 = 35로 확인!
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">x³ + 8</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        x³ + 2³ 형태 인식
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        a = x, b = 2
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        (a+b) = (x+2)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        (a²-ab+b²) = (x²-2x+4)
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">(x + 2)(x² - 2x + 4)</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">8x³ - 27</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        (<span class="blank">___</span>)³ - (<span class="blank">___</span>)³
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        a = <span class="blank">___</span>, b = <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        (a-b) = <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        (a²+ab+b²) = <span class="blank">___________</span>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        (<span class="blank">_____</span>)(<span class="blank">___________</span>)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> 8x³=(2x)³, 27=3³. a=2x, b=3. 차 공식: (2x-3)(4x²+6x+9)</p>
+                <p><strong>English:</strong> 8x³=(2x)³, 27=3³. a=2x, b=3. Difference formula: (2x-3)(4x²+6x+9)</p>
+            </div>
+        </div>
+
+        <!-- 문제 15 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">15</div>
+                <h2>복합 인수분해: 치환과 그룹핑</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>복잡한 식을 간단한 변수로 치환하여 인수분해합니다.</p>
+                <p>예: x⁴-5x²+4에서 x²=t로 치환 → t²-5t+4</p>
+            </div>
+            
+            <div class="connection-note">
+                지금까지 배운 모든 기법을 종합! 치환으로 간단하게 만든 후 인수분해합니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                x⁴은 (x²)²입니다. x²를 하나의 문자처럼 생각해보세요!
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">x⁴ - 13x² + 36</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        t = x²로 치환
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        t² - 13t + 36
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        (t-4)(t-9)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        (x²-4)(x²-9)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        (x+2)(x-2)(x+3)(x-3)
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">x⁴ - 10x² + 9</span> 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        t = <span class="blank">___</span>로 치환
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="blank">___________</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        (<span class="blank">___</span>)(<span class="blank">___</span>)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        최종: <span class="blank">___________</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> t=x²로 치환: t²-10t+9=(t-1)(t-9)=(x²-1)(x²-9)=(x+1)(x-1)(x+3)(x-3)</p>
+                <p><strong>English:</strong> Let t=x²: t²-10t+9=(t-1)(t-9)=(x²-1)(x²-9)=(x+1)(x-1)(x+3)(x-3)</p>
+            </div>
+        </div>
+
+        <!-- 심화 레벨 (16-20번) -->
+        <div class="level-indicator level-advanced">심화 레벨 (16-20번)</div>
+
+        <!-- 문제 16 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">16</div>
+                <h2>비에타의 정리: 근과 계수의 관계</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>ax²+bx+c=0의 두 근을 α, β라 하면:</p>
+                <p>• 근의 합: α+β = -b/a</p>
+                <p>• 근의 곱: αβ = c/a</p>
+                <p>이것이 비에타의 정리입니다. 근을 직접 구하지 않고도 합과 곱을 알 수 있습니다!</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 8의 원리! (x-α)(x-β)=x²-(α+β)x+αβ에서 유도됩니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                x²-5x+6=0의 근의 합은 5, 곱은 6. 실제로 근 2,3을 구하면 2+3=5, 2×3=6!
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">2x² - 8x + 6 = 0</span>의 근의 합과 곱</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        a = 2, b = -8, c = 6
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        근의 합 = -b/a = -(-8)/2 = 4
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        근의 곱 = c/a = 6/2 = 3
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        합: 4, 곱: 3
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">3x² + 12x - 15 = 0</span>의 근의 합과 곱</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        a = <span class="blank">___</span>, b = <span class="blank">___</span>, c = <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        근의 합 = <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        근의 곱 = <span class="blank">_____</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> a=3, b=12, c=-15. 근의 합=-12/3=-4, 근의 곱=-15/3=-5</p>
+                <p><strong>English:</strong> a=3, b=12, c=-15. Sum of roots=-12/3=-4, Product of roots=-15/3=-5</p>
+                <p><strong>심화:</strong> 이 방정식을 인수분해하면 3(x²+4x-5)=3(x+5)(x-1). 근은 -5와 1이고, 합=-4, 곱=-5 확인!</p>
+            </div>
+        </div>
+
+        <!-- 문제 17 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">17</div>
+                <h2>대칭식과 인수분해</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>대칭식: x와 y를 바꿔도 같은 식 (예: x²+y², xy, x+y)</p>
+                <p>기본 대칭식 s=x+y, p=xy로 모든 대칭식을 표현할 수 있습니다.</p>
+                <p>예: x²+y² = (x+y)² - 2xy = s² - 2p</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 16의 응용! 근의 합과 곱으로 다양한 식의 값을 구할 수 있습니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                x+y=5, xy=6일 때, x²+y²=(5)²-2(6)=25-12=13
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> x+y=7, xy=10일 때 x³+y³의 값</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        x³+y³ = (x+y)³ - 3xy(x+y)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        = 7³ - 3(10)(7)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        = 343 - 210
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        133
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> x+y=6, xy=8일 때 x⁴+y⁴의 값</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        먼저 x²+y² = <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        x⁴+y⁴ = (x²+y²)² - 2(xy)²
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        = <span class="blank">___</span>² - 2(<span class="blank">___</span>)²
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="blank">_____</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> x²+y²=(x+y)²-2xy=36-16=20. x⁴+y⁴=(x²+y²)²-2(xy)²=400-128=272</p>
+                <p><strong>English:</strong> x²+y²=(x+y)²-2xy=36-16=20. x⁴+y⁴=(x²+y²)²-2(xy)²=400-128=272</p>
+            </div>
+        </div>
+
+        <!-- 문제 18 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">18</div>
+                <h2>분수식의 인수분해와 약분</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>분자와 분모를 각각 인수분해한 후 공통인수를 약분합니다.</p>
+                <p>주의: 약분 전에 정의역을 확인해야 합니다!</p>
+            </div>
+            
+            <div class="connection-note">
+                모든 인수분해 기법의 종합 응용! 복잡한 분수식도 단순화할 수 있습니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                (x²-4)/(x-2) = (x+2)(x-2)/(x-2) = x+2 (단, x≠2)
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">(x³-8)/(x²-4)</span> 간단히</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        분자: x³-8 = (x-2)(x²+2x+4)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        분모: x²-4 = (x+2)(x-2)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        (x-2) 약분
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">(x²+2x+4)/(x+2)</span>, x≠±2
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">(x⁴-1)/(x³-x)</span> 간단히</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        분자: x⁴-1 = <span class="blank">___________</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        분모: x³-x = <span class="blank">___________</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        약분 후: <span class="blank">___________</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> 분자: (x²+1)(x+1)(x-1), 분모: x(x+1)(x-1). 약분: (x²+1)/x, x≠0,±1</p>
+                <p><strong>English:</strong> Numerator: (x²+1)(x+1)(x-1), Denominator: x(x+1)(x-1). After canceling: (x²+1)/x, x≠0,±1</p>
+            </div>
+        </div>
+
+        <!-- 문제 19 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">19</div>
+                <h2>복소수와 인수분해 (i = √-1)</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>복소수 i = √-1을 사용하면 x²+1도 인수분해 가능!</p>
+                <p>x²+1 = x²-(-1) = x²-i² = (x+i)(x-i)</p>
+                <p>복소수 범위에서는 모든 다항식이 1차식의 곱으로 분해됩니다.</p>
+            </div>
+            
+            <div class="connection-note">
+                문제 12의 확장! 실수에서 불가능했던 인수분해가 복소수에서 가능해집니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                i²=-1이므로, x²+4 = x²-(-4) = x²-(2i)² = (x+2i)(x-2i)
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">x² + 9</span> 복소수 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        x² + 9 = x² - (-9)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        = x² - 9i²
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        = x² - (3i)²
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">(x + 3i)(x - 3i)</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">x² + 16</span> 복소수 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        x² + 16 = x² - <span class="blank">___</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        = x² - (<span class="blank">___</span>)²
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        (<span class="blank">_____</span>)(<span class="blank">_____</span>)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> x²+16 = x²-(-16) = x²-16i² = x²-(4i)² = (x+4i)(x-4i)</p>
+                <p><strong>English:</strong> x²+16 = x²-(-16) = x²-16i² = x²-(4i)² = (x+4i)(x-4i)</p>
+            </div>
+        </div>
+
+        <!-- 문제 20 -->
+        <div class="problem-section">
+            <div class="problem-header">
+                <div class="problem-number">20</div>
+                <h2>복소수 세제곱근과 고차 인수분해</h2>
+            </div>
+            
+            <div class="concept-box">
+                <div class="concept-title">📖 핵심 개념</div>
+                <p>1의 세제곱근: 1, ω, ω² (여기서 ω = (-1+i√3)/2)</p>
+                <p>x³-1 = (x-1)(x-ω)(x-ω²)</p>
+                <p>오일러 공식: e^(iθ) = cos(θ) + i·sin(θ)</p>
+            </div>
+            
+            <div class="connection-note">
+                모든 개념의 정점! 복소수를 이용해 고차 다항식을 완전히 인수분해합니다.
+            </div>
+            
+            <div class="scaffold-hint">
+                x³+1 = x³-(-1) = x³-(e^(iπ))³에서 세 개의 복소수 근이 나옵니다.
+            </div>
+            
+            <div class="two-column">
+                <div class="example-box">
+                    <div class="box-title">🔍 따라할 예제</div>
+                    <p><strong>문제:</strong> <span class="math">x³ + 1</span> 완전 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        실수 인수: x³+1 = (x+1)(x²-x+1)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        x²-x+1의 복소수 근:
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        x = (1±i√3)/2
+                    </div>
+                    <div class="solution">
+                        <div class="solution-title">답:</div>
+                        <span class="math">(x+1)(x-(1+i√3)/2)(x-(1-i√3)/2)</span>
+                    </div>
+                </div>
+                
+                <div class="practice-box">
+                    <div class="box-title">📝 여러분이 풀 문제</div>
+                    <p><strong>문제:</strong> <span class="math">x⁴ + 4</span> 복소수 인수분해</p>
+                    <div class="step">
+                        <span class="step-number">힌트</span>
+                        Sophie Germain: x⁴+4 = x⁴+4x²+4-4x²
+                    </div>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        = (x²+2)² - <span class="blank">_____</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        실수: (<span class="blank">_____</span>)(<span class="blank">_____</span>)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        복소수까지: <span class="blank">___________</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution">
+                <div class="solution-title">📚 상세 해설</div>
+                <p><strong>한글:</strong> x⁴+4 = (x²+2)²-(2x)² = (x²+2x+2)(x²-2x+2). 복소수: (x+1±i)의 곱</p>
+                <p><strong>English:</strong> x⁴+4 = (x²+2)²-(2x)² = (x²+2x+2)(x²-2x+2). Complex: product of (x+1±i)</p>
+                <p><strong>최종:</strong> x⁴+4 = (x-1-i)(x-1+i)(x+1-i)(x+1+i)</p>
+            </div>
+        </div>
+
+        <!-- 종합 정리 -->
+        <div class="intro" style="margin-top: 50px;">
+            <h2>🎊 축하합니다!</h2>
+            <p>곱셈공식과 인수분해의 기초부터 복소수까지 마스터했습니다!</p>
+            <p><strong>학습 경로:</strong></p>
+            <ul style="list-style: none; padding-left: 0;">
+                <li>✅ 분배법칙 → FOIL → 완전제곱식</li>
+                <li>✅ 공통인수 → 삼항식 → AC방법</li>
+                <li>✅ 합차공식 → 세제곱 → 치환</li>
+                <li>✅ 비에타 정리 → 대칭식 → 복소수</li>
+            </ul>
+            <p><strong>핵심 통찰:</strong> 모든 복잡한 문제는 기초 개념의 조합입니다!</p>
+        </div>
+    </div>
+</body>
+</html>

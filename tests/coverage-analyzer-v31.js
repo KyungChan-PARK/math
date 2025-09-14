@@ -313,3 +313,5 @@ analyzeProject().catch(error => {
     console.error(`${colors.red}Analysis failed: ${error.message}${colors.reset}`);
     process.exit(1);
 });
+
+export default { analyzeProject, analyzeModule, checkTestFile };

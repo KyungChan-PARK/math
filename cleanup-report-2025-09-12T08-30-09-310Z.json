@@ -1,0 +1,314 @@
+{
+  "summary": {
+    "total_files": 61,
+    "categories": {
+      "claude_hooks": 6,
+      "api_backend": 11,
+      "memory_system": 4,
+      "gesture_system": 6,
+      "testing": 3,
+      "orchestration": 0,
+      "documentation": 11,
+      "deprecated": 1,
+      "duplicate": 0
+    }
+  },
+  "recommendations": {
+    "delete": [
+      {
+        "path": "./cloud-api/main_backup.py",
+        "lines": 393,
+        "status": "delete",
+        "reason": "백업 파일 - 버전 관리로 대체 가능"
+      }
+    ],
+    "merge": [
+      {
+        "path": "./gesture-service/realtime-gesture-bridge.py",
+        "lines": 333,
+        "status": "consolidate",
+        "reason": "제스처 시스템 통합 가능"
+      },
+      {
+        "path": "./gesture-service/mediapipe-math-gestures.py",
+        "lines": 327,
+        "status": "consolidate",
+        "reason": "제스처 시스템 통합 가능"
+      },
+      {
+        "path": "./gesture-service/math-gestures-demo.py",
+        "lines": 120,
+        "status": "consolidate",
+        "reason": "제스처 시스템 통합 가능"
+      },
+      {
+        "path": "./gesture-service/math-gestures-detector.py",
+        "lines": 51,
+        "status": "consolidate",
+        "reason": "제스처 시스템 통합 가능"
+      },
+      {
+        "path": "./gesture-service/optimized-gesture-bridge.py",
+        "lines": 278,
+        "status": "consolidate",
+        "reason": "제스처 시스템 통합 가능"
+      },
+      {
+        "path": "./gesture/mediapipe_server.py",
+        "lines": 223,
+        "status": "consolidate",
+        "reason": "제스처 시스템 통합 가능"
+      },
+      {
+        "path": "./tests/test-mediapipe-simple.py",
+        "lines": 65,
+        "status": "consolidate",
+        "reason": "테스트 파일 통합 가능"
+      },
+      {
+        "path": "./tests/test-mediapipe-keypoints.py",
+        "lines": 170,
+        "status": "consolidate",
+        "reason": "테스트 파일 통합 가능"
+      },
+      {
+        "path": "./tests/test-complete-systems.py",
+        "lines": 91,
+        "status": "consolidate",
+        "reason": "테스트 파일 통합 가능"
+      }
+    ],
+    "move": [
+      {
+        "path": "./dev-docs/session-init.py",
+        "lines": 184,
+        "status": "move",
+        "reason": "문서 폴더로 이동 필요"
+      },
+      {
+        "path": "./dev-docs/living-document-system.py",
+        "lines": 1822,
+        "status": "move",
+        "reason": "문서 폴더로 이동 필요"
+      },
+      {
+        "path": "./dev-docs/consistency-keeper.py",
+        "lines": 190,
+        "status": "move",
+        "reason": "문서 폴더로 이동 필요"
+      },
+      {
+        "path": "./dev-docs/behavior_learning_system.py",
+        "lines": 159,
+        "status": "move",
+        "reason": "문서 폴더로 이동 필요"
+      },
+      {
+        "path": "./dev-docs/AUTO_INIT_FROM_MEMORY.py",
+        "lines": 154,
+        "status": "move",
+        "reason": "문서 폴더로 이동 필요"
+      },
+      {
+        "path": "./dev-docs/document-watcher.py",
+        "lines": 381,
+        "status": "move",
+        "reason": "문서 폴더로 이동 필요"
+      },
+      {
+        "path": "./dev-docs/docs-ontology.py",
+        "lines": 301,
+        "status": "move",
+        "reason": "문서 폴더로 이동 필요"
+      },
+      {
+        "path": "./dev-docs/analyze-efficiency.py",
+        "lines": 156,
+        "status": "move",
+        "reason": "문서 폴더로 이동 필요"
+      },
+      {
+        "path": "./dev-docs/issue_prevention_system.py",
+        "lines": 155,
+        "status": "move",
+        "reason": "문서 폴더로 이동 필요"
+      },
+      {
+        "path": "./dev-docs/test_checkpoint.py",
+        "lines": 28,
+        "status": "move",
+        "reason": "문서 폴더로 이동 필요"
+      },
+      {
+        "path": "./dev-docs/unified_decision_system.py",
+        "lines": 123,
+        "status": "move",
+        "reason": "문서 폴더로 이동 필요"
+      }
+    ],
+    "keep": [
+      {
+        "path": "./.claude/hooks/pre_tool_use.py",
+        "lines": 109,
+        "hasMain": true,
+        "imports": 6,
+        "status": "keep",
+        "reason": "Claude 시스템 필수 파일"
+      },
+      {
+        "path": "./.claude/hooks/post_tool_use.py",
+        "lines": 143,
+        "hasMain": true,
+        "imports": 6,
+        "status": "keep",
+        "reason": "Claude 시스템 필수 파일"
+      },
+      {
+        "path": "./.claude/hooks/pre_tool_use_enhanced.py",
+        "lines": 175,
+        "hasMain": true,
+        "imports": 6,
+        "status": "keep",
+        "reason": "Claude 시스템 필수 파일"
+      },
+      {
+        "path": "./.claude/hooks/archive/post_tool_use_enhanced_part2.py",
+        "lines": 124,
+        "hasMain": true,
+        "imports": 0,
+        "status": "keep",
+        "reason": "Claude 시스템 필수 파일"
+      },
+      {
+        "path": "./.claude/hooks/archive/post_tool_use_enhanced_part1.py",
+        "lines": 99,
+        "hasMain": false,
+        "imports": 6,
+        "status": "keep",
+        "reason": "Claude 시스템 필수 파일"
+      },
+      {
+        "path": "./.claude/hooks/session_start.py",
+        "lines": 102,
+        "hasMain": true,
+        "imports": 6,
+        "status": "keep",
+        "reason": "Claude 시스템 필수 파일"
+      }
+    ],
+    "review": [
+      {
+        "path": "./backend/src/rlhf/reward_model.py",
+        "lines": 422,
+        "hasMain": true,
+        "imports": 8,
+        "status": "review",
+        "reason": "API 기능 통합 필요 검토"
+      },
+      {
+        "path": "./cloud-api/initialize_firestore.py",
+        "lines": 200,
+        "hasMain": true,
+        "imports": 7,
+        "status": "review",
+        "reason": "API 기능 통합 필요 검토"
+      },
+      {
+        "path": "./cloud-api/test_main.py",
+        "lines": 177,
+        "hasMain": true,
+        "imports": 3,
+        "status": "review",
+        "reason": "API 기능 통합 필요 검토"
+      },
+      {
+        "path": "./cloud-api/main.py",
+        "lines": 57,
+        "hasMain": true,
+        "imports": 2,
+        "status": "review",
+        "reason": "API 기능 통합 필요 검토"
+      },
+      {
+        "path": "./cloud-api/firestore_ontology.py",
+        "lines": 317,
+        "hasMain": false,
+        "imports": 4,
+        "status": "review",
+        "reason": "API 기능 통합 필요 검토"
+      },
+      {
+        "path": "./cloud-api/quick_start.py",
+        "lines": 90,
+        "hasMain": false,
+        "imports": 4,
+        "status": "review",
+        "reason": "API 기능 통합 필요 검토"
+      },
+      {
+        "path": "./cloud-api/warmup.py",
+        "lines": 45,
+        "hasMain": true,
+        "imports": 4,
+        "status": "review",
+        "reason": "API 기능 통합 필요 검토"
+      },
+      {
+        "path": "./cloud-api/firestore_service.py",
+        "lines": 459,
+        "hasMain": false,
+        "imports": 7,
+        "status": "review",
+        "reason": "API 기능 통합 필요 검토"
+      },
+      {
+        "path": "./cloud-api/test_firestore.py",
+        "lines": 332,
+        "hasMain": true,
+        "imports": 7,
+        "status": "review",
+        "reason": "API 기능 통합 필요 검토"
+      },
+      {
+        "path": "./cloud-api/test_firestore_connection.py",
+        "lines": 103,
+        "hasMain": false,
+        "imports": 5,
+        "status": "review",
+        "reason": "API 기능 통합 필요 검토"
+      },
+      {
+        "path": "./cloud-api/backup_20250911_141538/main.py",
+        "lines": 80,
+        "hasMain": true,
+        "imports": 2,
+        "status": "review",
+        "reason": "API 기능 통합 필요 검토"
+      },
+      {
+        "path": "./dev-docs/memory_checkpoint_system.py",
+        "lines": 178,
+        "status": "review",
+        "reason": "메모리 시스템 중복 확인 필요"
+      },
+      {
+        "path": "./dev-docs/auto_memory_updater.py",
+        "lines": 137,
+        "status": "review",
+        "reason": "메모리 시스템 중복 확인 필요"
+      },
+      {
+        "path": "./memory-doc-sync.py",
+        "lines": 134,
+        "status": "review",
+        "reason": "메모리 시스템 중복 확인 필요"
+      },
+      {
+        "path": "./complete-memory-checkpoint.py",
+        "lines": 356,
+        "status": "review",
+        "reason": "메모리 시스템 중복 확인 필요"
+      }
+    ]
+  }
+}

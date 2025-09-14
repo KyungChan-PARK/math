@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정답 및 해설 - 대수 1 함수</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+            background: #f0f8ff;
+            color: #2c3e50;
+        }
+
+        h1 {
+            color: #c41e3a;
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #c41e3a;
+            padding-bottom: 15px;
+        }
+
+        .answer-section {
+            background: white;
+            border: 2px solid #c41e3a;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .problem-ref {
+            background: #c41e3a;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .solution {
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #4caf50;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .solution h4 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+
+        .answer-part {
+            margin: 10px 0;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 4px;
+        }
+
+        .calculation {
+            font-family: 'Courier New', monospace;
+            background: #f5f5f5;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .explanation {
+            color: #555;
+            font-style: italic;
+            margin: 10px 0;
+            padding: 10px;
+            background: #fff3e0;
+            border-radius: 4px;
+        }
+
+        .key-concept {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .key-concept h3 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>정답 및 해설</h1>
+
+    <!-- 문제 1 -->
+    <div class="answer-section">
+        <span class="problem-ref">문제 1: 학생 ID 시스템</span>
+        <div class="solution">
+            <h4>해답:</h4>
+            <div class="answer-part">
+                <strong>a)</strong> 각 학생(입력)은 정확히 하나의 ID 번호(출력)를 가지며, 같은 학생은 항상 같은 ID를 갖습니다. 이러한 일대일 대응이 함수를 정의합니다.
+            </div>
+            <div class="answer-part">
+                <strong>b)</strong> 아니요. 한 학생이 여러 ID를 가질 수 있다면, 하나의 입력이 여러 출력으로 매핑되어 함수의 정의를 위반합니다.
+            </div>
+            <div class="answer-part">
+                <strong>c)</strong> 예. 각 ID는 고유하고 정확히 한 명의 학생에게 속하므로, 역방향 매핑(ID → 학생)도 함수입니다 (실제로 역함수입니다).
+            </div>
+        </div>
+        <div class="key-concept">
+            <h3>핵심 개념:</h3>
+            함수는 각 입력이 정확히 하나의 출력을 가져야 합니다. 일관성과 유일성이 필수적입니다.
+        </div>
+    </div>
+
+    <!-- 문제 2 -->
+    <div class="answer-section">
+        <span class="problem-ref">문제 2: 아마존 프라임 배송</span>
+        <div class="solution">
+            <h4>해답:</h4>
+            <div class="answer-part">
+                <strong>a)</strong>
+                <div class="calculation">
+                    상품 1 (1.5 파운드): 0-2 파운드 범위 → $5.99
+                    상품 2 (3.2 파운드): 2-5 파운드 범위 → $8.99
+                    상품 3 (7.8 파운드): 5-10 파운드 범위 → $12.99
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>b)</strong> 예. 배송비는 무게 범위에 의해서만 결정되므로, 같은 무게는 항상 같은 비용을 산출합니다.
+            </div>
+            <div class="answer-part">
+                <strong>c)</strong> 이것은 각 무게(입력)가 정의된 범위에 따라 정확히 하나의 배송비(출력)로 매핑되는 계단 함수입니다.
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 3 -->
+    <div class="answer-section">
+        <span class="problem-ref">문제 3: 우버 요금 알고리즘</span>
+        <div class="solution">
+            <h4>해답:</h4>
+            <div class="answer-part">
+                <strong>a)</strong> 급증 전:
+                <div class="calculation">
+                    기본 요금: $2.55
+                    시간 요금: 12 × $0.35 = $4.20
+                    거리 요금: 4.2 × $1.75 = $7.35
+                    소계: $2.55 + $4.20 + $7.35 = $14.10
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>b)</strong> 급증 적용:
+                <div class="calculation">
+                    최종 요금 = $14.10 × 1.5 = $21.15
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>c)</strong>
+                정의역: 시간 ≥ 0분 AND 거리 ≥ 0마일<br>
+                치역: 요금 ≥ $2.55 (최소 기본 요금)
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 4 -->
+    <div class="answer-section">
+        <span class="problem-ref">문제 4: 401(k) 퇴직연금 매칭</span>
+        <div class="solution">
+            <h4>해답:</h4>
+            <div class="answer-part">
+                <strong>a)</strong> 최대 회사 매칭:
+                <div class="calculation">
+                    전액 매칭: $80,000의 3% = $2,400
+                    절반 매칭: ($80,000의 2%)의 50% = $1,600의 50% = $800
+                    총 최대 매칭: $2,400 + $800 = $3,200
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>b)</strong> 직원은 매칭을 최대화하기 위해 5% ($4,000)를 기여해야 합니다.
+            </div>
+            <div class="answer-part">
+                <strong>c)</strong> 매칭 함수:
+                <div class="calculation">
+                    M(x) = {
+                        80,000x           (0 ≤ x ≤ 0.03일 때)
+                        2,400 + 40,000(x-0.03)  (0.03 < x ≤ 0.05일 때)
+                        3,200             (x > 0.05일 때)
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 5 -->
+    <div class="answer-section">
+        <span class="problem-ref">문제 5: 스타벅스 리워드</span>
+        <div class="solution">
+            <h4>해답:</h4>
+            <div class="answer-part">
+                <strong>a)</strong> 주간 별:
+                <div class="calculation">
+                    방문당: $6.50 × 2 = 13개 별
+                    주당: 13 × 3 = 39개 별
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>b)</strong> 100개 별까지 시간:
+                <div class="calculation">
+                    필요: 100 - 45 = 55개 별
+                    주: 55 ÷ 39 = 1.41주 ≈ 10일
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>c)</strong> 함수: S(w) = 45 + 39w
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 9 -->
+    <div class="answer-section">
+        <span class="problem-ref">문제 9: 복리 이자</span>
+        <div class="solution">
+            <h4>해답:</h4>
+            <div class="answer-part">
+                <strong>a)</strong> 잔액:
+                <div class="calculation">
+                    1년: A = 10,000(1.00375)^12 = $10,459.00
+                    2년: A = 10,000(1.00375)^24 = $10,938.07
+                    3년: A = 10,000(1.00375)^36 = $11,438.13
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>b)</strong> $12,000까지 시간:
+                <div class="calculation">
+                    12,000 = 10,000(1.00375)^(12t)
+                    1.2 = (1.00375)^(12t)
+                    ln(1.2) = 12t × ln(1.00375)
+                    t = 0.1823 ÷ (12 × 0.00374) = 4.06년
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>c)</strong> 3년간 단리:
+                <div class="calculation">
+                    단리: 10,000 × 0.045 × 3 = $1,350
+                    복리 이익: $1,438.13
+                    차이: 복리가 $88.13 더 많음
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 18 -->
+    <div class="answer-section">
+        <span class="problem-ref">문제 18: 태양광 패널 효율</span>
+        <div class="solution">
+            <h4>해답:</h4>
+            <div class="answer-part">
+                <strong>a)</strong> 효율 함수:
+                <div class="calculation">
+                    E(T) = {
+                        100              (T ≤ 77°F일 때)
+                        100 - 0.4(T-77)  (T > 77°F일 때)
+                    }
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>b)</strong> 95°F에서 전력:
+                <div class="calculation">
+                    E(95) = 100 - 0.4(95-77) = 100 - 0.4(18) = 92.8%
+                    전력 = 400W × 0.928 = 371.2W
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>c)</strong> 90% 효율 온도:
+                <div class="calculation">
+                    90 = 100 - 0.4(T-77)
+                    10 = 0.4(T-77)
+                    T-77 = 25
+                    T = 102°F
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>d)</strong> T(h) = 77 + 20sin((h-6)π/12)에서 일일 에너지:
+                <div class="explanation">
+                    24시간 동안 전력 함수의 적분이 필요합니다. 최고 온도는 h=12(정오)에 T=97°F, 최저는 h=0 또는 h=24에 T=57°F입니다.
+                    평균 일일 에너지 ≈ 8.5 kWh
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 30 -->
+    <div class="answer-section">
+        <span class="problem-ref">문제 30: FIRE 공식</span>
+        <div class="solution">
+            <h4>해답:</h4>
+            <div class="answer-part">
+                <strong>a)</strong> FIRE 목표:
+                <div class="calculation">
+                    목표 = $72,000 × 25 = $1,800,000
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>b)</strong> 포트폴리오 성장 모델:
+                <div class="calculation">
+                    P(t) = 150,000(1.08)^t + 36,000((1.08)^t - 1)/0.08
+                    (t는 연 단위)
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>c)</strong> FIRE 도달 시간:
+                <div class="calculation">
+                    P(t) = 1,800,000으로 설정하고 풀면:
+                    t ≈ 16.7년
+                </div>
+            </div>
+            <div class="answer-part">
+                <strong>d)</strong> 월 $500 추가 시 (총 $3,500):
+                <div class="calculation">
+                    새 연간 저축 = $42,000
+                    새 시간표: t ≈ 15.2년
+                    절약된 시간: 1.5년
+                </div>
+            </div>
+        </div>
+        <div class="key-concept">
+            <h3>재정 독립 통찰:</h3>
+            저축률의 작은 증가는 복리 성장으로 인해 재정 독립까지의 시간을 크게 단축시킬 수 있습니다.
+        </div>
+    </div>
+
+</body>
+</html>

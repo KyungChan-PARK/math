@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>수학 문제 생성 시스템</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      padding: 30px;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+      font-weight: bold;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #5a67d8;
+    }
+    #problems {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 10px;
+    }
+    .problem {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border-left: 4px solid #667eea;
+    }
+    .touch-canvas {
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      margin-top: 20px;
+      touch-action: none;
+      background: white;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .status {
+      padding: 10px;
+      background: #e8f5e9;
+      border-radius: 5px;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📝 수학 문제 생성 시스템</h1>
+    
+    <div class="form-group">
+      <label for="grade">학년</label>
+      <select id="grade">
+        <option value="1">초등 1학년</option>
+        <option value="2">초등 2학년</option>
+        <option value="3">초등 3학년</option>
+        <option value="4">초등 4학년</option>
+        <option value="5">초등 5학년</option>
+        <option value="6" selected>초등 6학년</option>
+        <option value="7">중등 1학년</option>
+        <option value="8">중등 2학년</option>
+        <option value="9">중등 3학년</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="topic">주제</label>
+      <select id="topic">
+        <option value="arithmetic">사칙연산</option>
+        <option value="fractions" selected>분수</option>
+        <option value="geometry">도형</option>
+        <option value="equations">방정식</option>
+        <option value="ratio">비와 비율</option>
+        <option value="statistics">통계</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="count">문제 개수</label>
+      <input type="number" id="count" value="5" min="1" max="20">
+    </div>
+    
+    <div class="form-group">
+      <label for="difficulty">난이도</label>
+      <select id="difficulty">
+        <option value="easy">쉬움</option>
+        <option value="medium" selected>보통</option>
+        <option value="hard">어려움</option>
+      </select>
+    </div>
+    
+    <div class="actions">
+      <button onclick="generateProblems()">🌐 문제 생성</button>
+      <button onclick="createPDF()" id="pdfBtn" style="display:none">📄 PDF 생성</button>
+    </div>
+    
+    <div class="status" id="status"></div>
+    
+    <div id="problems"></div>
+    
+    <!-- 터치 캔버스 (Galaxy Book 최적화) -->
+    <canvas class="touch-canvas" id="touchCanvas" width="800" height="400"></canvas>
+  </div>
+
+  <script>
+    let currentProblems = [];
+    let touchData = [];
+    
+    // 터치 캔버스 초기화
+    const canvas = document.getElementById('touchCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+    
+    // 터치 이벤트 처리 (Galaxy Book 360 최적화)
+    canvas.addEventListener('pointerdown', startDrawing);
+    canvas.addEventListener('pointermove', draw);
+    canvas.addEventListener('pointerup', stopDrawing);
+    
+    function startDrawing(e) {
+      isDrawing = true;
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      
+      // 터치 데이터 수집
+      touchData.push({
+        type: 'start',
+        x, y,
+        pressure: e.pressure,
+        timestamp: Date.now()
+      });
+    }
+    
+    function draw(e) {
+      if (!isDrawing) return;
+      
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      // 압력 감지 (S-Pen 지원)
+      ctx.lineWidth = e.pressure ? e.pressure * 5 : 2;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = '#667eea';
+      
+      ctx.lineTo(x, y);
+      ctx.stroke();
+      
+      // 터치 데이터 수집
+      touchData.push({
+        type: 'move',
+        x, y,
+        pressure: e.pressure,
+        timestamp: Date.now()
+      });
+    }
+    
+    function stopDrawing(e) {
+      if (!isDrawing) return;
+      isDrawing = false;
+      
+      // 터치 데이터 서버로 전송
+      if (touchData.length > 0) {
+        fetch('/touch-data', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            device: 'Galaxy Book 4 Pro 360',
+            data: touchData,
+            context: {
+              grade: document.getElementById('grade').value,
+              topic: document.getElementById('topic').value
+            }
+          })
+        });
+        touchData = [];
+      }
+    }
+    
+    async function generateProblems() {
+      const grade = document.getElementById('grade').value;
+      const topic = document.getElementById('topic').value;
+      const count = document.getElementById('count').value;
+      const difficulty = document.getElementById('difficulty').value;
+      
+      showStatus('🔄 문제 생성 중...');
+      
+      try {
+        const response = await fetch('/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ grade, topic, count, difficulty })
+        });
+        
+        const data = await response.json();
+        
+        if (data.status === 'draft') {
+          currentProblems = data.problems;
+          displayProblems(data.problems);
+          showStatus('✅ 문제 생성 완료! 검토 후 PDF를 생성하세요.');
+          document.getElementById('pdfBtn').style.display = 'inline-block';
+        }
+      } catch (error) {
+        showStatus('❌ 오류: ' + error.message, 'error');
+      }
+    }
+    
+    function displayProblems(problems) {
+      const container = document.getElementById('problems');
+      container.innerHTML = '<h2>생성된 문제</h2>';
+      
+      problems.forEach((problem, index) => {
+        const div = document.createElement('div');
+        div.className = 'problem';
+        div.innerHTML = `
+          <strong>문제 ${index + 1}:</strong> ${problem.question}<br>
+          <small style="color: #666">정답: ${problem.answer}</small>
+        `;
+        container.appendChild(div);
+      });
+    }
+    
+    async function createPDF() {
+      if (!currentProblems.length) {
+        showStatus('⚠️ 먼저 문제를 생성해주세요.', 'warning');
+        return;
+      }
+      
+      const studentName = prompt('학생 이름을 입력하세요:');
+      
+      showStatus('📄 PDF 생성 중...');
+      
+      try {
+        const response = await fetch('/create-pdf', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            problems: currentProblems,
+            studentName,
+            title: `${document.getElementById('grade').value}학년 ${document.getElementById('topic').value} 문제`
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+          showStatus(`✅ PDF 생성 완료: ${data.filename}`);
+          // PDF 다운로드 링크 생성
+          const link = document.createElement('a');
+          link.href = data.path;
+          link.download = data.filename;
+          link.click();
+        }
+      } catch (error) {
+        showStatus('❌ PDF 생성 실패: ' + error.message, 'error');
+      }
+    }
+    
+    function showStatus(message, type = 'success') {
+      const status = document.getElementById('status');
+      status.textContent = message;
+      status.style.display = 'block';
+      status.style.background = 
+        type === 'error' ? '#ffebee' :
+        type === 'warning' ? '#fff3e0' :
+        '#e8f5e9';
+    }
+    
+    // 페이지 로드 시 캔버스 크기 조정
+    window.addEventListener('resize', () => {
+      const container = canvas.parentElement;
+      canvas.width = container.clientWidth - 40;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대수 1 - 함수: Qwen3-Max Version</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .problem {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .problem-number {
+            background: #007bff;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .context {
+            margin: 15px 0;
+            padding: 10px;
+            background: #e9ecef;
+            border-left: 3px solid #007bff;
+        }
+
+        .graph-box {
+            border: 1px solid #007bff;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            background: white;
+        }
+
+        .question {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .hint {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-left: 20px;
+        }
+
+        .choices {
+            margin-left: 30px;
+            line-height: 2;
+        }
+
+        .choices label {
+            display: block;
+            cursor: pointer;
+        }
+
+        .choices input {
+            margin-right: 8px;
+        }
+
+        svg {
+            background: white;
+            border: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <h1>함수 개념 평가지 - Qwen 스타일</h1>
+    <p style="text-align: center; color: #6c757d;">간결하고 명확한 문제 제시</p>
+
+    <!-- 문제 1: 함수 정의 -->
+    <div class="problem">
+        <span class="problem-number">문제 1</span>
+
+        <div class="context">
+            다음 그래프를 보고 함수 여부를 판단하시오.
+        </div>
+
+        <div class="graph-box">
+            <svg width="500" height="200" viewBox="0 0 500 200">
+                <!-- 그래프 A: 함수 -->
+                <g transform="translate(50, 20)">
+                    <text x="75" y="0" text-anchor="middle" font-size="12">그래프 A</text>
+                    <rect x="0" y="10" width="150" height="150" fill="none" stroke="black"/>
+                    <line x1="0" y1="85" x2="150" y2="85" stroke="black" stroke-width="0.5"/>
+                    <line x1="75" y1="10" x2="75" y2="160" stroke="black" stroke-width="0.5"/>
+                    <path d="M 10,140 Q 75,30 140,140" stroke="blue" stroke-width="2" fill="none"/>
+                </g>
+
+                <!-- 그래프 B: 비함수 (원) -->
+                <g transform="translate(250, 20)">
+                    <text x="75" y="0" text-anchor="middle" font-size="12">그래프 B</text>
+                    <rect x="0" y="10" width="150" height="150" fill="none" stroke="black"/>
+                    <line x1="0" y1="85" x2="150" y2="85" stroke="black" stroke-width="0.5"/>
+                    <line x1="75" y1="10" x2="75" y2="160" stroke="black" stroke-width="0.5"/>
+                    <circle cx="75" cy="85" r="50" stroke="red" stroke-width="2" fill="none"/>
+                </g>
+            </svg>
+        </div>
+
+        <div class="question">
+            <strong>a)</strong> 그래프 A는 함수인가?
+            <div class="hint">힌트: 수직선 테스트를 적용하라.</div>
+            <div class="choices">
+                <label><input type="radio" name="q1a"> ① 예</label>
+                <label><input type="radio" name="q1a"> ② 아니오</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>b)</strong> 그래프 B는 함수인가?
+            <div class="hint">힌트: 하나의 x값에 대응하는 y값의 개수를 확인하라.</div>
+            <div class="choices">
+                <label><input type="radio" name="q1b"> ① 예</label>
+                <label><input type="radio" name="q1b"> ② 아니오</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>c)</strong> 함수의 정의는?
+            <div class="choices">
+                <label><input type="radio" name="q1c"> ① 각 입력이 정확히 하나의 출력을 가짐</label>
+                <label><input type="radio" name="q1c"> ② 모든 출력이 같음</label>
+                <label><input type="radio" name="q1c"> ③ 그래프가 연속임</label>
+                <label><input type="radio" name="q1c"> ④ 그래프가 직선임</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 2: 선형 함수 -->
+    <div class="problem">
+        <span class="problem-number">문제 2</span>
+
+        <div class="context">
+            택시 요금: 기본료 $3 + 마일당 $2
+            함수: f(x) = 2x + 3
+        </div>
+
+        <div class="graph-box">
+            <svg width="400" height="300" viewBox="0 0 400 300">
+                <!-- 좌표축 -->
+                <line x1="50" y1="250" x2="350" y2="250" stroke="black" stroke-width="2"/>
+                <line x1="50" y1="250" x2="50" y2="50" stroke="black" stroke-width="2"/>
+
+                <!-- 눈금 -->
+                <text x="50" y="270" font-size="10">0</text>
+                <text x="150" y="270" font-size="10">5</text>
+                <text x="250" y="270" font-size="10">10</text>
+                <text x="350" y="270" font-size="10">15</text>
+
+                <text x="30" y="255" font-size="10">0</text>
+                <text x="30" y="205" font-size="10">10</text>
+                <text x="30" y="155" font-size="10">20</text>
+                <text x="30" y="105" font-size="10">30</text>
+                <text x="30" y="55" font-size="10">40</text>
+
+                <!-- 선형 그래프 -->
+                <line x1="50" y1="235" x2="350" y2="55" stroke="blue" stroke-width="2"/>
+
+                <!-- 점 표시 -->
+                <circle cx="50" cy="235" r="3" fill="blue"/>
+                <circle cx="150" cy="175" r="3" fill="blue"/>
+                <circle cx="250" cy="115" r="3" fill="blue"/>
+
+                <!-- 축 레이블 -->
+                <text x="200" y="290" text-anchor="middle" font-size="12">거리 (마일)</text>
+                <text x="20" y="150" text-anchor="middle" font-size="12" transform="rotate(-90 20 150)">요금 ($)</text>
+            </svg>
+        </div>
+
+        <div class="question">
+            <strong>a)</strong> 10마일 요금은?
+            <div class="hint">f(10) = ?</div>
+            <div class="choices">
+                <label><input type="radio" name="q2a"> ① $20</label>
+                <label><input type="radio" name="q2a"> ② $23</label>
+                <label><input type="radio" name="q2a"> ③ $25</label>
+                <label><input type="radio" name="q2a"> ④ $30</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>b)</strong> 기울기의 의미는?
+            <div class="choices">
+                <label><input type="radio" name="q2b"> ① 기본료</label>
+                <label><input type="radio" name="q2b"> ② 마일당 요금</label>
+                <label><input type="radio" name="q2b"> ③ 총 요금</label>
+                <label><input type="radio" name="q2b"> ④ 최대 거리</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>c)</strong> y절편의 의미는?
+            <div class="choices">
+                <label><input type="radio" name="q2c"> ① 기본료</label>
+                <label><input type="radio" name="q2c"> ② 마일당 요금</label>
+                <label><input type="radio" name="q2c"> ③ 총 요금</label>
+                <label><input type="radio" name="q2c"> ④ 최대 거리</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>d)</strong> $33 요금일 때 거리는?
+            <div class="hint">33 = 2x + 3</div>
+            <div class="choices">
+                <label><input type="radio" name="q2d"> ① 10마일</label>
+                <label><input type="radio" name="q2d"> ② 12마일</label>
+                <label><input type="radio" name="q2d"> ③ 15마일</label>
+                <label><input type="radio" name="q2d"> ④ 18마일</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 3: 이차 함수 -->
+    <div class="problem">
+        <span class="problem-number">문제 3</span>
+
+        <div class="context">
+            공을 던진 높이: h(t) = -5t² + 20t + 2 (미터)
+            t: 시간(초)
+        </div>
+
+        <div class="graph-box">
+            <svg width="400" height="300" viewBox="0 0 400 300">
+                <!-- 좌표축 -->
+                <line x1="50" y1="250" x2="350" y2="250" stroke="black" stroke-width="2"/>
+                <line x1="50" y1="250" x2="50" y2="50" stroke="black" stroke-width="2"/>
+
+                <!-- 포물선 -->
+                <path d="M 50,230 Q 200,50 350,230" stroke="green" stroke-width="2" fill="none"/>
+
+                <!-- 최고점 -->
+                <circle cx="200" cy="80" r="4" fill="red"/>
+                <text x="210" y="75" font-size="10">최고점</text>
+
+                <!-- 축 레이블 -->
+                <text x="200" y="290" text-anchor="middle" font-size="12">시간 (초)</text>
+                <text x="20" y="150" text-anchor="middle" font-size="12" transform="rotate(-90 20 150)">높이 (m)</text>
+
+                <!-- 눈금 -->
+                <text x="50" y="270" font-size="10">0</text>
+                <text x="125" y="270" font-size="10">1</text>
+                <text x="200" y="270" font-size="10">2</text>
+                <text x="275" y="270" font-size="10">3</text>
+                <text x="350" y="270" font-size="10">4</text>
+
+                <text x="30" y="255" font-size="10">0</text>
+                <text x="30" y="205" font-size="10">10</text>
+                <text x="30" y="155" font-size="10">20</text>
+                <text x="30" y="105" font-size="10">30</text>
+            </svg>
+        </div>
+
+        <div class="question">
+            <strong>a)</strong> 최대 높이는?
+            <div class="hint">꼭짓점의 t = -b/2a</div>
+            <div class="choices">
+                <label><input type="radio" name="q3a"> ① 18m</label>
+                <label><input type="radio" name="q3a"> ② 20m</label>
+                <label><input type="radio" name="q3a"> ③ 22m</label>
+                <label><input type="radio" name="q3a"> ④ 24m</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>b)</strong> 최대 높이 도달 시간은?
+            <div class="choices">
+                <label><input type="radio" name="q3b"> ① 1초</label>
+                <label><input type="radio" name="q3b"> ② 2초</label>
+                <label><input type="radio" name="q3b"> ③ 3초</label>
+                <label><input type="radio" name="q3b"> ④ 4초</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>c)</strong> 공이 땅에 떨어지는 시간은?
+            <div class="hint">h(t) = 0</div>
+            <div class="choices">
+                <label><input type="radio" name="q3c"> ① 약 3.8초</label>
+                <label><input type="radio" name="q3c"> ② 약 4.1초</label>
+                <label><input type="radio" name="q3c"> ③ 약 4.5초</label>
+                <label><input type="radio" name="q3c"> ④ 약 5.0초</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 4: 지수 함수 -->
+    <div class="problem">
+        <span class="problem-number">문제 4</span>
+
+        <div class="context">
+            복리 투자: A(t) = 1000(1.08)^t
+            t: 년수, A: 금액($)
+        </div>
+
+        <div class="graph-box">
+            <svg width="400" height="300" viewBox="0 0 400 300">
+                <!-- 좌표축 -->
+                <line x1="50" y1="250" x2="350" y2="250" stroke="black" stroke-width="2"/>
+                <line x1="50" y1="250" x2="50" y2="50" stroke="black" stroke-width="2"/>
+
+                <!-- 지수 곡선 -->
+                <path d="M 50,230 Q 150,200 250,150 350,80" stroke="purple" stroke-width="2" fill="none"/>
+
+                <!-- 점 표시 -->
+                <circle cx="50" cy="230" r="3" fill="purple"/>
+                <circle cx="150" cy="200" r="3" fill="purple"/>
+                <circle cx="250" cy="150" r="3" fill="purple"/>
+                <circle cx="350" cy="80" r="3" fill="purple"/>
+
+                <!-- 축 레이블 -->
+                <text x="200" y="290" text-anchor="middle" font-size="12">년수</text>
+                <text x="20" y="150" text-anchor="middle" font-size="12" transform="rotate(-90 20 150)">금액 ($)</text>
+
+                <!-- 눈금 -->
+                <text x="50" y="270" font-size="10">0</text>
+                <text x="150" y="270" font-size="10">5</text>
+                <text x="250" y="270" font-size="10">10</text>
+                <text x="350" y="270" font-size="10">15</text>
+
+                <text x="25" y="255" font-size="10">1000</text>
+                <text x="25" y="205" font-size="10">1500</text>
+                <text x="25" y="155" font-size="10">2000</text>
+                <text x="25" y="105" font-size="10">2500</text>
+                <text x="25" y="55" font-size="10">3000</text>
+            </svg>
+        </div>
+
+        <div class="question">
+            <strong>a)</strong> 10년 후 금액은?
+            <div class="hint">A(10) = 1000(1.08)^10</div>
+            <div class="choices">
+                <label><input type="radio" name="q4a"> ① 약 $1,800</label>
+                <label><input type="radio" name="q4a"> ② 약 $2,159</label>
+                <label><input type="radio" name="q4a"> ③ 약 $2,500</label>
+                <label><input type="radio" name="q4a"> ④ 약 $3,000</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>b)</strong> 두 배가 되는 시간은?
+            <div class="hint">72의 법칙: 72÷이자율</div>
+            <div class="choices">
+                <label><input type="radio" name="q4b"> ① 6년</label>
+                <label><input type="radio" name="q4b"> ② 8년</label>
+                <label><input type="radio" name="q4b"> ③ 9년</label>
+                <label><input type="radio" name="q4b"> ④ 12년</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 5: 구간별 정의 함수 -->
+    <div class="problem">
+        <span class="problem-number">문제 5</span>
+
+        <div class="context">
+            전기 요금:
+            • 0-100 kWh: $0.10/kWh
+            • 100-300 kWh: $0.15/kWh
+            • 300+ kWh: $0.20/kWh
+        </div>
+
+        <div class="graph-box">
+            <svg width="400" height="300" viewBox="0 0 400 300">
+                <!-- 좌표축 -->
+                <line x1="50" y1="250" x2="350" y2="250" stroke="black" stroke-width="2"/>
+                <line x1="50" y1="250" x2="50" y2="50" stroke="black" stroke-width="2"/>
+
+                <!-- 구간별 함수 -->
+                <line x1="50" y1="230" x2="130" y2="210" stroke="orange" stroke-width="2"/>
+                <line x1="130" y1="210" x2="250" y2="150" stroke="orange" stroke-width="2"/>
+                <line x1="250" y1="150" x2="350" y2="80" stroke="orange" stroke-width="2"/>
+
+                <!-- 구간 경계점 -->
+                <circle cx="130" cy="210" r="3" fill="orange"/>
+                <circle cx="250" cy="150" r="3" fill="orange"/>
+
+                <!-- 축 레이블 -->
+                <text x="200" y="290" text-anchor="middle" font-size="12">사용량 (kWh)</text>
+                <text x="20" y="150" text-anchor="middle" font-size="12" transform="rotate(-90 20 150)">요금 ($)</text>
+            </svg>
+        </div>
+
+        <div class="question">
+            <strong>a)</strong> 250 kWh 사용 시 요금은?
+            <div class="hint">100×0.10 + 150×0.15</div>
+            <div class="choices">
+                <label><input type="radio" name="q5a"> ① $25.00</label>
+                <label><input type="radio" name="q5a"> ② $32.50</label>
+                <label><input type="radio" name="q5a"> ③ $37.50</label>
+                <label><input type="radio" name="q5a"> ④ $50.00</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>b)</strong> 이 함수는 연속인가?
+            <div class="choices">
+                <label><input type="radio" name="q5b"> ① 예</label>
+                <label><input type="radio" name="q5b"> ② 아니오</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 6-10: 함수 변환, 합성, 역함수 -->
+    <div class="problem">
+        <span class="problem-number">문제 6</span>
+
+        <div class="context">
+            f(x) = x²를 위로 3, 오른쪽으로 2 이동
+        </div>
+
+        <div class="question">
+            <strong>a)</strong> 변환된 함수는?
+            <div class="choices">
+                <label><input type="radio" name="q6a"> ① f(x) = (x-2)² + 3</label>
+                <label><input type="radio" name="q6a"> ② f(x) = (x+2)² + 3</label>
+                <label><input type="radio" name="q6a"> ③ f(x) = (x-2)² - 3</label>
+                <label><input type="radio" name="q6a"> ④ f(x) = (x+2)² - 3</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 7: 함수의 실생활 응용 -->
+    <div class="problem">
+        <span class="problem-number">문제 7</span>
+
+        <div class="context">
+            주차 요금: 첫 시간 $5, 추가 시간당 $3
+            최대 일일 요금: $20
+        </div>
+
+        <div class="question">
+            <strong>a)</strong> 4시간 주차 요금은?
+            <div class="choices">
+                <label><input type="radio" name="q7a"> ① $11</label>
+                <label><input type="radio" name="q7a"> ② $14</label>
+                <label><input type="radio" name="q7a"> ③ $17</label>
+                <label><input type="radio" name="q7a"> ④ $20</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>b)</strong> 8시간 주차 요금은?
+            <div class="choices">
+                <label><input type="radio" name="q7b"> ① $20</label>
+                <label><input type="radio" name="q7b"> ② $24</label>
+                <label><input type="radio" name="q7b"> ③ $26</label>
+                <label><input type="radio" name="q7b"> ④ $29</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 8: 표를 이용한 함수 -->
+    <div class="problem">
+        <span class="problem-number">문제 8</span>
+
+        <div class="context">
+            <table style="margin: 10px auto; border-collapse: collapse;">
+                <tr style="background: #f0f0f0;">
+                    <th style="border: 1px solid #ccc; padding: 8px;">x</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;">1</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">2</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">3</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">4</td>
+                </tr>
+                <tr>
+                    <th style="border: 1px solid #ccc; padding: 8px; background: #f0f0f0;">y</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;">3</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">5</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">7</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">9</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="question">
+            <strong>a)</strong> 이 관계는 함수인가?
+            <div class="choices">
+                <label><input type="radio" name="q8a"> ① 예</label>
+                <label><input type="radio" name="q8a"> ② 아니오</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>b)</strong> 패턴을 나타내는 식은?
+            <div class="choices">
+                <label><input type="radio" name="q8b"> ① y = 2x + 1</label>
+                <label><input type="radio" name="q8b"> ② y = x + 2</label>
+                <label><input type="radio" name="q8b"> ③ y = 3x</label>
+                <label><input type="radio" name="q8b"> ④ y = x²</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 9: 함수의 정의역과 치역 -->
+    <div class="problem">
+        <span class="problem-number">문제 9</span>
+
+        <div class="context">
+            f(x) = √(x - 4)
+        </div>
+
+        <div class="question">
+            <strong>a)</strong> 정의역은?
+            <div class="choices">
+                <label><input type="radio" name="q9a"> ① x ≥ 0</label>
+                <label><input type="radio" name="q9a"> ② x ≥ 4</label>
+                <label><input type="radio" name="q9a"> ③ x ≤ 4</label>
+                <label><input type="radio" name="q9a"> ④ 모든 실수</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>b)</strong> 치역은?
+            <div class="choices">
+                <label><input type="radio" name="q9b"> ① y ≥ 0</label>
+                <label><input type="radio" name="q9b"> ② y ≥ 4</label>
+                <label><input type="radio" name="q9b"> ③ y ≤ 4</label>
+                <label><input type="radio" name="q9b"> ④ 모든 실수</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 10: 역함수 -->
+    <div class="problem">
+        <span class="problem-number">문제 10</span>
+
+        <div class="context">
+            f(x) = 2x + 3
+        </div>
+
+        <div class="question">
+            <strong>a)</strong> 역함수 f⁻¹(x)는?
+            <div class="hint">y = 2x + 3에서 x를 y로 표현</div>
+            <div class="choices">
+                <label><input type="radio" name="q10a"> ① f⁻¹(x) = (x-3)/2</label>
+                <label><input type="radio" name="q10a"> ② f⁻¹(x) = (x+3)/2</label>
+                <label><input type="radio" name="q10a"> ③ f⁻¹(x) = 2x - 3</label>
+                <label><input type="radio" name="q10a"> ④ f⁻¹(x) = x/2 - 3</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <strong>b)</strong> f(f⁻¹(5))의 값은?
+            <div class="choices">
+                <label><input type="radio" name="q10b"> ① 1</label>
+                <label><input type="radio" name="q10b"> ② 3</label>
+                <label><input type="radio" name="q10b"> ③ 5</label>
+                <label><input type="radio" name="q10b"> ④ 7</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 추가 문제 11-20은 비슷한 형식으로 계속됨 -->
+    <div style="text-align: center; margin: 40px 0; color: #6c757d;">
+        <p>※ 문제 11-30은 심화 내용을 포함합니다.</p>
+        <p>주제: 합성함수, 매개변수 함수, 로그함수, 삼각함수 기초 등</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+{
+  "timestamp": "2025-09-13T03:57:58.767Z",
+  "evaluations": [
+    {
+      "problemId": 1,
+      "scores": {
+        "clarity": 85,
+        "satAlignment": 80,
+        "khanAlignment": 85,
+        "pedagogicalValue": 90
+      },
+      "overall": null,
+      "feedback": "Good problem with room for improvement"
+    },
+    {
+      "problemId": 2,
+      "scores": {
+        "clarity": 85,
+        "satAlignment": 80,
+        "khanAlignment": 85,
+        "pedagogicalValue": 90
+      },
+      "overall": null,
+      "feedback": "Good problem with room for improvement"
+    },
+    {
+      "problemId": 3,
+      "scores": {
+        "clarity": 90.01191778874167,
+        "satAlignment": 85.01191778874167,
+        "khanAlignment": 88.01191778874167,
+        "pedagogicalValue": 92.01191778874167
+      },
+      "overall": 88.76191778874167,
+      "feedback": "Good problem with minor improvements needed."
+    }
+  ],
+  "improvements": [
+    {
+      "problemId": 1,
+      "suggestions": []
+    },
+    {
+      "problemId": 2,
+      "suggestions": []
+    },
+    {
+      "problemId": 3,
+      "suggestions": []
+    }
+  ],
+  "summary": {
+    "totalProblems": 3,
+    "avgScore": null,
+    "excellentProblems": 0,
+    "goodProblems": 1,
+    "needsWork": 0
+  }
+}

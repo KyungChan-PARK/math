@@ -1,0 +1,535 @@
+{
+  "title": "Algebra 1 - Functions: SAT Module 2 Style (US Context)",
+  "problems": [
+    {
+      "number": 1,
+      "title": "Student ID System",
+      "context": "Lincoln High School in California uses a digital ID system for its 1,500 students. Each student receives a unique 7-digit ID number that maps to their lunch account. The cafeteria scanner reads the ID and automatically charges the student's account. The system processes 300 transactions per lunch period.",
+      "data": {
+        "students": 1500,
+        "id_length": 7,
+        "transactions_per_period": 300
+      },
+      "questions": [
+        "a) Why is the relationship between student and ID number a function?",
+        "b) If one student could have multiple IDs, would this still be a function?",
+        "c) Can the cafeteria system map an ID back to exactly one student?"
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Amazon Prime Shipping",
+      "context": "Amazon Prime offers different shipping speeds based on item weight. Items under 2 pounds ship for $5.99, 2-5 pounds for $8.99, and 5-10 pounds for $12.99. Orders over 10 pounds require special handling at $19.99. The pricing structure remains constant throughout the year. A customer orders three items weighing 1.5, 3.2, and 7.8 pounds.",
+      "data": {
+        "weight_tiers": {
+          "0-2": 5.99,
+          "2-5": 8.99,
+          "5-10": 12.99,
+          "10+": 19.99
+        }
+      },
+      "questions": [
+        "a) Calculate the shipping cost for each item.",
+        "b) Would the same weight always result in the same shipping cost?",
+        "c) Explain why this shipping system represents a function."
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Uber Pricing Algorithm",
+      "context": "Uber's base fare in Manhattan is $2.55 plus $0.35 per minute and $1.75 per mile. During peak hours (7-9 AM and 5-7 PM), surge pricing multiplies the total by 1.5x. A rider travels 4.2 miles in 12 minutes during morning rush hour. The app calculates the fare automatically using these consistent rules.",
+      "data": {
+        "base_fare": 2.55,
+        "per_minute": 0.35,
+        "per_mile": 1.75,
+        "surge_multiplier": 1.5
+      },
+      "questions": [
+        "a) Calculate the fare before surge pricing.",
+        "b) What is the final fare with surge pricing?",
+        "c) Identify the domain and range of this pricing function."
+      ]
+    },
+    {
+      "number": 4,
+      "title": "401(k) Retirement Matching",
+      "context": "TechCorp matches employee 401(k) contributions: 100% match up to 3% of salary, then 50% match for the next 2% of salary. An employee earning $80,000 annually wants to maximize the company match. The IRS limit for 401(k) contributions is $22,500 per year.",
+      "data": {
+        "salary": 80000,
+        "full_match": 0.03,
+        "half_match": 0.02,
+        "irs_limit": 22500
+      },
+      "questions": [
+        "a) Calculate the maximum company match amount.",
+        "b) What percentage should the employee contribute to maximize the match?",
+        "c) Write the matching function M(x) where x is the contribution percentage."
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Starbucks Rewards Program",
+      "context": "Starbucks rewards members earn 2 stars per dollar spent. At 25 stars, they get a free customization; at 100 stars, a free handcrafted drink; at 200 stars, a free lunch item. Sarah spends an average of $6.50 per visit and visits 3 times per week. She started the month with 45 stars.",
+      "data": {
+        "stars_per_dollar": 2,
+        "weekly_visits": 3,
+        "average_spend": 6.50,
+        "starting_stars": 45
+      },
+      "questions": [
+        "a) How many stars does Sarah earn per week?",
+        "b) When will she reach her first free drink (100 stars)?",
+        "c) Express her total stars as a function of weeks: S(w)."
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Progressive Tax Brackets",
+      "context": "The US federal tax system uses progressive brackets. For single filers in 2024: 10% on income up to $11,000, 12% on $11,001-$44,725, 22% on $44,726-$95,375. A software engineer earns $75,000 annually. The tax calculation applies different rates to different portions of income.",
+      "data": {
+        "brackets": [
+          {"range": "0-11000", "rate": 0.10},
+          {"range": "11001-44725", "rate": 0.12},
+          {"range": "44726-95375", "rate": 0.22}
+        ],
+        "income": 75000
+      },
+      "questions": [
+        "a) Calculate tax owed on each bracket.",
+        "b) What is the total tax owed?",
+        "c) What is the effective tax rate?",
+        "d) Sketch the tax function T(x) for incomes $0-$100,000."
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Netflix Subscription Tiers",
+      "context": "Netflix offers three plans: Basic at $6.99/month (1 screen), Standard at $15.49/month (2 screens), and Premium at $22.99/month (4 screens). A family of 5 wants to minimize cost while allowing everyone to watch simultaneously during peak evening hours. They analyze their viewing patterns over a month.",
+      "data": {
+        "plans": {
+          "basic": {"price": 6.99, "screens": 1},
+          "standard": {"price": 15.49, "screens": 2},
+          "premium": {"price": 22.99, "screens": 4}
+        },
+        "family_size": 5
+      },
+      "questions": [
+        "a) What's the minimum cost to support 5 simultaneous viewers?",
+        "b) Calculate the cost per screen for each plan.",
+        "c) Is the relationship between price and screens linear?"
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Tesla Supercharger Pricing",
+      "context": "Tesla Superchargers price electricity based on time of day. Off-peak (11 PM - 7 AM): $0.24/kWh, Mid-peak (7 AM - 2 PM, 9 PM - 11 PM): $0.36/kWh, Peak (2 PM - 9 PM): $0.48/kWh. A Model 3 with a 75 kWh battery charges from 20% to 80%. The driver starts charging at 1:30 PM and it takes 45 minutes.",
+      "data": {
+        "battery_capacity": 75,
+        "charge_start": 0.20,
+        "charge_end": 0.80,
+        "rates": {
+          "off_peak": 0.24,
+          "mid_peak": 0.36,
+          "peak": 0.48
+        }
+      },
+      "questions": [
+        "a) How many kWh are needed?",
+        "b) What is the charging cost?",
+        "c) How much would the driver save by charging at 11 PM instead?"
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Compound Interest Savings",
+      "context": "A high-yield savings account offers 4.5% APY compounded monthly. An investor deposits $10,000 and plans to save for a house down payment. The compound interest formula is A = P(1 + r/n)^(nt), where P is principal, r is annual rate, n is compounding frequency, and t is time in years.",
+      "data": {
+        "principal": 10000,
+        "rate": 0.045,
+        "compound_frequency": 12
+      },
+      "questions": [
+        "a) Calculate the balance after 1, 2, and 3 years.",
+        "b) How long to reach $12,000?",
+        "c) Compare with simple interest earnings over 3 years."
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Credit Card APR",
+      "context": "A credit card charges 24.99% APR compounded daily. A customer has a $5,000 balance and makes only minimum payments of 2% of the balance each month. The daily rate is APR/365. Interest compounds on the remaining balance after each payment.",
+      "data": {
+        "balance": 5000,
+        "apr": 0.2499,
+        "minimum_payment_rate": 0.02,
+        "compound_daily": 365
+      },
+      "questions": [
+        "a) Calculate the daily interest rate.",
+        "b) What's the first month's interest charge (30 days)?",
+        "c) How much of the first minimum payment goes to principal?",
+        "d) Express balance as a function after n months of minimum payments."
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Stock Options Vesting",
+      "context": "A Silicon Valley startup offers employees stock options with a 4-year vesting schedule. 25% vests after year 1 (cliff), then 1/48 vests each month. An engineer receives 4,800 options at a strike price of $10. Current stock price is $25.",
+      "data": {
+        "total_options": 4800,
+        "cliff_percent": 0.25,
+        "monthly_vest": "1/48",
+        "strike_price": 10,
+        "current_price": 25
+      },
+      "questions": [
+        "a) How many options vest at the 1-year cliff?",
+        "b) Create function V(m) for vested options after m months.",
+        "c) What's the current value of vested options after 18 months?",
+        "d) When will 75% of options be vested?"
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Mortgage Amortization",
+      "context": "A 30-year fixed mortgage of $400,000 at 7% interest has monthly payments of $2,661. Early payments go mostly to interest. The monthly interest is calculated on the remaining balance. Each payment reduces the principal, decreasing future interest charges.",
+      "data": {
+        "loan_amount": 400000,
+        "annual_rate": 0.07,
+        "years": 30,
+        "monthly_payment": 2661
+      },
+      "questions": [
+        "a) Calculate the first month's interest.",
+        "b) How much of the first payment goes to principal?",
+        "c) What's the remaining balance after the first payment?",
+        "d) Find total interest paid over 30 years."
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Gym Membership Economics",
+      "context": "Planet Fitness offers $10/month membership with a $39 annual fee. LA Fitness charges $35/month with no annual fee. Gold's Gym has a $199 annual prepaid option. A customer plans to work out consistently for at least 8 months but is unsure about the full year.",
+      "data": {
+        "planet_fitness": {"monthly": 10, "annual_fee": 39},
+        "la_fitness": {"monthly": 35, "annual_fee": 0},
+        "golds_gym": {"annual_prepaid": 199}
+      },
+      "questions": [
+        "a) Write cost functions C(m) for each gym (m = months).",
+        "b) At what point does Planet Fitness become cheaper than LA Fitness?",
+        "c) For 8 months, which option is most economical?",
+        "d) Find the break-even point for Gold's Gym."
+      ]
+    },
+    {
+      "number": 14,
+      "title": "DoorDash Delivery Fees",
+      "context": "DoorDash charges based on distance: $2.99 for 0-2 miles, $4.99 for 2-5 miles, $6.99 for 5-8 miles. Additionally, there's a 15% service fee on the food order and a 10% tip (calculated pre-fee). A customer orders $45 worth of food from a restaurant 3.5 miles away.",
+      "data": {
+        "delivery_tiers": {
+          "0-2": 2.99,
+          "2-5": 4.99,
+          "5-8": 6.99
+        },
+        "service_fee": 0.15,
+        "tip_rate": 0.10,
+        "order_amount": 45,
+        "distance": 3.5
+      },
+      "questions": [
+        "a) Calculate the delivery fee based on distance.",
+        "b) What's the service fee amount?",
+        "c) Calculate the tip amount.",
+        "d) Find the total payment."
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Electric Vehicle Range",
+      "context": "A Tesla Model 3 has an EPA range of 358 miles. Real-world range varies with speed: at 55 mph, efficiency is 100%; at 65 mph, it's 90%; at 75 mph, it's 78%. Highway driving also reduces range by temperature: -10% at 32°F, -20% at 0°F. A driver plans a 280-mile trip at 70 mph in 40°F weather.",
+      "data": {
+        "epa_range": 358,
+        "speed_efficiency": {
+          "55": 1.00,
+          "65": 0.90,
+          "75": 0.78
+        },
+        "temp_effect": {
+          "32": -0.10,
+          "0": -0.20
+        }
+      },
+      "questions": [
+        "a) Estimate efficiency at 70 mph using linear interpolation.",
+        "b) Calculate the adjusted range at 70 mph.",
+        "c) Will the driver complete the trip without charging?",
+        "d) What's the maximum safe speed for this trip?"
+      ]
+    },
+    {
+      "number": 16,
+      "title": "College Tuition Growth",
+      "context": "State university tuition has grown from $8,000 in 2014 to $13,500 in 2024. A family with a newborn wants to save for college starting in 2042. If tuition continues growing at the same rate, they need to project future costs. They plan to use a 529 education savings plan.",
+      "data": {
+        "tuition_2014": 8000,
+        "tuition_2024": 13500,
+        "target_year": 2042,
+        "years_elapsed": 10
+      },
+      "questions": [
+        "a) Calculate the annual growth rate.",
+        "b) Project tuition for 2042.",
+        "c) What function T(y) models tuition in year y?",
+        "d) How much should they save monthly at 6% return?"
+      ]
+    },
+    {
+      "number": 17,
+      "title": "Airline Dynamic Pricing",
+      "context": "Delta Airlines adjusts ticket prices based on demand. A flight from NYC to LA starts at $250 sixty days before departure. Price increases by $5 per day for the first 30 days, then $15 per day for the next 20 days, and $40 per day for the final 10 days. A traveler books 18 days before departure.",
+      "data": {
+        "base_price": 250,
+        "phase1": {"days": 30, "increase": 5},
+        "phase2": {"days": 20, "increase": 15},
+        "phase3": {"days": 10, "increase": 40},
+        "booking_day": 18
+      },
+      "questions": [
+        "a) Create the pricing function P(d) where d = days before departure.",
+        "b) Calculate the ticket price 18 days before departure.",
+        "c) How much would the traveler save by booking 25 days early?",
+        "d) On which day does the price exceed $500?"
+      ]
+    },
+    {
+      "number": 18,
+      "title": "Solar Panel Efficiency",
+      "context": "Solar panels lose efficiency in extreme temperatures. Peak efficiency (100%) occurs at 77°F. Efficiency drops by 0.4% for each degree above 77°F. A California installation experiences temperatures from 65°F to 105°F throughout the year. Panels produce 400W at peak efficiency.",
+      "data": {
+        "peak_temp": 77,
+        "efficiency_loss": 0.004,
+        "temp_range": {"min": 65, "max": 105},
+        "peak_power": 400
+      },
+      "questions": [
+        "a) Write the efficiency function E(T) where T is temperature.",
+        "b) Calculate power output at 95°F.",
+        "c) At what temperature does efficiency drop to 90%?",
+        "d) Find daily energy production if temperature follows T(h) = 77 + 20sin((h-6)π/12)."
+      ]
+    },
+    {
+      "number": 19,
+      "title": "Basketball Free Throws",
+      "context": "A basketball follows a parabolic path. When shot from 15 feet away at 45°, the ball's height is h(x) = -0.08x² + 1.2x + 7, where x is horizontal distance and h is height in feet. The rim is 10 feet high. The shooter wants to optimize their shooting angle.",
+      "data": {
+        "trajectory": "h(x) = -0.08x² + 1.2x + 7",
+        "rim_height": 10,
+        "shot_distance": 15
+      },
+      "questions": [
+        "a) What's the maximum height of the ball?",
+        "b) At what distance does it reach maximum height?",
+        "c) Does the ball go through the rim at x = 15?",
+        "d) Find the margin of error (height above rim)."
+      ]
+    },
+    {
+      "number": 20,
+      "title": "iPhone Depreciation",
+      "context": "An iPhone 15 Pro costs $1,199 new. It depreciates following D(t) = 1199(0.75)^t where t is years. Insurance covers replacement if value drops below $300. Trade-in programs offer 50% of current value. A user wants to optimize their upgrade cycle.",
+      "data": {
+        "initial_price": 1199,
+        "depreciation_rate": 0.75,
+        "insurance_threshold": 300,
+        "trade_in_rate": 0.50
+      },
+      "questions": [
+        "a) Calculate value after 1, 2, and 3 years.",
+        "b) When does value drop below insurance threshold?",
+        "c) What's the trade-in value after 18 months?",
+        "d) Compare total cost of upgrading every 2 vs 3 years over 6 years."
+      ]
+    },
+    {
+      "number": 21,
+      "title": "COVID Exponential Growth",
+      "context": "In early 2020, COVID cases doubled every 3 days. A county started with 10 confirmed cases. The formula is C(t) = 10 × 2^(t/3) where t is days. The hospital capacity is 500 beds, with 20% reserved for COVID. Contact tracing becomes impossible above 1,000 cases.",
+      "data": {
+        "initial_cases": 10,
+        "doubling_time": 3,
+        "hospital_beds": 500,
+        "covid_allocation": 0.20
+      },
+      "questions": [
+        "a) Write the growth function C(t).",
+        "b) When will cases exceed hospital COVID capacity?",
+        "c) When does contact tracing become impossible?",
+        "d) What's the daily growth rate?"
+      ]
+    },
+    {
+      "number": 22,
+      "title": "Bitcoin Mining Difficulty",
+      "context": "Bitcoin mining difficulty adjusts every 2,016 blocks (≈2 weeks) to maintain 10-minute block times. If blocks are mined 20% faster than target, difficulty increases by 20%. A mining operation's profit depends on hash rate, electricity cost ($0.12/kWh), and Bitcoin price ($45,000).",
+      "data": {
+        "adjustment_period": 2016,
+        "target_time": 10,
+        "electricity_cost": 0.12,
+        "btc_price": 45000
+      },
+      "questions": [
+        "a) If current difficulty is D, what's new difficulty after 20% faster mining?",
+        "b) How does profit scale with difficulty?",
+        "c) At what Bitcoin price does mining become unprofitable?",
+        "d) Model difficulty growth over n adjustment periods."
+      ]
+    },
+    {
+      "number": 23,
+      "title": "Spotify Streaming Royalties",
+      "context": "Spotify pays artists $0.003-$0.005 per stream, averaging $0.004. An artist needs $50,000 annual income. They have 10,000 monthly listeners who stream their songs an average of 15 times per month. Revenue splits 70% to artist, 30% to label.",
+      "data": {
+        "pay_per_stream": 0.004,
+        "target_income": 50000,
+        "monthly_listeners": 10000,
+        "streams_per_listener": 15,
+        "artist_share": 0.70
+      },
+      "questions": [
+        "a) Calculate monthly streaming revenue.",
+        "b) What's the artist's share after label split?",
+        "c) How many monthly streams needed for target income?",
+        "d) Create function I(L,S) for income based on listeners and streams."
+      ]
+    },
+    {
+      "number": 24,
+      "title": "Gig Economy Optimization",
+      "context": "A driver works for both Uber (65% of rides, $18/hour average) and DoorDash (35% of time, $22/hour average). Gas costs $4/gallon, car gets 28 mpg, and they drive 25 miles per hour worked. They want to earn $1,000/week after gas expenses.",
+      "data": {
+        "uber_rate": 18,
+        "uber_time": 0.65,
+        "doordash_rate": 22,
+        "doordash_time": 0.35,
+        "gas_price": 4,
+        "mpg": 28,
+        "miles_per_hour": 25
+      },
+      "questions": [
+        "a) Calculate weighted average hourly earning.",
+        "b) What's the hourly gas expense?",
+        "c) Find net hourly income.",
+        "d) How many hours needed for $1,000 weekly goal?"
+      ]
+    },
+    {
+      "number": 25,
+      "title": "YouTube Ad Revenue",
+      "context": "A YouTuber's channel growth follows subscribers S(t) = 1000 × 1.15^t where t is months. Ad revenue is $2 per 1,000 views. Videos average 10% of subscriber count in views. They post 4 videos monthly. Sponsorships become available at 100,000 subscribers.",
+      "data": {
+        "initial_subs": 1000,
+        "growth_rate": 1.15,
+        "cpm": 2,
+        "view_rate": 0.10,
+        "videos_per_month": 4
+      },
+      "questions": [
+        "a) Model subscriber growth S(t).",
+        "b) When will they reach 100,000 subscribers?",
+        "c) Calculate monthly ad revenue after 12 months.",
+        "d) Project total first-year earnings."
+      ]
+    },
+    {
+      "number": 26,
+      "title": "Stock Market Returns",
+      "context": "The S&P 500 historically returns 10% annually with volatility. An investor uses dollar-cost averaging, investing $500 monthly. After 20 years, they plan to retire. Historical data shows positive returns in 73% of years. Compound growth formula: FV = PMT × ((1+r)^n - 1)/r.",
+      "data": {
+        "annual_return": 0.10,
+        "monthly_investment": 500,
+        "years": 20,
+        "positive_years": 0.73
+      },
+      "questions": [
+        "a) Calculate future value with 10% annual return.",
+        "b) What if returns average only 7%?",
+        "c) Find total contributions vs. investment gains.",
+        "d) Model probability of reaching $500,000."
+      ]
+    },
+    {
+      "number": 27,
+      "title": "Health Insurance Deductibles",
+      "context": "A high-deductible health plan has a $3,000 deductible, then covers 80% until out-of-pocket maximum of $7,000. Monthly premium is $250. A traditional plan has $500 deductible, 90% coverage, $5,000 max, but costs $450/month. An employee has expected annual medical costs of $8,000.",
+      "data": {
+        "hdhp": {"deductible": 3000, "coverage": 0.80, "max_oop": 7000, "premium": 250},
+        "traditional": {"deductible": 500, "coverage": 0.90, "max_oop": 5000, "premium": 450}
+      },
+      "questions": [
+        "a) Calculate total cost for each plan with $8,000 medical bills.",
+        "b) At what medical cost do plans break even?",
+        "c) Model total cost function TC(x) for each plan.",
+        "d) Which plan is better for chronic conditions?"
+      ]
+    },
+    {
+      "number": 28,
+      "title": "Real Estate ROI",
+      "context": "A rental property costs $300,000 with 20% down. Mortgage is 7% for 30 years. Monthly rent is $2,500. Expenses: mortgage $1,798, property tax $400, insurance $150, maintenance $200. Property appreciates 3% annually. Rent increases 2% yearly.",
+      "data": {
+        "purchase_price": 300000,
+        "down_payment": 0.20,
+        "mortgage_rate": 0.07,
+        "monthly_rent": 2500,
+        "appreciation": 0.03,
+        "rent_increase": 0.02
+      },
+      "questions": [
+        "a) Calculate monthly cash flow.",
+        "b) What's the cap rate (NOI/purchase price)?",
+        "c) Project property value after 5 years.",
+        "d) Model total return including appreciation."
+      ]
+    },
+    {
+      "number": 29,
+      "title": "Carbon Footprint Calculator",
+      "context": "Carbon emissions: driving produces 404g CO₂/mile, flying 90g CO₂/mile, home electricity 0.38kg CO₂/kWh. A household drives 12,000 miles/year, flies 8,000 miles, uses 900 kWh/month. Carbon offsets cost $50/ton. They want to be carbon neutral.",
+      "data": {
+        "driving_emissions": 404,
+        "flying_emissions": 90,
+        "electricity_emissions": 0.38,
+        "annual_driving": 12000,
+        "annual_flying": 8000,
+        "monthly_electricity": 900,
+        "offset_cost": 50
+      },
+      "questions": [
+        "a) Calculate annual emissions from each source (in kg).",
+        "b) Find total annual carbon footprint (in tons).",
+        "c) What's the cost to offset their emissions?",
+        "d) If they reduce driving by 30%, how much do they save on offsets?"
+      ]
+    },
+    {
+      "number": 30,
+      "title": "Financial Independence Formula",
+      "context": "The FIRE (Financial Independence Retire Early) formula uses the 4% rule: you need 25× annual expenses saved. A couple spends $72,000/year. They save $3,000/month in index funds earning 8% annually. Current savings: $150,000. They want to retire when portfolio supports their lifestyle.",
+      "data": {
+        "annual_expenses": 72000,
+        "fire_multiplier": 25,
+        "monthly_savings": 3000,
+        "return_rate": 0.08,
+        "current_savings": 150000
+      },
+      "questions": [
+        "a) Calculate their FIRE target number.",
+        "b) Model portfolio growth: P(t) = ?",
+        "c) When will they reach financial independence?",
+        "d) How does increasing savings by $500/month affect timeline?"
+      ]
+    }
+  ]
+}

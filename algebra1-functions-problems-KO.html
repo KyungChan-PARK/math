@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대수 1 - 함수: SAT Module 2 스타일 문제</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.8;
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+
+        h1 {
+            color: #1a5490;
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #1a5490;
+            padding-bottom: 15px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .problem {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-left: 4px solid #1a5490;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            page-break-inside: avoid;
+        }
+
+        .problem-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .problem-number {
+            background: #1a5490;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .problem-title {
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 1.2em;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .context {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 1.05em;
+            line-height: 1.7;
+            border: 1px solid #e9ecef;
+        }
+
+        .data-section {
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #ffeb3b;
+        }
+
+        .data-section h4 {
+            color: #f57c00;
+            margin-top: 0;
+            font-size: 1.1em;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        .data-table th, .data-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .data-table th {
+            background: #f5f5f5;
+            font-weight: bold;
+        }
+
+        .questions {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .questions li {
+            margin: 12px 0;
+            font-size: 1.05em;
+        }
+
+        .scaffolding {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .scaffolding-title {
+            color: #2e7d32;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .scaffolding ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        .scaffolding li {
+            margin: 8px 0;
+            color: #424242;
+        }
+
+        .answer-space {
+            background: #f5f5f5;
+            border: 2px dashed #9e9e9e;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 8px;
+            min-height: 100px;
+        }
+
+        .answer-space::before {
+            content: "풀이 과정:";
+            color: #757575;
+            font-style: italic;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .problem {
+                page-break-inside: avoid;
+            }
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .info-box h2 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+
+        .formula-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #ce93d8;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>대수 1 - 함수</h1>
+    <div class="subtitle">SAT Module 2 스타일 - 실생활 응용 문제</div>
+
+    <div class="info-box">
+        <h2>안내사항</h2>
+        <p><strong>시간:</strong> Module 2 - 35분</p>
+        <p><strong>계산기:</strong> 모든 문제에서 사용 가능</p>
+        <p><strong>형식:</strong> 각 문제는 상황 설명, 데이터, 여러 소문항 포함</p>
+        <p><strong>스캐폴딩:</strong> 단계별 안내를 활용하여 복잡한 문제 해결</p>
+    </div>
+
+    <!-- 문제 1 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 1</span>
+            <span class="problem-title">학생 ID 시스템</span>
+        </div>
+        <div class="context">
+            캘리포니아 링컨 고등학교는 1,500명의 학생을 위한 디지털 ID 시스템을 사용합니다. 각 학생은 급식 계정과 연결된 고유한 7자리 ID 번호를 받습니다. 식당 스캐너는 ID를 읽고 자동으로 학생 계정에 요금을 청구합니다. 시스템은 점심시간당 300건의 거래를 처리합니다.
+        </div>
+        <div class="data-section">
+            <h4>주어진 데이터:</h4>
+            • 전체 학생 수: 1,500명<br>
+            • ID 길이: 7자리<br>
+            • 점심시간당 거래: 300건
+        </div>
+        <ol class="questions" type="a">
+            <li>학생과 ID 번호 사이의 관계가 함수인 이유는?</li>
+            <li>한 학생이 여러 개의 ID를 가질 수 있다면, 이것이 여전히 함수인가?</li>
+            <li>식당 시스템이 ID를 정확히 한 명의 학생으로 매핑할 수 있는가?</li>
+        </ol>
+        <div class="scaffolding">
+            <div class="scaffolding-title">단계별 안내:</div>
+            <ol>
+                <li>고려사항: 각 학생(입력)이 정확히 하나의 ID(출력)를 가지는가?</li>
+                <li>확인: 같은 학생은 항상 같은 ID를 할당받는가?</li>
+            </ol>
+        </div>
+        <div class="answer-space"></div>
+    </div>
+
+    <!-- 문제 2 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 2</span>
+            <span class="problem-title">아마존 프라임 배송</span>
+        </div>
+        <div class="context">
+            아마존 프라임은 상품 무게에 따라 다른 배송 속도를 제공합니다. 2파운드 미만은 $5.99, 2-5파운드는 $8.99, 5-10파운드는 $12.99입니다. 10파운드 초과 주문은 $19.99의 특별 처리가 필요합니다. 가격 구조는 연중 일정하게 유지됩니다. 고객이 1.5, 3.2, 7.8파운드의 세 가지 상품을 주문합니다.
+        </div>
+        <div class="data-section">
+            <h4>배송 요금:</h4>
+            <table class="data-table">
+                <tr><th>무게 범위</th><th>비용</th></tr>
+                <tr><td>0-2 파운드</td><td>$5.99</td></tr>
+                <tr><td>2-5 파운드</td><td>$8.99</td></tr>
+                <tr><td>5-10 파운드</td><td>$12.99</td></tr>
+                <tr><td>10+ 파운드</td><td>$19.99</td></tr>
+            </table>
+        </div>
+        <ol class="questions" type="a">
+            <li>각 상품의 배송비를 계산하시오.</li>
+            <li>같은 무게는 항상 같은 배송비를 낳는가?</li>
+            <li>이 배송 시스템이 함수를 나타내는 이유를 설명하시오.</li>
+        </ol>
+        <div class="scaffolding">
+            <div class="scaffolding-title">단계별 안내:</div>
+            <ol>
+                <li>각 상품이 어느 무게 범위에 속하는지 확인</li>
+                <li>해당하는 배송 요금 적용</li>
+                <li>가격 규칙의 일관성 고려</li>
+            </ol>
+        </div>
+        <div class="answer-space"></div>
+    </div>
+
+    <!-- 문제 3 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 3</span>
+            <span class="problem-title">우버 요금 알고리즘</span>
+        </div>
+        <div class="context">
+            맨해튼의 우버 기본 요금은 $2.55에 분당 $0.35와 마일당 $1.75가 추가됩니다. 피크 시간(오전 7-9시, 오후 5-7시) 동안 급증 요금이 총액에 1.5배를 곱합니다. 승객이 아침 러시아워에 4.2마일을 12분 동안 이동합니다. 앱은 이러한 일관된 규칙을 사용하여 자동으로 요금을 계산합니다.
+        </div>
+        <div class="data-section">
+            <h4>요금 구조:</h4>
+            • 기본 요금: $2.55<br>
+            • 분당: $0.35<br>
+            • 마일당: $1.75<br>
+            • 급증 배수 (피크 시간): 1.5배
+        </div>
+        <ol class="questions" type="a">
+            <li>급증 요금 적용 전 요금을 계산하시오.</li>
+            <li>급증 요금이 적용된 최종 요금은?</li>
+            <li>이 요금 함수의 정의역과 치역을 확인하시오.</li>
+        </ol>
+        <div class="scaffolding">
+            <div class="scaffolding-title">단계별 안내:</div>
+            <ol>
+                <li>계산: 기본 + (분 × 요율) + (마일 × 요율)</li>
+                <li>소계에 급증 배수 적용</li>
+                <li>정의역: 가능한 입력(시간, 거리); 치역: 가능한 요금</li>
+            </ol>
+        </div>
+        <div class="answer-space"></div>
+    </div>
+
+    <!-- 문제 4 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 4</span>
+            <span class="problem-title">401(k) 퇴직연금 매칭</span>
+        </div>
+        <div class="context">
+            TechCorp는 직원의 401(k) 기여금을 매칭합니다: 급여의 3%까지 100% 매칭, 다음 2%에 대해 50% 매칭. 연봉 $80,000인 직원이 회사 매칭을 최대화하려고 합니다. 401(k) 기여금에 대한 IRS 한도는 연간 $22,500입니다.
+        </div>
+        <div class="data-section">
+            <h4>매칭 구조:</h4>
+            • 급여: $80,000<br>
+            • 전액 매칭: 급여의 처음 3%<br>
+            • 절반 매칭: 다음 2%<br>
+            • IRS 기여 한도: $22,500
+        </div>
+        <ol class="questions" type="a">
+            <li>최대 회사 매칭 금액을 계산하시오.</li>
+            <li>매칭을 최대화하려면 직원이 몇 %를 기여해야 하는가?</li>
+            <li>기여 비율 x에 대한 매칭 함수 M(x)를 작성하시오.</li>
+        </ol>
+        <div class="scaffolding">
+            <div class="scaffolding-title">단계별 안내:</div>
+            <ol>
+                <li>전액 매칭을 위한 급여의 3% 계산</li>
+                <li>절반 매칭을 위한 급여의 2% 계산</li>
+                <li>두 매칭 금액 합산</li>
+                <li>구간별 함수로 표현</li>
+            </ol>
+        </div>
+        <div class="answer-space"></div>
+    </div>
+
+    <!-- 문제 5 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 5</span>
+            <span class="problem-title">스타벅스 리워드 프로그램</span>
+        </div>
+        <div class="context">
+            스타벅스 리워드 회원은 $1당 2개의 별을 획득합니다. 25개 별로 무료 커스터마이징, 100개 별로 무료 핸드크래프트 음료, 200개 별로 무료 런치 아이템을 받습니다. 사라는 방문당 평균 $6.50를 소비하고 주당 3회 방문합니다. 그녀는 이달 초에 45개의 별을 가지고 시작했습니다.
+        </div>
+        <div class="data-section">
+            <h4>리워드 구조:</h4>
+            • 달러당 별: 2개<br>
+            • 주간 방문: 3회<br>
+            • 방문당 평균 소비: $6.50<br>
+            • 시작 별: 45개
+        </div>
+        <ol class="questions" type="a">
+            <li>사라는 주당 몇 개의 별을 획득하는가?</li>
+            <li>첫 번째 무료 음료(100개 별)에 언제 도달하는가?</li>
+            <li>주(w)의 함수로 총 별을 표현하시오: S(w).</li>
+        </ol>
+        <div class="scaffolding">
+            <div class="scaffolding-title">단계별 안내:</div>
+            <ol>
+                <li>방문당 별 계산: $6.50 × 2</li>
+                <li>주간 별 계산: 방문당 별 × 3</li>
+                <li>방정식 설정: 45 + (주간 별 × w) = 100</li>
+                <li>함수 작성: S(w) = 초기 + (비율 × w)</li>
+            </ol>
+        </div>
+        <div class="answer-space"></div>
+    </div>
+
+    <!-- 문제 9: 복리 이자 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 9</span>
+            <span class="problem-title">복리 이자 저축</span>
+        </div>
+        <div class="context">
+            고수익 저축 계좌는 월 복리로 연 4.5% APY를 제공합니다. 투자자가 $10,000를 예치하고 주택 계약금을 위해 저축할 계획입니다. 복리 이자 공식은 A = P(1 + r/n)^(nt)이며, 여기서 P는 원금, r은 연이율, n은 복리 빈도, t는 연 단위 시간입니다.
+        </div>
+        <div class="data-section">
+            <h4>투자 세부사항:</h4>
+            • 원금: $10,000<br>
+            • 연이율: 4.5%<br>
+            • 복리: 월별 (n = 12)
+        </div>
+        <div class="formula-box">
+            A = P(1 + r/n)^(nt)
+        </div>
+        <ol class="questions" type="a">
+            <li>1년, 2년, 3년 후의 잔액을 계산하시오.</li>
+            <li>$12,000에 도달하는 데 얼마나 걸리는가?</li>
+            <li>3년간 단리 수익과 비교하시오.</li>
+        </ol>
+        <div class="scaffolding">
+            <div class="scaffolding-title">단계별 안내:</div>
+            <ol>
+                <li>1년차: A = 10,000(1 + 0.045/12)^(12×1)</li>
+                <li>(1 + 0.045/12) = 1.00375 계산</li>
+                <li>12제곱: (1.00375)^12</li>
+                <li>원금과 곱하기</li>
+                <li>2년과 3년 반복</li>
+                <li>b번: A = 12,000으로 설정하고 t 구하기</li>
+            </ol>
+        </div>
+        <div class="answer-space"></div>
+    </div>
+
+    <!-- 문제 18: 태양광 패널 효율 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 18</span>
+            <span class="problem-title">태양광 패널 효율</span>
+        </div>
+        <div class="context">
+            태양광 패널은 극한 온도에서 효율이 떨어집니다. 최고 효율(100%)은 77°F에서 발생합니다. 77°F 이상의 각 도당 효율이 0.4% 감소합니다. 캘리포니아 설치는 연중 65°F에서 105°F까지의 온도를 경험합니다. 패널은 최고 효율에서 400W를 생산합니다.
+        </div>
+        <div class="data-section">
+            <h4>기술 사양:</h4>
+            • 최적 온도: 77°F<br>
+            • 효율 손실률: 77°F 이상 도당 0.4%<br>
+            • 온도 범위: 65°F - 105°F<br>
+            • 최대 출력: 400W
+        </div>
+        <ol class="questions" type="a">
+            <li>온도 T에 대한 효율 함수 E(T)를 작성하시오.</li>
+            <li>95°F에서 전력 출력을 계산하시오.</li>
+            <li>효율이 90%로 떨어지는 온도는?</li>
+            <li>온도가 T(h) = 77 + 20sin((h-6)π/12)를 따를 때 일일 에너지 생산을 구하시오.</li>
+        </ol>
+        <div class="scaffolding">
+            <div class="scaffolding-title">단계별 안내:</div>
+            <ol>
+                <li>T > 77°F일 때: E(T) = 100 - 0.4(T - 77)</li>
+                <li>T ≤ 77°F일 때: E(T) = 100</li>
+                <li>95°F에서: 효율 손실 계산</li>
+                <li>전력 = 400W × (E(T)/100)</li>
+                <li>c번: E(T) = 90으로 설정하고 풀기</li>
+                <li>d번: 24시간 동안 전력 적분</li>
+            </ol>
+        </div>
+        <div class="answer-space"></div>
+    </div>
+
+    <!-- 문제 30: FIRE 공식 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 30</span>
+            <span class="problem-title">재정 독립 공식</span>
+        </div>
+        <div class="context">
+            FIRE(Financial Independence Retire Early) 공식은 4% 규칙을 사용합니다: 연간 지출의 25배를 저축해야 합니다. 한 부부가 연간 $72,000를 지출합니다. 그들은 연 8% 수익률의 인덱스 펀드에 월 $3,000를 저축합니다. 현재 저축액: $150,000. 포트폴리오가 생활비를 지원할 때 은퇴하려고 합니다.
+        </div>
+        <div class="data-section">
+            <h4>재정 세부사항:</h4>
+            • 연간 지출: $72,000<br>
+            • FIRE 배수: 25배<br>
+            • 월 저축: $3,000<br>
+            • 예상 수익률: 연 8%<br>
+            • 현재 포트폴리오: $150,000
+        </div>
+        <ol class="questions" type="a">
+            <li>그들의 FIRE 목표 금액을 계산하시오.</li>
+            <li>포트폴리오 성장 모델: P(t) = ?</li>
+            <li>언제 재정 독립에 도달하는가?</li>
+            <li>월 $500 추가 저축이 시간표에 미치는 영향은?</li>
+        </ol>
+        <div class="scaffolding">
+            <div class="scaffolding-title">단계별 안내:</div>
+            <ol>
+                <li>FIRE 목표 = 연간 지출 × 25</li>
+                <li>연금의 미래 가치 공식 사용</li>
+                <li>P(t) = 150,000(1.08)^t + 36,000((1.08)^t - 1)/0.08</li>
+                <li>P(t) = FIRE 목표로 설정하고 t 구하기</li>
+                <li>월 $3,500 저축으로 재계산</li>
+                <li>시간표 비교</li>
+            </ol>
+        </div>
+        <div class="answer-space"></div>
+    </div>
+
+</body>
+</html>

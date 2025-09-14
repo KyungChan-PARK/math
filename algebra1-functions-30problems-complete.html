@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algebra 1 - Functions (함수) 30문제 완전판</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.8;
+            background: #f9f9f9;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .act-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            margin: 30px 0 20px 0;
+            border-radius: 10px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .problem {
+            background: white;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            page-break-inside: avoid;
+        }
+
+        .problem-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+
+        .problem-number {
+            background: #3498db;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .problem-title {
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .concept {
+            background: #e8f4f8;
+            padding: 5px 10px;
+            border-radius: 15px;
+            color: #2980b9;
+            font-size: 0.9em;
+        }
+
+        .difficulty {
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .difficulty.easy {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .difficulty.medium {
+            background: #f39c12;
+            color: white;
+        }
+
+        .difficulty.hard {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .difficulty.very_hard {
+            background: #8e44ad;
+            color: white;
+        }
+
+        .problem-text {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 1.05em;
+            border: 1px solid #dee2e6;
+        }
+
+        .scaffolding {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .scaffolding-title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .scaffolding-title::before {
+            content: "🪜";
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        .scaffolding-steps {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .scaffolding-steps li {
+            padding: 5px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #495057;
+        }
+
+        .scaffolding-steps li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #ffc107;
+        }
+
+        .answer {
+            background: #d4edda;
+            border: 1px solid #28a745;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            color: #155724;
+        }
+
+        .answer-label {
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .problem {
+                page-break-inside: avoid;
+            }
+            .act-title {
+                page-break-before: always;
+            }
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info-box h2 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Algebra 1 - Unit 8: Functions (함수) 30문제</h1>
+
+    <div class="info-box">
+        <h2>📚 학습 목표</h2>
+        <p><strong>대상:</strong> Grade 6 → Algebra 1 전환 학생</p>
+        <p><strong>목표:</strong> 함수의 본질적 개념을 개념적 스토리텔링을 통해 이해</p>
+        <p><strong>특징:</strong> 점진적으로 증가하는 스캐폴딩 (2단계 → 11단계)</p>
+    </div>
+
+    <!-- Act 1: 대응의 발견 -->
+    <div class="act-title">Act 1: 대응의 발견 (Problems 1-6)</div>
+
+    <!-- Problem 1 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 1</span>
+            <span class="problem-title">대응의 필연성</span>
+            <span class="concept">일대일 대응</span>
+            <span class="difficulty easy">쉬움</span>
+        </div>
+        <div class="problem-text">
+            수 집합 A = {1, 2, 3}, 수 집합 B = {2, 4, 6}. A와 B 사이의 관계는?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (2단계)</div>
+            <ul class="scaffolding-steps">
+                <li>1과 2를 비교해보세요. 어떤 관계가 있나요?</li>
+                <li>1 × ? = 2 (답: 2)</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 2배 관계 (각 원소가 2배)
+        </div>
+    </div>
+
+    <!-- Problem 2 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 2</span>
+            <span class="problem-title">일대일 대응의 본질</span>
+            <span class="concept">함수의 정의</span>
+            <span class="difficulty easy">쉬움</span>
+        </div>
+        <div class="problem-text">
+            관계 A: 학생 → 학번, 관계 B: 학생 → 좋아하는 과목. 어느 것이 함수?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (3단계)</div>
+            <ul class="scaffolding-steps">
+                <li>철수의 학번은 몇 개일까요? (답: 1개)</li>
+                <li>철수가 좋아하는 과목은 몇 개일 수 있나요? (답: 여러 개)</li>
+                <li>어느 것이 더 예측 가능한가요?</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 관계 A가 함수 (하나의 입력에 하나의 출력)
+        </div>
+    </div>
+
+    <!-- Problem 3 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 3</span>
+            <span class="problem-title">대응의 일관성</span>
+            <span class="concept">함수의 일관성</span>
+            <span class="difficulty easy">쉬움</span>
+        </div>
+        <div class="problem-text">
+            x = 2일 때: 월요일 f(2) = 5, 화요일 f(2) = 5, 수요일 f(2) = ?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (3단계)</div>
+            <ul class="scaffolding-steps">
+                <li>패턴을 찾아보세요</li>
+                <li>같은 입력(2)은 항상 같은 출력(5)</li>
+                <li>수요일도 똑같을까요?</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> f(2) = 5 (일관성 유지)
+        </div>
+    </div>
+
+    <!-- Problem 4 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 4</span>
+            <span class="problem-title">완전성의 요구</span>
+            <span class="concept">함수의 완전성</span>
+            <span class="difficulty easy">쉬움</span>
+        </div>
+        <div class="problem-text">
+            x = {1,2,3,4}에 대해 f(1)=3, f(2)=5, f(3)=?, f(4)=9
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (3단계)</div>
+            <ul class="scaffolding-steps">
+                <li>1→3, 2→5의 패턴은? (+2씩)</li>
+                <li>다음은 5+2=?</li>
+                <li>빈 곳을 채워야 완전한 규칙</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> f(3) = 7
+        </div>
+    </div>
+
+    <!-- Problem 5 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 5</span>
+            <span class="problem-title">대응의 방향성</span>
+            <span class="concept">함수와 역함수</span>
+            <span class="difficulty medium">보통</span>
+        </div>
+        <div class="problem-text">
+            정방향: 나이 → 학년, 역방향: 학년 → 나이. 어느 방향이 함수?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (3단계)</div>
+            <ul class="scaffolding-steps">
+                <li>14살은 몇 학년? (중2)</li>
+                <li>중2는 모두 14살? (아니요, 13-15살)</li>
+                <li>어느 방향이 더 명확한가요?</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 정방향만 함수 (나이→학년은 명확)
+        </div>
+    </div>
+
+    <!-- Problem 6 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 6</span>
+            <span class="problem-title">대응 개념의 종합</span>
+            <span class="concept">함수 판별</span>
+            <span class="difficulty medium">보통</span>
+        </div>
+        <div class="problem-text">
+            A) 학생→키, B) 날짜→요일, C) 전화번호→주인. 함수는?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (3단계)</div>
+            <ul class="scaffolding-steps">
+                <li>각각 일대일 대응인지 확인</li>
+                <li>하나의 입력 → 하나의 출력?</li>
+                <li>A(○), B(○), C(×, 공동명의)</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> A, B
+        </div>
+    </div>
+
+    <!-- Act 2: 변화의 규칙 -->
+    <div class="act-title">Act 2: 변화의 규칙 (Problems 7-12)</div>
+
+    <!-- Problem 7 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 7</span>
+            <span class="problem-title">선형적 변화</span>
+            <span class="concept">일차함수</span>
+            <span class="difficulty medium">보통</span>
+        </div>
+        <div class="problem-text">
+            f(x) = 2x + 1, x: 0,1,2,3일 때 y값은?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (4단계)</div>
+            <ul class="scaffolding-steps">
+                <li>x=0일 때: 2×0+1 = 0+1 = 1</li>
+                <li>x=1일 때: 2×1+1 = 2+1 = 3</li>
+                <li>패턴 찾기: 1, 3, ?, ? (2씩 증가)</li>
+                <li>다음은 3+2=5, 그 다음은 5+2=7</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> y: 1, 3, 5, 7
+        </div>
+    </div>
+
+    <!-- Problem 8 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 8</span>
+            <span class="problem-title">비선형적 변화</span>
+            <span class="concept">이차함수</span>
+            <span class="difficulty medium">보통</span>
+        </div>
+        <div class="problem-text">
+            f(x) = x², x: 1,2,3,4일 때 y값은?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (5단계)</div>
+            <ul class="scaffolding-steps">
+                <li>제곱의 의미: x×x</li>
+                <li>1×1=1, 2×2=4</li>
+                <li>3×3=?, 4×4=?</li>
+                <li>증가폭: 1→4(+3), 4→9(+5), 9→16(+7)</li>
+                <li>증가폭도 증가한다!</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> y: 1, 4, 9, 16
+        </div>
+    </div>
+
+    <!-- Problem 9 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 9</span>
+            <span class="problem-title">패턴의 반복</span>
+            <span class="concept">주기함수</span>
+            <span class="difficulty medium">보통</span>
+        </div>
+        <div class="problem-text">
+            요일 패턴: 월화수목금토일 반복. 오늘이 월요일이면 8일 후는?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (4단계)</div>
+            <ul class="scaffolding-steps">
+                <li>7일이 한 주기</li>
+                <li>8일 = 7일 + 1일</li>
+                <li>7일 후는 다시 월요일</li>
+                <li>거기서 1일 더 = 화요일</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 화요일
+        </div>
+    </div>
+
+    <!-- Problem 10 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 10</span>
+            <span class="problem-title">배수 관계</span>
+            <span class="concept">비례함수</span>
+            <span class="difficulty medium">보통</span>
+        </div>
+        <div class="problem-text">
+            3의 배수 함수: f(n) = 3n, n: 1,2,3,4,5일 때 f(n)은?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (4단계)</div>
+            <ul class="scaffolding-steps">
+                <li>3의 배수 = 3×1, 3×2, 3×3...</li>
+                <li>3×1=3, 3×2=6</li>
+                <li>다음은? 9, 12, 15</li>
+                <li>규칙: 3씩 증가</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 3, 6, 9, 12, 15
+        </div>
+    </div>
+
+    <!-- Problem 11 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 11</span>
+            <span class="problem-title">변화의 누적</span>
+            <span class="concept">누적합</span>
+            <span class="difficulty medium">보통</span>
+        </div>
+        <div class="problem-text">
+            저금통: 매일 100원씩. f(일)=총액. f(5)=?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (5단계)</div>
+            <ul class="scaffolding-steps">
+                <li>1일: 100원</li>
+                <li>2일: 100+100=200원</li>
+                <li>3일: 200+100=300원</li>
+                <li>패턴: 일수×100</li>
+                <li>5일: 5×100=500원</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> f(5) = 500원
+        </div>
+    </div>
+
+    <!-- Problem 12 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 12</span>
+            <span class="problem-title">변화 패턴 구별</span>
+            <span class="concept">함수 유형</span>
+            <span class="difficulty hard">어려움</span>
+        </div>
+        <div class="problem-text">
+            A: 2,4,6,8 / B: 2,4,8,16 / C: 5,5,5,5. 각각의 패턴은?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (5단계)</div>
+            <ul class="scaffolding-steps">
+                <li>A의 차이: 4-2=2, 6-4=2 (일정)</li>
+                <li>B의 비: 4÷2=2, 8÷4=2 (배수)</li>
+                <li>C는 변화 없음</li>
+                <li>어느 것이 가장 빨리 커지나?</li>
+                <li>B가 가장 빠름 (지수적)</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> A-선형, B-지수, C-상수
+        </div>
+    </div>
+
+    <!-- Act 3: 함수의 구조 -->
+    <div class="act-title">Act 3: 함수의 구조 (Problems 13-18)</div>
+
+    <!-- Problem 13 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 13</span>
+            <span class="problem-title">정의역의 의미</span>
+            <span class="concept">정의역</span>
+            <span class="difficulty medium">보통</span>
+        </div>
+        <div class="problem-text">
+            초등학교 나이 함수: 8세~13세만 가능. 정의역은?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (6단계)</div>
+            <ul class="scaffolding-steps">
+                <li>7살은 초등학생? (아니요)</li>
+                <li>14살은? (아니요, 중학생)</li>
+                <li>입력 가능: 8,9,10,11,12,13</li>
+                <li>이것을 정의역이라 해요</li>
+                <li>정의역 = 입력 가능한 값들</li>
+                <li>정의역 밖은 함수가 작동 안 함</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 정의역 = {8, 9, 10, 11, 12, 13}
+        </div>
+    </div>
+
+    <!-- Problem 14 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 14</span>
+            <span class="problem-title">치역의 의미</span>
+            <span class="concept">치역</span>
+            <span class="difficulty medium">보통</span>
+        </div>
+        <div class="problem-text">
+            주사위 함수: f(던지기) = 나온 숫자. 치역은?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (6단계)</div>
+            <ul class="scaffolding-steps">
+                <li>주사위 면: 1,2,3,4,5,6</li>
+                <li>7이 나올 수 있나? (없음)</li>
+                <li>0이 나올 수 있나? (없음)</li>
+                <li>가능한 출력: 1~6</li>
+                <li>이것을 치역이라 해요</li>
+                <li>치역 = 나올 수 있는 모든 값</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 치역 = {1, 2, 3, 4, 5, 6}
+        </div>
+    </div>
+
+    <!-- Problem 15 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 15</span>
+            <span class="problem-title">제한된 정의역</span>
+            <span class="concept">정의역 제한</span>
+            <span class="difficulty hard">어려움</span>
+        </div>
+        <div class="problem-text">
+            f(x) = 10/x. x = 0일 때 문제가 생기는 이유는?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (6단계)</div>
+            <ul class="scaffolding-steps">
+                <li>10÷1 = 10 (가능)</li>
+                <li>10÷2 = 5 (가능)</li>
+                <li>10÷0 = ?</li>
+                <li>0으로 나누기는 불가능!</li>
+                <li>그래서 x≠0</li>
+                <li>정의역: 0을 제외한 모든 수</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> x = 0 제외 (0으로 나눌 수 없음)
+        </div>
+    </div>
+
+    <!-- Problem 16 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 16</span>
+            <span class="problem-title">음수가 없는 치역</span>
+            <span class="concept">치역 특성</span>
+            <span class="difficulty hard">어려움</span>
+        </div>
+        <div class="problem-text">
+            f(x) = x²의 결과는 항상?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (7단계)</div>
+            <ul class="scaffolding-steps">
+                <li>(-2)² = (-2)×(-2) = 4</li>
+                <li>(2)² = 2×2 = 4</li>
+                <li>음수×음수 = 양수</li>
+                <li>양수×양수 = 양수</li>
+                <li>0² = 0</li>
+                <li>결과: 0 또는 양수</li>
+                <li>치역: y ≥ 0</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 항상 0 이상 (음수 없음)
+        </div>
+    </div>
+
+    <!-- Problem 17 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 17</span>
+            <span class="problem-title">그래프로 정의역 읽기</span>
+            <span class="concept">그래프 해석</span>
+            <span class="difficulty hard">어려움</span>
+        </div>
+        <div class="problem-text">
+            그래프가 x축 -3~5까지만 그려짐. 정의역은?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (6단계)</div>
+            <ul class="scaffolding-steps">
+                <li>그래프 시작점 x값? (-3)</li>
+                <li>그래프 끝점 x값? (5)</li>
+                <li>중간에 끊어진 곳? (없음)</li>
+                <li>x가 -4일 때? (그래프 없음)</li>
+                <li>x가 6일 때? (그래프 없음)</li>
+                <li>정의역: -3 ≤ x ≤ 5</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 정의역 = [-3, 5]
+        </div>
+    </div>
+
+    <!-- Problem 18 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 18</span>
+            <span class="problem-title">정의역과 치역 연결</span>
+            <span class="concept">정의역-치역 관계</span>
+            <span class="difficulty hard">어려움</span>
+        </div>
+        <div class="problem-text">
+            f(x) = 2x, 정의역: {1, 2, 3}. 치역은?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (7단계)</div>
+            <ul class="scaffolding-steps">
+                <li>x=1 → f(1)=2×1=2</li>
+                <li>x=2 → f(2)=2×2=4</li>
+                <li>x=3 → f(3)=2×3=6</li>
+                <li>나온 값들: 2, 4, 6</li>
+                <li>이것이 치역</li>
+                <li>정의역 모두 대입 → 치역</li>
+                <li>입력 가능 → 출력 가능</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 치역 = {2, 4, 6}
+        </div>
+    </div>
+
+    <!-- Act 4: 함수의 연산 -->
+    <div class="act-title">Act 4: 함수의 연산 (Problems 19-24)</div>
+
+    <!-- Problem 19 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 19</span>
+            <span class="problem-title">함수의 덧셈</span>
+            <span class="concept">함수 연산</span>
+            <span class="difficulty hard">어려움</span>
+        </div>
+        <div class="problem-text">
+            f(x) = x + 2, g(x) = x + 3. (f + g)(2) = ?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (7단계)</div>
+            <ul class="scaffolding-steps">
+                <li>f(2) 계산: 2+2=4</li>
+                <li>g(2) 계산: 2+3=5</li>
+                <li>두 결과 더하기: 4+5=9</li>
+                <li>또는 직접: (x+2)+(x+3)</li>
+                <li>= 2x+5</li>
+                <li>x=2 대입: 2×2+5=9</li>
+                <li>두 방법 같은 답!</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 9
+        </div>
+    </div>
+
+    <!-- Problem 20 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 20</span>
+            <span class="problem-title">함수의 곱셈</span>
+            <span class="concept">함수 곱셈</span>
+            <span class="difficulty hard">어려움</span>
+        </div>
+        <div class="problem-text">
+            f(x) = 2x, g(x) = 3. (f × g)(4) = ?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (7단계)</div>
+            <ul class="scaffolding-steps">
+                <li>f(4) = 2×4 = 8</li>
+                <li>g(4) = 3 (상수함수)</li>
+                <li>곱하기: 8×3 = 24</li>
+                <li>의미: 2배 후 3배</li>
+                <li>총 6배 효과</li>
+                <li>직접: 4×6=24</li>
+                <li>검증 완료!</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 24
+        </div>
+    </div>
+
+    <!-- Problem 21 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 21</span>
+            <span class="problem-title">함수의 합성</span>
+            <span class="concept">함수 합성</span>
+            <span class="difficulty hard">어려움</span>
+        </div>
+        <div class="problem-text">
+            f(x) = x + 3, g(x) = 2x. g(f(1)) = ?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (7단계)</div>
+            <ul class="scaffolding-steps">
+                <li>안쪽부터: f(1)</li>
+                <li>f(1) = 1+3 = 4</li>
+                <li>이제 g에 4 넣기</li>
+                <li>g(4) = 2×4 = 8</li>
+                <li>순서: 1 → f → 4 → g → 8</li>
+                <li>두 단계 변환</li>
+                <li>합성 = 연속 적용</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 8
+        </div>
+    </div>
+
+    <!-- Problem 22 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 22</span>
+            <span class="problem-title">역연산</span>
+            <span class="concept">역함수</span>
+            <span class="difficulty hard">어려움</span>
+        </div>
+        <div class="problem-text">
+            f(x) = x + 5, f(?) = 12. ?를 찾으시오.
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (7단계)</div>
+            <ul class="scaffolding-steps">
+                <li>? + 5 = 12</li>
+                <li>역연산: 12 - 5</li>
+                <li>? = 7</li>
+                <li>검증: f(7) = 7+5 = 12 ✓</li>
+                <li>더하기의 역 = 빼기</li>
+                <li>곱하기의 역 = 나누기</li>
+                <li>역함수 개념 맛보기</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 7
+        </div>
+    </div>
+
+    <!-- Problem 23 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 23</span>
+            <span class="problem-title">항등원</span>
+            <span class="concept">항등함수</span>
+            <span class="difficulty very_hard">매우 어려움</span>
+        </div>
+        <div class="problem-text">
+            f(x) = x + 0, g(x) = x × 1. 결과는?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (7단계)</div>
+            <ul class="scaffolding-steps">
+                <li>x + 0 = x (변화 없음)</li>
+                <li>x × 1 = x (변화 없음)</li>
+                <li>0은 덧셈의 항등원</li>
+                <li>1은 곱셈의 항등원</li>
+                <li>항등원 = 연산해도 그대로</li>
+                <li>f(5)=5, g(5)=5</li>
+                <li>입력 = 출력 (항등함수)</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 둘 다 항등함수
+        </div>
+    </div>
+
+    <!-- Problem 24 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 24</span>
+            <span class="problem-title">연산 법칙</span>
+            <span class="concept">교환법칙</span>
+            <span class="difficulty very_hard">매우 어려움</span>
+        </div>
+        <div class="problem-text">
+            f(x) = 2x, g(x) = 3x. f(x)+g(x) vs g(x)+f(x)?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (7단계)</div>
+            <ul class="scaffolding-steps">
+                <li>f(x)+g(x) = 2x+3x = 5x</li>
+                <li>g(x)+f(x) = 3x+2x = 5x</li>
+                <li>같다! (교환법칙)</li>
+                <li>f(x)×g(x) = 2x×3x = 6x²</li>
+                <li>g(x)×f(x) = 3x×2x = 6x²</li>
+                <li>곱셈도 교환 가능</li>
+                <li>함수도 수처럼 연산</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 같음 (교환법칙 성립)
+        </div>
+    </div>
+
+    <!-- Act 5: 함수의 응용과 추상화 -->
+    <div class="act-title">Act 5: 함수의 응용과 추상화 (Problems 25-30)</div>
+
+    <!-- Problem 25 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 25</span>
+            <span class="problem-title">실생활 모델</span>
+            <span class="concept">함수 모델링</span>
+            <span class="difficulty very_hard">매우 어려움</span>
+        </div>
+        <div class="problem-text">
+            휴대폰 요금: f(분) = 20000 + 50×분. 100분 사용 시?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (8단계)</div>
+            <ul class="scaffolding-steps">
+                <li>기본료: 20000원</li>
+                <li>추가 요금: 분당 50원</li>
+                <li>100분 추가: 100×50</li>
+                <li>= 5000원</li>
+                <li>총 요금: 20000+5000</li>
+                <li>= 25000원</li>
+                <li>함수로: f(100) = 20000+50×100 = 25000</li>
+                <li>실생활 = 함수 모델</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 25000원
+        </div>
+    </div>
+
+    <!-- Problem 26 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 26</span>
+            <span class="problem-title">최댓값 찾기</span>
+            <span class="concept">극값</span>
+            <span class="difficulty very_hard">매우 어려움</span>
+        </div>
+        <div class="problem-text">
+            점수 함수: -x² + 6x. x = 0,1,2,3,4,5,6일 때 최대는?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (9단계)</div>
+            <ul class="scaffolding-steps">
+                <li>x=0: 0+0=0</li>
+                <li>x=1: -1+6=5</li>
+                <li>x=2: -4+12=8</li>
+                <li>x=3: -9+18=9 (최대!)</li>
+                <li>x=4: -16+24=8</li>
+                <li>x=5: -25+30=5</li>
+                <li>x=6: -36+36=0</li>
+                <li>패턴: 0→5→8→9→8→5→0</li>
+                <li>대칭! 가운데가 최대</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> x=3일 때 최대값 9
+        </div>
+    </div>
+
+    <!-- Problem 27 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 27</span>
+            <span class="problem-title">평균 변화율</span>
+            <span class="concept">변화율</span>
+            <span class="difficulty very_hard">매우 어려움</span>
+        </div>
+        <div class="problem-text">
+            거리 함수: d(0) = 0km, d(2) = 120km. 평균 속도는?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (9단계)</div>
+            <ul class="scaffolding-steps">
+                <li>시작: 0km (0시간)</li>
+                <li>끝: 120km (2시간)</li>
+                <li>이동 거리: 120-0=120km</li>
+                <li>걸린 시간: 2-0=2시간</li>
+                <li>평균 속도 = 거리÷시간</li>
+                <li>= 120÷2 = 60</li>
+                <li>60km/시간</li>
+                <li>변화율 = 기울기</li>
+                <li>함수의 평균 변화</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 60km/h
+        </div>
+    </div>
+
+    <!-- Problem 28 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 28</span>
+            <span class="problem-title">패턴 확장</span>
+            <span class="concept">재귀함수</span>
+            <span class="difficulty very_hard">매우 어려움</span>
+        </div>
+        <div class="problem-text">
+            피보나치: 1,1,2,3,5,8,? 규칙: f(n) = f(n-1) + f(n-2)
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (9단계)</div>
+            <ul class="scaffolding-steps">
+                <li>1+1=2 (3번째)</li>
+                <li>1+2=3 (4번째)</li>
+                <li>2+3=5 (5번째)</li>
+                <li>3+5=8 (6번째)</li>
+                <li>5+8=? (7번째)</li>
+                <li>=13</li>
+                <li>앞 두 수의 합</li>
+                <li>재귀 함수 맛보기</li>
+                <li>자연의 패턴</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 13
+        </div>
+    </div>
+
+    <!-- Problem 29 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 29</span>
+            <span class="problem-title">함수 비교</span>
+            <span class="concept">성장률 비교</span>
+            <span class="difficulty very_hard">매우 어려움</span>
+        </div>
+        <div class="problem-text">
+            선형: f(x) = 2x, 제곱: g(x) = x². x = 10일 때 어느 것이 더 큰가?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (10단계)</div>
+            <ul class="scaffolding-steps">
+                <li>f(10) = 2×10 = 20</li>
+                <li>g(10) = 10×10 = 100</li>
+                <li>100 > 20</li>
+                <li>언제 역전? x=2에서 같음</li>
+                <li>x<2: 선형이 크다</li>
+                <li>x>2: 제곱이 크다</li>
+                <li>작을 때는 선형</li>
+                <li>클 때는 제곱</li>
+                <li>성장 속도 차이</li>
+                <li>함수 특성 비교</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> g(x) = 100이 더 큼
+        </div>
+    </div>
+
+    <!-- Problem 30 -->
+    <div class="problem">
+        <div class="problem-header">
+            <span class="problem-number">문제 30</span>
+            <span class="problem-title">함수의 본질</span>
+            <span class="concept">함수 개념 종합</span>
+            <span class="difficulty very_hard">매우 어려움</span>
+        </div>
+        <div class="problem-text">
+            함수의 세 특징: 1)모든 입력에 출력 2)같은 입력→같은 출력 3)규칙 명확. 실생활 예시는?
+        </div>
+        <div class="scaffolding">
+            <div class="scaffolding-title">스캐폴딩 (11단계)</div>
+            <ul class="scaffolding-steps">
+                <li>자판기: 버튼(입력) → 음료(출력)</li>
+                <li>모든 버튼 작동? ✓</li>
+                <li>같은 버튼 → 같은 음료? ✓</li>
+                <li>규칙 명확? ✓</li>
+                <li>자판기 = 함수!</li>
+                <li>다른 예: 학번 시스템</li>
+                <li>모든 학생에 학번 ✓</li>
+                <li>같은 학생 → 같은 학번 ✓</li>
+                <li>규칙 명확 ✓</li>
+                <li>함수는 어디에나!</li>
+                <li>수학이 현실을 설명하는 도구</li>
+            </ul>
+        </div>
+        <div class="answer">
+            <span class="answer-label">정답:</span> 자판기, 학번 시스템 등
+        </div>
+    </div>
+
+    <div class="info-box">
+        <h2>📊 문제 구성 요약</h2>
+        <p><strong>총 문제:</strong> 30개</p>
+        <p><strong>난이도 분포:</strong> 쉬움(4) / 보통(8) / 어려움(7) / 매우 어려움(11)</p>
+        <p><strong>스캐폴딩 진행:</strong></p>
+        <ul style="list-style-type: disc; padding-left: 20px;">
+            <li>문제 1-6: 2-3단계</li>
+            <li>문제 7-12: 4-5단계</li>
+            <li>문제 13-18: 6-7단계</li>
+            <li>문제 19-24: 7-8단계</li>
+            <li>문제 25-30: 8-11단계</li>
+        </ul>
+        <p><strong>개념 흐름:</strong> 대응의 발견 → 변화의 규칙 → 함수의 구조 → 함수의 연산 → 함수의 응용과 추상화</p>
+    </div>
+</body>
+</html>
