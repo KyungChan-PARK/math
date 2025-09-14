@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중1 함수 - 문제 16-20: 함수의 합성과 역함수</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .problem-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .problem-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .problem-number {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .problem-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .context-box {
+            background: #fffef0;
+            border: 2px solid #ffa726;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .context-box h4 {
+            color: #f57c00;
+            margin-bottom: 15px;
+        }
+
+        .question-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .graph-sequence {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .graph-step {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .graph-step h5 {
+            color: #5e72e4;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .detail-explanation {
+            background: #f3e5f5;
+            border: 2px solid #9c27b0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .detail-explanation h4 {
+            color: #6a1b9a;
+            margin-bottom: 15px;
+        }
+
+        .step-content {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .insight-box::before {
+            content: "💡 ";
+            font-size: 20px;
+        }
+
+        .concept-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .flow-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .flow-arrow {
+            color: #2196f3;
+            font-size: 24px;
+            margin: 0 10px;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+        }
+
+        .visual-progression {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .visual-progression h5 {
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        .formula-box {
+            background: #f5f5f5;
+            border: 2px solid #9e9e9e;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .problem-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>중학교 1학년 함수 - 문제 16-20: 합성과 역함수</h1>
+
+    <!-- 문제 16 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">16</div>
+            <div class="problem-title">배달 앱의 수수료 연쇄 계산</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🛵 상황 설명</h4>
+            음식 배달 플랫폼 "QuickEats"의 수수료 체계는 다음과 같습니다:<br><br>
+
+            <strong>단계별 수수료 계산:</strong><br>
+            1. 음식점 → 플랫폼: f(x) = 0.15x + 500 (x: 주문금액)<br>
+            2. 플랫폼 → 배달원: g(y) = 0.3y + 2000 (y: 플랫폼 수수료)<br>
+            3. 고객 최종 부담: h(z) = z + 배달비 3000원<br><br>
+
+            한 고객이 20,000원의 음식을 주문했을 때, 각 단계별 수수료와 최종 지불 금액을 계산하려 합니다.
+        </div>
+
+        <div class="question-box">
+            함수의 합성 (h∘g∘f)(x)를 구하고, 각 주체(음식점, 플랫폼, 배달원, 고객)가 받거나 지불하는 금액을 분석하시오.
+            또한 이 다층 구조가 최종 가격에 미치는 영향을 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 함수 합성의 단계별 계산</strong><br><br>
+
+                주문금액 x = 20,000원<br><br>
+
+                <strong>Step 1: f(20000) = 플랫폼이 받는 수수료</strong><br>
+                f(20000) = 0.15 × 20000 + 500 = 3500원<br><br>
+
+                <strong>Step 2: g(f(20000)) = 배달원이 받는 금액</strong><br>
+                g(3500) = 0.3 × 3500 + 2000 = 3050원<br><br>
+
+                <strong>Step 3: h(g(f(20000))) = 고객 최종 지불</strong><br>
+                h(3050) = 20000 + 3500 + 3000 = 26,500원
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>수수료 흐름도</h5>
+                    <svg viewBox="0 0 300 250">
+                        <!-- 박스들 -->
+                        <rect x="20" y="20" width="80" height="40" fill="#4caf50" opacity="0.6"/>
+                        <text x="60" y="45" text-anchor="middle" font-weight="bold">음식점</text>
+
+                        <rect x="190" y="20" width="80" height="40" fill="#ff9800" opacity="0.6"/>
+                        <text x="230" y="45" text-anchor="middle" font-weight="bold">플랫폼</text>
+
+                        <rect x="190" y="100" width="80" height="40" fill="#2196f3" opacity="0.6"/>
+                        <text x="230" y="125" text-anchor="middle" font-weight="bold">배달원</text>
+
+                        <rect x="20" y="180" width="80" height="40" fill="#9c27b0" opacity="0.6"/>
+                        <text x="60" y="205" text-anchor="middle" font-weight="bold">고객</text>
+
+                        <!-- 화살표와 금액 -->
+                        <path d="M 100 40 L 190 40" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="145" y="35" text-anchor="middle" font-size="12">20,000원</text>
+
+                        <path d="M 230 60 L 230 100" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="250" y="80" text-anchor="middle" font-size="12">3,050원</text>
+
+                        <path d="M 100 200 L 190 200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="145" y="195" text-anchor="middle" font-size="12">26,500원</text>
+
+                        <path d="M 60 180 Q 60 100, 190 40" stroke="#f44336" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="110" y="110" fill="#f44336" font-size="10">+6,500원</text>
+
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>함수 합성 과정</h5>
+                    <svg viewBox="0 0 300 200">
+                        <circle cx="50" cy="100" r="30" fill="#4caf50" opacity="0.3"/>
+                        <text x="50" y="105" text-anchor="middle" font-size="12">x</text>
+                        <text x="50" y="145" text-anchor="middle" font-size="10">20,000</text>
+
+                        <path d="M 80 100 L 120 100" stroke="#333" stroke-width="2" marker-end="url(#arrow2)"/>
+                        <text x="100" y="90" text-anchor="middle" font-size="10">f(x)</text>
+
+                        <circle cx="150" cy="100" r="30" fill="#ff9800" opacity="0.3"/>
+                        <text x="150" y="105" text-anchor="middle" font-size="12">f(x)</text>
+                        <text x="150" y="145" text-anchor="middle" font-size="10">3,500</text>
+
+                        <path d="M 180 100 L 220 100" stroke="#333" stroke-width="2" marker-end="url(#arrow2)"/>
+                        <text x="200" y="90" text-anchor="middle" font-size="10">g(f(x))</text>
+
+                        <circle cx="250" cy="100" r="30" fill="#2196f3" opacity="0.3"/>
+                        <text x="250" y="105" text-anchor="middle" font-size="12">g∘f</text>
+                        <text x="250" y="145" text-anchor="middle" font-size="10">3,050</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold">연쇄 계산</text>
+
+                        <defs>
+                            <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>비용 구조 분석</h5>
+                    <svg viewBox="0 0 300 200">
+                        <rect x="40" y="150" width="200" height="30" fill="#4caf50" opacity="0.6"/>
+                        <text x="140" y="170" text-anchor="middle">음식: 20,000원 (75.5%)</text>
+
+                        <rect x="40" y="110" width="50" height="40" fill="#ff9800" opacity="0.6"/>
+                        <text x="65" y="135" text-anchor="middle" font-size="10">플랫폼</text>
+                        <text x="65" y="150" text-anchor="middle" font-size="10">3,500원</text>
+
+                        <rect x="90" y="110" width="45" height="40" fill="#2196f3" opacity="0.6"/>
+                        <text x="112" y="135" text-anchor="middle" font-size="10">배달</text>
+                        <text x="112" y="150" text-anchor="middle" font-size="10">3,000원</text>
+
+                        <text x="140" y="30" text-anchor="middle" font-weight="bold">총 26,500원</text>
+                        <text x="140" y="50" text-anchor="middle" fill="#f44336">32.5% 추가 비용!</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                함수 합성의 실제 의미<br>
+                f: 음식점 → 플랫폼 (중개 수수료)<br>
+                g: 플랫폼 → 배달원 (노동 대가)<br>
+                h: 전체 → 고객 (최종 부담)<br><br>
+                각 단계가 이전 단계의 출력을 입력으로!<br>
+                이것이 바로 경제 시스템의 다층 구조
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 합성 함수의 일반 형태</strong><br><br>
+
+                <div class="formula-box">
+                (h∘g∘f)(x) = h(g(f(x)))<br><br>
+
+                f(x) = 0.15x + 500<br>
+                g(f(x)) = 0.3(0.15x + 500) + 2000<br>
+                       = 0.045x + 150 + 2000<br>
+                       = 0.045x + 2150<br><br>
+
+                h(g(f(x))) = x + (0.15x + 500) + 3000<br>
+                          = 1.15x + 3500<br><br>
+
+                최종 함수: C(x) = 1.15x + 3500
+                </div>
+
+                의미: 주문 금액의 15% + 3,500원 고정비
+            </div>
+
+            <div class="visual-progression">
+                <h5>💰 가격 인상 메커니즘</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>원가</strong><br>
+                        100%<br>
+                        기본 금액
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>1차 마진</strong><br>
+                        +15%<br>
+                        플랫폼 수수료
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>2차 마진</strong><br>
+                        +고정비<br>
+                        운영 비용
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>최종가</strong><br>
+                        132.5%<br>
+                        고객 부담
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                플랫폼 경제의 수학<br>
+                전통: 생산자 → 소비자 (1단계)<br>
+                현재: 생산자 → 플랫폼 → 배달 → 소비자 (다단계)<br><br>
+                각 단계마다 함수가 적용되어<br>
+                최종 가격이 기하급수적으로 상승!<br>
+                이래서 "중간 마진"을 줄이려는 D2C가 등장
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 17 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">17</div>
+            <div class="problem-title">환율 변환의 역함수</div>
+        </div>
+
+        <div class="context-box">
+            <h4>💱 상황 설명</h4>
+            국제 송금 앱 "GlobalPay"는 다음과 같은 환율 시스템을 사용합니다:<br><br>
+
+            <strong>원화 → 달러 변환:</strong><br>
+            f(x) = (x - 500) / 1350 (x: 원화, 최소 500원)<br><br>
+
+            <strong>달러 → 유로 변환:</strong><br>
+            g(y) = 0.92y - 0.5 (y: 달러, 수수료 0.5유로)<br><br>
+
+            <strong>유로 → 원화 역변환:</strong><br>
+            h(z) = 1470z + 1000 (z: 유로, 고정 수수료 1000원)<br><br>
+
+            한 사용자가 135,500원을 환전했다가 다시 원화로 바꾸려 합니다.
+        </div>
+
+        <div class="question-box">
+            각 변환 단계를 거친 후 최종 금액을 계산하고, 원래 금액을 회복하기 위한 역함수를 구하시오.
+            또한 환전 과정에서 발생하는 손실의 수학적 원인을 분석하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 순방향 환전 과정</strong><br><br>
+
+                시작: 135,500원<br><br>
+
+                <strong>원화 → 달러:</strong><br>
+                f(135500) = (135500 - 500) / 1350 = 135000 / 1350 = 100달러<br><br>
+
+                <strong>달러 → 유로:</strong><br>
+                g(100) = 0.92 × 100 - 0.5 = 92 - 0.5 = 91.5유로<br><br>
+
+                <strong>유로 → 원화:</strong><br>
+                h(91.5) = 1470 × 91.5 + 1000 = 134,505 + 1000 = 135,505원<br><br>
+
+                결과: 5원 이익?! (계산 재검토 필요)
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>환전 경로</h5>
+                    <svg viewBox="0 0 300 200">
+                        <circle cx="60" cy="50" r="35" fill="#4caf50" opacity="0.3"/>
+                        <text x="60" y="45" text-anchor="middle" font-size="10">KRW</text>
+                        <text x="60" y="60" text-anchor="middle" font-weight="bold">135,500</text>
+
+                        <path d="M 95 50 L 145 50" stroke="#333" stroke-width="2" marker-end="url(#arrow3)"/>
+                        <text x="120" y="40" text-anchor="middle" font-size="10">f(x)</text>
+
+                        <circle cx="180" cy="50" r="35" fill="#ff9800" opacity="0.3"/>
+                        <text x="180" y="45" text-anchor="middle" font-size="10">USD</text>
+                        <text x="180" y="60" text-anchor="middle" font-weight="bold">100</text>
+
+                        <path d="M 180 85 L 180 115" stroke="#333" stroke-width="2" marker-end="url(#arrow3)"/>
+                        <text x="200" y="100" text-anchor="middle" font-size="10">g(y)</text>
+
+                        <circle cx="180" cy="150" r="35" fill="#2196f3" opacity="0.3"/>
+                        <text x="180" y="145" text-anchor="middle" font-size="10">EUR</text>
+                        <text x="180" y="160" text-anchor="middle" font-weight="bold">91.5</text>
+
+                        <path d="M 145 150 L 95 150" stroke="#333" stroke-width="2" marker-end="url(#arrow3)"/>
+                        <text x="120" y="140" text-anchor="middle" font-size="10">h(z)</text>
+
+                        <circle cx="60" cy="150" r="35" fill="#9c27b0" opacity="0.3"/>
+                        <text x="60" y="145" text-anchor="middle" font-size="10">KRW</text>
+                        <text x="60" y="160" text-anchor="middle" font-weight="bold">?</text>
+
+                        <defs>
+                            <marker id="arrow3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>역함수 관계</h5>
+                    <svg viewBox="0 0 300 200">
+                        <text x="150" y="30" text-anchor="middle" font-weight="bold">정함수와 역함수</text>
+
+                        <!-- 정함수 -->
+                        <rect x="40" y="50" width="80" height="40" fill="#4caf50" opacity="0.3"/>
+                        <text x="80" y="75" text-anchor="middle">f(x)</text>
+
+                        <path d="M 120 70 L 180 70" stroke="#4caf50" stroke-width="2" marker-end="url(#arrow4)"/>
+
+                        <rect x="180" y="50" width="80" height="40" fill="#4caf50" opacity="0.3"/>
+                        <text x="220" y="75" text-anchor="middle">y</text>
+
+                        <!-- 역함수 -->
+                        <rect x="180" y="110" width="80" height="40" fill="#ff9800" opacity="0.3"/>
+                        <text x="220" y="135" text-anchor="middle">y</text>
+
+                        <path d="M 180 130 L 120 130" stroke="#ff9800" stroke-width="2" marker-end="url(#arrow4)"/>
+
+                        <rect x="40" y="110" width="80" height="40" fill="#ff9800" opacity="0.3"/>
+                        <text x="80" y="135" text-anchor="middle">f⁻¹(y)</text>
+
+                        <text x="150" y="180" text-anchor="middle" fill="#666">f⁻¹(f(x)) = x</text>
+
+                        <defs>
+                            <marker id="arrow4" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>손실 구조</h5>
+                    <svg viewBox="0 0 300 200">
+                        <rect x="40" y="40" width="220" height="40" fill="#c8e6c9"/>
+                        <text x="150" y="65" text-anchor="middle">시작: 135,500원</text>
+
+                        <rect x="40" y="90" width="100" height="30" fill="#ffcdd2"/>
+                        <text x="90" y="110" text-anchor="middle" font-size="12">고정수수료</text>
+
+                        <rect x="140" y="90" width="60" height="30" fill="#ffcdd2"/>
+                        <text x="170" y="110" text-anchor="middle" font-size="12">%수수료</text>
+
+                        <rect x="200" y="90" width="60" height="30" fill="#ffcdd2"/>
+                        <text x="230" y="110" text-anchor="middle" font-size="12">환율차</text>
+
+                        <rect x="40" y="130" width="220" height="40" fill="#fff3e0"/>
+                        <text x="150" y="155" text-anchor="middle">최종: ???원</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                역함수가 존재하는 조건<br>
+                1. 일대일 대응 (단사 함수)<br>
+                2. 치역 = 정의역 (전사 함수)<br><br>
+                환율 변환에서 역함수가 중요한 이유:<br>
+                양방향 거래가 가능해야 시장이 성립!
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 역함수 구하기</strong><br><br>
+
+                <strong>f의 역함수 (달러 → 원화):</strong><br>
+                y = (x - 500) / 1350<br>
+                x = 1350y + 500<br>
+                f⁻¹(y) = 1350y + 500<br><br>
+
+                <strong>g의 역함수 (유로 → 달러):</strong><br>
+                z = 0.92y - 0.5<br>
+                y = (z + 0.5) / 0.92<br>
+                g⁻¹(z) = (z + 0.5) / 0.92<br><br>
+
+                <strong>실제 은행 환율과 비교:</strong><br>
+                매도율 ≠ 매입율 (스프레드 존재)<br>
+                이것이 환전 손실의 근본 원인!
+            </div>
+
+            <div class="visual-progression">
+                <h5>💸 환전 손실 최소화</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>직접 환전</strong><br>
+                        KRW→EUR<br>
+                        1단계
+                    </div>
+                    <span class="flow-arrow">vs</span>
+                    <div class="flow-item">
+                        <strong>경유 환전</strong><br>
+                        KRW→USD→EUR<br>
+                        2단계
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>손실 차이</strong><br>
+                        수수료 누적<br>
+                        스프레드 2배
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>최적 전략</strong><br>
+                        직접 경로<br>
+                        대량 거래
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 완전 순환의 불가능성</strong><br><br>
+
+                <div class="formula-box">
+                이상적 조건: (h∘g∘f)(x) = x<br>
+                현실: (h∘g∘f)(x) < x<br><br>
+
+                손실 요인:<br>
+                1. 매도/매입 스프레드: ~2%<br>
+                2. 고정 수수료: 거래당 500-1000원<br>
+                3. 비례 수수료: 0.1-1%<br>
+                4. 환율 변동 리스크<br><br>
+
+                총 손실 = Σ(각 단계 손실) + 복리 효과
+                </div>
+            </div>
+
+            <div class="insight-box">
+                금융 수학의 교훈<br>
+                "There's no free lunch in finance"<br>
+                완벽한 역함수는 수학에만 존재!<br><br>
+                현실의 모든 금융 거래는<br>
+                정보 비대칭과 거래 비용 때문에<br>
+                f⁻¹(f(x)) < x 가 됩니다
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 18 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">18</div>
+            <div class="problem-title">SNS 팔로워 네트워크 함수</div>
+        </div>
+
+        <div class="context-box">
+            <h4>📱 상황 설명</h4>
+            소셜 네트워크 "ConnectHub"의 팔로워 증가 모델:<br><br>
+
+            <strong>영향력 지수 계산:</strong><br>
+            • 팔로워 효과: f(x) = 10√x (x: 팔로워 수)<br>
+            • 참여도 효과: g(y) = 2y + 5 (y: 일일 게시물)<br>
+            • 품질 효과: h(z) = z² / 100 (z: 평균 좋아요)<br><br>
+
+            <strong>최종 영향력 = f(팔로워) × g(게시물) × h(좋아요)</strong><br><br>
+
+            인플루언서 A: 10,000명, 3개/일, 평균 500좋아요<br>
+            인플루언서 B: 40,000명, 1개/일, 평균 300좋아요
+        </div>
+
+        <div class="question-box">
+            두 인플루언서의 영향력 지수를 계산하고, 어떤 전략이 더 효과적인지 분석하시오.
+            또한 함수의 곱셈이 네트워크 효과를 어떻게 모델링하는지 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 인플루언서 A 계산</strong><br><br>
+
+                • 팔로워 효과: f(10000) = 10√10000 = 10 × 100 = 1000<br>
+                • 참여도 효과: g(3) = 2(3) + 5 = 11<br>
+                • 품질 효과: h(500) = 500² / 100 = 2500<br><br>
+
+                <strong>영향력 A = 1000 × 11 × 2500 = 27,500,000</strong>
+            </div>
+
+            <div class="step-content">
+                <strong>1단계 (계속): 인플루언서 B 계산</strong><br><br>
+
+                • 팔로워 효과: f(40000) = 10√40000 = 10 × 200 = 2000<br>
+                • 참여도 효과: g(1) = 2(1) + 5 = 7<br>
+                • 품질 효과: h(300) = 300² / 100 = 900<br><br>
+
+                <strong>영향력 B = 2000 × 7 × 900 = 12,600,000</strong><br><br>
+
+                결과: A가 B보다 2.18배 높은 영향력!
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>팔로워 함수 (√x)</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 제곱근 곡선 -->
+                        <path d="M 30 170 Q 100 100, 180 70 T 270 50"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+
+                        <circle cx="100" cy="100" r="3" fill="#ff9800"/>
+                        <text x="100" y="90" text-anchor="middle" font-size="10">A: 10K</text>
+
+                        <circle cx="180" cy="70" r="3" fill="#2196f3"/>
+                        <text x="180" y="60" text-anchor="middle" font-size="10">B: 40K</text>
+
+                        <text x="150" y="190" text-anchor="middle">팔로워 수</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">영향력</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold">수확 체감</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>품질 함수 (x²)</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 이차 곡선 -->
+                        <path d="M 30 170 Q 100 160, 150 130 Q 200 80, 270 30"
+                              fill="none" stroke="#9c27b0" stroke-width="3"/>
+
+                        <circle cx="200" cy="80" r="3" fill="#ff9800"/>
+                        <text x="200" y="70" text-anchor="middle" font-size="10">A: 500</text>
+
+                        <circle cx="150" cy="130" r="3" fill="#2196f3"/>
+                        <text x="150" y="120" text-anchor="middle" font-size="10">B: 300</text>
+
+                        <text x="150" y="190" text-anchor="middle">평균 좋아요</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">영향력</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold">품질 프리미엄</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>전략 비교</h5>
+                    <svg viewBox="0 0 300 200">
+                        <rect x="40" y="40" width="100" height="120" fill="#ff9800" opacity="0.3"/>
+                        <text x="90" y="30" text-anchor="middle" font-weight="bold">A 전략</text>
+                        <text x="90" y="60" text-anchor="middle" font-size="10">팔로워: 중간</text>
+                        <text x="90" y="80" text-anchor="middle" font-size="10">게시: 자주</text>
+                        <text x="90" y="100" text-anchor="middle" font-size="10">품질: 높음</text>
+                        <text x="90" y="140" text-anchor="middle" font-weight="bold">27.5M</text>
+
+                        <rect x="160" y="40" width="100" height="120" fill="#2196f3" opacity="0.3"/>
+                        <text x="210" y="30" text-anchor="middle" font-weight="bold">B 전략</text>
+                        <text x="210" y="60" text-anchor="middle" font-size="10">팔로워: 많음</text>
+                        <text x="210" y="80" text-anchor="middle" font-size="10">게시: 적게</text>
+                        <text x="210" y="100" text-anchor="middle" font-size="10">품질: 보통</text>
+                        <text x="210" y="140" text-anchor="middle" font-weight="bold">12.6M</text>
+
+                        <text x="150" y="180" text-anchor="middle" fill="#ff9800" font-weight="bold">품질 > 수량</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                네트워크 효과의 수학<br>
+                곱셈 모델 = 시너지 효과<br>
+                • 하나라도 0이면 전체가 0<br>
+                • 각 요소가 서로를 증폭<br>
+                • 균형이 최적화의 핵심<br><br>
+                Metcalfe's Law: 네트워크 가치 ∝ n²<br>
+                Reed's Law: 그룹 형성 가능성 ∝ 2ⁿ
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 함수별 특성 분석</strong><br><br>
+
+                <strong>√x (팔로워): 수확 체감</strong><br>
+                • 초기 1000명 → 10000명: 효과 10배<br>
+                • 후기 10000명 → 40000명: 효과 2배<br>
+                • 의미: 코어 팬층이 더 중요<br><br>
+
+                <strong>x² (품질): 수확 체증</strong><br>
+                • 좋아요 2배 → 영향력 4배<br>
+                • 바이럴 가능성 기하급수 증가<br>
+                • 의미: 품질이 양을 압도
+            </div>
+
+            <div class="visual-progression">
+                <h5>📈 성장 전략 로드맵</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>Stage 1</strong><br>
+                        품질 집중<br>
+                        h(z) 최대화
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>Stage 2</strong><br>
+                        참여도 증가<br>
+                        g(y) 최적화
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>Stage 3</strong><br>
+                        팔로워 확장<br>
+                        f(x) 성장
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>Stage 4</strong><br>
+                        균형 유지<br>
+                        지속가능성
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                인플루언서 경제학<br>
+                전통 미디어: 도달률(Reach) 중심<br>
+                소셜 미디어: 참여율(Engagement) 중심<br><br>
+                수학이 증명하는 것:<br>
+                10만 무관심 팔로워 < 1만 열성 팔로워<br>
+                양보다 질, 하지만 질이 양을 만든다!
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 19 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">19</div>
+            <div class="problem-title">클라우드 컴퓨팅 비용 최적화</div>
+        </div>
+
+        <div class="context-box">
+            <h4>☁️ 상황 설명</h4>
+            클라우드 서비스 제공업체의 가격 모델:<br><br>
+
+            <strong>컴퓨팅 비용 함수:</strong><br>
+            • CPU: C(x) = 50x + 100 (x: vCPU 개수)<br>
+            • 메모리: M(y) = 20y (y: GB)<br>
+            • 스토리지: S(z) = 0.1z + 10 (z: GB)<br><br>
+
+            <strong>성능 지수:</strong><br>
+            P = 100 × log₂(x+1) × √y × (1 - e^(-z/1000))<br><br>
+
+            스타트업이 월 예산 10,000원으로 성능을 최대화하려 합니다.
+        </div>
+
+        <div class="question-box">
+            예산 제약 하에서 최적 자원 배분을 찾고, 각 자원이 성능에 미치는 한계 효용을 분석하시오.
+            또한 이 최적화 문제가 실제 클라우드 아키텍처 설계에 주는 인사이트를 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 예산 제약 조건</strong><br><br>
+
+                <div class="formula-box">
+                총 비용 = C(x) + M(y) + S(z) ≤ 10,000<br>
+                = (50x + 100) + 20y + (0.1z + 10) ≤ 10,000<br>
+                = 50x + 20y + 0.1z ≤ 9,890<br><br>
+
+                기본 비용: 110원 (고정비)<br>
+                가변 예산: 9,890원
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 각 자원의 한계 효용 분석</strong><br><br>
+
+                <strong>시나리오 1: CPU 중심 (x=180, y=10, z=900)</strong><br>
+                • 비용: 9000 + 200 + 100 = 9300원<br>
+                • 성능: 100 × 7.5 × 3.16 × 0.59 ≈ 1,400<br><br>
+
+                <strong>시나리오 2: 균형 배분 (x=80, y=100, z=4000)</strong><br>
+                • 비용: 4100 + 2000 + 410 = 6510원<br>
+                • 성능: 100 × 6.34 × 10 × 0.98 ≈ 6,200<br><br>
+
+                <strong>시나리오 3: 메모리 중심 (x=40, y=400, z=900)</strong><br>
+                • 비용: 2100 + 8000 + 100 = 10200원 (초과!)<br>
+                • 재조정 필요
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>자원별 효용 곡선</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- CPU: log 곡선 -->
+                        <path d="M 30 160 Q 80 80, 150 60 T 270 50"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+                        <text x="240" y="45" font-size="10" fill="#4caf50">CPU(log)</text>
+
+                        <!-- Memory: sqrt 곡선 -->
+                        <path d="M 30 170 Q 100 120, 180 90 T 270 70"
+                              fill="none" stroke="#ff9800" stroke-width="3"/>
+                        <text x="240" y="65" font-size="10" fill="#ff9800">RAM(√)</text>
+
+                        <!-- Storage: 1-exp 곡선 -->
+                        <path d="M 30 170 Q 60 100, 100 70 Q 150 50, 270 45"
+                              fill="none" stroke="#2196f3" stroke-width="3"/>
+                        <text x="240" y="40" font-size="10" fill="#2196f3">Storage</text>
+
+                        <text x="150" y="190" text-anchor="middle">투자 금액</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">성능 기여</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>최적 배분</h5>
+                    <svg viewBox="0 0 300 200">
+                        <circle cx="150" cy="100" r="80" fill="none" stroke="#333" stroke-width="2"/>
+
+                        <!-- 파이 차트 -->
+                        <path d="M 150 100 L 150 20 A 80 80 0 0 1 210 130 Z" fill="#4caf50" opacity="0.6"/>
+                        <text x="170" y="70" font-size="12">CPU</text>
+                        <text x="170" y="85" font-size="10">40%</text>
+
+                        <path d="M 150 100 L 210 130 A 80 80 0 0 1 90 130 Z" fill="#ff9800" opacity="0.6"/>
+                        <text x="150" y="140" font-size="12">RAM</text>
+                        <text x="150" y="155" font-size="10">45%</text>
+
+                        <path d="M 150 100 L 90 130 A 80 80 0 0 1 150 20 Z" fill="#2196f3" opacity="0.6"/>
+                        <text x="110" y="70" font-size="12">SSD</text>
+                        <text x="110" y="85" font-size="10">15%</text>
+
+                        <text x="150" y="15" text-anchor="middle" font-weight="bold">최적 비율</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>성능 등고선</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 등고선들 -->
+                        <ellipse cx="150" cy="100" rx="100" ry="60" fill="none" stroke="#c8e6c9" stroke-width="2"/>
+                        <ellipse cx="150" cy="100" rx="70" ry="42" fill="none" stroke="#81c784" stroke-width="2"/>
+                        <ellipse cx="150" cy="100" rx="40" ry="24" fill="none" stroke="#4caf50" stroke-width="2"/>
+
+                        <circle cx="150" cy="100" r="4" fill="#f44336"/>
+                        <text x="150" y="90" text-anchor="middle" font-size="10">최적점</text>
+
+                        <text x="150" y="190" text-anchor="middle">CPU</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">Memory</text>
+
+                        <!-- 예산선 -->
+                        <line x1="230" y1="40" x2="40" y2="150" stroke="#f44336" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="235" y="35" font-size="10" fill="#f44336">예산선</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                라그랑주 승수법의 직관<br>
+                최적점 = 등고선과 예산선의 접점<br>
+                • 등고선: 같은 성능을 내는 조합<br>
+                • 예산선: 같은 비용의 조합<br>
+                • 접점: 주어진 예산으로 최대 성능<br><br>
+                이것이 경제학의 "한계 효용 균등 법칙"!
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 최적해 도출</strong><br><br>
+
+                <strong>최적 배분 (근사):</strong><br>
+                • CPU: 80 vCPU (4,100원)<br>
+                • Memory: 225 GB (4,500원)<br>
+                • Storage: 1400 GB (150원)<br>
+                • 총 비용: 8,750원<br><br>
+
+                <strong>성능 지수: 약 8,500</strong><br>
+                균형 배분이 극단적 배분보다 우수!
+            </div>
+
+            <div class="visual-progression">
+                <h5>🏗️ 클라우드 아키텍처 인사이트</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>개발 단계</strong><br>
+                        최소 사양<br>
+                        비용 절감
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>테스트 단계</strong><br>
+                        균형 배분<br>
+                        병목 발견
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>운영 단계</strong><br>
+                        수요 기반<br>
+                        동적 조정
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>최적화</strong><br>
+                        자동 스케일링<br>
+                        비용 효율
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                클라우드 시대의 수학<br>
+                On-Premise: 고정 비용, 과잉 투자<br>
+                Cloud: 변동 비용, 최적 투자<br><br>
+                수학적 최적화가 직접적인 비용 절감!<br>
+                • Auto-scaling: 미분으로 수요 예측<br>
+                • Load balancing: 확률 분포 활용<br>
+                • Spot instance: 게임 이론 적용
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 20 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">20</div>
+            <div class="problem-title">메타버스 경제의 복합 함수</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🌐 상황 설명</h4>
+            메타버스 플랫폼 "VirtualWorld"의 경제 시스템:<br><br>
+
+            <strong>가치 창출 함수:</strong><br>
+            • 토지 가치: L(x) = 1000x^0.7 (x: 면적 m²)<br>
+            • 방문자 가치: V(y) = 50y × log₁₀(y+10) (y: 일일 방문자)<br>
+            • 콘텐츠 가치: C(z) = 100√z × (1 + 0.1z) (z: 아이템 수)<br><br>
+
+            <strong>총 자산 가치 = L(x) + V(y) + C(z) + 시너지 효과</strong><br>
+            <strong>시너지 = 0.001 × L × V × C / 1000000</strong><br><br>
+
+            플레이어 A: 100m², 500명/일, 50개 아이템 보유
+        </div>
+
+        <div class="question-box">
+            플레이어 A의 총 자산 가치를 계산하고, 각 요소를 2배로 늘렸을 때의 효과를 비교하시오.
+            또한 이 복합 경제 모델이 실제 메타버스 생태계를 어떻게 반영하는지 분석하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 현재 자산 가치 계산</strong><br><br>
+
+                <strong>기본 플레이어 A (100m², 500명, 50개):</strong><br>
+                • L(100) = 1000 × 100^0.7 ≈ 1000 × 25.1 = 25,100<br>
+                • V(500) = 50 × 500 × log₁₀(510) ≈ 25000 × 2.71 = 67,750<br>
+                • C(50) = 100 × √50 × (1 + 5) = 100 × 7.07 × 6 = 4,242<br><br>
+
+                기본 가치 합계: 97,092<br><br>
+
+                시너지: 0.001 × 25100 × 67750 × 4242 / 1000000 ≈ 7,215<br><br>
+
+                <strong>총 자산 가치: 104,307</strong>
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 각 요소 2배 시나리오</strong><br><br>
+
+                <strong>시나리오 1: 토지 2배 (200m²)</strong><br>
+                • L(200) = 1000 × 200^0.7 ≈ 42,000<br>
+                • 증가율: 67.3%<br><br>
+
+                <strong>시나리오 2: 방문자 2배 (1000명)</strong><br>
+                • V(1000) = 50 × 1000 × log₁₀(1010) ≈ 150,000<br>
+                • 증가율: 121.4%<br><br>
+
+                <strong>시나리오 3: 아이템 2배 (100개)</strong><br>
+                • C(100) = 100 × 10 × 11 = 11,000<br>
+                • 증가율: 159.3%<br><br>
+
+                가장 효과적: 아이템 수 증가!
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>자산 구성 비율</h5>
+                    <svg viewBox="0 0 300 200">
+                        <rect x="40" y="40" width="60" height="100" fill="#4caf50" opacity="0.6"/>
+                        <text x="70" y="160" text-anchor="middle" font-size="10">토지</text>
+                        <text x="70" y="90" text-anchor="middle" font-weight="bold">24%</text>
+
+                        <rect x="120" y="40" width="60" height="100" fill="#ff9800" opacity="0.6"/>
+                        <text x="150" y="160" text-anchor="middle" font-size="10">방문자</text>
+                        <text x="150" y="90" text-anchor="middle" font-weight="bold">65%</text>
+
+                        <rect x="200" y="40" width="60" height="100" fill="#2196f3" opacity="0.6"/>
+                        <text x="230" y="160" text-anchor="middle" font-size="10">콘텐츠</text>
+                        <text x="230" y="90" text-anchor="middle" font-weight="bold">4%</text>
+
+                        <rect x="40" y="140" width="220" height="20" fill="#9c27b0" opacity="0.6"/>
+                        <text x="150" y="155" text-anchor="middle" font-size="10">시너지 7%</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold">현재 자산 구조</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>성장 효과 비교</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="30" x2="30" y2="170" stroke="black" stroke-width="2"/>
+
+                        <rect x="50" y="110" width="40" height="60" fill="#4caf50" opacity="0.6"/>
+                        <text x="70" y="185" text-anchor="middle" font-size="10">토지</text>
+                        <text x="70" y="100" text-anchor="middle">+67%</text>
+
+                        <rect x="130" y="70" width="40" height="100" fill="#ff9800" opacity="0.6"/>
+                        <text x="150" y="185" text-anchor="middle" font-size="10">방문자</text>
+                        <text x="150" y="60" text-anchor="middle">+121%</text>
+
+                        <rect x="210" y="50" width="40" height="120" fill="#2196f3" opacity="0.6"/>
+                        <text x="230" y="185" text-anchor="middle" font-size="10">콘텐츠</text>
+                        <text x="230" y="40" text-anchor="middle">+159%</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold">2배 투자 시 효과</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>시너지 매트릭스</h5>
+                    <svg viewBox="0 0 300 200">
+                        <rect x="40" y="40" width="220" height="140" fill="#f5f5f5" stroke="#999" stroke-width="1"/>
+
+                        <text x="150" y="30" text-anchor="middle" font-weight="bold">상호작용 효과</text>
+
+                        <!-- 연결선들 -->
+                        <circle cx="80" cy="80" r="20" fill="#4caf50" opacity="0.6"/>
+                        <text x="80" y="85" text-anchor="middle">토지</text>
+
+                        <circle cx="220" cy="80" r="20" fill="#ff9800" opacity="0.6"/>
+                        <text x="220" y="85" text-anchor="middle">방문자</text>
+
+                        <circle cx="150" cy="140" r="20" fill="#2196f3" opacity="0.6"/>
+                        <text x="150" y="145" text-anchor="middle">콘텐츠</text>
+
+                        <line x1="100" y1="80" x2="200" y2="80" stroke="#666" stroke-width="2"/>
+                        <line x1="90" y1="95" x2="140" y2="125" stroke="#666" stroke-width="2"/>
+                        <line x1="160" y1="125" x2="210" y2="95" stroke="#666" stroke-width="2"/>
+
+                        <text x="150" y="75" text-anchor="middle" font-size="10">×</text>
+                        <text x="115" y="110" text-anchor="middle" font-size="10">×</text>
+                        <text x="185" y="110" text-anchor="middle" font-size="10">×</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                메타버스 경제의 특징<br>
+                1. 네트워크 효과: 방문자가 핵심 가치<br>
+                2. 콘텐츠 레버리지: 작은 투자, 큰 수익<br>
+                3. 토지 한계: 물리적 제약의 디지털화<br>
+                4. 시너지 곱셈: 각 요소가 서로 증폭<br><br>
+                실물 경제와 다른 점: 한계비용 ≈ 0
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 메타버스 경제학</strong><br><br>
+
+                <strong>전통 경제 vs 메타버스:</strong><br>
+                • 희소성: 인위적 vs 자연적<br>
+                • 생산: 무한 복제 vs 한정 생산<br>
+                • 가치: 주목 경제 vs 노동 가치<br>
+                • 성장: 지수적 vs 선형적
+            </div>
+
+            <div class="visual-progression">
+                <h5>🚀 메타버스 성장 전략</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>Phase 1</strong><br>
+                        콘텐츠 축적<br>
+                        C(z) 극대화
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>Phase 2</strong><br>
+                        커뮤니티 형성<br>
+                        V(y) 증가
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>Phase 3</strong><br>
+                        토지 확장<br>
+                        L(x) 투자
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>Phase 4</strong><br>
+                        생태계 완성<br>
+                        시너지 극대화
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                디지털 자산의 미래<br>
+                현재: 게임 내 아이템<br>
+                근미래: NFT, 디지털 부동산<br>
+                미래: 완전한 가상 경제<br><br>
+                수학 함수가 경제 법칙이 되는 세계!<br>
+                • 스마트 컨트랙트 = 자동 실행 함수<br>
+                • DeFi = 금융의 함수화<br>
+                • DAO = 거버넌스의 알고리즘화
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

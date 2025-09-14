@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중1 함수 - 문제 26-30: 지수와 로그 함수</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .problem-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .problem-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .problem-number {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .problem-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .context-box {
+            background: #fffef0;
+            border: 2px solid #ffa726;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .context-box h4 {
+            color: #f57c00;
+            margin-bottom: 15px;
+        }
+
+        .question-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .graph-sequence {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .graph-step {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .graph-step h5 {
+            color: #5e72e4;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .detail-explanation {
+            background: #f3e5f5;
+            border: 2px solid #9c27b0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .detail-explanation h4 {
+            color: #6a1b9a;
+            margin-bottom: 15px;
+        }
+
+        .step-content {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .insight-box::before {
+            content: "💡 ";
+            font-size: 20px;
+        }
+
+        .concept-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .flow-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .flow-arrow {
+            color: #2196f3;
+            font-size: 24px;
+            margin: 0 10px;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+        }
+
+        .visual-progression {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .visual-progression h5 {
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        .formula-box {
+            background: #f5f5f5;
+            border: 2px solid #9e9e9e;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .problem-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>중학교 1학년 함수 - 문제 26-30: 지수와 로그 함수</h1>
+
+    <!-- 문제 26 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">26</div>
+            <div class="problem-title">바이러스 확산 모델링</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🦠 상황 설명</h4>
+            감염병 연구소가 새로운 바이러스의 확산을 모델링하고 있습니다:<br><br>
+
+            <strong>확산 모델:</strong><br>
+            • 기본 모델: N(t) = N₀ × 2^(t/3) (t: 일, N: 감염자 수)<br>
+            • 방역 효과: R(t) = N₀ × 2^(t/3) × 0.8^(t/7)<br>
+            • 치료제 투입: T(t) = N₀ × 2^(t/3) × (1 - 0.1t)<br><br>
+
+            초기 감염자 N₀ = 100명이고, 정부는 "7일 내 감염자 1000명 미만 유지"를 목표로 합니다.
+        </div>
+
+        <div class="question-box">
+            각 시나리오별 7일째 감염자 수를 계산하고, 어떤 대응이 가장 효과적인지 분석하시오.
+            또한 지수함수가 전염병 확산을 모델링하는 이유를 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 각 모델별 7일 후 계산</strong><br><br>
+
+                <strong>기본 모델 (아무 조치 없음):</strong><br>
+                N(7) = 100 × 2^(7/3) = 100 × 2^2.33 ≈ 100 × 5.04 = 504명<br><br>
+
+                <strong>방역 모델 (사회적 거리두기):</strong><br>
+                R(7) = 100 × 2^(7/3) × 0.8^(7/7)<br>
+                     = 100 × 5.04 × 0.8<br>
+                     = 403명<br><br>
+
+                <strong>치료제 모델:</strong><br>
+                T(7) = 100 × 2^(7/3) × (1 - 0.7)<br>
+                     = 100 × 5.04 × 0.3<br>
+                     = 151명<br><br>
+
+                <strong>결과: 모든 방법이 목표 달성! 치료제가 가장 효과적</strong>
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>확산 곡선 비교</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 기본 지수 곡선 -->
+                        <path d="M 30 160 Q 80 150, 130 130 Q 200 80, 270 30"
+                              fill="none" stroke="#f44336" stroke-width="3"/>
+                        <text x="240" y="25" font-size="10" fill="#f44336">기본</text>
+
+                        <!-- 방역 곡선 -->
+                        <path d="M 30 160 Q 80 155, 130 145 Q 200 110, 270 70"
+                              fill="none" stroke="#ff9800" stroke-width="3"/>
+                        <text x="240" y="65" font-size="10" fill="#ff9800">방역</text>
+
+                        <!-- 치료제 곡선 -->
+                        <path d="M 30 160 Q 80 158, 130 155 Q 200 140, 270 120"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+                        <text x="240" y="115" font-size="10" fill="#4caf50">치료제</text>
+
+                        <!-- 목표선 -->
+                        <line x1="30" y1="80" x2="270" y2="80" stroke="#2196f3" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="275" y="80" font-size="10" fill="#2196f3">1000명</text>
+
+                        <text x="270" y="190" text-anchor="middle">시간(일)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">감염자</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>R₀ (기초재생산수)</h5>
+                    <svg viewBox="0 0 300 200">
+                        <rect x="40" y="40" width="220" height="40" fill="#f44336" opacity="0.3"/>
+                        <text x="150" y="65" text-anchor="middle">기본: R₀ = 2.3</text>
+
+                        <rect x="40" y="90" width="176" height="40" fill="#ff9800" opacity="0.3"/>
+                        <text x="128" y="115" text-anchor="middle">방역: R₀ = 1.8</text>
+
+                        <rect x="40" y="140" width="88" height="40" fill="#4caf50" opacity="0.3"/>
+                        <text x="84" y="165" text-anchor="middle">치료: R₀ = 0.9</text>
+
+                        <line x1="128" y1="40" x2="128" y2="180" stroke="#9c27b0" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="128" y="25" text-anchor="middle" fill="#9c27b0">R₀ = 1 (통제선)</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>로그 스케일</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 로그 스케일에서 직선 -->
+                        <line x1="30" y1="140" x2="270" y2="60" stroke="#f44336" stroke-width="3"/>
+                        <text x="240" y="55" font-size="10" fill="#f44336">log(N)</text>
+
+                        <text x="30" y="25" font-size="10">10⁴</text>
+                        <text x="30" y="70" font-size="10">10³</text>
+                        <text x="30" y="115" font-size="10">10²</text>
+                        <text x="30" y="160" font-size="10">10¹</text>
+
+                        <text x="150" y="15" text-anchor="middle" font-weight="bold">로그 변환 → 직선</text>
+                        <text x="270" y="190" text-anchor="middle">시간</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                지수 함수와 전염병<br>
+                한 사람이 R₀명에게 전파 → R₀²명 → R₀³명...<br>
+                N(t) = N₀ × R₀^(t/세대)<br><br>
+                R₀ > 1: 확산 (pandemic)<br>
+                R₀ = 1: 유지 (endemic)<br>
+                R₀ < 1: 소멸 (controlled)<br><br>
+                이것이 "평탄화(flattening)"가 중요한 이유!
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 복합 전략 분석</strong><br><br>
+
+                <strong>방역 + 치료제:</strong><br>
+                C(t) = 100 × 2^(t/3) × 0.8^(t/7) × (1 - 0.1t)<br>
+                C(7) = 100 × 5.04 × 0.8 × 0.3 = 121명<br><br>
+
+                시너지 효과로 더 강력한 억제!
+            </div>
+
+            <div class="visual-progression">
+                <h5>🏥 방역 단계별 대응</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>1단계</strong><br>
+                        모니터링<br>
+                        R₀ < 1.5
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>2단계</strong><br>
+                        거리두기<br>
+                        R₀ < 1.2
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>3단계</strong><br>
+                        봉쇄<br>
+                        R₀ < 1.0
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>종료</strong><br>
+                        백신/치료<br>
+                        R₀ < 0.8
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                팬데믹의 수학<br>
+                SIR 모델: S(취약) → I(감염) → R(회복)<br>
+                dI/dt = βSI - γI (미분방정식)<br><br>
+                중1 지수함수 → 고등 미분 → 대학 역학 모델<br>
+                수학이 생명을 구하는 실제 사례!<br>
+                COVID-19 예측 모델도 여기서 시작
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 27 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">27</div>
+            <div class="problem-title">소리의 데시벨과 로그 스케일</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🔊 상황 설명</h4>
+            음향 엔지니어가 콘서트홀을 설계하고 있습니다:<br><br>
+
+            <strong>소리 강도 공식:</strong><br>
+            • 데시벨: dB = 10 × log₁₀(I/I₀)<br>
+            • I₀ = 10^(-12) W/m² (최소 가청 강도)<br><br>
+
+            <strong>주요 소음원:</strong><br>
+            • 일반 대화: 60 dB<br>
+            • 도로 소음: 80 dB<br>
+            • 록 콘서트: 110 dB<br>
+            • 제트기: 130 dB<br><br>
+
+            청력 보호 기준은 "8시간 노출 시 85 dB 이하"입니다.
+        </div>
+
+        <div class="question-box">
+            각 소음원의 실제 강도(W/m²)를 계산하고, 두 소리가 합쳐질 때의 데시벨을 구하시오.
+            또한 로그 스케일이 청각 인지에 적합한 이유를 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: dB를 실제 강도로 변환</strong><br><br>
+
+                <div class="formula-box">
+                dB = 10 × log₁₀(I/I₀)<br>
+                I = I₀ × 10^(dB/10)<br><br>
+
+                일반 대화 (60 dB):<br>
+                I = 10^(-12) × 10^6 = 10^(-6) W/m²<br><br>
+
+                도로 소음 (80 dB):<br>
+                I = 10^(-12) × 10^8 = 10^(-4) W/m²<br><br>
+
+                록 콘서트 (110 dB):<br>
+                I = 10^(-12) × 10^11 = 10^(-1) W/m²<br><br>
+
+                20 dB 차이 = 100배 강도 차이!
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 소리의 합성</strong><br><br>
+
+                두 개의 60 dB 소리가 합쳐지면?<br>
+                I_total = 2 × 10^(-6) W/m²<br>
+                dB_total = 10 × log₁₀(2 × 10^6)<br>
+                        = 10 × (log₁₀2 + 6)<br>
+                        = 10 × (0.301 + 6)<br>
+                        = 63 dB<br><br>
+
+                <strong>놀라운 사실: 60 dB + 60 dB = 63 dB (120 dB가 아님!)</strong>
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>선형 vs 로그 스케일</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 선형 스케일 (포화) -->
+                        <path d="M 30 170 L 35 30 L 270 30"
+                              fill="none" stroke="#f44336" stroke-width="3"/>
+                        <text x="150" y="25" font-size="10" fill="#f44336">선형: 극단적</text>
+
+                        <!-- 로그 스케일 (완만) -->
+                        <path d="M 30 170 Q 100 120, 180 80 T 270 50"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+                        <text x="240" y="45" font-size="10" fill="#4caf50">로그: 균형</text>
+
+                        <text x="270" y="190" text-anchor="middle">실제 강도</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">인지</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>청각 손상 영역</h5>
+                    <svg viewBox="0 0 300 200">
+                        <rect x="30" y="140" width="60" height="30" fill="#4caf50" opacity="0.3"/>
+                        <text x="60" y="160" text-anchor="middle" font-size="10">대화</text>
+                        <text x="60" y="185" text-anchor="middle" font-size="9">60dB</text>
+
+                        <rect x="90" y="100" width="60" height="70" fill="#ff9800" opacity="0.3"/>
+                        <text x="120" y="135" text-anchor="middle" font-size="10">도로</text>
+                        <text x="120" y="185" text-anchor="middle" font-size="9">80dB</text>
+
+                        <rect x="150" y="60" width="60" height="110" fill="#f44336" opacity="0.3"/>
+                        <text x="180" y="115" text-anchor="middle" font-size="10">콘서트</text>
+                        <text x="180" y="185" text-anchor="middle" font-size="9">110dB</text>
+
+                        <rect x="210" y="30" width="60" height="140" fill="#9c27b0" opacity="0.3"/>
+                        <text x="240" y="100" text-anchor="middle" font-size="10">제트기</text>
+                        <text x="240" y="185" text-anchor="middle" font-size="9">130dB</text>
+
+                        <!-- 위험선 -->
+                        <line x1="30" y1="85" x2="270" y2="85" stroke="#f44336" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="275" y="85" font-size="10" fill="#f44336">85dB</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>노출 시간 한계</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 지수적 감소 -->
+                        <path d="M 30 30 Q 60 50, 100 80 Q 150 120, 270 165"
+                              fill="none" stroke="#9c27b0" stroke-width="3"/>
+
+                        <circle cx="30" cy="30" r="3" fill="#9c27b0"/>
+                        <text x="30" y="20" font-size="10">85dB: 8h</text>
+
+                        <circle cx="100" cy="80" r="3" fill="#9c27b0"/>
+                        <text x="100" y="70" font-size="10">95dB: 1h</text>
+
+                        <circle cx="180" cy="130" r="3" fill="#9c27b0"/>
+                        <text x="180" y="120" font-size="10">105dB: 5분</text>
+
+                        <text x="270" y="190" text-anchor="middle">dB</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">안전시간</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                Weber-Fechner 법칙<br>
+                감각 = k × log(자극)<br>
+                인간의 모든 감각이 로그 스케일!<br><br>
+                • 청각: 데시벨 (dB)<br>
+                • 시각: 등급 (magnitude)<br>
+                • 지진: 리히터 규모<br>
+                • pH: 수소이온농도<br><br>
+                우리 뇌가 로그 프로세서!
+            </div>
+
+            <div class="visual-progression">
+                <h5>🎧 청력 보호 전략</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>거리</strong><br>
+                        2배 거리<br>
+                        -6dB
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>차단</strong><br>
+                        귀마개<br>
+                        -20dB
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>시간</strong><br>
+                        노출 제한<br>
+                        3dB = 시간/2
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>모니터링</strong><br>
+                        스마트워치<br>
+                        실시간 측정
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                음향 공학의 미래<br>
+                • 능동 소음 제거 (ANC): 역위상 간섭<br>
+                • 3D 오디오: HRTF 함수<br>
+                • AI 음향: 딥러닝 필터링<br><br>
+                AirPods Pro가 주변 소음을 줄이는 원리:<br>
+                소리 파동의 역함수를 실시간 생성!
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 28 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">28</div>
+            <div class="problem-title">복리 투자와 금융 함수</div>
+        </div>
+
+        <div class="context-box">
+            <h4>💰 상황 설명</h4>
+            금융 교육 앱이 다양한 투자 상품을 비교합니다:<br><br>
+
+            <strong>투자 옵션:</strong><br>
+            • 예금: A = P(1 + 0.03)^t<br>
+            • 주식: A = P × e^(0.08t) × (1 + 0.3sin(2πt))<br>
+            • 암호화폐: A = P × 2^(t/2) × 0.5^(floor(t/3))<br>
+            • 연금: A = P × t × 1.05^t<br><br>
+
+            초기 투자금 P = 1000만원, 투자 기간 10년을 고려합니다.
+        </div>
+
+        <div class="question-box">
+            각 투자 옵션의 10년 후 가치를 계산하고, 위험-수익 프로파일을 분석하시오.
+            또한 복리의 "72의 법칙"을 설명하고 검증하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 10년 후 가치 계산</strong><br><br>
+
+                <strong>예금 (안정형):</strong><br>
+                A = 1000 × (1.03)^10 = 1000 × 1.344 = 1344만원<br>
+                수익률: 34.4%<br><br>
+
+                <strong>주식 (변동형):</strong><br>
+                A = 1000 × e^0.8 × (1 + 0) = 1000 × 2.226 = 2226만원<br>
+                수익률: 122.6% (변동성 무시 시)<br><br>
+
+                <strong>암호화폐 (고위험):</strong><br>
+                A = 1000 × 2^5 × 0.5^3 = 1000 × 32 × 0.125 = 400만원<br>
+                수익률: -60% (폭락!)<br><br>
+
+                <strong>연금 (혼합형):</strong><br>
+                A = 1000 × 10 × 1.05^10 = 10000 × 1.629 = 16,290만원<br>
+                수익률: 1529% (매년 추가 납입 가정)
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 72의 법칙 검증</strong><br><br>
+
+                <div class="formula-box">
+                72의 법칙: 원금 2배까지 걸리는 시간 ≈ 72/이자율(%)<br><br>
+
+                예금 3%: 72/3 = 24년<br>
+                실제: (1.03)^t = 2 → t = log2/log1.03 = 23.4년 ✓<br><br>
+
+                주식 8%: 72/8 = 9년<br>
+                실제: e^(0.08t) = 2 → t = ln2/0.08 = 8.66년 ✓<br><br>
+
+                오차 < 5% → 실용적으로 정확!
+                </div>
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>복리 성장 곡선</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 예금 (완만) -->
+                        <path d="M 30 150 Q 100 140, 180 120 T 270 90"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+                        <text x="240" y="85" font-size="10" fill="#4caf50">예금</text>
+
+                        <!-- 주식 (가파름) -->
+                        <path d="M 30 150 Q 100 120, 180 70 T 270 30"
+                              fill="none" stroke="#ff9800" stroke-width="3"/>
+                        <text x="240" y="25" font-size="10" fill="#ff9800">주식</text>
+
+                        <!-- 암호화폐 (급등락) -->
+                        <path d="M 30 150 Q 80 50, 130 30 Q 180 100, 270 160"
+                              fill="none" stroke="#f44336" stroke-width="3" stroke-dasharray="5,5"/>
+                        <text x="240" y="155" font-size="10" fill="#f44336">암호화폐</text>
+
+                        <text x="270" y="190" text-anchor="middle">시간(년)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">가치</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>위험-수익 매트릭스</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <circle cx="80" cy="150" r="20" fill="#4caf50" opacity="0.5"/>
+                        <text x="80" y="155" text-anchor="middle" font-size="10">예금</text>
+
+                        <circle cx="150" cy="100" r="25" fill="#ff9800" opacity="0.5"/>
+                        <text x="150" y="105" text-anchor="middle" font-size="10">주식</text>
+
+                        <circle cx="220" cy="60" r="30" fill="#f44336" opacity="0.5"/>
+                        <text x="220" y="65" text-anchor="middle" font-size="10">암호</text>
+
+                        <text x="270" y="190" text-anchor="middle">위험</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">수익</text>
+
+                        <!-- 효율적 프론티어 -->
+                        <path d="M 80 150 Q 150 100, 220 60"
+                              fill="none" stroke="#9c27b0" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="150" y="130" text-anchor="middle" font-size="10" fill="#9c27b0">효율적 프론티어</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>시간 가치</h5>
+                    <svg viewBox="0 0 300 200">
+                        <rect x="40" y="40" width="30" height="130" fill="#4caf50" opacity="0.6"/>
+                        <text x="55" y="185" text-anchor="middle" font-size="9">1년</text>
+
+                        <rect x="90" y="40" width="30" height="110" fill="#4caf50" opacity="0.7"/>
+                        <text x="105" y="185" text-anchor="middle" font-size="9">5년</text>
+
+                        <rect x="140" y="40" width="30" height="80" fill="#4caf50" opacity="0.8"/>
+                        <text x="155" y="185" text-anchor="middle" font-size="9">10년</text>
+
+                        <rect x="190" y="40" width="30" height="40" fill="#4caf50" opacity="0.9"/>
+                        <text x="205" y="185" text-anchor="middle" font-size="9">20년</text>
+
+                        <rect x="240" y="40" width="30" height="20" fill="#4caf50"/>
+                        <text x="255" y="185" text-anchor="middle" font-size="9">30년</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold">복리 효과 가속</text>
+                        <text x="55" y="35" text-anchor="middle" font-size="10">103%</text>
+                        <text x="105" y="35" text-anchor="middle" font-size="10">116%</text>
+                        <text x="155" y="35" text-anchor="middle" font-size="10">134%</text>
+                        <text x="205" y="35" text-anchor="middle" font-size="10">181%</text>
+                        <text x="255" y="35" text-anchor="middle" font-size="10">242%</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                아인슈타인: "복리는 세계 8번째 불가사의"<br>
+                시간 + 복리 = 기하급수적 성장<br><br>
+                20대부터 월 100만원 투자 (연 7%):<br>
+                • 30년 후: 12억<br>
+                • 40년 후: 26억<br>
+                • 50년 후: 57억<br><br>
+                10년 늦으면 절반의 결과!
+            </div>
+
+            <div class="visual-progression">
+                <h5>💎 FIRE 운동 (Financial Independence, Retire Early)</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>저축률</strong><br>
+                        50-70%<br>
+                        극단적 절약
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>투자</strong><br>
+                        인덱스 펀드<br>
+                        복리 극대화
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>4% 룰</strong><br>
+                        자산×0.04<br>
+                        = 연간 생활비
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>은퇴</strong><br>
+                        40대<br>
+                        경제적 자유
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                디지털 자산 시대의 함수<br>
+                • DeFi: 자동 복리 프로토콜<br>
+                • 스테이킹: f(t) = P × e^(APY×t)<br>
+                • 유동성 풀: xy = k (상수곱 공식)<br><br>
+                전통 금융의 수학이 코드로 구현되는 시대!<br>
+                Smart Contract = 금융 함수의 자동 실행
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 29 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">29</div>
+            <div class="problem-title">머신러닝 손실 함수 최적화</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🤖 상황 설명</h4>
+            AI 연구팀이 이미지 분류 모델을 훈련시키고 있습니다:<br><br>
+
+            <strong>손실 함수들:</strong><br>
+            • MSE: L₁(x) = (y - f(x))²<br>
+            • Cross-Entropy: L₂(x) = -y×log(f(x))<br>
+            • Huber: L₃(x) = {0.5x² (|x|≤1), |x|-0.5 (|x|>1)}<br><br>
+
+            <strong>학습률 스케줄:</strong><br>
+            • 고정: η(t) = 0.01<br>
+            • 지수 감소: η(t) = 0.1 × 0.95^t<br>
+            • 코사인 어닐링: η(t) = 0.05(1 + cos(πt/100))<br><br>
+
+            모델은 100 epoch 동안 훈련됩니다.
+        </div>
+
+        <div class="question-box">
+            각 손실 함수의 특성을 분석하고, 최적 학습률 스케줄을 선택하시오.
+            또한 이러한 함수들이 AI 학습에서 갖는 의미를 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 손실 함수 특성</strong><br><br>
+
+                <strong>MSE (Mean Squared Error):</strong><br>
+                • 이차 함수: 큰 오류에 민감<br>
+                • 미분: 2(y - f(x)) → 선형 기울기<br>
+                • 용도: 회귀 문제<br><br>
+
+                <strong>Cross-Entropy:</strong><br>
+                • 로그 함수: 확률적 해석<br>
+                • 미분: -y/f(x) → 급격한 기울기<br>
+                • 용도: 분류 문제<br><br>
+
+                <strong>Huber Loss:</strong><br>
+                • 조각 함수: 이상치에 강건<br>
+                • MSE + MAE 혼합<br>
+                • 용도: 노이즈 많은 데이터
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>손실 함수 비교</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="150" y1="30" x2="150" y2="170" stroke="#999" stroke-width="1"/>
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+
+                        <!-- MSE (포물선) -->
+                        <path d="M 30 170 Q 90 150, 150 140 Q 210 150, 270 170"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+                        <text x="240" y="160" font-size="10" fill="#4caf50">MSE</text>
+
+                        <!-- Cross-Entropy (비대칭) -->
+                        <path d="M 30 30 Q 100 100, 150 140 Q 200 155, 270 165"
+                              fill="none" stroke="#ff9800" stroke-width="3"/>
+                        <text x="240" y="155" font-size="10" fill="#ff9800">CE</text>
+
+                        <!-- Huber (V자 + 포물선) -->
+                        <path d="M 30 170 L 120 150 L 150 140 L 180 150 L 270 170"
+                              fill="none" stroke="#2196f3" stroke-width="3"/>
+                        <text x="240" y="175" font-size="10" fill="#2196f3">Huber</text>
+
+                        <text x="150" y="185" text-anchor="middle">오차</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">손실</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>학습률 스케줄</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 고정 -->
+                        <line x1="30" y1="130" x2="270" y2="130" stroke="#4caf50" stroke-width="3"/>
+                        <text x="240" y="125" font-size="10" fill="#4caf50">고정</text>
+
+                        <!-- 지수 감소 -->
+                        <path d="M 30 50 Q 100 90, 180 120 T 270 140"
+                              fill="none" stroke="#ff9800" stroke-width="3"/>
+                        <text x="240" y="135" font-size="10" fill="#ff9800">지수</text>
+
+                        <!-- 코사인 -->
+                        <path d="M 30 50 Q 60 90, 90 50 Q 120 90, 150 50 Q 180 90, 210 50 Q 240 90, 270 50"
+                              fill="none" stroke="#9c27b0" stroke-width="3"/>
+                        <text x="240" y="45" font-size="10" fill="#9c27b0">코사인</text>
+
+                        <text x="270" y="190" text-anchor="middle">Epoch</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">학습률</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>수렴 과정</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 손실 감소 곡선 -->
+                        <path d="M 30 30 Q 60 100, 100 130 Q 150 150, 270 160"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+
+                        <!-- 진동 -->
+                        <path d="M 100 130 Q 105 125, 110 130 Q 115 125, 120 130"
+                              fill="none" stroke="#f44336" stroke-width="2"/>
+                        <text x="110" y="115" font-size="10" fill="#f44336">진동</text>
+
+                        <!-- 평탄 구간 -->
+                        <rect x="180" y="150" width="60" height="10" fill="#ff9800" opacity="0.3"/>
+                        <text x="210" y="145" text-anchor="middle" font-size="10" fill="#ff9800">평탄</text>
+
+                        <text x="270" y="190" text-anchor="middle">훈련 시간</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">손실</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                경사하강법의 수학<br>
+                θ_new = θ_old - η × ∇L(θ)<br>
+                • θ: 모델 파라미터<br>
+                • η: 학습률 (step size)<br>
+                • ∇L: 손실 함수의 기울기<br><br>
+                너무 큰 η → 발산<br>
+                너무 작은 η → 느린 수렴<br>
+                적응적 η → 최적 경로!
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 최적 조합 선택</strong><br><br>
+
+                <strong>이미지 분류 태스크:</strong><br>
+                • 손실 함수: Cross-Entropy (확률적 출력)<br>
+                • 학습률: 코사인 어닐링<br>
+                • 이유: 주기적 탈출로 더 나은 최솟값 탐색<br><br>
+
+                <strong>실험 결과:</strong><br>
+                • 고정 η: 92% 정확도, 평탄 구간 정체<br>
+                • 지수 감소: 94% 정확도, 후반 미세조정<br>
+                • 코사인: 96% 정확도, 지역 최솟값 탈출
+            </div>
+
+            <div class="visual-progression">
+                <h5>🧠 딥러닝 최적화 전략</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>SGD</strong><br>
+                        기본<br>
+                        느림
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>Momentum</strong><br>
+                        관성 추가<br>
+                        진동 감소
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>Adam</strong><br>
+                        적응적<br>
+                        빠른 수렴
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>LAMB</strong><br>
+                        대규모<br>
+                        안정적
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                AI 혁명의 수학적 기초<br>
+                • Transformer: Attention(Q,K,V) = softmax(QK^T/√d)V<br>
+                • CNN: f(x) = σ(W⊗x + b) (합성곱)<br>
+                • GAN: min_G max_D V(D,G) (게임이론)<br><br>
+                ChatGPT도 결국 거대한 함수!<br>
+                175B 파라미터 = 1750억 개의 변수를 가진 함수<br>
+                중1 함수가 AI 시대의 시작점
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 30 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">30</div>
+            <div class="problem-title">양자 컴퓨팅과 확률 진폭 함수</div>
+        </div>
+
+        <div class="context-box">
+            <h4>⚛️ 상황 설명</h4>
+            양자 컴퓨터 연구소에서 큐비트 상태를 분석합니다:<br><br>
+
+            <strong>큐비트 상태:</strong><br>
+            |ψ⟩ = α|0⟩ + β|1⟩ (α² + β² = 1)<br><br>
+
+            <strong>측정 확률:</strong><br>
+            P(0) = |α|² = cos²(θ/2)<br>
+            P(1) = |β|² = sin²(θ/2)<br><br>
+
+            <strong>양자 게이트:</strong><br>
+            • Hadamard: H = (1/√2)[1, 1; 1, -1]<br>
+            • Pauli-X: X = [0, 1; 1, 0]<br>
+            • Phase: S = [1, 0; 0, i]<br><br>
+
+            5 큐비트 시스템(2^5 = 32 상태)을 제어합니다.
+        </div>
+
+        <div class="question-box">
+            양자 중첩 상태의 확률 분포를 계산하고, 고전 컴퓨터와의 계산 능력 차이를 분석하시오.
+            또한 지수 함수가 양자 우월성을 설명하는 이유를 논하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 양자 중첩의 수학</strong><br><br>
+
+                <strong>1 큐비트:</strong><br>
+                |ψ⟩ = (1/√2)|0⟩ + (1/√2)|1⟩<br>
+                P(0) = P(1) = 1/2 (균등 중첩)<br><br>
+
+                <strong>2 큐비트:</strong><br>
+                |ψ⟩ = (1/2)(|00⟩ + |01⟩ + |10⟩ + |11⟩)<br>
+                4개 상태 동시 존재<br><br>
+
+                <strong>5 큐비트:</strong><br>
+                2^5 = 32개 상태 동시 처리<br>
+                고전: 32번 계산<br>
+                양자: 1번 계산!
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>상태 공간 증가</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 지수 증가 -->
+                        <path d="M 30 165 Q 60 160, 100 150 Q 150 120, 200 60 Q 235 35, 270 30"
+                              fill="none" stroke="#9c27b0" stroke-width="3"/>
+
+                        <circle cx="30" cy="165" r="3" fill="#9c27b0"/>
+                        <text x="30" y="155" font-size="10">2</text>
+
+                        <circle cx="100" cy="150" r="3" fill="#9c27b0"/>
+                        <text x="100" y="140" font-size="10">8</text>
+
+                        <circle cx="200" cy="60" r="3" fill="#9c27b0"/>
+                        <text x="200" y="50" font-size="10">1024</text>
+
+                        <text x="270" y="190" text-anchor="middle">큐비트 수</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">상태 수</text>
+
+                        <text x="150" y="15" text-anchor="middle" font-weight="bold">2^n 성장</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>확률 진폭</h5>
+                    <svg viewBox="0 0 300 200">
+                        <circle cx="150" cy="100" r="80" fill="none" stroke="#333" stroke-width="2"/>
+
+                        <!-- 복소평면 -->
+                        <line x1="70" y1="100" x2="230" y2="100" stroke="#999" stroke-width="1"/>
+                        <line x1="150" y1="20" x2="150" y2="180" stroke="#999" stroke-width="1"/>
+
+                        <!-- 상태 벡터 -->
+                        <line x1="150" y1="100" x2="200" y2="50" stroke="#4caf50" stroke-width="3" marker-end="url(#arrowgreen)"/>
+                        <text x="210" y="45" font-size="10">|ψ⟩</text>
+
+                        <!-- 확률 -->
+                        <path d="M 150 100 L 200 100 L 200 50 Z" fill="#4caf50" opacity="0.3"/>
+                        <text x="175" y="80" font-size="10">|α|²</text>
+
+                        <text x="150" y="15" text-anchor="middle" font-weight="bold">블로흐 구</text>
+
+                        <defs>
+                            <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#4caf50"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>양자 vs 고전</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 고전 (선형) -->
+                        <line x1="30" y1="150" x2="270" y2="90" stroke="#f44336" stroke-width="3"/>
+                        <text x="240" y="85" font-size="10" fill="#f44336">고전</text>
+
+                        <!-- 양자 (지수) -->
+                        <path d="M 30 150 Q 100 140, 150 100 Q 200 40, 270 30"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+                        <text x="240" y="25" font-size="10" fill="#4caf50">양자</text>
+
+                        <!-- 교차점 -->
+                        <circle cx="120" cy="130" r="4" fill="#9c27b0"/>
+                        <text x="120" y="120" text-anchor="middle" font-size="10">우월점</text>
+
+                        <text x="270" y="190" text-anchor="middle">문제 크기</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">계산 시간</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                양자 우월성 (Quantum Supremacy)<br>
+                53 큐비트 = 2^53 ≈ 9×10^15 상태<br>
+                • 양자: 200초<br>
+                • 슈퍼컴퓨터: 10,000년<br><br>
+                지수 함수의 압도적 성장!<br>
+                100 큐비트 = 우주의 원자 수보다 많은 상태
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 실용적 응용</strong><br><br>
+
+                <strong>Shor 알고리즘 (소인수분해):</strong><br>
+                • 고전: O(e^n) - 지수 시간<br>
+                • 양자: O(n³) - 다항 시간<br>
+                • 영향: RSA 암호 무력화<br><br>
+
+                <strong>Grover 알고리즘 (검색):</strong><br>
+                • 고전: O(N) - 선형<br>
+                • 양자: O(√N) - 제곱근<br>
+                • 100만 개 → 1000번만 검색
+            </div>
+
+            <div class="visual-progression">
+                <h5>🔮 양자 컴퓨팅 로드맵</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>NISQ</strong><br>
+                        50-100 큐비트<br>
+                        노이즈 있음
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>오류 정정</strong><br>
+                        1000 큐비트<br>
+                        안정화
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>실용화</strong><br>
+                        10^6 큐비트<br>
+                        신약, 재료
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>범용</strong><br>
+                        10^9 큐비트<br>
+                        모든 문제
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                양자 시대의 도래<br>
+                • 2019: Google 양자 우월성 선언<br>
+                • 2023: IBM 433 큐비트 Osprey<br>
+                • 2025: 1000+ 큐비트 예상<br>
+                • 2030: 실용 양자 컴퓨터<br><br>
+                중1이 배우는 지수 함수가<br>
+                인류 문명의 다음 도약을 설명!<br>
+                f(x) = 2^x 가 만드는 미래
+            </div>
+        </div>
+    </div>
+
+    <!-- 종합 정리 -->
+    <div class="summary-box">
+        <h2 style="text-align: center; margin-bottom: 20px;">🎓 30문제 완주를 축하합니다!</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <div>
+                <h3>배운 함수 개념</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li>✅ 함수의 정의와 판별</li>
+                    <li>✅ 일차, 이차, 지수, 로그 함수</li>
+                    <li>✅ 함수의 합성과 역함수</li>
+                    <li>✅ 조각 함수와 주기 함수</li>
+                    <li>✅ 최적화와 모델링</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>실생활 응용 분야</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li>🚀 우주공학과 물리학</li>
+                    <li>💰 금융과 경제학</li>
+                    <li>🧬 생명공학과 의학</li>
+                    <li>🤖 인공지능과 머신러닝</li>
+                    <li>⚛️ 양자컴퓨팅과 미래기술</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; text-align: center; font-size: 18px;">
+            <p><strong>함수는 세상을 이해하는 언어입니다.</strong></p>
+            <p>여러분이 배운 이 기초가 미래를 만들어갈 도구가 될 것입니다.</p>
+            <p style="margin-top: 20px; font-size: 24px;">🌟 수학으로 꿈을 현실로! 🌟</p>
+        </div>
+    </div>
+
+</body>
+</html>

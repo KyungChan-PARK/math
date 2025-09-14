@@ -51,7 +51,19 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.*
 .env.test
+.env.local
+.env.production
+.env.development
+
+# API Keys and Credentials
+*.key
+*.pem
+*.cert
+*-credentials.json
+*-key.json
+math-project-*.json
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -127,7 +139,19 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.*
 .env.test
+.env.local
+.env.production
+.env.development
+
+# API Keys and Credentials
+*.key
+*.pem
+*.cert
+*-credentials.json
+*-key.json
+math-project-*.json
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -186,4 +210,4 @@ node_modules
 # *.pyd - managed by LFS
 # *.dll - managed by LFS
 # *.db - managed by LFS
-# ontology-system/neo4j-data/ - managed by LFS
+# ontology-system/neo4j-data/ - managed by LFSvenv311/

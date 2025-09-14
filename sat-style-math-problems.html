@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중1 함수 - SAT 스타일 실생활 문제</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .problem-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .problem-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .problem-number {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .problem-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .context-box {
+            background: #fffef0;
+            border: 2px solid #ffa726;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .context-box h4 {
+            color: #f57c00;
+            margin-bottom: 15px;
+        }
+
+        .question-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .graph-sequence {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .graph-step {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .graph-step h5 {
+            color: #5e72e4;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .detail-explanation {
+            background: #f3e5f5;
+            border: 2px solid #9c27b0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .detail-explanation h4 {
+            color: #6a1b9a;
+            margin-bottom: 15px;
+        }
+
+        .step-content {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .insight-box::before {
+            content: "💡 ";
+            font-size: 20px;
+        }
+
+        .concept-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .flow-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .flow-arrow {
+            color: #2196f3;
+            font-size: 24px;
+            margin: 0 10px;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+        }
+
+        .visual-progression {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .visual-progression h5 {
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .problem-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>중학교 1학년 함수 - 실생활 맥락 문제</h1>
+
+    <!-- 문제 1 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">1</div>
+            <div class="problem-title">스마트 도시의 교통 시스템</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🌆 상황 설명</h4>
+            서울시는 새로운 스마트 교통 시스템을 도입했습니다. 이 시스템은 다음과 같은 데이터를 수집합니다:<br><br>
+            • 시스템 A: 각 차량의 번호판을 읽어 해당 차량의 현재 속도를 기록<br>
+            • 시스템 B: 특정 속도로 주행 중인 모든 차량의 번호판을 기록<br>
+            • 시스템 C: 운전자의 휴대폰 번호로 차량 위치를 추적<br>
+            • 시스템 D: 특정 지역에 있는 모든 운전자의 휴대폰 번호를 수집<br><br>
+
+            교통 관제 센터에서는 "하나의 입력에 대해 정확히 하나의 출력을 보장하는 시스템"만을 신뢰할 수 있는 데이터 소스로 분류합니다.
+        </div>
+
+        <div class="question-box">
+            위 시스템 중 신뢰할 수 있는 데이터 소스로 분류될 수 있는 것은 무엇이며, 그 이유를 수학적 관계를 통해 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 문제의 핵심 파악</strong><br>
+                "하나의 입력에 정확히 하나의 출력" = 함수의 정의<br>
+                우리가 찾아야 할 것: 어떤 시스템이 함수 관계를 만족하는가?
+            </div>
+
+            <div class="insight-box">
+                여기서 잠깐! 왜 "하나의 입력에 하나의 출력"이 신뢰성과 연결될까요?<br>
+                같은 번호판을 입력했는데 매번 다른 속도가 나온다면, 그 데이터를 믿을 수 있을까요?
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>시스템 A: 번호판 → 속도</h5>
+                    <svg viewBox="0 0 300 200">
+                        <circle cx="50" cy="50" r="30" fill="#4caf50" opacity="0.3"/>
+                        <text x="50" y="55" text-anchor="middle" font-size="12">12가3456</text>
+                        <line x1="80" y1="50" x2="220" y2="50" stroke="#4caf50" stroke-width="2" marker-end="url(#arrowgreen)"/>
+                        <circle cx="250" cy="50" r="30" fill="#4caf50" opacity="0.3"/>
+                        <text x="250" y="55" text-anchor="middle" font-size="12">60km/h</text>
+
+                        <circle cx="50" cy="130" r="30" fill="#4caf50" opacity="0.3"/>
+                        <text x="50" y="135" text-anchor="middle" font-size="12">34나5678</text>
+                        <line x1="80" y1="130" x2="220" y2="130" stroke="#4caf50" stroke-width="2" marker-end="url(#arrowgreen)"/>
+                        <circle cx="250" cy="130" r="30" fill="#4caf50" opacity="0.3"/>
+                        <text x="250" y="135" text-anchor="middle" font-size="12">80km/h</text>
+
+                        <defs>
+                            <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#4caf50"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <p style="text-align:center; color:#4caf50; margin-top:10px">✓ 함수 (각 차량은 한 순간에 하나의 속도)</p>
+                </div>
+
+                <div class="graph-step">
+                    <h5>시스템 B: 속도 → 번호판들</h5>
+                    <svg viewBox="0 0 300 200">
+                        <circle cx="50" cy="100" r="30" fill="#f44336" opacity="0.3"/>
+                        <text x="50" y="105" text-anchor="middle" font-size="12">60km/h</text>
+
+                        <line x1="80" y1="100" x2="220" y2="50" stroke="#f44336" stroke-width="2" marker-end="url(#arrowred)"/>
+                        <circle cx="250" cy="50" r="25" fill="#f44336" opacity="0.3"/>
+                        <text x="250" y="55" text-anchor="middle" font-size="10">12가3456</text>
+
+                        <line x1="80" y1="100" x2="220" y2="100" stroke="#f44336" stroke-width="2" marker-end="url(#arrowred)"/>
+                        <circle cx="250" cy="100" r="25" fill="#f44336" opacity="0.3"/>
+                        <text x="250" y="105" text-anchor="middle" font-size="10">78다9012</text>
+
+                        <line x1="80" y1="100" x2="220" y2="150" stroke="#f44336" stroke-width="2" marker-end="url(#arrowred)"/>
+                        <circle cx="250" cy="150" r="25" fill="#f44336" opacity="0.3"/>
+                        <text x="250" y="155" text-anchor="middle" font-size="10">56라3456</text>
+
+                        <defs>
+                            <marker id="arrowred" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#f44336"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <p style="text-align:center; color:#f44336; margin-top:10px">✗ 함수 아님 (여러 차량이 같은 속도)</p>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 각 시스템 분석</strong><br><br>
+
+                <strong>시스템 A (번호판 → 속도):</strong><br>
+                • 12가3456 → 60km/h<br>
+                • 한 차량이 동시에 60km/h이면서 80km/h일 수 있나? ❌<br>
+                • 결론: <span style="color:#4caf50">함수입니다 ✓</span><br><br>
+
+                <strong>시스템 B (속도 → 번호판):</strong><br>
+                • 60km/h → {12가3456, 78다9012, 56라3456, ...}<br>
+                • 여러 차량이 같은 속도로 달릴 수 있나? ⭕<br>
+                • 결론: <span style="color:#f44336">함수가 아닙니다 ✗</span>
+            </div>
+
+            <div class="insight-box">
+                깨달음의 순간: 시스템 A와 B의 차이점<br>
+                A는 "이 차의 속도는?" (답은 하나)<br>
+                B는 "60km/h로 달리는 차는?" (답이 여러 개)<br>
+                방향이 바뀌면 함수 관계도 바뀝니다!
+            </div>
+
+            <div class="visual-progression">
+                <h5>🔄 사고의 진화 과정</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>초기 이해</strong><br>
+                        "일대일 대응?"
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>구체화</strong><br>
+                        "하나의 입력,<br>하나의 출력"
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>적용</strong><br>
+                        "차량번호는 유일,<br>속도는 중복 가능"
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>통찰</strong><br>
+                        "데이터의 신뢰성<br>= 예측 가능성"
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>시스템 C (휴대폰 → 위치):</strong><br>
+                • 010-1234-5678 → 강남역<br>
+                • 한 사람이 동시에 두 곳에 있을 수 있나? ❌<br>
+                • 결론: <span style="color:#4caf50">함수입니다 ✓</span><br><br>
+
+                <strong>시스템 D (지역 → 휴대폰):</strong><br>
+                • 강남역 → {010-1234-5678, 010-9876-5432, ...}<br>
+                • 한 지역에 여러 사람이 있을 수 있나? ⭕<br>
+                • 결론: <span style="color:#f44336">함수가 아닙니다 ✗</span>
+            </div>
+
+            <div class="insight-box">
+                최종 통찰: 왜 함수 관계가 신뢰성을 보장할까?<br>
+                함수는 "재현 가능성"을 보장합니다. 같은 입력을 넣으면 항상 같은 결과!<br>
+                이것이 바로 과학적 방법론의 기초이며, 데이터 무결성의 핵심입니다.
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 2 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">2</div>
+            <div class="problem-title">온라인 쇼핑몰의 재고 관리 시스템</div>
+        </div>
+
+        <div class="context-box">
+            <h4>📦 상황 설명</h4>
+            대형 온라인 쇼핑몰에서 두 가지 재고 관리 시스템을 테스트하고 있습니다.<br><br>
+
+            <strong>시스템 알파:</strong><br>
+            상품 코드별 재고 수량을 실시간으로 표시<br>
+            | 상품코드 | A001 | B002 | C003 | D004 |<br>
+            | 재고수량 | 150 | 230 | 85 | 420 |<br><br>
+
+            <strong>시스템 베타:</strong><br>
+            특정 시간대의 주문 처리 현황<br>
+            | 주문시간 | 14:00 | 14:30 | 14:30 | 15:00 |<br>
+            | 처리직원 | 김씨 | 이씨 | 박씨 | 최씨 |<br><br>
+
+            IT 부서는 "데이터 일관성이 보장되는 시스템"을 메인 서버에 배포하려고 합니다.
+        </div>
+
+        <div class="question-box">
+            두 시스템 중 어느 것이 데이터 일관성을 보장하며, 그 이유를 표의 구조와 관련지어 설명하시오. 또한 일관성이 보장되지 않는 시스템을 어떻게 수정할 수 있는지 제안하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 데이터 일관성의 의미 파악</strong><br>
+                데이터 일관성 = 같은 질문에 항상 같은 답<br>
+                = 하나의 입력에 하나의 출력<br>
+                = 함수 관계!
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>시스템 알파: 변화 과정</h5>
+                    <svg viewBox="0 0 300 250">
+                        <text x="150" y="20" text-anchor="middle" font-weight="bold">시간: 14:00</text>
+                        <rect x="50" y="40" width="60" height="40" fill="#4caf50" opacity="0.3"/>
+                        <text x="80" y="65" text-anchor="middle">A001</text>
+                        <text x="80" y="100" text-anchor="middle">150개</text>
+
+                        <text x="150" y="140" text-anchor="middle" font-weight="bold">시간: 14:30</text>
+                        <rect x="50" y="160" width="60" height="40" fill="#4caf50" opacity="0.3"/>
+                        <text x="80" y="185" text-anchor="middle">A001</text>
+                        <text x="80" y="220" text-anchor="middle">148개</text>
+
+                        <line x1="110" y1="80" x2="140" y2="80" stroke="#4caf50" stroke-width="2" marker-end="url(#arrow1)"/>
+                        <line x1="110" y1="200" x2="140" y2="200" stroke="#4caf50" stroke-width="2" marker-end="url(#arrow1)"/>
+
+                        <rect x="180" y="40" width="80" height="160" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="5"/>
+                        <text x="220" y="65" text-anchor="middle" font-weight="bold">✓ 일관성</text>
+                        <text x="220" y="90" text-anchor="middle" font-size="12">A001은</text>
+                        <text x="220" y="110" text-anchor="middle" font-size="12">각 시점에</text>
+                        <text x="220" y="130" text-anchor="middle" font-size="12">하나의</text>
+                        <text x="220" y="150" text-anchor="middle" font-size="12">재고만</text>
+                        <text x="220" y="170" text-anchor="middle" font-size="12">가짐</text>
+
+                        <defs>
+                            <marker id="arrow1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#4caf50"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>시스템 베타: 문제 발생</h5>
+                    <svg viewBox="0 0 300 250">
+                        <text x="150" y="20" text-anchor="middle" font-weight="bold">14:30의 충돌</text>
+
+                        <circle cx="60" cy="100" r="35" fill="#f44336" opacity="0.3"/>
+                        <text x="60" y="105" text-anchor="middle">14:30</text>
+
+                        <line x1="95" y1="85" x2="165" y2="60" stroke="#f44336" stroke-width="2" marker-end="url(#arrow2)"/>
+                        <circle cx="200" cy="60" r="25" fill="#ffcdd2"/>
+                        <text x="200" y="65" text-anchor="middle">이씨</text>
+
+                        <line x1="95" y1="115" x2="165" y2="140" stroke="#f44336" stroke-width="2" marker-end="url(#arrow2)"/>
+                        <circle cx="200" cy="140" r="25" fill="#ffcdd2"/>
+                        <text x="200" y="145" text-anchor="middle">박씨</text>
+
+                        <text x="150" y="200" text-anchor="middle" fill="#f44336" font-weight="bold">✗ 일관성 없음</text>
+                        <text x="150" y="220" text-anchor="middle" font-size="12">같은 시간, 다른 직원?</text>
+
+                        <defs>
+                            <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#f44336"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                생각의 전환점: 시스템 베타의 14:30 문제<br>
+                14:30에 주문이 들어왔을 때, 시스템은 이씨를 배정할까 박씨를 배정할까?<br>
+                예측 불가능 = 일관성 없음 = 함수가 아님!
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 표의 구조 분석</strong><br><br>
+
+                <strong>시스템 알파 검증:</strong><br>
+                • A001 → 150 (유일한 대응) ✓<br>
+                • B002 → 230 (유일한 대응) ✓<br>
+                • C003 → 85 (유일한 대응) ✓<br>
+                • D004 → 420 (유일한 대응) ✓<br>
+                모든 상품코드가 정확히 하나의 재고수량을 가짐 → <span style="color:#4caf50">함수!</span><br><br>
+
+                <strong>시스템 베타 검증:</strong><br>
+                • 14:00 → 김씨 (유일한 대응) ✓<br>
+                • 14:30 → 이씨 (첫 번째 대응)<br>
+                • 14:30 → 박씨 (두 번째 대응) ❌<br>
+                같은 시간(14:30)에 두 명의 다른 직원 → <span style="color:#f44336">함수 아님!</span>
+            </div>
+
+            <div class="visual-progression">
+                <h5>💡 문제 해결 과정</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>문제 인식</strong><br>
+                        "14:30 중복"
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>원인 분석</strong><br>
+                        "시간 단위가<br>너무 큼"
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>해결책 1</strong><br>
+                        "초 단위로<br>세분화"
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>해결책 2</strong><br>
+                        "주문번호<br>사용"
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 시스템 베타 개선 방안</strong><br><br>
+
+                <strong>방법 1: 시간을 더 세밀하게</strong><br>
+                | 주문시간 | 14:00:00 | 14:30:15 | 14:30:42 | 15:00:05 |<br>
+                | 처리직원 | 김씨 | 이씨 | 박씨 | 최씨 |<br><br>
+
+                <strong>방법 2: 주문번호를 입력으로</strong><br>
+                | 주문번호 | ORD-001 | ORD-002 | ORD-003 | ORD-004 |<br>
+                | 처리직원 | 김씨 | 이씨 | 박씨 | 최씨 |<br>
+                | 주문시간 | 14:00 | 14:30 | 14:30 | 15:00 |<br><br>
+
+                이제 각 주문번호는 정확히 한 명의 직원에게만 배정됩니다!
+            </div>
+
+            <div class="insight-box">
+                최종 깨달음: 실무에서의 함수 개념<br>
+                데이터베이스의 "기본키(Primary Key)" = 함수의 입력(정의역)<br>
+                각 기본키는 정확히 하나의 레코드를 가리킵니다.<br>
+                이것이 바로 데이터베이스 설계의 핵심 원리입니다!
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 3 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">3</div>
+            <div class="problem-title">드론 배송 경로 최적화</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🚁 상황 설명</h4>
+            한 물류 회사는 드론을 이용한 배송 서비스를 계획하고 있습니다. 드론의 비행 경로를 설계하기 위해 세 가지 경로 모델을 검토 중입니다:<br><br>
+
+            <strong>모델 A: 직선 경로</strong><br>
+            높이(h) = 2 × 거리(d) + 10 (단위: 미터)<br><br>
+
+            <strong>모델 B: 원형 경로</strong><br>
+            경로가 방정식 d² + h² = 100을 따름<br><br>
+
+            <strong>모델 C: 포물선 경로</strong><br>
+            높이(h) = -0.1 × d² + 5 × d (단위: 미터)<br><br>
+
+            안전 규정상 "각 수평 위치에서 드론의 높이가 정확히 하나로 결정되는 경로"만 승인됩니다.
+        </div>
+
+        <div class="question-box">
+            세 가지 모델 중 안전 규정을 만족하는 것을 모두 찾고, 각 모델이 실제 비행에서 어떤 의미를 갖는지 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 안전 규정의 수학적 해석</strong><br>
+                "각 수평 위치(d)에서 높이(h)가 하나로 결정" = d를 입력으로 하는 함수!<br>
+                이는 수직선 검사를 통과해야 한다는 의미입니다.
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>모델 A: 직선 경로</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+                        <text x="150" y="190" text-anchor="middle">거리 (d)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">높이 (h)</text>
+
+                        <line x1="30" y1="150" x2="250" y2="50" stroke="#4caf50" stroke-width="3"/>
+
+                        <line x1="100" y1="30" x2="100" y2="170" stroke="#2196f3" stroke-width="1" stroke-dasharray="5,5"/>
+                        <circle cx="100" cy="116" r="4" fill="#2196f3"/>
+                        <text x="100" y="25" text-anchor="middle" fill="#2196f3">d=35</text>
+
+                        <line x1="180" y1="30" x2="180" y2="170" stroke="#2196f3" stroke-width="1" stroke-dasharray="5,5"/>
+                        <circle cx="180" cy="83" r="4" fill="#2196f3"/>
+                        <text x="180" y="25" text-anchor="middle" fill="#2196f3">d=75</text>
+
+                        <text x="150" y="15" text-anchor="middle" font-weight="bold" fill="#4caf50">✓ 함수</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>모델 B: 원형 경로</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="100" x2="270" y2="100" stroke="black" stroke-width="2"/>
+                        <line x1="150" y1="30" x2="150" y2="170" stroke="black" stroke-width="2"/>
+                        <text x="260" y="115" text-anchor="middle">d</text>
+                        <text x="135" y="40" text-anchor="middle">h</text>
+
+                        <ellipse cx="150" cy="100" rx="80" ry="80" fill="none" stroke="#f44336" stroke-width="3"/>
+
+                        <line x1="180" y1="30" x2="180" y2="170" stroke="#ff9800" stroke-width="1" stroke-dasharray="5,5"/>
+                        <circle cx="180" cy="45" r="4" fill="#ff9800"/>
+                        <circle cx="180" cy="155" r="4" fill="#ff9800"/>
+                        <text x="210" y="100" text-anchor="middle" fill="#ff9800">d=30</text>
+                        <text x="210" y="115" text-anchor="middle" fill="#f44336">2개 높이!</text>
+
+                        <text x="150" y="15" text-anchor="middle" font-weight="bold" fill="#f44336">✗ 함수 아님</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>모델 C: 포물선 경로</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+                        <text x="150" y="190" text-anchor="middle">거리 (d)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">높이 (h)</text>
+
+                        <path d="M 30 170 Q 100 50, 180 70 T 270 170" fill="none" stroke="#4caf50" stroke-width="3"/>
+
+                        <line x1="100" y1="30" x2="100" y2="170" stroke="#2196f3" stroke-width="1" stroke-dasharray="5,5"/>
+                        <circle cx="100" cy="80" r="4" fill="#2196f3"/>
+
+                        <line x1="180" y1="30" x2="180" y2="170" stroke="#2196f3" stroke-width="1" stroke-dasharray="5,5"/>
+                        <circle cx="180" cy="90" r="4" fill="#2196f3"/>
+
+                        <text x="150" y="15" text-anchor="middle" font-weight="bold" fill="#4caf50">✓ 함수</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                물리적 직관과 수학의 만남<br>
+                원형 경로에서 드론이 "되돌아온다"는 것은 같은 수평 위치에 두 번 도달한다는 의미!<br>
+                이는 충돌 위험을 의미하며, 바로 이것이 함수가 아닌 경로가 위험한 이유입니다.
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 각 모델의 수학적 검증</strong><br><br>
+
+                <strong>모델 A: h = 2d + 10</strong><br>
+                • d = 0 → h = 10 (유일)<br>
+                • d = 10 → h = 30 (유일)<br>
+                • d = 20 → h = 50 (유일)<br>
+                각 거리에서 높이가 유일하게 결정 → <span style="color:#4caf50">함수 ✓</span><br><br>
+
+                <strong>모델 B: d² + h² = 100</strong><br>
+                • d = 0일 때: h² = 100 → h = ±10<br>
+                • d = 6일 때: h² = 64 → h = ±8<br>
+                같은 거리에서 두 가지 높이 가능 → <span style="color:#f44336">함수 아님 ✗</span><br><br>
+
+                <strong>모델 C: h = -0.1d² + 5d</strong><br>
+                • d = 0 → h = 0 (유일)<br>
+                • d = 25 → h = 62.5 (유일)<br>
+                • d = 50 → h = 0 (유일)<br>
+                각 거리에서 높이가 유일하게 결정 → <span style="color:#4caf50">함수 ✓</span>
+            </div>
+
+            <div class="visual-progression">
+                <h5>🎯 실제 비행의 의미</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>모델 A</strong><br>
+                        "상승 비행"<br>
+                        계속 올라감
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>모델 B</strong><br>
+                        "순환 비행"<br>
+                        되돌아옴 (위험!)
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>모델 C</strong><br>
+                        "포물선 비행"<br>
+                        올라갔다 내려옴
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 실용적 의미</strong><br><br>
+
+                <strong>모델 A (직선)의 장점:</strong><br>
+                • 예측 가능하고 단순<br>
+                • 연료 소비 일정<br>
+                • 긴 거리 배송에 부적합 (너무 높이 올라감)<br><br>
+
+                <strong>모델 B (원형)가 위험한 이유:</strong><br>
+                • 같은 위치를 두 번 지남<br>
+                • 다른 드론과 충돌 위험<br>
+                • 제어 시스템 혼란<br><br>
+
+                <strong>모델 C (포물선)의 장점:</strong><br>
+                • 자연스러운 비행 경로<br>
+                • 중간 지점에서 최고 높이<br>
+                • 착륙 시 안전한 하강
+            </div>
+
+            <div class="insight-box">
+                최종 통찰: 함수의 실용성<br>
+                "함수 = 예측 가능성 = 안전성"<br>
+                항공, 교통, 통신 등 모든 시스템에서 함수 관계는 신뢰성의 기초입니다.<br>
+                수학적 엄밀성이 실제 안전으로 이어지는 완벽한 예시!
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 4 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">4</div>
+            <div class="problem-title">스트리밍 서비스 요금 전략</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🎬 상황 설명</h4>
+            새로운 동영상 스트리밍 서비스 "WatchMax"는 다음과 같은 복잡한 요금 체계를 도입했습니다:<br><br>
+
+            • 기본 요금: 월 9,900원<br>
+            • 추가 프로필당: 2,000원 (최대 4개까지)<br>
+            • 4K 화질 옵션: 3,000원<br>
+            • 동시 시청 기기 수에 따른 추가 요금:<br>
+              - 2대까지: 추가 요금 없음<br>
+              - 3-4대: +3,000원<br>
+              - 5대 이상: +6,000원<br><br>
+
+            마케팅팀은 "고객이 선택한 옵션에 따라 월 요금을 정확히 계산할 수 있는 시스템"을 요구합니다.
+        </div>
+
+        <div class="question-box">
+            위 요금 체계를 수식으로 표현하고, 다양한 고객 시나리오에 대한 요금을 계산하시오. 또한 이 요금 체계가 함수로 표현 가능한지 분석하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 변수 정의와 요금 구조 분석</strong><br><br>
+
+                입력 변수들:<br>
+                • p: 추가 프로필 수 (0 ≤ p ≤ 4)<br>
+                • q: 4K 화질 선택 (0 또는 1)<br>
+                • d: 동시 시청 기기 수<br><br>
+
+                출력:<br>
+                • C: 총 월 요금
+            </div>
+
+            <div class="insight-box">
+                첫 번째 도전: 다변수 함수<br>
+                지금까지는 하나의 입력(x)을 다뤘지만, 실제로는 여러 입력이 있을 수 있습니다.<br>
+                C = f(p, q, d) 형태로, 세 개의 입력이 하나의 출력을 결정합니다!
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 요금 함수 구성</strong><br><br>
+
+                <strong>기본 구조:</strong><br>
+                C = 9900 + (프로필 요금) + (4K 요금) + (기기 요금)<br><br>
+
+                <strong>세부 계산:</strong><br>
+                C = 9900 + 2000p + 3000q + D(d)<br><br>
+
+                여기서 D(d)는 기기 수에 따른 추가 요금:<br>
+                D(d) = {<br>
+                &nbsp;&nbsp;0 (d ≤ 2)<br>
+                &nbsp;&nbsp;3000 (3 ≤ d ≤ 4)<br>
+                &nbsp;&nbsp;6000 (d ≥ 5)<br>
+                }
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>시나리오 1: 기본 사용자</h5>
+                    <svg viewBox="0 0 300 150">
+                        <rect x="20" y="20" width="260" height="110" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" rx="5"/>
+                        <text x="150" y="45" text-anchor="middle" font-weight="bold">입력: (0, 0, 2)</text>
+                        <text x="150" y="65" text-anchor="middle">프로필: 0개, 4K: 없음, 기기: 2대</text>
+                        <text x="150" y="85" text-anchor="middle">계산: 9900 + 0 + 0 + 0</text>
+                        <text x="150" y="110" text-anchor="middle" font-weight="bold" fill="#4caf50">결과: 9,900원</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>시나리오 2: 프리미엄 가족</h5>
+                    <svg viewBox="0 0 300 150">
+                        <rect x="20" y="20" width="260" height="110" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5"/>
+                        <text x="150" y="45" text-anchor="middle" font-weight="bold">입력: (4, 1, 5)</text>
+                        <text x="150" y="65" text-anchor="middle">프로필: 4개, 4K: 있음, 기기: 5대</text>
+                        <text x="150" y="85" text-anchor="middle">계산: 9900 + 8000 + 3000 + 6000</text>
+                        <text x="150" y="110" text-anchor="middle" font-weight="bold" fill="#ff9800">결과: 26,900원</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="visual-progression">
+                <h5>📊 요금 체계의 3D 시각화 (개념적)</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>차원 1</strong><br>
+                        프로필 수<br>
+                        (선형 증가)
+                    </div>
+                    <span class="flow-arrow">+</span>
+                    <div class="flow-item">
+                        <strong>차원 2</strong><br>
+                        4K 옵션<br>
+                        (이진 선택)
+                    </div>
+                    <span class="flow-arrow">+</span>
+                    <div class="flow-item">
+                        <strong>차원 3</strong><br>
+                        기기 수<br>
+                        (계단 함수)
+                    </div>
+                    <span class="flow-arrow">=</span>
+                    <div class="flow-item">
+                        <strong>출력</strong><br>
+                        총 요금<br>
+                        (유일한 값)
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 함수성 검증</strong><br><br>
+
+                질문: 같은 선택 조합이 다른 요금을 낼 수 있는가?<br><br>
+
+                테스트:<br>
+                • (2, 1, 3) → 9900 + 4000 + 3000 + 3000 = 19,900원<br>
+                • (2, 1, 3) 다시 입력 → 여전히 19,900원 ✓<br><br>
+
+                • (0, 0, 2) → 9,900원<br>
+                • (0, 0, 2) 다시 입력 → 여전히 9,900원 ✓<br><br>
+
+                결론: <span style="color:#4caf50">이것은 함수입니다!</span><br>
+                각 (p, q, d) 조합은 정확히 하나의 요금 C를 결정합니다.
+            </div>
+
+            <div class="insight-box">
+                실무 통찰: 함수적 사고의 중요성<br>
+                요금 체계가 함수가 아니라면?<br>
+                • 같은 서비스에 다른 요금 → 고객 불만<br>
+                • 자동 결제 시스템 구축 불가능<br>
+                • 법적 문제 발생 가능<br><br>
+                함수적 설계 = 공정성과 투명성의 보장!
+            </div>
+
+            <div class="step-content">
+                <strong>4단계: 실제 구현 코드 (의사코드)</strong><br><br>
+
+                <pre style="background:#f5f5f5; padding:15px; border-radius:5px;">
+function 월요금계산(프로필수, 4K여부, 기기수) {
+    기본요금 = 9900
+    프로필요금 = 2000 × 프로필수
+    화질요금 = 3000 × 4K여부
+
+    if (기기수 ≤ 2) {
+        기기요금 = 0
+    } else if (기기수 ≤ 4) {
+        기기요금 = 3000
+    } else {
+        기기요금 = 6000
+    }
+
+    return 기본요금 + 프로필요금 + 화질요금 + 기기요금
+}
+                </pre>
+            </div>
+
+            <div class="insight-box">
+                최종 깨달음: 현대 비즈니스와 함수<br>
+                • 우버 요금 = f(거리, 시간, 수요)<br>
+                • 신용점수 = f(연체기록, 소득, 부채비율)<br>
+                • 추천 알고리즘 = f(시청기록, 선호도, 인기도)<br><br>
+                함수는 디지털 경제의 언어입니다!
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 5 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">5</div>
+            <div class="problem-title">AI 챗봇의 응답 예측 모델</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🤖 상황 설명</h4>
+            한 IT 회사가 고객 서비스용 AI 챗봇을 개발했습니다. 챗봇의 응답 시간을 예측하기 위해 다음 데이터를 수집했습니다:<br><br>
+
+            • 질문 복잡도(x): 1-10점 척도<br>
+            • 응답 시간(f(x)): 초 단위<br><br>
+
+            개발팀은 세 가지 모델을 제안했습니다:<br>
+            <strong>모델 α:</strong> f(x) = x² - 2x + 3<br>
+            <strong>모델 β:</strong> f(x) = 2x + 1<br>
+            <strong>모델 γ:</strong> f(x) = (x-1)² + 2<br><br>
+
+            품질 관리팀은 "복잡도 0과 2에서 같은 응답 시간을 보이는 대칭적 모델"을 찾고 있습니다.
+        </div>
+
+        <div class="question-box">
+            세 모델의 f(0), f(1), f(2), f(a+1) 값을 계산하고, 어느 모델이 요구사항을 만족하는지 판단하시오. 또한 각 모델이 실제 챗봇 성능에서 의미하는 바를 해석하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 함수 기호의 이해</strong><br><br>
+
+                f(x)는 "복잡도 x를 넣으면 응답 시간을 알려주는 기계"<br>
+                • f: 함수 이름 (function)<br>
+                • x: 입력 (질문 복잡도)<br>
+                • f(x): 출력 (응답 시간)
+            </div>
+
+            <div class="insight-box">
+                사고의 전환: f(a+1)의 의미<br>
+                "복잡도가 (현재 복잡도 + 1)일 때의 응답 시간"<br>
+                이는 복잡도가 1 증가했을 때의 일반적인 패턴을 보여줍니다!
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>모델 α: 계산 과정</h5>
+                    <svg viewBox="0 0 300 250">
+                        <text x="150" y="20" text-anchor="middle" font-weight="bold">f(x) = x² - 2x + 3</text>
+
+                        <rect x="20" y="40" width="260" height="40" fill="#e3f2fd"/>
+                        <text x="30" y="65" font-size="12">f(0) = 0² - 2(0) + 3 = 0 - 0 + 3 = 3</text>
+
+                        <rect x="20" y="85" width="260" height="40" fill="#fff3e0"/>
+                        <text x="30" y="110" font-size="12">f(1) = 1² - 2(1) + 3 = 1 - 2 + 3 = 2</text>
+
+                        <rect x="20" y="130" width="260" height="40" fill="#e3f2fd"/>
+                        <text x="30" y="155" font-size="12">f(2) = 2² - 2(2) + 3 = 4 - 4 + 3 = 3</text>
+
+                        <rect x="20" y="175" width="260" height="60" fill="#f3e5f5"/>
+                        <text x="30" y="195" font-size="11">f(a+1) = (a+1)² - 2(a+1) + 3</text>
+                        <text x="30" y="210" font-size="11">= a² + 2a + 1 - 2a - 2 + 3</text>
+                        <text x="30" y="225" font-size="11">= a² + 2</text>
+
+                        <circle cx="150" cy="65" r="3" fill="#4caf50"/>
+                        <circle cx="150" cy="155" r="3" fill="#4caf50"/>
+                        <text x="200" y="100" text-anchor="middle" fill="#4caf50" font-weight="bold">f(0) = f(2) ✓</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>모델 β: 계산 과정</h5>
+                    <svg viewBox="0 0 300 250">
+                        <text x="150" y="20" text-anchor="middle" font-weight="bold">f(x) = 2x + 1</text>
+
+                        <rect x="20" y="40" width="260" height="40" fill="#e3f2fd"/>
+                        <text x="30" y="65" font-size="12">f(0) = 2(0) + 1 = 0 + 1 = 1</text>
+
+                        <rect x="20" y="85" width="260" height="40" fill="#fff3e0"/>
+                        <text x="30" y="110" font-size="12">f(1) = 2(1) + 1 = 2 + 1 = 3</text>
+
+                        <rect x="20" y="130" width="260" height="40" fill="#e3f2fd"/>
+                        <text x="30" y="155" font-size="12">f(2) = 2(2) + 1 = 4 + 1 = 5</text>
+
+                        <rect x="20" y="175" width="260" height="40" fill="#f3e5f5"/>
+                        <text x="30" y="200" font-size="12">f(a+1) = 2(a+1) + 1 = 2a + 3</text>
+
+                        <text x="150" y="235" text-anchor="middle" fill="#f44336" font-weight="bold">f(0) ≠ f(2) ✗</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>모델 γ: 계산 과정</h5>
+                    <svg viewBox="0 0 300 250">
+                        <text x="150" y="20" text-anchor="middle" font-weight="bold">f(x) = (x-1)² + 2</text>
+
+                        <rect x="20" y="40" width="260" height="40" fill="#e3f2fd"/>
+                        <text x="30" y="65" font-size="12">f(0) = (0-1)² + 2 = 1 + 2 = 3</text>
+
+                        <rect x="20" y="85" width="260" height="40" fill="#fff3e0"/>
+                        <text x="30" y="110" font-size="12">f(1) = (1-1)² + 2 = 0 + 2 = 2</text>
+
+                        <rect x="20" y="130" width="260" height="40" fill="#e3f2fd"/>
+                        <text x="30" y="155" font-size="12">f(2) = (2-1)² + 2 = 1 + 2 = 3</text>
+
+                        <rect x="20" y="175" width="260" height="40" fill="#f3e5f5"/>
+                        <text x="30" y="200" font-size="12">f(a+1) = ((a+1)-1)² + 2 = a² + 2</text>
+
+                        <circle cx="150" cy="65" r="3" fill="#4caf50"/>
+                        <circle cx="150" cy="155" r="3" fill="#4caf50"/>
+                        <text x="200" y="100" text-anchor="middle" fill="#4caf50" font-weight="bold">f(0) = f(2) ✓</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 모델 비교 분석</strong><br><br>
+
+                <table style="width:100%; border-collapse:collapse; margin:15px 0;">
+                    <tr style="background:#e3f2fd;">
+                        <th style="border:1px solid #999; padding:10px;">모델</th>
+                        <th style="border:1px solid #999; padding:10px;">f(0)</th>
+                        <th style="border:1px solid #999; padding:10px;">f(1)</th>
+                        <th style="border:1px solid #999; padding:10px;">f(2)</th>
+                        <th style="border:1px solid #999; padding:10px;">f(a+1)</th>
+                        <th style="border:1px solid #999; padding:10px;">대칭성</th>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid #999; padding:10px;">α</td>
+                        <td style="border:1px solid #999; padding:10px;">3</td>
+                        <td style="border:1px solid #999; padding:10px;">2</td>
+                        <td style="border:1px solid #999; padding:10px;">3</td>
+                        <td style="border:1px solid #999; padding:10px;">a² + 2</td>
+                        <td style="border:1px solid #999; padding:10px; color:#4caf50;">✓</td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid #999; padding:10px;">β</td>
+                        <td style="border:1px solid #999; padding:10px;">1</td>
+                        <td style="border:1px solid #999; padding:10px;">3</td>
+                        <td style="border:1px solid #999; padding:10px;">5</td>
+                        <td style="border:1px solid #999; padding:10px;">2a + 3</td>
+                        <td style="border:1px solid #999; padding:10px; color:#f44336;">✗</td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid #999; padding:10px;">γ</td>
+                        <td style="border:1px solid #999; padding:10px;">3</td>
+                        <td style="border:1px solid #999; padding:10px;">2</td>
+                        <td style="border:1px solid #999; padding:10px;">3</td>
+                        <td style="border:1px solid #999; padding:10px;">a² + 2</td>
+                        <td style="border:1px solid #999; padding:10px; color:#4caf50;">✓</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="insight-box">
+                발견: 모델 α와 γ의 숨겨진 관계<br>
+                α: f(x) = x² - 2x + 3 = (x² - 2x + 1) + 2 = (x-1)² + 2 = γ<br>
+                두 모델은 사실 같은 함수입니다! (다른 형태로 표현됨)
+            </div>
+
+            <div class="visual-progression">
+                <h5>🎯 각 모델의 실무적 의미</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>모델 α, γ</strong><br>
+                        포물선 형태<br>
+                        "학습 효과"
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>최적점</strong><br>
+                        x = 1에서<br>
+                        최소 시간
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>의미</strong><br>
+                        중간 복잡도가<br>
+                        가장 효율적
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 실제 의미 해석</strong><br><br>
+
+                <strong>모델 α, γ (포물선)의 해석:</strong><br>
+                • 복잡도 1에서 최소 응답 시간 (2초)<br>
+                • 너무 쉬운 질문(x=0)도 오래 걸림 → 맥락 파악 필요<br>
+                • 너무 어려운 질문도 오래 걸림 → 처리 복잡도 증가<br>
+                • 중간 난이도가 최적 → AI가 가장 잘 처리하는 영역<br><br>
+
+                <strong>모델 β (직선)의 해석:</strong><br>
+                • 복잡도에 비례하여 시간 증가<br>
+                • 단순하지만 비현실적<br>
+                • 학습 효과나 최적화 없음
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>응답 시간 그래프</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+                        <text x="150" y="190" text-anchor="middle">복잡도</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">시간(초)</text>
+
+                        <!-- 포물선 (α, γ) -->
+                        <path d="M 30 120 Q 100 150, 150 150 T 270 50" fill="none" stroke="#4caf50" stroke-width="3"/>
+                        <text x="200" y="45" fill="#4caf50" font-size="12">α, γ</text>
+
+                        <!-- 직선 (β) -->
+                        <line x1="30" y1="160" x2="270" y2="60" stroke="#f44336" stroke-width="2"/>
+                        <text x="250" y="55" fill="#f44336" font-size="12">β</text>
+
+                        <!-- 대칭점 표시 -->
+                        <circle cx="30" cy="120" r="4" fill="#4caf50"/>
+                        <circle cx="90" cy="120" r="4" fill="#4caf50"/>
+                        <text x="60" y="110" text-anchor="middle" font-size="10">f(0)=f(2)</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                최종 통찰: 함수 변형의 의미<br>
+                • f(x) = x² - 2x + 3 (전개형): 계산에 적합<br>
+                • f(x) = (x-1)² + 2 (완성형): 그래프 특성 파악에 적합<br>
+                  - 꼭짓점: (1, 2)<br>
+                  - 대칭축: x = 1<br><br>
+                같은 함수도 목적에 따라 다르게 표현할 수 있습니다!
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

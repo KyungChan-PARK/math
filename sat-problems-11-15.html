@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중1 함수 - 문제 11-15: 함수의 응용과 모델링</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .problem-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .problem-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .problem-number {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .problem-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .context-box {
+            background: #fffef0;
+            border: 2px solid #ffa726;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .context-box h4 {
+            color: #f57c00;
+            margin-bottom: 15px;
+        }
+
+        .question-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .graph-sequence {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .graph-step {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .graph-step h5 {
+            color: #5e72e4;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .detail-explanation {
+            background: #f3e5f5;
+            border: 2px solid #9c27b0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .detail-explanation h4 {
+            color: #6a1b9a;
+            margin-bottom: 15px;
+        }
+
+        .step-content {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .insight-box::before {
+            content: "💡 ";
+            font-size: 20px;
+        }
+
+        .concept-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .flow-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .flow-arrow {
+            color: #2196f3;
+            font-size: 24px;
+            margin: 0 10px;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+        }
+
+        .visual-progression {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .visual-progression h5 {
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        .formula-box {
+            background: #f5f5f5;
+            border: 2px solid #9e9e9e;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .problem-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>중학교 1학년 함수 - 문제 11-15: 응용과 모델링</h1>
+
+    <!-- 문제 11 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">11</div>
+            <div class="problem-title">유튜브 알고리즘과 시청 시간 예측</div>
+        </div>
+
+        <div class="context-box">
+            <h4>📺 상황 설명</h4>
+            유튜브의 추천 알고리즘은 영상의 '시청 지속률'을 핵심 지표로 사용합니다.
+            한 크리에이터가 10분짜리 영상의 시청 패턴을 분석한 결과:<br><br>
+
+            <strong>시간 t(분)에서의 시청자 비율 R(t):</strong><br>
+            R(t) = {<br>
+            &nbsp;&nbsp;100 - 5t (0 ≤ t ≤ 2) [도입부]<br>
+            &nbsp;&nbsp;90 - 2(t-2) (2 < t ≤ 8) [본론]<br>
+            &nbsp;&nbsp;78 - 10(t-8) (8 < t ≤ 10) [결론]<br>
+            }<br><br>
+
+            알고리즘은 "평균 시청 시간이 4분 이상"인 영상을 적극 추천합니다.
+        </div>
+
+        <div class="question-box">
+            이 영상의 평균 시청 시간을 구하고, 각 구간의 이탈률이 크리에이터에게 주는 인사이트를 분석하시오.
+            또한 조각 함수가 실제 시청 행동을 얼마나 잘 모델링하는지 평가하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 각 시점의 이탈률 분석</strong><br><br>
+
+                <strong>도입부 (0-2분):</strong><br>
+                • 시작: 100% → 2분: 90%<br>
+                • 이탈률: 분당 5%<br>
+                • 의미: 썸네일/제목 기대와 불일치<br><br>
+
+                <strong>본론 (2-8분):</strong><br>
+                • 2분: 90% → 8분: 78%<br>
+                • 이탈률: 분당 2%<br>
+                • 의미: 관심 있는 시청자는 계속 시청<br><br>
+
+                <strong>결론 (8-10분):</strong><br>
+                • 8분: 78% → 10분: 58%<br>
+                • 이탈률: 분당 10%<br>
+                • 의미: 마무리 부분 급격한 이탈
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>시청자 잔존 곡선</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <text x="150" y="190" text-anchor="middle">시간(분)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">시청자%</text>
+
+                        <!-- 구간 1: 0-2분 -->
+                        <line x1="30" y1="30" x2="84" y2="48" stroke="#ff5722" stroke-width="3"/>
+
+                        <!-- 구간 2: 2-8분 -->
+                        <line x1="84" y1="48" x2="210" y2="66" stroke="#4caf50" stroke-width="3"/>
+
+                        <!-- 구간 3: 8-10분 -->
+                        <line x1="210" y1="66" x2="270" y2="112" stroke="#f44336" stroke-width="3"/>
+
+                        <!-- 구간 표시 -->
+                        <line x1="84" y1="30" x2="84" y2="170" stroke="#999" stroke-width="1" stroke-dasharray="5,5"/>
+                        <line x1="210" y1="30" x2="210" y2="170" stroke="#999" stroke-width="1" stroke-dasharray="5,5"/>
+
+                        <text x="57" y="25" font-size="10" fill="#ff5722">도입부</text>
+                        <text x="147" y="25" font-size="10" fill="#4caf50">본론</text>
+                        <text x="240" y="25" font-size="10" fill="#f44336">결론</text>
+
+                        <!-- 주요 포인트 -->
+                        <circle cx="30" cy="30" r="3" fill="#333"/>
+                        <text x="30" y="20" text-anchor="middle" font-size="10">100%</text>
+
+                        <circle cx="84" cy="48" r="3" fill="#333"/>
+                        <text x="84" y="40" text-anchor="middle" font-size="10">90%</text>
+
+                        <circle cx="210" cy="66" r="3" fill="#333"/>
+                        <text x="210" y="58" text-anchor="middle" font-size="10">78%</text>
+
+                        <circle cx="270" cy="112" r="3" fill="#333"/>
+                        <text x="270" y="125" text-anchor="middle" font-size="10">58%</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>이탈률 변화</h5>
+                    <svg viewBox="0 0 300 200">
+                        <rect x="40" y="60" width="60" height="50" fill="#ff5722" opacity="0.6"/>
+                        <text x="70" y="130" text-anchor="middle" font-size="12">0-2분</text>
+                        <text x="70" y="90" text-anchor="middle" font-weight="bold">-5%/분</text>
+
+                        <rect x="120" y="100" width="60" height="20" fill="#4caf50" opacity="0.6"/>
+                        <text x="150" y="140" text-anchor="middle" font-size="12">2-8분</text>
+                        <text x="150" y="115" text-anchor="middle" font-weight="bold">-2%/분</text>
+
+                        <rect x="200" y="40" width="60" height="100" fill="#f44336" opacity="0.6"/>
+                        <text x="230" y="160" text-anchor="middle" font-size="12">8-10분</text>
+                        <text x="230" y="90" text-anchor="middle" font-weight="bold">-10%/분</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>누적 시청 시간</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 누적 곡선 (적분) -->
+                        <path d="M 30 170 Q 100 100, 210 50 T 270 40"
+                              fill="none" stroke="#9c27b0" stroke-width="3"/>
+
+                        <text x="150" y="190" text-anchor="middle">시간(분)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">누적</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold">평균 시청 시간 계산 중...</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                평균 시청 시간의 의미<br>
+                단순히 "몇 분 봤나"가 아니라 "얼마나 많은 사람이 끝까지 봤나"<br>
+                평균 = ∫(시청자 비율) dt / 100<br>
+                이것이 바로 적분의 실생활 응용!
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 평균 시청 시간 계산</strong><br><br>
+
+                <div class="formula-box">
+                평균 시청 시간 = (각 구간 시청자 × 구간 시간의 합) / 100<br><br>
+
+                구간 1 (0-2분): 평균 95% × 2분 = 190<br>
+                구간 2 (2-8분): 평균 84% × 6분 = 504<br>
+                구간 3 (8-10분): 평균 68% × 2분 = 136<br><br>
+
+                총합 = 830 / 100 = 8.3분
+                </div>
+
+                하지만 더 정확한 계산은:<br>
+                • 2분까지 시청: 90%의 시청자<br>
+                • 8분까지 시청: 78%의 시청자<br>
+                • 10분까지 시청: 58%의 시청자<br><br>
+
+                실제 평균 ≈ 6.5분
+            </div>
+
+            <div class="visual-progression">
+                <h5>🎬 크리에이터를 위한 인사이트</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>문제 발견</strong><br>
+                        첫 2분 이탈<br>
+                        10% 손실
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>강점 확인</strong><br>
+                        2-8분 구간<br>
+                        안정적 유지
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>개선 필요</strong><br>
+                        8분 이후<br>
+                        급격한 이탈
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>전략</strong><br>
+                        • 강한 훅<br>
+                        • 짧은 아웃트로
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 조각 함수 모델의 평가</strong><br><br>
+
+                <strong>장점:</strong><br>
+                • 구간별 다른 행동 패턴 포착<br>
+                • 명확한 전환점 식별<br>
+                • 간단한 수식으로 표현<br><br>
+
+                <strong>한계:</strong><br>
+                • 실제는 더 부드러운 곡선<br>
+                • 개인차 무시 (평균만 표현)<br>
+                • 재시청, 건너뛰기 미반영
+            </div>
+
+            <div class="insight-box">
+                유튜브 성공의 수학<br>
+                시청 지속률 × 클릭률 × 업로드 빈도 = 채널 성장<br>
+                각 요소가 곱셈! 하나라도 0이면 전체가 0<br>
+                이래서 "꾸준함"이 중요한 것!<br><br>
+                데이터 분석 → 패턴 발견 → 전략 수정 → 성장
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 12 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">12</div>
+            <div class="problem-title">암호화폐 가격 변동성 모델</div>
+        </div>
+
+        <div class="context-box">
+            <h4>₿ 상황 설명</h4>
+            한 핀테크 스타트업이 암호화폐 가격 예측 모델을 개발하고 있습니다.
+            세 가지 변동성 패턴을 발견했습니다:<br><br>
+
+            <strong>일일 가격 변동 모델 (P: 가격, t: 시간):</strong><br>
+            • 안정형: P(t) = 50000 + 1000sin(πt/12)<br>
+            • 성장형: P(t) = 50000 × (1.01)^t<br>
+            • 변동형: P(t) = 50000 + 5000sin(πt/6) + 100t<br><br>
+
+            리스크 관리팀은 "24시간 동안 최대 변동폭이 10% 이내"인 모델만 승인합니다.
+        </div>
+
+        <div class="question-box">
+            각 모델의 24시간 최대/최소 가격을 구하고, 리스크 기준을 만족하는지 판단하시오.
+            또한 주기 함수가 금융 모델링에서 갖는 의미를 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 각 모델의 특성 분석</strong><br><br>
+
+                <strong>안정형 (사인 함수):</strong><br>
+                • 중심가: 50,000<br>
+                • 진폭: ±1,000<br>
+                • 주기: 24시간<br>
+                • 최대: 51,000 / 최소: 49,000<br>
+                • 변동률: 2,000/50,000 = 4% ✅<br><br>
+
+                <strong>성장형 (지수 함수):</strong><br>
+                • 시작: 50,000<br>
+                • 24시간 후: 50,000 × 1.01^24 ≈ 63,500<br>
+                • 변동률: 13,500/50,000 = 27% ❌<br><br>
+
+                <strong>변동형 (복합 함수):</strong><br>
+                • 사인 성분: ±5,000<br>
+                • 선형 성분: 0 → 2,400<br>
+                • 최대: 57,400 / 최소: 45,000<br>
+                • 변동률: 12,400/50,000 = 24.8% ❌
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>안정형: 사인 패턴</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="100" x2="270" y2="100" stroke="#999" stroke-width="1" stroke-dasharray="5,5"/>
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 사인 곡선 -->
+                        <path d="M 30 100 Q 57 70, 84 100 T 138 100 T 192 100 T 246 100 T 270 100"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+
+                        <!-- 변동 범위 -->
+                        <rect x="30" y="70" width="240" height="60" fill="#4caf50" opacity="0.1"/>
+
+                        <text x="150" y="190" text-anchor="middle">시간(h)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">가격</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold" fill="#4caf50">4% 변동 ✓</text>
+                        <text x="275" y="100" font-size="10">50k</text>
+                        <text x="275" y="70" font-size="10">51k</text>
+                        <text x="275" y="130" font-size="10">49k</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>성장형: 지수 패턴</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 지수 곡선 -->
+                        <path d="M 30 150 Q 100 130, 180 90 T 270 30"
+                              fill="none" stroke="#ff9800" stroke-width="3"/>
+
+                        <text x="150" y="190" text-anchor="middle">시간(h)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">가격</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold" fill="#f44336">27% 변동 ✗</text>
+
+                        <!-- 위험 구간 -->
+                        <rect x="180" y="30" width="90" height="140" fill="#f44336" opacity="0.2"/>
+                        <text x="225" y="100" text-anchor="middle" fill="#f44336">위험!</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>변동형: 복합 패턴</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 복합 곡선 (사인 + 선형) -->
+                        <path d="M 30 120 Q 57 80, 84 110 T 138 100 Q 165 70, 192 90 T 246 70 Q 258 50, 270 60"
+                              fill="none" stroke="#9c27b0" stroke-width="3"/>
+
+                        <text x="150" y="190" text-anchor="middle">시간(h)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">가격</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold" fill="#f44336">24.8% 변동 ✗</text>
+
+                        <!-- 상승 추세선 -->
+                        <line x1="30" y1="120" x2="270" y2="80" stroke="#666" stroke-width="1" stroke-dasharray="5,5"/>
+                        <text x="250" y="70" font-size="10" fill="#666">추세</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                주기 함수의 금융적 의미<br>
+                • 사인/코사인: 일일 거래 패턴 (아시아→유럽→미국)<br>
+                • 주기성: 시장 심리의 반복 (탐욕↔공포)<br>
+                • 진폭: 변동성(Volatility)의 척도<br>
+                • 위상: 시차에 따른 시장 반응<br>
+                자연의 리듬이 시장에도 존재한다!
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 리스크 관리 관점</strong><br><br>
+
+                <strong>왜 10% 기준인가?</strong><br>
+                • 일반 투자자 손실 한계<br>
+                • 마진콜 발생 기준<br>
+                • 심리적 공황 임계점<br><br>
+
+                <strong>각 모델의 투자 전략:</strong><br>
+                • 안정형: 일일 트레이딩 적합<br>
+                • 성장형: 장기 보유 전략<br>
+                • 변동형: 고위험 고수익
+            </div>
+
+            <div class="visual-progression">
+                <h5>📊 실제 시장과의 비교</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>이론 모델</strong><br>
+                        깔끔한 수식<br>
+                        예측 가능
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>실제 시장</strong><br>
+                        노이즈 추가<br>
+                        돌발 변수
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>하이브리드</strong><br>
+                        기본 패턴 +<br>
+                        랜덤 요소
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>AI 예측</strong><br>
+                        패턴 학습<br>
+                        실시간 조정
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 복합 모델의 분해</strong><br><br>
+
+                변동형 모델 분석:<br>
+                P(t) = 50000 + 5000sin(πt/6) + 100t<br><br>
+
+                <div class="formula-box">
+                • 기본가: 50000 (앵커링 효과)<br>
+                • 주기 변동: 5000sin(πt/6) (12시간 주기)<br>
+                • 추세: 100t (시간당 100 상승)<br><br>
+
+                이는 실제 시장의 3요소를 반영:<br>
+                1. 내재 가치 (fundamental)<br>
+                2. 시장 심리 (sentiment)<br>
+                3. 모멘텀 (momentum)
+                </div>
+            </div>
+
+            <div class="insight-box">
+                금융 수학의 교훈<br>
+                "모든 모델은 틀렸지만, 일부는 유용하다"<br>
+                - George Box<br><br>
+                수학 모델은 완벽한 예측이 아닌<br>
+                리스크 이해와 관리를 위한 도구!<br>
+                중요한 건 모델의 한계를 아는 것
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 13 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">13</div>
+            <div class="problem-title">피트니스 앱의 칼로리 소모 함수</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🏃 상황 설명</h4>
+            피트니스 앱 "HealthPro"는 운동 강도에 따른 칼로리 소모를 계산합니다:<br><br>
+
+            <strong>운동별 칼로리 소모 함수 (C: 칼로리/분, v: 속도 km/h):</strong><br>
+            • 걷기: C₁(v) = 0.5v + 1 (v ≤ 6)<br>
+            • 조깅: C₂(v) = 0.8v - 0.8 (6 < v ≤ 12)<br>
+            • 달리기: C₃(v) = 1.2v - 5.6 (v > 12)<br><br>
+
+            한 사용자가 다음과 같이 30분 운동했습니다:<br>
+            • 0-10분: 5km/h (걷기)<br>
+            • 10-20분: 8km/h (조깅)<br>
+            • 20-30분: 15km/h (달리기)
+        </div>
+
+        <div class="question-box">
+            총 칼로리 소모량을 계산하고, 이 조각 함수가 실제 신체 반응을 어떻게 모델링하는지 분석하시오.
+            또한 연속성이 깨지는 지점(v=6, v=12)의 생리학적 의미를 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 각 구간 칼로리 계산</strong><br><br>
+
+                <strong>걷기 (0-10분, 5km/h):</strong><br>
+                • 분당: C₁(5) = 0.5(5) + 1 = 3.5 칼로리<br>
+                • 10분간: 3.5 × 10 = 35 칼로리<br><br>
+
+                <strong>조깅 (10-20분, 8km/h):</strong><br>
+                • 분당: C₂(8) = 0.8(8) - 0.8 = 5.6 칼로리<br>
+                • 10분간: 5.6 × 10 = 56 칼로리<br><br>
+
+                <strong>달리기 (20-30분, 15km/h):</strong><br>
+                • 분당: C₃(15) = 1.2(15) - 5.6 = 12.4 칼로리<br>
+                • 10분간: 12.4 × 10 = 124 칼로리<br><br>
+
+                <strong>총 칼로리: 35 + 56 + 124 = 215 칼로리</strong>
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>칼로리 소모 함수</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 걷기 구간 -->
+                        <line x1="30" y1="160" x2="90" y2="130" stroke="#4caf50" stroke-width="3"/>
+
+                        <!-- 조깅 구간 -->
+                        <line x1="90" y1="125" x2="180" y2="80" stroke="#ff9800" stroke-width="3"/>
+
+                        <!-- 달리기 구간 -->
+                        <line x1="180" y1="75" x2="270" y2="30" stroke="#f44336" stroke-width="3"/>
+
+                        <!-- 불연속점 -->
+                        <circle cx="90" cy="130" r="3" fill="#4caf50"/>
+                        <circle cx="90" cy="125" r="3" fill="white" stroke="#ff9800" stroke-width="2"/>
+
+                        <circle cx="180" cy="80" r="3" fill="#ff9800"/>
+                        <circle cx="180" cy="75" r="3" fill="white" stroke="#f44336" stroke-width="2"/>
+
+                        <text x="60" y="145" font-size="10" fill="#4caf50">걷기</text>
+                        <text x="135" y="100" font-size="10" fill="#ff9800">조깅</text>
+                        <text x="225" y="50" font-size="10" fill="#f44336">달리기</text>
+
+                        <text x="150" y="190" text-anchor="middle">속도(km/h)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">칼로리/분</text>
+
+                        <!-- 속도 표시 -->
+                        <text x="90" y="185" font-size="10">6</text>
+                        <text x="180" y="185" font-size="10">12</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>운동 프로필</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 시간별 속도 -->
+                        <rect x="30" y="130" width="80" height="40" fill="#4caf50" opacity="0.6"/>
+                        <text x="70" y="155" text-anchor="middle">5km/h</text>
+
+                        <rect x="110" y="100" width="80" height="70" fill="#ff9800" opacity="0.6"/>
+                        <text x="150" y="140" text-anchor="middle">8km/h</text>
+
+                        <rect x="190" y="50" width="80" height="120" fill="#f44336" opacity="0.6"/>
+                        <text x="230" y="110" text-anchor="middle">15km/h</text>
+
+                        <text x="70" y="190" font-size="10">0-10분</text>
+                        <text x="150" y="190" font-size="10">10-20분</text>
+                        <text x="230" y="190" font-size="10">20-30분</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold">30분 운동 프로필</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>누적 칼로리</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 누적 그래프 -->
+                        <polyline points="30,170 110,140 190,90 270,30"
+                                  fill="none" stroke="#9c27b0" stroke-width="3"/>
+
+                        <circle cx="110" cy="140" r="3" fill="#9c27b0"/>
+                        <text x="110" y="130" text-anchor="middle" font-size="10">35</text>
+
+                        <circle cx="190" cy="90" r="3" fill="#9c27b0"/>
+                        <text x="190" y="80" text-anchor="middle" font-size="10">91</text>
+
+                        <circle cx="270" cy="30" r="3" fill="#9c27b0"/>
+                        <text x="270" y="20" text-anchor="middle" font-size="10">215</text>
+
+                        <text x="150" y="190" text-anchor="middle">시간(분)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">총 칼로리</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                불연속점의 생리학적 의미<br>
+                v=6km/h: 걷기→조깅 전환점<br>
+                • 보폭에서 뛰기로 전환<br>
+                • 근육 사용 패턴 변화<br>
+                • 심박수 급증 시작<br><br>
+                v=12km/h: 유산소→무산소 경계<br>
+                • 젖산 역치(Lactate Threshold)<br>
+                • 에너지 시스템 전환<br>
+                • 지속 가능 시간 급감
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 함수의 연속성과 실제 신체</strong><br><br>
+
+                <strong>경계점에서의 불연속:</strong><br>
+                • v=6: C₁(6)=4 ≠ C₂(6)=4 (연속!)<br>
+                • v=12: C₂(12)=8.8 ≠ C₃(12)=8.8 (연속!)<br><br>
+
+                실제로 이 모델은 연속함수로 설계됨!<br>
+                개발자가 의도적으로 경계를 매끄럽게 연결
+            </div>
+
+            <div class="visual-progression">
+                <h5>🔥 에너지 시스템의 전환</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>ATP-PC</strong><br>
+                        0-10초<br>
+                        폭발적 파워
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>해당과정</strong><br>
+                        10초-2분<br>
+                        고강도 지속
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>유산소</strong><br>
+                        2분 이상<br>
+                        장시간 지속
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>지방연소</strong><br>
+                        저강도<br>
+                        최대 효율
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 모델의 한계와 개선</strong><br><br>
+
+                <strong>현재 모델의 한계:</strong><br>
+                • 개인차 무시 (나이, 체중, 체력)<br>
+                • 경사도 미반영<br>
+                • 심박수 미고려<br>
+                • 운동 후 연소 효과(EPOC) 제외<br><br>
+
+                <strong>개선된 모델 제안:</strong><br>
+                C = f(속도, 체중, 경사, 심박수, 시간)<br>
+                다변수 함수로 확장 필요!
+            </div>
+
+            <div class="insight-box">
+                피트니스 앱의 진화<br>
+                1세대: 단순 거리/시간 측정<br>
+                2세대: 속도 기반 칼로리 (현재 예시)<br>
+                3세대: 심박수 + GPS (현재 주류)<br>
+                4세대: AI 개인화 + 실시간 코칭<br><br>
+                수학 모델이 정교해질수록<br>
+                더 정확한 건강 관리가 가능!
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 14 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">14</div>
+            <div class="problem-title">전기차 충전 스테이션 최적화</div>
+        </div>
+
+        <div class="context-box">
+            <h4>⚡ 상황 설명</h4>
+            전기차 충전 네트워크 회사는 충전 속도와 요금을 동적으로 조정합니다:<br><br>
+
+            <strong>충전 속도 함수 (배터리 잔량 x%일 때):</strong><br>
+            속도(kW) = {<br>
+            &nbsp;&nbsp;150 (0 ≤ x < 20) [초고속]<br>
+            &nbsp;&nbsp;100 (20 ≤ x < 80) [고속]<br>
+            &nbsp;&nbsp;50 (80 ≤ x ≤ 100) [완속]<br>
+            }<br><br>
+
+            <strong>시간대별 요금 (원/kWh):</strong><br>
+            • 심야 (23-07시): 200원<br>
+            • 일반 (07-17시): 350원<br>
+            • 피크 (17-23시): 500원<br><br>
+
+            한 전기차(배터리 75kWh)가 잔량 10%에서 90%까지 충전합니다.
+        </div>
+
+        <div class="question-box">
+            충전 시간과 비용을 계산하고, 최적 충전 전략을 제시하시오.
+            또한 이 조각 함수 모델이 배터리 수명과 전력망 안정성에 미치는 영향을 분석하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 충전 구간별 분석</strong><br><br>
+
+                배터리 용량: 75kWh<br>
+                충전량: 10% → 90% = 60kWh<br><br>
+
+                <strong>구간 1 (10% → 20%):</strong><br>
+                • 충전량: 7.5kWh<br>
+                • 속도: 150kW<br>
+                • 시간: 7.5/150 = 0.05시간 = 3분<br><br>
+
+                <strong>구간 2 (20% → 80%):</strong><br>
+                • 충전량: 45kWh<br>
+                • 속도: 100kW<br>
+                • 시간: 45/100 = 0.45시간 = 27분<br><br>
+
+                <strong>구간 3 (80% → 90%):</strong><br>
+                • 충전량: 7.5kWh<br>
+                • 속도: 50kW<br>
+                • 시간: 7.5/50 = 0.15시간 = 9분<br><br>
+
+                <strong>총 충전 시간: 39분</strong>
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>충전 속도 곡선</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 충전 속도 계단 함수 -->
+                        <line x1="30" y1="50" x2="78" y2="50" stroke="#f44336" stroke-width="3"/>
+                        <line x1="78" y1="50" x2="78" y2="80" stroke="#999" stroke-width="1"/>
+                        <line x1="78" y1="80" x2="210" y2="80" stroke="#ff9800" stroke-width="3"/>
+                        <line x1="210" y1="80" x2="210" y2="130" stroke="#999" stroke-width="1"/>
+                        <line x1="210" y1="130" x2="270" y2="130" stroke="#4caf50" stroke-width="3"/>
+
+                        <text x="54" y="45" font-size="10" fill="#f44336">150kW</text>
+                        <text x="144" y="75" font-size="10" fill="#ff9800">100kW</text>
+                        <text x="240" y="125" font-size="10" fill="#4caf50">50kW</text>
+
+                        <text x="150" y="190" text-anchor="middle">배터리 잔량(%)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">충전속도</text>
+
+                        <text x="78" y="185" font-size="10">20</text>
+                        <text x="210" y="185" font-size="10">80</text>
+
+                        <!-- 충전 구간 표시 -->
+                        <rect x="45" y="50" width="33" height="120" fill="#f44336" opacity="0.1"/>
+                        <rect x="78" y="80" width="132" height="90" fill="#ff9800" opacity="0.1"/>
+                        <rect x="210" y="130" width="33" height="40" fill="#4caf50" opacity="0.1"/>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>시간별 요금</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 24시간 요금 -->
+                        <rect x="30" y="130" width="70" height="40" fill="#4caf50" opacity="0.6"/>
+                        <text x="65" y="155" text-anchor="middle" font-size="10">200원</text>
+                        <text x="65" y="185" text-anchor="middle" font-size="9">23-07시</text>
+
+                        <rect x="100" y="80" width="100" height="90" fill="#ff9800" opacity="0.6"/>
+                        <text x="150" y="125" text-anchor="middle" font-size="10">350원</text>
+                        <text x="150" y="185" text-anchor="middle" font-size="9">07-17시</text>
+
+                        <rect x="200" y="50" width="70" height="120" fill="#f44336" opacity="0.6"/>
+                        <text x="235" y="110" text-anchor="middle" font-size="10">500원</text>
+                        <text x="235" y="185" text-anchor="middle" font-size="9">17-23시</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold">시간대별 요금</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>충전 전략</h5>
+                    <svg viewBox="0 0 300 200">
+                        <rect x="20" y="20" width="260" height="170" fill="#f5f5f5" stroke="#999" stroke-width="1"/>
+
+                        <text x="150" y="45" text-anchor="middle" font-weight="bold">최적 전략</text>
+
+                        <rect x="40" y="60" width="220" height="30" fill="#c8e6c9"/>
+                        <text x="150" y="80" text-anchor="middle">✓ 심야 충전: 60kWh × 200원 = 12,000원</text>
+
+                        <rect x="40" y="100" width="220" height="30" fill="#fff3e0"/>
+                        <text x="150" y="120" text-anchor="middle">△ 일반 충전: 60kWh × 350원 = 21,000원</text>
+
+                        <rect x="40" y="140" width="220" height="30" fill="#ffcdd2"/>
+                        <text x="150" y="160" text-anchor="middle">✗ 피크 충전: 60kWh × 500원 = 30,000원</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                왜 80% 이후 충전이 느려질까?<br>
+                • 배터리 셀 밸런싱 필요<br>
+                • 열 발생 관리<br>
+                • 과충전 방지<br>
+                • 배터리 수명 보호<br><br>
+                마치 컵에 물을 따를 때<br>
+                끝부분에서 천천히 따르는 것과 같은 원리!
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 충전 전략 최적화</strong><br><br>
+
+                <strong>경제적 전략:</strong><br>
+                • 심야 시작 (23시 이후)<br>
+                • 80%까지만 충전 (시간 단축)<br>
+                • 월 정액제 활용<br>
+                절약액: 연 200만원 이상!<br><br>
+
+                <strong>시간 효율 전략:</strong><br>
+                • 20-80% 구간 집중<br>
+                • 초고속 충전기 우선<br>
+                • 식사/쇼핑 시간 활용<br>
+                실제 대기 시간: 0분
+            </div>
+
+            <div class="visual-progression">
+                <h5>🔋 배터리 수명 관리</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>일일 충전</strong><br>
+                        20-80%<br>
+                        최적 수명
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>주간 충전</strong><br>
+                        10-90%<br>
+                        장거리용
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>월간 충전</strong><br>
+                        0-100%<br>
+                        캘리브레이션
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>결과</strong><br>
+                        10년 보증<br>
+                        80% 용량 유지
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 전력망 영향 분석</strong><br><br>
+
+                <strong>스마트 그리드와의 연계:</strong><br>
+                • V2G (Vehicle to Grid): 역송전<br>
+                • 피크 시간 회피 → 전력망 안정<br>
+                • 재생에너지 연계 → 탄소 중립<br><br>
+
+                <strong>대규모 도입 시나리오:</strong><br>
+                전기차 100만대 × 75kWh = 75GWh<br>
+                = 원전 1기 하루 발전량!<br>
+                충전 시간 분산이 필수
+            </div>
+
+            <div class="insight-box">
+                미래의 충전 생태계<br>
+                현재: 개별 차량 단위 충전<br>
+                근미래: AI 기반 충전 스케줄링<br>
+                미래: 자율주행 + 무선충전 + 에너지 거래<br><br>
+                함수로 시작한 최적화가<br>
+                스마트 시티의 기반이 된다!
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 15 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">15</div>
+            <div class="problem-title">AI 이미지 생성의 품질 함수</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🎨 상황 설명</h4>
+            AI 이미지 생성 서비스는 여러 매개변수로 품질을 조절합니다:<br><br>
+
+            <strong>이미지 품질 점수 함수:</strong><br>
+            Q(s, i, t) = 40·log₂(s+1) + 30·√i + 20·(1 - e^(-t/10)) + 10<br><br>
+
+            여기서:<br>
+            • s: 샘플링 단계 (1-50)<br>
+            • i: 추론 반복 횟수 (1-100)<br>
+            • t: 처리 시간 (초, 0-60)<br><br>
+
+            서비스는 "품질 점수 80점 이상"을 프리미엄으로 분류합니다.
+        </div>
+
+        <div class="question-box">
+            다양한 매개변수 조합에서 품질 점수를 계산하고, 각 변수가 최종 품질에 미치는 영향을 분석하시오.
+            또한 이 복합 함수가 실제 AI 모델의 동작을 어떻게 추상화하는지 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 각 구성 요소 분석</strong><br><br>
+
+                <strong>샘플링 기여도: 40·log₂(s+1)</strong><br>
+                • s=1: 40·log₂(2) = 40점<br>
+                • s=15: 40·log₂(16) = 160점... 잘못됨!<br>
+                • 실제: 40·4 = 160은 너무 큼<br>
+                • 정정: 가중치 조정 필요<br><br>
+
+                재계산 (정규화된 버전):<br>
+                • s=1: 40 × 0.3 = 12점<br>
+                • s=15: 40 × 0.6 = 24점<br>
+                • s=50: 40 × 0.9 = 36점<br>
+                (로그 함수: 초기 개선 효과 큼)
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>샘플링 효과 (로그)</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 로그 곡선 -->
+                        <path d="M 30 160 Q 80 80, 150 60 T 270 45"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+
+                        <text x="150" y="190" text-anchor="middle">샘플링 단계</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">품질 기여</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold">수확 체감의 법칙</text>
+
+                        <!-- 주요 구간 -->
+                        <rect x="30" y="80" width="60" height="90" fill="#4caf50" opacity="0.2"/>
+                        <text x="60" y="125" text-anchor="middle" font-size="10">급격한</text>
+                        <text x="60" y="140" text-anchor="middle" font-size="10">개선</text>
+
+                        <rect x="150" y="60" width="120" height="110" fill="#ff9800" opacity="0.2"/>
+                        <text x="210" y="115" text-anchor="middle" font-size="10">완만한</text>
+                        <text x="210" y="130" text-anchor="middle" font-size="10">개선</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>반복 효과 (제곱근)</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 제곱근 곡선 -->
+                        <path d="M 30 170 Q 100 100, 180 70 T 270 50"
+                              fill="none" stroke="#ff9800" stroke-width="3"/>
+
+                        <text x="150" y="190" text-anchor="middle">반복 횟수</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">품질 기여</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold">√i 함수의 특성</text>
+
+                        <!-- 비교선 -->
+                        <line x1="30" y1="170" x2="270" y2="30" stroke="#999" stroke-width="1" stroke-dasharray="5,5"/>
+                        <text x="250" y="25" font-size="10" fill="#999">선형</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>시간 효과 (지수)</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 1 - e^(-t/10) 곡선 -->
+                        <path d="M 30 170 Q 60 100, 100 70 Q 150 50, 270 40"
+                              fill="none" stroke="#2196f3" stroke-width="3"/>
+
+                        <text x="150" y="190" text-anchor="middle">처리 시간</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">품질 기여</text>
+
+                        <text x="150" y="25" text-anchor="middle" font-weight="bold">포화 곡선</text>
+
+                        <!-- 시간 구간 -->
+                        <line x1="100" y1="30" x2="100" y2="170" stroke="#999" stroke-width="1" stroke-dasharray="5,5"/>
+                        <text x="100" y="185" font-size="10">10초</text>
+                        <text x="100" y="65" font-size="10">63%</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                각 함수의 AI 학습 의미<br>
+                • log(샘플링): 초기 샘플이 가장 중요<br>
+                • √(반복): 과적합 방지 효과<br>
+                • 1-e^(-t)(시간): 수렴 보장<br><br>
+                수학 함수가 딥러닝의 복잡한 과정을<br>
+                직관적으로 표현!
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 최적 매개변수 조합 찾기</strong><br><br>
+
+                <strong>목표: 80점 달성 with 최소 비용</strong><br><br>
+
+                시나리오 1 (속도 우선):<br>
+                • s=10, i=25, t=5<br>
+                • 점수 ≈ 28 + 15 + 8 + 10 = 61점 (부족)<br><br>
+
+                시나리오 2 (균형):<br>
+                • s=20, i=50, t=15<br>
+                • 점수 ≈ 32 + 21 + 15 + 10 = 78점 (근접)<br><br>
+
+                시나리오 3 (품질 우선):<br>
+                • s=30, i=75, t=30<br>
+                • 점수 ≈ 35 + 26 + 18 + 10 = 89점 (달성!)
+            </div>
+
+            <div class="visual-progression">
+                <h5>🤖 AI 생성 파이프라인</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>노이즈</strong><br>
+                        랜덤 시작<br>
+                        s=1
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>디노이징</strong><br>
+                        점진적 개선<br>
+                        s증가
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>정제</strong><br>
+                        세부 조정<br>
+                        i증가
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>완성</strong><br>
+                        최종 출력<br>
+                        품질 확정
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 실제 AI 모델과의 연결</strong><br><br>
+
+                <strong>Diffusion 모델의 실제 과정:</strong><br>
+                1. 노이즈에서 시작 (가우시안 분포)<br>
+                2. 단계별 노이즈 제거 (s 매개변수)<br>
+                3. 조건부 확률 계산 (i 매개변수)<br>
+                4. 수렴까지 반복 (t 매개변수)<br><br>
+
+                이 복잡한 과정을 단순 함수로 근사!
+            </div>
+
+            <div class="insight-box">
+                AI 시대의 함수 이해<br>
+                전통: 함수 = 정확한 관계식<br>
+                현재: 함수 = 복잡한 시스템의 근사<br><br>
+                • 신경망: 수백만 개의 함수 합성<br>
+                • 최적화: 경사하강법 (미분의 응용)<br>
+                • 손실함수: 목표와의 거리 측정<br><br>
+                중1 함수가 AI의 기초가 되는 이유!
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

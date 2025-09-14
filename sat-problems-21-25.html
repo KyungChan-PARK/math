@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중1 함수 - 문제 21-25: 이차함수와 최적화</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .problem-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .problem-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .problem-number {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .problem-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .context-box {
+            background: #fffef0;
+            border: 2px solid #ffa726;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .context-box h4 {
+            color: #f57c00;
+            margin-bottom: 15px;
+        }
+
+        .question-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .graph-sequence {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .graph-step {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .graph-step h5 {
+            color: #5e72e4;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .detail-explanation {
+            background: #f3e5f5;
+            border: 2px solid #9c27b0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .detail-explanation h4 {
+            color: #6a1b9a;
+            margin-bottom: 15px;
+        }
+
+        .step-content {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .insight-box::before {
+            content: "💡 ";
+            font-size: 20px;
+        }
+
+        .concept-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .flow-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .flow-arrow {
+            color: #2196f3;
+            font-size: 24px;
+            margin: 0 10px;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+        }
+
+        .visual-progression {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .visual-progression h5 {
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        .formula-box {
+            background: #f5f5f5;
+            border: 2px solid #9e9e9e;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .problem-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>중학교 1학년 함수 - 문제 21-25: 이차함수와 최적화</h1>
+
+    <!-- 문제 21 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">21</div>
+            <div class="problem-title">스포츠 경기장 수익 최적화</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🏟️ 상황 설명</h4>
+            프로 야구단이 티켓 가격과 관중 수의 관계를 분석했습니다:<br><br>
+
+            <strong>관중 수 함수:</strong><br>
+            N(p) = 40000 - 2p (p: 티켓 가격, 원)<br><br>
+
+            <strong>수익 함수:</strong><br>
+            R(p) = p × N(p) = p(40000 - 2p) = 40000p - 2p²<br><br>
+
+            <strong>운영 비용:</strong><br>
+            • 고정비: 2억원/경기<br>
+            • 변동비: 관중 1인당 3,000원<br><br>
+
+            구단은 순이익을 최대화할 티켓 가격을 찾고 있습니다.
+        </div>
+
+        <div class="question-box">
+            순이익을 최대화하는 티켓 가격과 그때의 관중 수를 구하시오.
+            또한 이차함수의 꼭짓점이 실제 비즈니스 의사결정에서 갖는 의미를 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 순이익 함수 구성</strong><br><br>
+
+                <div class="formula-box">
+                수익 R(p) = 40000p - 2p²<br>
+                비용 C(p) = 200,000,000 + 3000 × N(p)<br>
+                     = 200,000,000 + 3000(40000 - 2p)<br>
+                     = 200,000,000 + 120,000,000 - 6000p<br>
+                     = 320,000,000 - 6000p<br><br>
+
+                순이익 P(p) = R(p) - C(p)<br>
+                      = 40000p - 2p² - 320,000,000 + 6000p<br>
+                      = -2p² + 46000p - 320,000,000
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 최적 가격 찾기</strong><br><br>
+
+                이차함수 P(p) = -2p² + 46000p - 320,000,000<br>
+                최댓값은 꼭짓점에서 발생<br><br>
+
+                꼭짓점의 x좌표: p = -b/2a = -46000/(-4) = 11,500원<br><br>
+
+                이때 관중 수: N(11500) = 40000 - 2(11500) = 17,000명<br><br>
+
+                최대 순이익: P(11500) = -2(11500)² + 46000(11500) - 320,000,000<br>
+                         = -264,500,000 + 529,000,000 - 320,000,000<br>
+                         = -55,500,000원 (손실!)
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>수익 vs 가격</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 포물선 (수익) -->
+                        <path d="M 30 170 Q 100 50, 150 40 T 270 170"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+
+                        <circle cx="150" cy="40" r="4" fill="#4caf50"/>
+                        <text x="150" y="30" text-anchor="middle" font-size="10">최대 수익</text>
+                        <text x="150" y="185" text-anchor="middle" font-size="10">10,000원</text>
+
+                        <text x="150" y="15" text-anchor="middle" font-weight="bold">R = p(40000-2p)</text>
+                        <text x="270" y="190" text-anchor="middle">가격</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">수익</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>비용 구조</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 비용선 (음의 기울기) -->
+                        <line x1="30" y1="50" x2="270" y2="80" stroke="#f44336" stroke-width="3"/>
+
+                        <rect x="30" y="50" width="240" height="30" fill="#f44336" opacity="0.1"/>
+                        <text x="150" y="70" text-anchor="middle">고정비 2억</text>
+
+                        <text x="150" y="15" text-anchor="middle" font-weight="bold">C = 3.2억 - 6000p</text>
+                        <text x="270" y="190" text-anchor="middle">가격</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">비용</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>순이익 곡선</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="100" x2="270" y2="100" stroke="#999" stroke-width="1" stroke-dasharray="5,5"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 순이익 포물선 (음수 영역) -->
+                        <path d="M 30 130 Q 100 90, 150 85 T 270 130"
+                              fill="none" stroke="#9c27b0" stroke-width="3"/>
+
+                        <circle cx="150" cy="85" r="4" fill="#9c27b0"/>
+                        <text x="150" y="75" text-anchor="middle" font-size="10">최소 손실</text>
+                        <text x="150" y="115" text-anchor="middle" font-size="10">11,500원</text>
+
+                        <text x="270" y="100" text-anchor="middle" font-size="10">0</text>
+                        <text x="270" y="190" text-anchor="middle">가격</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">순이익</text>
+
+                        <rect x="30" y="100" width="240" height="70" fill="#f44336" opacity="0.1"/>
+                        <text x="150" y="140" text-anchor="middle" fill="#f44336">손실 영역</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                이차함수 최적화의 현실<br>
+                수학적 최적점 ≠ 실행 가능한 해<br>
+                • 최대 수익 ≠ 최대 이익<br>
+                • 고정비가 크면 손익분기점이 높아짐<br>
+                • 규모의 경제가 필요한 이유!<br><br>
+                야구장이 4만석인 이유: 손익분기 관중 수
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 손익분기점 분석</strong><br><br>
+
+                P(p) = 0일 때를 찾자<br>
+                -2p² + 46000p - 320,000,000 = 0<br>
+                p² - 23000p + 160,000,000 = 0<br><br>
+
+                근의 공식 사용:<br>
+                p = (23000 ± √(529,000,000 - 640,000,000))/2<br>
+                판별식 < 0 → 실근 없음!<br><br>
+
+                <strong>결론: 현재 비용 구조로는 이익 불가능</strong>
+            </div>
+
+            <div class="visual-progression">
+                <h5>🎯 수익성 개선 전략</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>고정비 절감</strong><br>
+                        인건비 최적화<br>
+                        시설 효율화
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>부가 수익</strong><br>
+                        매점, 주차<br>
+                        굿즈 판매
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>수요 증대</strong><br>
+                        마케팅 강화<br>
+                        팬 경험 개선
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>가격 차별화</strong><br>
+                        좌석별 차등<br>
+                        시즌권 도입
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                스포츠 비즈니스의 수학<br>
+                전통: 티켓 수익 중심<br>
+                현재: 중계권 + 스폰서 + 티켓<br>
+                미래: 콘텐츠 + 데이터 + 경험<br><br>
+                단순 이차함수에서 다변수 최적화로 진화!<br>
+                Machine Learning이 수요 예측에 활용되는 이유
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 22 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">22</div>
+            <div class="problem-title">로켓 발사 궤적과 물리학</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🚀 상황 설명</h4>
+            민간 우주 기업이 소형 위성 발사체의 궤적을 설계하고 있습니다:<br><br>
+
+            <strong>고도 함수 (발사 후 t초):</strong><br>
+            h(t) = -5t² + 300t + 100 (미터)<br><br>
+
+            <strong>수평 거리 함수:</strong><br>
+            d(t) = 200t (미터)<br><br>
+
+            <strong>연료 소비 함수:</strong><br>
+            f(t) = 1000 - 10t (kg)<br><br>
+
+            안전 규정상 "최대 고도 4000m 이상, 연료 200kg 이상 남은 상태"를 유지해야 합니다.
+        </div>
+
+        <div class="question-box">
+            로켓의 최대 고도와 도달 시간을 구하고, 안전 규정을 만족하는지 판단하시오.
+            또한 포물선 궤적이 실제 로켓 비행에서 나타나는 이유를 물리학적으로 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 최대 고도 계산</strong><br><br>
+
+                h(t) = -5t² + 300t + 100<br>
+                이차함수의 꼭짓점에서 최대<br><br>
+
+                최대 고도 시간: t = -b/2a = -300/(-10) = 30초<br><br>
+
+                최대 고도: h(30) = -5(900) + 300(30) + 100<br>
+                        = -4500 + 9000 + 100<br>
+                        = 4600m<br><br>
+
+                이때 연료: f(30) = 1000 - 10(30) = 700kg<br><br>
+
+                <strong>결과: 두 조건 모두 만족! ✓</strong>
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>고도 변화</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 포물선 궤적 -->
+                        <path d="M 30 165 Q 100 60, 150 30 T 270 165"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+
+                        <circle cx="150" cy="30" r="4" fill="#4caf50"/>
+                        <text x="150" y="20" text-anchor="middle" font-size="10">4600m</text>
+                        <text x="150" y="185" text-anchor="middle" font-size="10">30초</text>
+
+                        <!-- 안전선 -->
+                        <line x1="30" y1="50" x2="270" y2="50" stroke="#f44336" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="275" y="50" font-size="10" fill="#f44336">4000m</text>
+
+                        <text x="270" y="190" text-anchor="middle">시간(초)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">고도(m)</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>궤적 (x-y)</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 포물선 궤적 -->
+                        <path d="M 30 170 Q 100 60, 150 30 T 270 170"
+                              fill="none" stroke="#9c27b0" stroke-width="3"/>
+
+                        <circle cx="150" cy="30" r="4" fill="#9c27b0"/>
+                        <text x="150" y="20" text-anchor="middle" font-size="10">정점</text>
+
+                        <!-- 화살표로 방향 표시 -->
+                        <path d="M 30 170 L 35 165" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <path d="M 100 60 L 105 57" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <path d="M 200 57 L 205 60" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+                        <text x="270" y="190" text-anchor="middle">수평거리</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">고도</text>
+
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>연료 소비</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 선형 감소 -->
+                        <line x1="30" y1="30" x2="270" y2="170" stroke="#ff9800" stroke-width="3"/>
+
+                        <circle cx="150" cy="100" r="4" fill="#ff9800"/>
+                        <text x="180" y="100" font-size="10">t=30: 700kg</text>
+
+                        <!-- 안전선 -->
+                        <line x1="30" y1="150" x2="270" y2="150" stroke="#f44336" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="275" y="150" font-size="10" fill="#f44336">200kg</text>
+
+                        <text x="30" y="20" font-size="10">1000kg</text>
+                        <text x="270" y="190" text-anchor="middle">시간(초)</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">연료(kg)</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                포물선 운동의 물리학<br>
+                수직 운동: v_y = v₀ - gt (중력 감속)<br>
+                수평 운동: v_x = 일정 (공기저항 무시)<br>
+                합성: 포물선 궤적!<br><br>
+                h(t) = v₀t - ½gt² + h₀<br>
+                이것이 바로 이차함수가 나타나는 이유
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 비행 구간 분석</strong><br><br>
+
+                <strong>상승 구간 (0-30초):</strong><br>
+                • 속도: v(t) = h'(t) = -10t + 300<br>
+                • 초기 속도: 300 m/s<br>
+                • 정점 속도: 0 m/s<br><br>
+
+                <strong>하강 구간 (30-60초):</strong><br>
+                • 속도: 음수 (하강)<br>
+                • 가속도: -10 m/s² (일정)<br>
+                • 착륙: h(60) = -5(3600) + 300(60) + 100 = 100m
+            </div>
+
+            <div class="visual-progression">
+                <h5>🛸 단계별 비행 특성</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>발사</strong><br>
+                        최대 추력<br>
+                        급속 가속
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>상승</strong><br>
+                        중력 극복<br>
+                        속도 감소
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>정점</strong><br>
+                        수직속도 0<br>
+                        방향 전환
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>하강</strong><br>
+                        중력 가속<br>
+                        회수 준비
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 실제 로켓과의 차이</strong><br><br>
+
+                <strong>단순 모델 (현재):</strong><br>
+                • 일정한 중력<br>
+                • 공기저항 무시<br>
+                • 질량 일정<br><br>
+
+                <strong>실제 로켓:</strong><br>
+                • 고도에 따른 중력 변화<br>
+                • 공기 밀도에 따른 저항<br>
+                • 연료 소비로 질량 감소<br>
+                • 다단 로켓 분리
+            </div>
+
+            <div class="insight-box">
+                우주 공학의 수학<br>
+                뉴턴: F = ma (기본 방정식)<br>
+                치올콥스키: Δv = v_e × ln(m₀/m_f) (로켓 방정식)<br><br>
+                중1 이차함수 → 고등 미적분 → 대학 미분방정식<br>
+                복잡한 현실을 단순한 모델로 시작!<br>
+                SpaceX의 자동 착륙도 이차함수 제어에서 출발
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 23 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">23</div>
+            <div class="problem-title">빅데이터 처리 비용 함수</div>
+        </div>
+
+        <div class="context-box">
+            <h4>📊 상황 설명</h4>
+            데이터 분석 회사의 처리 비용 모델:<br><br>
+
+            <strong>처리 시간 함수 (데이터 크기 x TB):</strong><br>
+            T(x) = 0.1x² + 2x + 10 (시간)<br><br>
+
+            <strong>서버 비용:</strong><br>
+            • 기본 서버: 시간당 10,000원<br>
+            • 병렬 처리: n개 서버 사용 시 시간은 T(x)/√n<br>
+            • 서버 비용: n × 10,000 × T(x)/√n<br><br>
+
+            <strong>품질 지표:</strong><br>
+            Q(x, n) = 100 × (1 - e^(-x/10)) × √n<br><br>
+
+            10TB 데이터를 처리하려 합니다.
+        </div>
+
+        <div class="question-box">
+            최적 서버 개수를 구하고, 이때의 처리 시간과 비용을 계산하시오.
+            또한 이차함수와 제곱근 함수의 조합이 병렬 컴퓨팅을 어떻게 모델링하는지 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 10TB 처리 기본 분석</strong><br><br>
+
+                기본 처리 시간: T(10) = 0.1(100) + 2(10) + 10 = 40시간<br><br>
+
+                <strong>서버 개수별 분석:</strong><br>
+                • n=1: 시간 40h, 비용 400,000원<br>
+                • n=4: 시간 20h, 비용 4×10,000×20 = 800,000원<br>
+                • n=9: 시간 13.3h, 비용 9×10,000×13.3 = 1,200,000원<br>
+                • n=16: 시간 10h, 비용 16×10,000×10 = 1,600,000원
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 비용 함수 최적화</strong><br><br>
+
+                <div class="formula-box">
+                비용 C(n) = n × 10,000 × T(10)/√n<br>
+                     = n × 10,000 × 40/√n<br>
+                     = 400,000 × n/√n<br>
+                     = 400,000 × √n<br><br>
+
+                비용은 √n에 비례하여 증가!<br>
+                병렬 처리의 수확 체감 법칙
+                </div>
+
+                품질 Q(10, n) = 100 × (1 - e^(-1)) × √n<br>
+                           ≈ 63.2 × √n<br><br>
+
+                품질/비용 비율 = 63.2√n / 400,000√n = 상수!
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>처리 시간 vs 서버</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 1/√n 곡선 -->
+                        <path d="M 30 30 Q 60 100, 100 120 Q 150 140, 270 160"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+
+                        <circle cx="30" cy="30" r="3" fill="#4caf50"/>
+                        <text x="30" y="20" font-size="10">40h</text>
+
+                        <circle cx="100" cy="120" r="3" fill="#4caf50"/>
+                        <text x="100" y="110" font-size="10">20h</text>
+
+                        <circle cx="180" cy="145" r="3" fill="#4caf50"/>
+                        <text x="180" y="135" font-size="10">13h</text>
+
+                        <text x="270" y="190" text-anchor="middle">서버 수</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">시간</text>
+
+                        <text x="150" y="15" text-anchor="middle" font-weight="bold">Amdahl's Law</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>비용 vs 서버</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- √n 곡선 -->
+                        <path d="M 30 150 Q 100 120, 180 90 T 270 50"
+                              fill="none" stroke="#ff9800" stroke-width="3"/>
+
+                        <circle cx="30" cy="150" r="3" fill="#ff9800"/>
+                        <text x="30" y="140" font-size="10">40만</text>
+
+                        <circle cx="100" cy="120" r="3" fill="#ff9800"/>
+                        <text x="100" y="110" font-size="10">80만</text>
+
+                        <circle cx="180" cy="90" r="3" fill="#ff9800"/>
+                        <text x="180" y="80" font-size="10">120만</text>
+
+                        <text x="270" y="190" text-anchor="middle">서버 수</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">비용</text>
+
+                        <text x="150" y="15" text-anchor="middle" font-weight="bold">√n 증가</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>효율성 분석</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="100" x2="270" y2="100" stroke="#999" stroke-width="1" stroke-dasharray="5,5"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 효율성 곡선 -->
+                        <path d="M 30 100 Q 80 85, 120 85 T 270 100"
+                              fill="none" stroke="#9c27b0" stroke-width="3"/>
+
+                        <circle cx="120" cy="85" r="4" fill="#9c27b0"/>
+                        <text x="120" y="75" text-anchor="middle" font-size="10">최적점</text>
+                        <text x="120" y="185" text-anchor="middle" font-size="10">n=4</text>
+
+                        <text x="270" y="190" text-anchor="middle">서버 수</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">효율</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                병렬 처리의 수학<br>
+                이상: 시간 = T/n (선형 감소)<br>
+                현실: 시간 = T/√n (제곱근 감소)<br>
+                이유: 통신 오버헤드, 동기화 비용<br><br>
+                MapReduce, Spark가 해결하려는 문제!
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 최적 서버 수 결정</strong><br><br>
+
+                <strong>제약 조건 고려:</strong><br>
+                • 예산: 100만원 이하 → n ≤ 6<br>
+                • 시간: 24시간 이내 → n ≥ 3<br>
+                • 품질: 150 이상 → n ≥ 6<br><br>
+
+                <strong>최적해: n = 4</strong><br>
+                • 시간: 20시간 ✓<br>
+                • 비용: 80만원 ✓<br>
+                • 품질: 126.4 (적정)
+            </div>
+
+            <div class="visual-progression">
+                <h5>🖥️ 분산 컴퓨팅 전략</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>단일 서버</strong><br>
+                        간단<br>
+                        비효율
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>수직 확장</strong><br>
+                        더 큰 서버<br>
+                        한계 존재
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>수평 확장</strong><br>
+                        여러 서버<br>
+                        복잡도 증가
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>클라우드</strong><br>
+                        탄력적<br>
+                        최적화
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                빅데이터 시대의 함수<br>
+                데이터 증가: 지수 함수적<br>
+                처리 능력: 로그 함수적<br>
+                비용: 제곱근 함수적<br><br>
+                이 격차를 줄이는 것이 AI/ML의 과제<br>
+                양자 컴퓨팅이 주목받는 이유!
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 24 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">24</div>
+            <div class="problem-title">탄소 배출권 거래 시장</div>
+        </div>
+
+        <div class="context-box">
+            <h4>🌱 상황 설명</h4>
+            기업의 탄소 배출과 비용 관계:<br><br>
+
+            <strong>생산량과 배출량:</strong><br>
+            E(x) = 0.2x² + 10x (x: 생산량 천 단위, E: 톤CO₂)<br><br>
+
+            <strong>배출권 가격:</strong><br>
+            P(e) = 100 + 2e (e: 구매량, 원/톤)<br><br>
+
+            <strong>감축 기술 비용:</strong><br>
+            R(r) = 5000√r (r: 감축률 %, 백만원)<br><br>
+
+            기업은 연간 생산량 50(천 단위)를 유지하며, 배출 허용량은 300톤입니다.
+        </div>
+
+        <div class="question-box">
+            추가 배출권 구매와 감축 기술 투자 중 어느 것이 경제적인지 분석하시오.
+            또한 이차함수가 환경 경제학에서 갖는 의미를 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 현재 배출량 계산</strong><br><br>
+
+                생산량 x = 50일 때:<br>
+                E(50) = 0.2(2500) + 10(50) = 500 + 500 = 1000톤<br><br>
+
+                초과 배출: 1000 - 300 = 700톤<br><br>
+
+                <strong>옵션 1: 배출권 구매</strong><br>
+                700톤 구매 시 평균 가격: P_avg = 100 + 2(350) = 800원/톤<br>
+                총 비용: 700 × 800 = 560,000원 = 5.6억원
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 감축 기술 분석</strong><br><br>
+
+                70% 감축 필요 (700/1000)<br>
+                R(70) = 5000√70 ≈ 5000 × 8.37 = 41,850백만원 = 418.5억원<br><br>
+
+                <strong>부분 감축 시나리오:</strong><br>
+                • 30% 감축: R(30) = 5000√30 ≈ 274억원, 잔여 400톤<br>
+                • 400톤 구매: 400 × 600 = 2.4억원<br>
+                • 총 비용: 276.4억원<br><br>
+
+                <strong>결론: 전량 구매가 가장 경제적!</strong>
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>배출량 함수</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 이차 함수 -->
+                        <path d="M 30 160 Q 100 140, 150 100 Q 200 50, 270 30"
+                              fill="none" stroke="#f44336" stroke-width="3"/>
+
+                        <!-- 허용선 -->
+                        <line x1="30" y1="120" x2="270" y2="120" stroke="#4caf50" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="275" y="120" font-size="10" fill="#4caf50">300톤</text>
+
+                        <circle cx="180" cy="75" r="4" fill="#f44336"/>
+                        <text x="180" y="65" text-anchor="middle" font-size="10">x=50: 1000톤</text>
+
+                        <text x="270" y="190" text-anchor="middle">생산량</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">CO₂</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>비용 비교</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 배출권 구매 (선형) -->
+                        <line x1="30" y1="150" x2="270" y2="50" stroke="#ff9800" stroke-width="3"/>
+                        <text x="240" y="45" font-size="10" fill="#ff9800">구매</text>
+
+                        <!-- 감축 기술 (제곱근) -->
+                        <path d="M 30 170 Q 100 120, 180 80 T 270 40"
+                              fill="none" stroke="#2196f3" stroke-width="3"/>
+                        <text x="240" y="35" font-size="10" fill="#2196f3">감축</text>
+
+                        <!-- 교차점 -->
+                        <circle cx="80" cy="130" r="4" fill="#9c27b0"/>
+                        <text x="80" y="120" text-anchor="middle" font-size="10">균형점</text>
+
+                        <text x="270" y="190" text-anchor="middle">감축량</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">비용</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>최적 조합</h5>
+                    <svg viewBox="0 0 300 200">
+                        <rect x="40" y="40" width="100" height="120" fill="#ff9800" opacity="0.3"/>
+                        <text x="90" y="100" text-anchor="middle">구매</text>
+                        <text x="90" y="120" text-anchor="middle" font-weight="bold">100%</text>
+
+                        <rect x="160" y="100" width="100" height="60" fill="#2196f3" opacity="0.3"/>
+                        <text x="210" y="130" text-anchor="middle">감축</text>
+                        <text x="210" y="150" text-anchor="middle" font-weight="bold">0%</text>
+
+                        <text x="150" y="30" text-anchor="middle" font-weight="bold">현재 최적</text>
+                        <text x="150" y="180" text-anchor="middle" font-size="10">총 비용: 5.6억원</text>
+                    </svg>
+                </div>
+            </graph>
+
+            <div class="insight-box">
+                탄소 경제학의 이차함수<br>
+                배출 ∝ 생산²: 규모 불경제<br>
+                • 생산 2배 → 배출 4배 이상<br>
+                • 한계 배출 증가<br>
+                • 대량 생산의 환경 비용<br><br>
+                이것이 탄소세가 필요한 이유!
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 장기 전략 분석</strong><br><br>
+
+                <strong>배출권 가격 상승 시나리오:</strong><br>
+                5년 후 P(e) = 200 + 4e 예상<br>
+                700톤 비용: 700 × 1600 = 11.2억원<br><br>
+
+                <strong>감축 기술 투자 재평가:</strong><br>
+                • 20% 감축 now: R(20) = 223억원<br>
+                • 5년간 절감: (11.2 - 5.6) × 5 = 28억원<br>
+                • NPV > 0 → 투자 타당!
+            </div>
+
+            <div class="visual-progression">
+                <h5>🌍 탄소 중립 로드맵</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>현재</strong><br>
+                        배출권 구매<br>
+                        단기 해결
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>3년</strong><br>
+                        부분 감축<br>
+                        기술 도입
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>5년</strong><br>
+                        공정 개선<br>
+                        효율화
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>2050</strong><br>
+                        Net Zero<br>
+                        탄소 중립
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                ESG 시대의 수학<br>
+                E = f(생산, 기술, 규제)<br>
+                S = g(고용, 안전, 공헌)<br>
+                G = h(투명성, 윤리, 구조)<br><br>
+                기업 가치 = 재무 성과 × ESG 점수<br>
+                지속가능성이 곱셈으로 작용하는 시대!
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 25 -->
+    <div class="problem-section">
+        <div class="problem-header">
+            <div class="problem-number">25</div>
+            <div class="problem-title">신약 개발의 성공 확률 함수</div>
+        </div>
+
+        <div class="context-box">
+            <h4>💊 상황 설명</h4>
+            제약회사의 신약 개발 모델:<br><br>
+
+            <strong>단계별 성공 확률:</strong><br>
+            • 전임상: p₁ = 0.9 - 0.01x² (x: 신규성 지수)<br>
+            • 임상 1상: p₂ = 0.7<br>
+            • 임상 2상: p₃ = 0.4 + 0.1x<br>
+            • 임상 3상: p₄ = 0.6 - 0.05x<br><br>
+
+            <strong>개발 비용 (단계별, 억원):</strong><br>
+            C(x) = [10 + x², 50, 200 + 20x, 500]<br><br>
+
+            <strong>예상 수익 (신규성 x일 때):</strong><br>
+            R(x) = 1000x² (억원)<br><br>
+
+            신규성 지수 x(0-5)를 결정해야 합니다.
+        </div>
+
+        <div class="question-box">
+            기대 수익을 최대화하는 신규성 지수를 구하고, 이때의 전체 성공 확률과 기대값을 계산하시오.
+            또한 이차함수가 위험-보상 관계를 어떻게 모델링하는지 설명하시오.
+        </div>
+
+        <div class="detail-explanation">
+            <h4>📖 상세 설명과 사고 과정</h4>
+
+            <div class="step-content">
+                <strong>1단계: 신규성별 성공 확률</strong><br><br>
+
+                <strong>x = 1 (낮은 신규성):</strong><br>
+                • p₁ = 0.9 - 0.01 = 0.89<br>
+                • p₂ = 0.7<br>
+                • p₃ = 0.4 + 0.1 = 0.5<br>
+                • p₄ = 0.6 - 0.05 = 0.55<br>
+                • 전체: 0.89 × 0.7 × 0.5 × 0.55 = 0.171<br><br>
+
+                <strong>x = 3 (중간 신규성):</strong><br>
+                • p₁ = 0.9 - 0.09 = 0.81<br>
+                • p₂ = 0.7<br>
+                • p₃ = 0.4 + 0.3 = 0.7<br>
+                • p₄ = 0.6 - 0.15 = 0.45<br>
+                • 전체: 0.81 × 0.7 × 0.7 × 0.45 = 0.179<br><br>
+
+                <strong>x = 5 (높은 신규성):</strong><br>
+                • p₁ = 0.9 - 0.25 = 0.65<br>
+                • p₂ = 0.7<br>
+                • p₃ = 0.4 + 0.5 = 0.9<br>
+                • p₄ = 0.6 - 0.25 = 0.35<br>
+                • 전체: 0.65 × 0.7 × 0.9 × 0.35 = 0.143
+            </div>
+
+            <div class="step-content">
+                <strong>2단계: 기대값 계산</strong><br><br>
+
+                <div class="formula-box">
+                총 비용 = C₁ + C₂ + C₃ + C₄<br><br>
+
+                x = 1: 11 + 50 + 220 + 500 = 781억<br>
+                x = 3: 19 + 50 + 260 + 500 = 829억<br>
+                x = 5: 35 + 50 + 300 + 500 = 885억<br><br>
+
+                기대 수익 = P(성공) × R(x) - 총비용<br><br>
+
+                x = 1: 0.171 × 1000 - 781 = -610억<br>
+                x = 3: 0.179 × 9000 - 829 = 782억<br>
+                x = 5: 0.143 × 25000 - 885 = 2690억
+                </div>
+
+                <strong>최적: x = 5 (높은 신규성)!</strong>
+            </div>
+
+            <div class="graph-sequence">
+                <div class="graph-step">
+                    <h5>단계별 성공률</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 각 단계 확률 곡선 -->
+                        <path d="M 30 40 Q 100 50, 150 60 T 270 100"
+                              fill="none" stroke="#4caf50" stroke-width="2"/>
+                        <text x="275" y="100" font-size="9">p₁</text>
+
+                        <line x1="30" y1="80" x2="270" y2="80" stroke="#ff9800" stroke-width="2"/>
+                        <text x="275" y="80" font-size="9">p₂</text>
+
+                        <line x1="30" y1="130" x2="270" y2="40" stroke="#2196f3" stroke-width="2"/>
+                        <text x="275" y="40" font-size="9">p₃</text>
+
+                        <line x1="30" y1="70" x2="270" y2="120" stroke="#9c27b0" stroke-width="2"/>
+                        <text x="275" y="120" font-size="9">p₄</text>
+
+                        <text x="270" y="190" text-anchor="middle">신규성</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">확률</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>수익 vs 확률</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="170" x2="270" y2="170" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 수익 (이차) -->
+                        <path d="M 30 170 Q 100 160, 150 120 Q 200 60, 270 30"
+                              fill="none" stroke="#4caf50" stroke-width="3"/>
+                        <text x="240" y="25" font-size="10" fill="#4caf50">수익</text>
+
+                        <!-- 성공 확률 -->
+                        <path d="M 30 100 Q 100 90, 150 85 T 270 100"
+                              fill="none" stroke="#f44336" stroke-width="3"/>
+                        <text x="240" y="105" font-size="10" fill="#f44336">확률</text>
+
+                        <text x="270" y="190" text-anchor="middle">신규성</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">값</text>
+                    </svg>
+                </div>
+
+                <div class="graph-step">
+                    <h5>기대값 최적화</h5>
+                    <svg viewBox="0 0 300 200">
+                        <line x1="30" y1="100" x2="270" y2="100" stroke="#999" stroke-width="1" stroke-dasharray="5,5"/>
+                        <line x1="30" y1="170" x2="30" y2="30" stroke="black" stroke-width="2"/>
+
+                        <!-- 기대값 곡선 -->
+                        <path d="M 30 130 Q 80 120, 120 110 Q 180 70, 270 40"
+                              fill="none" stroke="#9c27b0" stroke-width="3"/>
+
+                        <circle cx="270" cy="40" r="4" fill="#9c27b0"/>
+                        <text x="270" y="30" text-anchor="middle" font-size="10">최대</text>
+
+                        <text x="270" y="190" text-anchor="middle">신규성</text>
+                        <text x="10" y="100" text-anchor="middle" transform="rotate(-90 10 100)">기대값</text>
+
+                        <text x="270" y="100" font-size="10">0</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                제약 산업의 이차함수<br>
+                수익 ∝ 신규성²: 혁신의 가치<br>
+                확률 ∝ -신규성²: 위험 증가<br><br>
+                Blockbuster Drug의 조건:<br>
+                • 높은 신규성 (First-in-class)<br>
+                • 큰 시장 (unmet need)<br>
+                • 특허 보호 (독점 기간)
+            </div>
+
+            <div class="visual-progression">
+                <h5>💉 신약 개발 파이프라인</h5>
+                <div class="concept-flow">
+                    <div class="flow-item">
+                        <strong>Discovery</strong><br>
+                        10,000개<br>
+                        화합물
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>전임상</strong><br>
+                        250개<br>
+                        후보물질
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>임상시험</strong><br>
+                        5개<br>
+                        시험약
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <strong>승인</strong><br>
+                        1개<br>
+                        신약
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <strong>3단계: 포트폴리오 전략</strong><br><br>
+
+                <strong>최적 포트폴리오:</strong><br>
+                • 20% 높은 신규성 (x=5): High risk/reward<br>
+                • 50% 중간 신규성 (x=3): Balanced<br>
+                • 30% 낮은 신규성 (x=1): Me-too drugs<br><br>
+
+                포트폴리오 기대값 = 0.2(2690) + 0.5(782) + 0.3(-610)<br>
+                                = 538 + 391 - 183 = 746억원
+            </div>
+
+            <div class="insight-box">
+                바이오 산업의 미래<br>
+                전통: 경험과 운 (성공률 1/10,000)<br>
+                현재: 빅데이터 + AI (성공률 1/1,000)<br>
+                미래: 정밀의학 + 디지털 트윈<br><br>
+                AlphaFold가 단백질 구조 예측에 성공한 이유:<br>
+                복잡한 3차원 구조를 함수로 모델링!<br>
+                수학이 생명을 구하는 시대
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
