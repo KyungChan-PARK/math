@@ -44,10 +44,50 @@
 - **유형**: AI 기반 수학 교육 플랫폼
 - **구독**: Claude Max x20 (Claude Code 무제한 사용)
 
+## 🔐 보안 필수 규칙 (Git Push 전 반드시 확인)
+**절대 Git에 포함시키지 말아야 할 파일들:**
+
+### 1. 자격증명 및 비밀 정보
+- **서비스 계정 키**: `*.json` (GCP, Firebase 등)
+- **API 키**: 절대 하드코딩 금지
+- **환경 변수 파일**: `.env`, `.env.local`, `.env.production`
+- **인증서 파일**: `*.pem`, `*.key`, `*.p12`, `*.pfx`
+- **AWS 자격증명**: `.aws/credentials`
+- **SSH 키**: `id_rsa`, `id_dsa`, `*.ppk`
+
+### 2. 대용량 파일 및 폴더
+- **가상환경**: `venv*/`, `env/`, `.venv/`
+- **의존성**: `node_modules/`, `vendor/`
+- **빌드 결과물**: `dist/`, `build/`, `*.pyc`, `__pycache__/`
+- **데이터베이스**: `*.db`, `*.sqlite`, `*.sql`
+- **대용량 바이너리**: 100MB 이상 파일
+
+### 3. Git Push 전 체크리스트
+```bash
+# 1. 민감한 파일 확인
+git status | grep -E "\.(json|pem|key|env)$"
+
+# 2. 대용량 파일 확인
+find . -type f -size +50M -not -path "./.git/*"
+
+# 3. .gitignore 확인
+cat .gitignore | grep -E "env|key|json|pem"
+```
+
+### 4. 실수 발생 시 즉시 조치
+```bash
+# 민감 파일이 커밋된 경우
+git rm --cached sensitive-file.json
+git commit -m "Remove sensitive file"
+
+# 히스토리에서 완전 제거 필요 시
+git filter-repo --path sensitive-file.json --invert-paths --force
+```
+
 ## API 키 정보
-- **Qwen/DashScope**: 설정됨 (.env 파일)
-- **Gemini**: AlzaSyDTtCgkUVxe5UFSV7OInchTzaCyPEZ7SBE
-- **Claude**: 구독으로 무료 사용
+- **모든 API 키**: `.env` 파일에만 저장 (절대 하드코딩 금지)
+- **서비스 계정**: 로컬에만 보관, Git 제외
+- **.gitignore 필수 항목**: `.env`, `*.json`, `venv*/`
 
 ## 작업 원칙
 1. 요청받은 작업의 범위를 명확히 확인
